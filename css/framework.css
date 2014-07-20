@@ -1,0 +1,916 @@
+/* Cascading Style Sheet Created By: PxO Ink (http://pxoink.net/) */
+/* Cascading Style Sheet Copyright © 2014 PxO Ink. Most Rights Reserved. */
+
+/* Begin Page Settings */
+
+*.clear {
+	clear: both;
+	}
+
+*.nod {
+	display: none;
+	}
+	
+*.req {
+	color: #F00;
+	}
+
+a {
+	color: #000;
+	text-decoration: underline;
+	}
+
+a:hover {
+	color: #069;
+	text-decoration: underline;
+	}
+	
+h1 {
+	font-size: 4.00em;
+	}
+	
+h2 {
+	font-size: 2.80em;
+	}
+	
+h3, fieldset legend {
+	font-size: 2.40em;
+	}
+	
+h4 {
+	font-size: 1.80em;
+	}
+	
+h5 {
+	font-size: 1.60em;
+	}
+	
+h6 {
+	font-size: 1.40em;
+	}
+	
+input[type=text], input[type=password], input[type=email], input[type=date], input[type=datetime], 
+input[type=datetime-local], input[type=search], input[type=tel], input[type=url], input[type=month], 
+input[type=week], input[type=number], input[type=range], input[type=color], select, textarea {
+	padding: 0.25em;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #BBB;
+	}
+	
+input[type=file] {
+	padding: 0.25em;
+	}
+	
+input[type=image] {
+	vertical-align: top;
+	}
+	
+input[readonly] {
+	background-color: buttonface;
+	}
+	
+input.datepicker {
+	cursor: pointer;
+	}
+	
+button, input[type=submit], input[type=reset], .button {
+	cursor: pointer;
+	}
+	
+fieldset {
+	border-width: 0px;
+	}
+	
+form > label[for] {
+	cursor: pointer;
+	}
+	
+nav ul {
+	list-style-type: none;
+	}
+	
+nav > ul ul {
+	display: none;
+	}
+	
+table {
+	width: 100.00%;
+	}
+	
+table caption, table th, table thead td, table tbody th, table tbody td {
+	text-align: left;
+	}
+	
+table thead td input, table tbody td input, table thead td select, table tbody td select, table thead td textarea, table tbody td textarea {
+	
+	}
+
+/* End Page Settings */
+
+/* Begin Page Work */
+
+.alert {
+	margin: 0.50em;
+	padding: 0.50em;
+	background-color: #EEE;
+	border-width: 1px;
+	border-color: #BBB;
+	border-style: solid;
+	}
+	
+.alert.success {
+	background-color: #DFE;
+	border-color: #7E7;
+	}
+	
+.alert.warning {
+	background-color: #FFC;
+	border-color: #FC9;
+	}
+
+.alert.error {
+	background-color: #FDD;
+	border-color: #F66;
+	}
+	
+.alert.message {
+	background-color: #8CF;
+	border-color: #068;
+	}
+	
+body.single {
+	margin: 0 auto;
+	}
+	
+body.single.twenty {
+	width: 20.00%;
+	min-width: 640px;
+	}
+	
+body.single.forty {
+	width: 40.00%;
+	min-width: 940px;
+	}
+	
+body.single.sixty {
+	width: 60.00%;
+	min-width: 1152px;
+	}
+	
+body.single.eighty {
+	width: 80.00%;
+	min-width: 1440px;
+	}
+	
+.micro {
+	font-size: 0.80em;
+	}
+	
+.small {
+	font-size: 1.20em;
+	line-height: 1.25em;
+	}
+
+.normal, #main p, nav > ul > li, nav ul.horizontal > li {
+	font-size: 1.40em;
+	line-height: 1.50em;
+	}
+	
+.content {
+	margin-top: 1.50em;
+	margin-bottom: 2.50em;
+	}
+	
+#main p, br, h2, h3, h4, h5 {
+	margin-top: 0.25em;
+	margin-bottom: 0.50em;
+	}
+	
+h1 {
+	margin-top: 0.25em;
+	margin-bottom: 0.25em;
+	}
+	
+.large {
+	font-size: 1.60em;
+	line-height: 1.50em;
+	}
+	
+.huge {
+	font-size: 1.80em;
+	line-height: 1.50em;
+	}
+
+.mega {
+	font-size: 2.00em;
+	line-height: 2.00em;
+	}
+	
+#main li li {
+	font-size: 1.00em;
+	line-height: 1.00em;
+	}
+	
+nav.horizontal {
+	padding: 0.50em;
+	}
+	
+nav.horizontal > * {
+	float: left;
+	margin: 0.50em;
+	padding: 0px;
+	}
+	
+nav.horizontal ul {
+	position: relative;
+	}
+
+nav.horizontal > ul li {
+	float: left;
+	}
+	
+nav.horizontal ul li a, nav.vertical ul li a {
+	padding: 0.50em 1.00em;
+	}
+	
+nav.horizontal > ul li:last-child {
+	margin-right: 0px;
+	}
+	
+nav.horizontal ul li:hover > ul, nav.horizontal ul ul li a {
+	display: block;
+	}
+	
+nav.horizontal ul ul, nav.vertical ul ul {
+	display: none;
+	position: absolute;
+	top: 100.00%;
+	z-index: 10;
+	}
+	
+nav.horizontal ul ul li, nav.vertical ul ul li {
+	float: none; 
+	position: relative;
+	}
+	
+nav.horizontal ul ul ul, nav.vertical ul ul ul {
+	top: 0px;
+	left: 100.00%;
+	}
+	
+nav.vertical ul {
+	display: block;
+	position: relative;
+	padding: 0px;
+	}
+	
+nav.vertical > ul {
+	margin-left: 0.50em;
+	}
+	
+nav.vertical > ul li {
+	position: relative;
+	}
+	
+nav.vertical ul li a {
+	display: block;
+	padding: 2.50%;
+	}
+	
+nav.vertical > ul li:hover ul {
+	display: block;
+	position: absolute;
+	top: 0px;
+	left: 100.00%;
+	}
+	
+.column {
+	}
+	
+.column.left {
+	float: left;
+	}
+	
+.column.right {
+	float: right;
+	}
+	
+.column.one {
+	width: 004.98%;
+	}
+
+.column.two {
+	width: 009.96%;
+	}
+	
+.column.three {
+	width: 014.94%;
+	}
+	
+.column.four {
+	width: 019.92%;
+	}
+	
+.column.five {
+	width: 024.90%;
+	}
+	
+.column.six {
+	width: 029.88%;
+	}
+	
+.column.seven {
+	width: 034.86%;
+	}
+	
+.column.eight {
+	width: 039.84%;
+	}
+	
+.column.nine {
+	width: 044.82%;
+	}
+	
+.column.ten {
+	width: 049.80%;
+	}
+	
+.column.eleven {
+	width: 054.78%;
+	}
+	
+.column.twelve {
+	width: 059.76%;
+	}
+	
+.column.thirteen {
+	width: 064.74%;
+	}
+	
+.column.fourteen {
+	width: 069.72%;
+	}
+	
+.column.fifteen {
+	width: 074.70%;
+	}
+	
+.column.sixteen {
+	width: 079.68%;
+	}
+	
+.column.seventeen {
+	width: 084.66%;
+	}
+	
+.column.eighteen {
+	width: 089.64%
+	}
+	
+.column.nineteen {
+	width: 094.62%;
+	}
+	
+.column.twenty {
+	width: 100.00%;
+	}
+	
+.margin.horizontal-one {
+	margin-left: 002.49%;
+	margin-right: 002.49%;
+	}
+	
+.margin.horizontal-two {
+	margin-left: 004.98%;
+	margin-right: 004.98%;
+	}
+	
+.margin.vertical-one {
+	margin-top: 1.25em;
+	margin-bottom: 1.25em;
+	}
+	
+.margin.vertical-two {
+	margin-top: 2.50em;
+	margin-bottom: 2.50em;
+	}
+	
+.margin.column-left {
+	margin-left: 004.98%;
+	}
+	
+.margin.column-right {
+	margin-right: 004.98%;
+	}
+	
+.margin.no-margin-top {
+	margin-top: 0px;
+	}
+	
+.margin.no-margin-bottom {
+	margin-bottom: 0px;
+	}
+
+.margin.no-margin-left {
+	margin-left: 0px;
+	}
+	
+.margin.no-margin-right {
+	margin-right: 0px;
+	}
+	
+.padding.horizontal-one {
+	padding-left: 002.49%;
+	padding-right: 002.49%;
+	}
+	
+.padding.horizontal-two {
+	padding-left: 004.98%;
+	padding-right: 004.98%;
+	}
+	
+.padding.vertical-one {
+	padding-top: 1.25em;
+	padding-bottom: 1.25em;
+	}
+	
+.padding.vertical-two {
+	padding-top: 2.50em;
+	padding-bottom: 2.50em;
+	}
+	
+.padding.column-left {
+	padding-left: 004.98%;
+	}
+	
+.padding.column-right {
+	padding-right: 004.98%;
+	}
+	
+.padding.no-padding-top {
+	padding-top: 0px;
+	}
+	
+.padding.no-padding-bottom {
+	padding-bottom: 0px;
+	}
+
+.padding.no-padding-left {
+	padding-left: 0px;
+	}
+	
+.padding.no-padding-right {
+	padding-right: 0px;
+	}
+
+.back.cerulean, .back.black, .back.blue, .back.dark-grey, .back.green, .back.metal, .back.purple, .back.red, 
+.back.black a, .back.blue a, .back.dark-grey a, .back.green a, .back.metal a, .back.purple a, .back.red a {
+	color: #FFF;
+	}
+	
+.back .back.cerulean, .back .back.black, .back .back.blue, .back .back.dark-grey, .back .back.green, .back .back.metal, .back .back.purple, 
+.back .back.red, .back .back.black a, .back .back.blue a, .back .back.dark-grey a, .back .back.green a, .back .back.metal a, .back .back.purple a, 
+.back .back.red a {
+	color: #FFF;
+	}
+	
+.back .back .back.cerulean, .back .back .back.black, .back .back .back.blue, .back .back .back.dark-grey, .back .back.green, .back .back .back.metal, 
+.back .back .back.purple, .back .back .back.red, 
+.back .back .back.black a, .back .back .back.blue a, .back .back .back.dark-grey a, .back .back.green a, .back .back .back.metal a, 
+.back .back .back.purple a, .back .back .back.red a {
+	color: #FFF;
+	}
+
+.back.light-grey, .back.neon-blue, .back.neon-green, .back.neon-red, .back.orange, .back.silver, .back.white, 
+.back.cerulean a, .back.light-grey a, .back.neon-blue a, .back.neon-green a, .back.neon-red a, .back.orange a, .back.silver a, .back.white a { 
+	color: #000;
+	}
+	
+.back .back.light-grey, .back .back.neon-blue, .back .back.neon-green, .back .back.neon-red, .back .back.orange, 
+.back .back.silver, .back .back.white, 
+.back .back.cerulean a, .back .back.light-grey a, .back .back.neon-blue a, .back .back.neon-green a, .back .back.neon-red a, 
+.back .back.orange a, .back .back.silver a, .back .back.white a { 
+	color: #000;
+	}
+	
+.back .back .back.light-grey, .back .back .back.neon-blue, .back .back .back.neon-green, .back .back .back.neon-red, 
+.back .back .back.orange, .back .back .back.silver, .back .back .back.white, 
+.back .back .back.cerulean a, .back .back .back.light-grey a, .back .back .back.neon-blue a, .back .back .back.neon-green a, 
+.back .back .back.neon-red a, .back .back .back.orange a, .back .back .back.silver a, .back .back .back.white a { 
+	color: #000;
+	}
+	
+.back.black {
+	background-color: #000;
+	}
+	
+.back.blue {
+	background-color: #007BA7;
+	}
+	
+.back.cerulean {
+	background-color: #1DACD6;
+	}
+	
+.back.dark-grey {
+	background-color: #888;
+	}
+	
+.back.green {
+	background-color: #088C48;
+	}
+	
+.back.light-grey {
+	background-color: #BBB;
+	}
+	
+.back.metal {
+	background-color: #222;
+	}
+	
+.back.neon-blue {
+	background-color: #26C0FF;
+	}
+	
+.back.neon-green {
+	background-color: #00FF8F;
+	}
+	
+.back.neon-red {
+	background-color: #F00;
+	}
+	
+.back.orange {
+	background-color: #FF7F00;
+	}
+	
+.back.purple {
+	background-color: #60F;
+	}
+	
+.back.red {
+	background-color: #B00;
+	}
+	
+.back.silver {
+	background-color: #EEE;
+	}
+	
+.back.white {
+	background-color: #FFF;
+	}
+	
+.button {
+	margin: 0.25em;
+	padding: 0.60em 1.40em;
+	border-width: 0px;
+	font-size: 1.40em;
+	}
+	
+.button.gradient:hover, .button.gradient:hover {
+	box-shadow: 0px 0px 0.25em #111;
+	}
+	
+.button:active {
+	box-shadow: inset 0px 0px 0.25em #000;
+	}
+	
+.button.black, .button.metal {
+	border-color: #BBB;
+	}
+	
+.button.black:hover, .button.metal:hover {
+	border-color: #888;
+	}
+	
+.button.black:active, .button.metal:active {
+	border-color: #666;
+	}
+	
+.button.blue {
+	text-shadow: -1px -1px #056;
+	}
+	
+.button.blue:hover {
+	background-color: #1DACD6;
+	text-shadow: -1px -1px #1BA8E0;
+	}
+	
+.button.blue:active {
+	background-color: #26C0FF;
+	}
+	
+.button.cerulean {
+	text-shadow: -1px -1px #1BA8E0;
+	}
+	
+.button.cerulean:hover {
+	background-color: #26C0FF;
+	}
+	
+.button.cerulean:active {
+	background-color: #007BA7;
+	text-shadow: -1px -1px #056;
+	} 
+
+.button.dark-grey {
+	text-shadow: -1px -1px #666; 
+	}
+	
+.button.dark-grey:hover {
+	background-color: #AAA;
+	text-shadow: -1px -1px #888; 
+	}
+	
+.button.dark-grey:active {
+	background-color: #BBB;
+	text-shadow: -1px -1px #AAA; 
+	}
+	
+.button.green {
+	text-shadow: -1px -1px #064; 
+	}
+	
+.button.green:hover {
+	background-color: #006F48;
+	text-shadow: -1px -1px #085B4E; 
+	}
+	
+.button.green:active {
+	background-color: #006F48;
+	text-shadow: -1px -1px #033121; 
+	}
+	
+.button.light-grey {
+	text-shadow: -1px -1px #AAA;
+	color: #FFF;
+	}
+	
+.button.light-grey:hover {
+	background-color: #888;
+	text-shadow: -1px -1px #666;
+	}
+	
+.button.light-grey:active {
+	background-color: #444;
+	text-shadow: -1px -1px #000;
+	}
+	
+.button.metal {
+	text-shadow: -1px -1px #000; 
+	}
+	
+.button.metal:hover {
+	background-color: #444;
+	text-shadow: -1px -1px #000;
+	}
+	
+.button.metal:active {
+	background-color: #666;
+	text-shadow: -1px -1px #444;
+	}
+	
+.button.neon-blue {
+	text-shadow: -1px -1px #0BF; 
+	}
+	
+.button.neon-blue:hover {
+	background-color: #0BF;
+	text-shadow: -1px -1px #00A0E1;
+	}
+	
+.button.neon-blue:active {
+	background-color: #00FF7F;
+	text-shadow: -1px -1px #00D868;
+	}
+	
+.button.neon-green {
+	text-shadow: -1px -1px #00D868;
+	}
+	
+.button.neon-green:hover {
+	background-color: #00FFF7;
+	text-shadow: -1px -1px #00E8E2;
+	}
+	
+.button.neon-green:active {
+	background-color: #26C0FF;
+	text-shadow: -1px -1px #0BF; 
+	}
+	
+.button.neon-green {
+	text-shadow: -1px -1px #00D868;
+	}
+	
+.button.neon-green:hover {
+	background-color: #00FFF7;
+	text-shadow: -1px -1px #00E8E2;
+	}
+	
+.button.neon-green:active {
+	background-color: #26C0FF;
+	text-shadow: -1px -1px #0BF; 
+	}
+	
+.button.neon-red {
+	text-shadow: -1px -1px #E00;
+	}
+	
+.button.neon-red:hover {
+	background-color: #D00;
+	text-shadow: -1px -1px #B00;
+	}
+	
+.button.neon-red:active {
+	background-color: #B00;
+	text-shadow: -1px -1px #A00; 
+	}
+	
+.button.orange {
+	text-shadow: -1px -1px #E70;
+	}
+	
+.button.orange:hover {
+	background-color: #E70;
+	text-shadow: -1px -1px #D27100;
+	}
+	
+.button.orange:active {
+	background-color: #FF7800;
+	text-shadow: -1px -1px #E70; 
+	}
+	
+.button.purple {
+	text-shadow: -1px -1px #50B;
+	}
+	
+.button.purple:hover {
+	background-color: #8D56E1;
+	text-shadow: -1px -1px #8048D3;
+	}
+	
+.button.purple:active {
+	background-color: #60F;
+	text-shadow: -1px -1px #50B;
+	}
+	
+.button.red {
+	text-shadow: -1px -1px #A00;
+	}
+	
+.button.red:hover {
+	background-color: #D00;
+	text-shadow: -1px -1px #B00;
+	}
+	
+.button.red:active {
+	background-color: #F00;
+	text-shadow: -1px -1px #E00; 
+	}
+	
+.button.silver {
+	text-shadow: -1px -1px #DDD;
+	}
+	
+.button.silver:hover {
+	background-color: #666;
+	color: #FFF;
+	text-shadow: -1px -1px #555;
+	}
+	
+.button.silver:active {
+	background-color: #000;
+	color: #FFF;
+	text-shadow: -1px -1px #000; 
+	}
+	
+.button.white {
+	text-shadow: -1px -1px #EEE;
+	}
+	
+.button.white:hover {
+	background-color: #EEE;
+	text-shadow: -1px -1px #DDD;
+	}
+	
+.button.white:active {
+	background-color: #DDD;
+	text-shadow: -1px -1px #BBB; 
+	}
+	
+	
+.button.gradient.black, .button.gradient.metal {
+	background: linear-gradient(top, #222 0%, #000 100%);
+	background: -moz-linear-gradient(top, #222 0%, #000 100%);
+	background: -webkit-linear-gradient(top, #222 0%, #000 100%);
+	border-color: #222;
+	}
+	
+.button.gradient.black:active, .button.gradient.metal:active {
+	background: linear-gradient(top, #000 0%, #222 100%);
+	background: -moz-linear-gradient(top, #000 0%, #222 100%);
+	background: -webkit-linear-gradient(top, #000 0%, #222 100%);
+	box-shadow: inset 0px 0px 0.25em #FFF;
+	}
+
+.button.gradient.blue, .button.gradient.cerulean:active {
+	background: linear-gradient(top, #1DACD6 0%, #007BA7 100%);
+	background:- moz-linear-gradient(top, #1DACD6 0%, #007BA7 100%);
+	background: -webkit-linear-gradient(top, #1DACD6 0%, #007BA7 100%);
+	text-shadow: -1px -1px #007BA7;
+	}
+	
+.button.gradient.blue:active, .button.gradient.cerulean {
+	background: linear-gradient(top, #007BA7 0%, #1DACD6 100%);
+	background: -moz-linear-gradient(top, #007BA7 0%, #1DACD6 100%);
+	background: -webkit-linear-gradient(top, #007BA7 0%, #1DACD6 100%);
+	color: #FFF;
+	}
+	
+.button.gradient.dark-grey, .button.gradient.light-grey:active {
+	background: linear-gradient(top, #222 0%, #000 100%);
+	background: -moz-linear-gradient(top, #222 0%, #000 100%);
+	background: -webkit-linear-gradient(top, #222 0%, #000 100%);
+	text-shadow: -1px -1px #000;
+	}
+	
+.button.gradient.light-grey:active, .button.gradient.dark-grey {
+	background: linear-gradient(top, #000 0%, #222 100%);
+	background: -moz-linear-gradient(top, #000 0%, #222 100%);
+	background: -webkit-linear-gradient(top, #000 0%, #222 100%);
+	text-shadow: -1px -1px #222;
+	color: #FFF;
+	}
+	
+.button.gradient.green {
+	background: linear-gradient(top, #088C48 0%, #006F48 100%);
+	background: -moz-linear-gradient(top, #088C48 0%, #006F48 100%);
+	background: -webkit-linear-gradient(top, #088C48 0%, #006F48 100%);
+	text-shadow: -1px -1px  #033121;
+	}
+	
+.button.gradient.green:active {
+	background: linear-gradient(top, #006F48 0%, #088C48 100%);
+	background: -moz-linear-gradient(top, #006F48 0%, #088C48 100%);
+	background: -webkit-linear-gradient(top, #006F48 0%, #088C48 100%);
+	}
+	
+.button.gradient.orange {
+	background: linear-gradient(top, #FF7F00 0%, #D27100 100%);
+	background: -moz-linear-gradient(top, #FF7F00 0%, #D27100 100%);
+	background: -webkit-linear-gradient(top, #FF7F00 0%, #D27100 100%);
+	text-shadow: -1px -1px #E70;
+	}
+	
+.button.gradient.orange:active {
+	background: linear-gradient(top, #D27100 0%, #FF7F00 100%);
+	background: -moz-linear-gradient(top, #D27100 0%, #FF7F00 100%);
+	background: -webkit-linear-gradient(top, #D27100 0%, #FF7F00 100%);
+	}
+	
+.button.gradient.purple {
+	background: linear-gradient(top, #60F 0%, #40A 100%);
+	background: -moz-linear-gradient(top, #60F 0%, #40A 100%);
+	background: -webkit-linear-gradient(top, #60F 0%, #40A 100%);
+	text-shadow: -1px -1px #50B;
+	}
+	
+.button.gradient.purple:active {
+	background: linear-gradient(top, #40A 0%, #60F 100%);
+	background: -moz-linear-gradient(top, #40A 0%, #60F 100%);
+	background: -webkit-linear-gradient(top, #40A 0%, #60F 100%);
+	}
+
+.button.gradient.red {
+	background: linear-gradient(top, #B00 0%, #800 100%);
+	background: -moz-linear-gradient(top, #B00 0%, #800 100%);
+	background: -webkit-linear-gradient(top, #B00 0%, #800 100%);
+	text-shadow: -1px -1px #A00;
+	}
+	
+.button.gradient.red:active {
+	background: linear-gradient(top, #800 0%, #B00 100%);
+	background: -moz-linear-gradient(top, #800 0%, #B00 100%);
+	background: -webkit-linear-gradient(top, #800 0%, #B00 100%);
+	}
+	
+.button.gradient.silver {
+	background: linear-gradient(top, #EFEFEF 0%, #DFDFDF 100%);
+	background: -moz-linear-gradient(top, #EFEFEF 0%, #DFDFDF 100%);
+	background: -webkit-linear-gradient(top, #EFEFEF 0%, #DFDFDF 100%);
+	text-shadow: -1px -1px #EEE;
+	color: #000;
+	}
+	
+.button.gradient.silver:active {
+	background: linear-gradient(top, #DFDFDF 0%, #EFEFEF 100%);
+	background: -moz-linear-gradient(top, #DFDFDF 0%, #EFEFEF 100%);
+	background: -webkit-linear-gradient(top, #DFDFDF 0%, #EFEFEF 100%);
+	}
+
+.rounded-corners {
+	border-radius: 5px;
+	}
+
+/* End Page Work */
