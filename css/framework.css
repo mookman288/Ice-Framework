@@ -576,16 +576,12 @@ nav.vertical > ul li:hover ul {
 	box-shadow: inset 0px 0px 0.25em #000;
 	}
 	
-.button.black, .button.metal {
-	border-color: #BBB;
+.button.black:hover {
+	box-shadow: inset 0px 0px 0.50em #DDD;
 	}
 	
-.button.black:hover, .button.metal:hover {
-	border-color: #888;
-	}
-	
-.button.black:active, .button.metal:active {
-	border-color: #666;
+.button.black:active {
+	box-shadow: inset 0px 0px 0.50em #FFF;
 	}
 	
 .button.blue {
@@ -746,7 +742,7 @@ nav.vertical > ul li:hover ul {
 	}
 	
 .button.purple:hover {
-	background-color: #8D56E1;
+	background-color: #40A;
 	text-shadow: -1px -1px #8048D3;
 	}
 	
@@ -774,15 +770,13 @@ nav.vertical > ul li:hover ul {
 	}
 	
 .button.silver:hover {
-	background-color: #666;
-	color: #FFF;
-	text-shadow: -1px -1px #555;
+	background-color: #EEE;
+	text-shadow: -1px -1px #DDD;
 	}
 	
 .button.silver:active {
-	background-color: #000;
-	color: #FFF;
-	text-shadow: -1px -1px #000; 
+	background-color: #BBB;
+	text-shadow: -1px -1px #AAA; 
 	}
 	
 .button.white {
