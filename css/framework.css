@@ -25,6 +25,40 @@ a:hover {
 	text-decoration: underline;
 	}
 	
+abbr {
+	border-width: 0px;
+	border-bottom: 1px;
+	border-style: dotted;
+	border-color: inherit;
+	}
+	
+blockquote {
+	position: relative;
+	margin: 1.50em 2.50em; 
+	}
+	
+blockquote:before, blockquote:after {
+	position: absolute;
+	font-size: 4.00em;
+	}
+	
+blockquote:before {
+	content: "\201C";
+	left: -0.50em;
+	}
+	
+blockquote:after {
+	content: '\201D';
+	bottom: 0.05em;
+	right: -0.50em;
+	}
+	
+blockquote span {
+	display: block;
+	margin-top: 0.50em;
+	text-align: right;
+	}
+	
 h1 {
 	font-size: 4.00em;
 	}
@@ -139,6 +173,18 @@ table thead td input, table tbody td input, table thead td select, table tbody t
 	border-color: #068;
 	}
 	
+.align-left {
+	text-align: left;
+	}
+	
+.align-center {
+	text-align: center;
+	}
+	
+.align-right {
+	text-align: right;
+	}
+	
 body.single {
 	margin: 0 auto;
 	}
@@ -172,7 +218,7 @@ body.single.eighty {
 	line-height: 1.25em;
 	}
 
-.normal, #main p, nav > ul > li, nav ul.horizontal > li {
+.normal, #main p, #main blockquote, nav > ul > li, nav ul.horizontal > li {
 	font-size: 1.40em;
 	line-height: 1.50em;
 	}
@@ -183,13 +229,25 @@ body.single.eighty {
 	}
 	
 #main p, br, h2, h3, h4, h5 {
-	margin-top: 0.25em;
-	margin-bottom: 0.50em;
+	padding-top: 0.25em;
+	padding-bottom: 0.50em;
 	}
 	
 h1 {
-	margin-top: 0.25em;
-	margin-bottom: 0.25em;
+	padding-top: 0.25em;
+	padding-bottom: 0.25em;
+	}
+	
+.size.one {
+	font-size: 1.00em;
+	}
+	
+.size.two {
+	font-size: 2.00em;
+	}
+	
+.size.three {
+	font-size: 3.00em;
 	}
 	
 .large {
@@ -252,6 +310,7 @@ nav.horizontal ul ul, nav.vertical ul ul {
 nav.horizontal ul ul li, nav.vertical ul ul li {
 	float: none; 
 	position: relative;
+	white-space: nowrap;
 	}
 	
 nav.horizontal ul ul ul, nav.vertical ul ul ul {
@@ -905,6 +964,16 @@ nav.vertical > ul li:hover ul {
 
 .rounded-corners {
 	border-radius: 5px;
+	}
+	
+#main > footer, #footer {
+	clear: both;
+	padding: 1.00em;
+	text-align: center;
+	}
+
+#main > footer > small, #footer > small {
+	font-size: 1.00em;
 	}
 
 /* End Page Work */
