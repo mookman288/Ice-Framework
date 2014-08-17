@@ -32,7 +32,7 @@
  				</p>
 			</div>
 			<div class="cfx content">
-				<h3>Basic Layout</h3>
+				<h3>Grid</h3>
 				<div class="normal">
 					<div class="column twenty back silver">Twenty</div>
 					<div class="column right one back dark-grey">One</div>
@@ -79,7 +79,7 @@
 			<div class="cfx content">
 				<h3>Layout Demonstration</h3>
 				<div class="column left five back blue">
-					<nav class="margin horizontal-one vertical-one">
+					<nav class="margin horizontal-two vertical-one">
 						<h4>Menu</h4>
 						<ul class="vertical">
 							<li><a href="#">Menu 1</a></li>
@@ -163,6 +163,12 @@
 							ac libero mattis, vitae dignissim diam iaculis. Curabitur consequat congue nisi id pretium. 
 							Nunc tincidunt bibendum tellus, eu venenatis nisi ultrices eget. 
 						</p>
+						<h4>Code Demonstration</h4>
+						<code>
+&lt;?php
+	print(date('Y'));
+?&gt;
+						</code>
 					</div>
 				</div>
 			</div>
@@ -176,7 +182,14 @@
 								<ul class="back purple">
 									<li><a href="#">Menu 1</a></li>
 									<li><a href="#">Menu 2</a></li>
-									<li><a href="#">Menu 3</a></li>
+									<li><a href="#">Menu 3 Hover</a>
+										<ul class="back black">
+											<li><a href="#">Menu 1</a></li>
+											<li><a href="#">Menu 2</a></li>
+											<li><a href="#">Menu 3</a></li>
+											<li><a href="#">Menu 4</a></li>
+										</ul>
+									</li>
 									<li><a href="#">Menu 4</a></li>
 									<li><a href="#">Menu 5</a></li>
 								</ul>
@@ -227,17 +240,47 @@
 							ridiculus mus. In hac habitasse platea dictumst. Nulla quam justo, tincidunt at arcu in, 
 							rhoncus viverra lacus.
 	 					</p>
+	 					<h4>Video Demonstration</h4>
+	 					<iframe class="video fill" src="https://player.vimeo.com/video/102301772" width="500" height="281" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> 
+	 					<p><small><a href="http://vimeo.com/102301772">"Goodnight"</a> from <a href="http://vimeo.com/rekfilmsmt">REK Films</a> on <a href="https://vimeo.com">Vimeo</a>.</small></p>
 					</div>
 				</div>
-				<div class="column right six back light-grey">
+				<div class="column right six back silver">
 					<div class="padding horizontal-one vertical-one">
-						<h4>Heading 4</h4>
-						<p>
-							Sed nisi arcu, feugiat pulvinar odio a, venenatis tempor lectus. Nulla volutpat tellus 
-							vel turpis varius, in tempus lorem elementum. Aliquam erat volutpat. Donec tristique massa 
-							ac libero mattis, vitae dignissim diam iaculis. Curabitur consequat congue nisi id pretium. 
-							Nunc tincidunt bibendum tellus, eu venenatis nisi ultrices eget. 
-						</p>
+						<h4>Form Element</h4>
+						<form action="#" method="get">
+							<label for="text-input">Text Input</label><br />
+							<input id="text-input" name="text-input" type="text" size="40" />
+							<label for="phone-input">Phone Input </label>
+							<span class="input prefix">+1</span><input id="phone-input" name="phone-input" type="tel" size="15" /><br />
+							<label for="email-input">Email Input</label><br />
+							<input id="email-input" name="email-input" type="text" size="20" /><span class="input postfix">@example.com</span>
+							<label for="select-input">Select Input</label>
+							<select id="select-input" name="select-input">
+								<option value="Select A">Select A</option>
+								<option value="Select B" selected="selected">Select B</option>
+								<option value="Select C">Select C</option>
+								<option value="Select D">Select D</option>
+							</select>
+							<fieldset>
+								<legend>Radio Buttons</legend>
+								<input id="radio-input-a" name="radio-input" type="radio" />
+								<label for="radio-input-a">Radio A</label>
+								<input id="radio-input-b" name="radio-input" type="radio" />
+								<label for="radio-input-b">Radio B</label>
+							</fieldset>
+							<fieldset>
+								<legend>Checkbox</legend>
+								<input id="checkbox-input-a" name="checkbox-input-a" type="checkbox" />
+								<label for="checkbox-input-a">checkbox A</label>
+								<input id="checkbox-input-b" name="checkbox-input-b" type="checkbox" />
+								<label for="checkbox-input-b">checkbox B</label>
+							</fieldset>
+							<label for="textarea-input">Textarea Input</label>
+							<textarea id="textarea-input" name="textarea-input" rows="4" cols="40"></textarea>
+							<input class="button back blue" type="submit" value="Submit" />
+							<input class="button back red" type="reset" value="Reset" />
+						</form>
 					</div>
 				</div>
 			</div>
@@ -321,8 +364,16 @@
 				<div class="featured background repeat default padding vertical-one horizontal-one">
 					<h1 class="two times">Welcome, Highlander</h1>
 					<h2 class="two times">This is featured content.</h2>
+					<p>Below you'll find pagination demonstrations.</p>
 				</div>
-				<div class="content">
+				<div class="content cfx">
+					<nav class="breadcrumbs">
+						<ul>
+							<li><a href="">Breadcrumbs</a></li>
+							<li><a href="">Parent</a></li>
+							<li><a href="">Current</a></li>
+						</ul>
+					</nav>
 					<div class="column left four">
 						<nav class="vertical">
 							<ul class="back silver rounded-corners">
@@ -333,8 +384,24 @@
 								<li><a href="#">Menu 5</a></li>
 							</ul>
 						</nav>
+						<blockquote>
+							Lorem ipsum dolor sit amet consectetur adipscing elit.
+							<span>Bernard</span>
+						</blockquote>
+						<nav class="pagination">
+							<ul>
+								<li><a href="">Start</a></li>
+								<li class="current"><a href="">1</a></li>
+								<li><a href="">2</a></li>
+								<li><a href="">&hellip;</a></li>
+								<li><a href="">4</a></li>
+								<li><a href="">5</a></li>
+								<li><a href="">End</a></li>
+							</ul>
+						</nav>
 					</div>
 					<div class="column left four margin horizontal-two">
+						<h3>Heading 3</h3>
 						<p>
 							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a lorem accumsan, 
 							eleifend libero a, porta enim. Cum sociis natoque penatibus et magnis dis parturient 
@@ -342,8 +409,18 @@
 							posuere magna accumsan. Sed adipiscing eget lorem id varius. Lorem ipsum dolor sit 
 							amet, consectetur adipiscing elit.
 						</p>
-					</div>
-					<div class="column left four margin horizontal-two">
+						<nav class="pagination blue">
+							<ul>
+								<li><a href="">Start</a></li>
+								<li class="current"><a href="">1</a></li>
+								<li><a href="">2</a></li>
+								<li><a href="">&hellip;</a></li>
+								<li><a href="">4</a></li>
+								<li><a href="">5</a></li>
+								<li><a href="">End</a></li>
+							</ul>
+						</nav>
+						<h4>Heading 4</h4>
 						<p>
 							Aliquam congue ante odio. Mauris eu tortor sit amet mauris vehicula volutpat vitae at 
 							neque. Donec dui orci, eleifend eu arcu sit amet, tempor ultricies lacus. Sed convallis 
@@ -351,19 +428,74 @@
 							Proin diam tellus, ornare et massa sed, pellentesque ultricies urna. Donec euismod 
 							tristique facilisis.
 						</p>
+						<nav class="pagination green">
+							<ul>
+								<li><a href="">Start</a></li>
+								<li><a href="">1</a></li>
+								<li class="current"><a href="">2</a></li>
+								<li><a href="">&hellip;</a></li>
+								<li><a href="">4</a></li>
+								<li><a href="">5</a></li>
+								<li><a href="">End</a></li>
+							</ul>
+						</nav>
 					</div>
-					<div class="column right four margin">
-						<p>
-							Nunc vestibulum eleifend quam at posuere. Cum sociis natoque penatibus et magnis dis 
-							parturient montes, nascetur ridiculus mus. In hac habitasse platea dictumst. Nulla quam justo, 
-							tincidunt at arcu in, rhoncus viverra lacus.
-						</p>
+					<div class="column left four margin horizontal-two">
+						<h3>Heading 3</h3>
 						<p>
 							Sed nisi arcu, feugiat pulvinar odio a, venenatis tempor lectus. Nulla volutpat tellus 
 							vel turpis varius, in tempus lorem elementum. Aliquam erat volutpat. Donec tristique massa 
 							ac libero mattis, vitae dignissim diam iaculis. Curabitur consequat congue nisi id pretium. 
 							Nunc tincidunt bibendum tellus, eu venenatis nisi ultrices eget. 
 						</p>
+						<nav class="pagination orange">
+							<ul>
+								<li><a href="">Start</a></li>
+								<li><a href="">1</a></li>
+								<li><a href="">2</a></li>
+								<li><a href="">&hellip;</a></li>
+								<li class="current"><a href="">4</a></li>
+								<li><a href="">5</a></li>
+								<li><a href="">End</a></li>
+							</ul>
+						</nav>
+					</div>
+					<div class="column right four margin">
+						<h3>Heading 3</h3>
+						<p>
+							Nunc vestibulum eleifend quam at posuere. Cum sociis natoque penatibus et magnis dis 
+							parturient montes, nascetur ridiculus mus. In hac habitasse platea dictumst. Nulla quam justo, 
+							tincidunt at arcu in, rhoncus viverra lacus.
+						</p>
+						<nav class="pagination purple rounded-corners">
+							<ul>
+								<li><a href="">Start</a></li>
+								<li><a href="">1</a></li>
+								<li><a href="">2</a></li>
+								<li><a href="">&hellip;</a></li>
+								<li><a href="">4</a></li>
+								<li class="current"><a href="">5</a></li>
+								<li><a href="">End</a></li>
+							</ul>
+						</nav>
+						<h4>Heading 4</h4>
+						<p>
+							Sed nisi arcu, feugiat pulvinar odio a, venenatis tempor lectus. Nulla volutpat tellus 
+							vel turpis varius, in tempus lorem elementum. Aliquam erat volutpat. Donec tristique massa 
+							ac libero mattis, vitae dignissim diam iaculis. Curabitur consequat congue nisi id pretium. 
+							Nunc tincidunt bibendum tellus, eu venenatis nisi ultrices eget. 
+						</p>
+						<nav class="pagination red rounded-corners">
+							<ul>
+								<li><a href="">Start</a></li>
+								<li><a href="">1</a></li>
+								<li><a href="">2</a></li>
+								<li><a href="">&hellip;</a></li>
+								<li><a href="">4</a></li>
+								<li class="current"><a href="">5</a></li>
+								<li><a href="">End</a></li>
+							</ul>
+						</nav>
 					</div>
 				</div>
 			</div>
@@ -409,10 +541,40 @@
 				<p>Error! Lorem Ipsum Dolor Sit Amet.</p>
 				<p>Error! Lorem Ipsum Dolor Sit Amet.</p>
 			</div>
+			<h3>JavaScript</h3>
+			<div class="content cfx">
+				<h4>Sticky Navigation</h4>
+				<nav class="horizontal sticky">
+					<ul class="back black rounded-corners padding vertical-one">
+						<li><a href="#">Menu 1</a></li>
+						<li><a href="#">Menu 2</a></li>
+						<li><a href="#">Menu 3</a></li>
+						<li><a href="#">Menu 4</a></li>
+						<li><a href="#">Menu 5</a></li>
+					</ul>
+				</nav>
+			</div>
+			<div class="content cfx">
+				<h4>Mobile Navigation</h4>
+				<nav class="horizontal mobile">
+					<ul class="back black padding vertical-one">
+						<li class="mobile"><a href="#">&equiv;</a></li>
+						<li><a href="#">Menu 1</a></li>
+						<li><a href="#">Menu 2</a></li>
+						<li><a href="#">Menu 3</a></li>
+						<li><a href="#">Menu 4</a></li>
+						<li><a href="#">Menu 5</a></li>
+					</ul>
+				</nav>
+			</div>
+			<h4></h4>
+			<h4>Icebox</h4>
+			
 			<h3><a href="website.html">Full Website Demonstration</a></h3>
 			<div id="footer">
 				<small>Copyright &copy; 2014 PxO Ink. Some Rights Reserved.</small>
 			</div>
 		</div>
+		<script type="text/javascript" data-main="js/ice.framework" src="js/require.js"></script>
 	</body>
 </html>

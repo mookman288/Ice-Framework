@@ -59,6 +59,30 @@ blockquote span {
 	text-align: right;
 	}
 	
+code {
+	display: block;
+	padding: 1.00em 2.00em;
+	max-width: 100.00%;
+	font-size: 1.40em;
+	counter-reset: linecounter;
+	overflow: scroll;
+	white-space: pre;
+	}
+	
+code > span {
+	counter-increment: linecounter;
+	}
+	
+code > span:before {
+	content: counter(linecounter);
+	padding-right: 0.50em;
+	margin-right: 0.50em;
+	border-width: 0px;
+	border-right: 0.40em;
+	border-style: solid;
+	opacity: 0.40;
+	}
+	
 h1 {
 	font-size: 4.00em;
 	}
@@ -83,13 +107,23 @@ h6 {
 	font-size: 1.40em;
 	}
 	
+iframe, img, object {
+	max-width: 100.00%;
+	}
+	
 input[type=text], input[type=password], input[type=email], input[type=date], input[type=datetime], 
 input[type=datetime-local], input[type=search], input[type=tel], input[type=url], input[type=month], 
-input[type=week], input[type=number], input[type=range], input[type=color], select, textarea {
-	padding: 0.25em;
+input[type=week], input[type=number], input[type=range], input[type=color], select, textarea, .input {
+	margin-bottom: 0.50em;
+	padding: 1.00%;
+	max-width: 98.00%;
 	border-width: 1px;
 	border-style: solid;
 	border-color: #BBB;
+	-moz-box-sizing: border-box; 
+	-webkit-box-sizing: border-box; 
+	box-sizing: border-box;
+	font-family: sans-serif, serif;
 	}
 	
 input[type=file] {
@@ -112,11 +146,21 @@ button, input[type=submit], input[type=reset], .button {
 	cursor: pointer;
 	}
 	
-fieldset {
+fieldset, fieldset > legend {
+	margin: 0.50em 0px;
 	border-width: 0px;
 	}
 	
-form > label[for] {
+form label {
+	padding: 0.50em;
+	padding-left: 0px;
+	}
+	
+form > label {
+	display: inline-block;
+	}
+	
+form label[for] {
 	cursor: pointer;
 	}
 	
@@ -143,6 +187,17 @@ table thead td input, table tbody td input, table thead td select, table tbody t
 /* End Page Settings */
 
 /* Begin Page Work */
+
+.normal, #main p, #main blockquote, nav > ul > li, nav ul.horizontal > li, 
+form label, form input, form textarea, .input, fieldset > legend {
+	font-size: 1.40em;
+	line-height: 1.50em;
+	}
+	
+.normal, #main p, nav > ul > li, nav ul.horizontal > li, form label, form input
+form textarea, .input {
+	margin: 0px;
+	}
 
 .alert {
 	margin: 0.50em;
@@ -217,10 +272,43 @@ body.single.eighty {
 	font-size: 1.20em;
 	line-height: 1.25em;
 	}
+	
+.breadcrumbs {
+	padding: 0.50em;
+	}
+	
+.breadcrumbs ul li {
+	display: inline;
+	text-transform: lowercase;
+	font-variant: small-caps;
+	}
+	
+.breadcrumbs ul li:before {
+	content: ' / ';
+	font-size: 0.80em;
+	}
+	
+.breadcrumbs ul li:first-child:before {
+	content: '';
+	}
+	
+.breadcrumbs ul li:last-child a {
+	cursor: default;
+	text-decoration: none;
+	}
+	
+.input {
+	background-color: #EEE;
+	}
+	
+.prefix {
+	margin-right: -1px;
+	border-right: 0px;
+	}
 
-.normal, #main p, #main blockquote, nav > ul > li, nav ul.horizontal > li {
-	font-size: 1.40em;
-	line-height: 1.50em;
+.postfix {
+	margin-left: -1px;
+	border-left: 0px;
 	}
 	
 .content {
@@ -325,7 +413,7 @@ nav.vertical ul {
 	}
 	
 nav.vertical > ul {
-	margin-left: 0.50em;
+	margin: 0px 0.50em;
 	}
 	
 nav.vertical > ul li {
@@ -334,14 +422,23 @@ nav.vertical > ul li {
 	
 nav.vertical ul li a {
 	display: block;
-	padding: 2.50%;
 	}
 	
-nav.vertical > ul li:hover ul {
+nav.vertical > ul li:hover > ul {
 	display: block;
 	position: absolute;
 	top: 0px;
 	left: 100.00%;
+	}
+	
+nav ul li.mobile {
+	display: none;
+	}
+	
+nav ul li.mobile a {
+	font-size: 2.80em;
+	line-height: 1.00em;
+	text-decoration: none;
 	}
 	
 .column {
@@ -521,6 +618,93 @@ nav.vertical > ul li:hover ul {
 	
 .padding.no-padding-right {
 	padding-right: 0px;
+	}
+	
+.pagination {
+	padding: 0.50em 0px;
+	}
+	
+.pagination ul li {
+	display: inline;
+	}
+	
+.pagination ul li a {
+	padding: 0.20em 0.50em;
+	text-decoration: none;
+	}
+
+.pagination.rounded-corners ul li a {
+	border-radius: 5px;
+	}
+	
+.pagination ul li a:hover {
+	background-color: #EEE;
+	}
+
+.pagination ul li.current a {
+	background-color: #DDD;
+	}
+	
+.pagination.blue ul li a:hover {
+	background-color: #1DACD6;
+	color: #FFF;
+	}
+	
+.pagination.blue ul li.current a {
+	background-color: #007BA7;
+	color: #FFF;
+	}
+	
+.pagination.green ul li a:hover {
+	background-color: #088C48;
+	color: #FFF;
+	}
+	
+.pagination.green ul li.current a {
+	background-color: #064;
+	color: #FFF;
+	}
+	
+.pagination.orange ul li a:hover {
+	background-color: #FF7F00;
+	color: #FFF;
+	}
+	
+.pagination.orange ul li.current a {
+	background-color: #E70;
+	color: #FFF;
+	}
+	
+.pagination.red ul li a:hover {
+	background-color: #D00;
+	color: #FFF;
+	}
+	
+.pagination.red ul li.current a {
+	background-color: #B00;
+	color: #FFF;
+	}
+	
+.pagination.purple ul li a:hover {
+	background-color: #60F;
+	color: #FFF;
+	}
+	
+.pagination.purple ul li.current a {
+	background-color: #40A;
+	color: #FFF;
+	}
+	
+.back.green {
+	background-color: #088C48;
+	}
+	
+.back.orange {
+	background-color: #FF7F00;
+	}
+	
+.back.purple {
+	background-color: #60F;
 	}
 
 .back.cerulean, .back.black, .back.blue, .back.dark-grey, .back.green, .back.metal, .back.purple, .back.red, 
