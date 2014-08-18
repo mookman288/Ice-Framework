@@ -9,11 +9,13 @@
 //Set the require config.
 requirejs.config({
 	paths: {
+		'collage'	:	'jquery.collagePlus.min',
 		'equalize'	:	'equalizeHeights.min',
 		'jquery'	:	'jquery-1.11.1.min',
-		'icebox'	:	'icebox.min',
+		'icebox'	:	'icebox',
 		'modernizr'	:	'modernizr.min',
-		'sticky'	:	'jquery.sticky.min'
+		'sticky'	:	'jquery.sticky.min',
+		'whitespace':	'jquery.removeWhitespace.min'
 	}
 });
 
@@ -23,6 +25,8 @@ require(["modernizr.min"]);
 //Require jQuery.
 require(["jquery"], function(jQuery) { 
 	//Declare requirements.
+	require(["collage"]);
+	require(["equalize"]);
 	require(["icebox"]);
 	require(["sticky"], function() {
 		//When the DOM is ready.
@@ -44,6 +48,7 @@ require(["jquery"], function(jQuery) {
 			});
 		});
 	});
+	require(["whitespace"]);
 	
 	//When the DOM is ready.
 	jQuery('document').ready(function() {
@@ -88,8 +93,95 @@ require(["jquery"], function(jQuery) {
 		});
 		
 		//For each gallery.
-		jQuery('*[data-gallery]').each(function() {
+		jQuery('.gallery').removeWhitespace().each(function() {
+			//Get the target height.
+			var	targetHeight	=	jQuery(this).data('height');
+			var	direction		=	jQuery(this).data('direction');
 			
+			//CollagePlus.
+			jQuery(this).collagePlus({'direction': direction, 'targetHeight': targetHeight, 'allowPartialLastRow': true});
 		});
+		
+		//Implement slider.
+		jQuery('.slider').each(function() {
+			//Fade in the first slide.
+			jQuery(this).children(':first-child').addClass('active');
+
+			//Set interval.
+			$interval = setInterval(function() {
+				//Slide. 
+				slide(this, 1);
+			}, 10000);
+			
+			//On hover.
+			jQuery(this).hover(function() {
+				//Clear the interval.
+				clearInterval($interval);
+			}, function() {
+				//Restart the interval.
+				$interval = setInterval(function() {
+					//Slide. 
+					slide(this, 1);
+				}, 10000);
+			});
+			
+			//On slide left.
+			jQuery('.slide-left').click(function() {
+				slide(jQuery(this).find('.slider'), 0);
+			});
+			
+			//On slide right. 
+			jQuery('.slide-right').click(function() {
+				slide(jQuery(this).find('.slider'), 1);
+			});
+		});
+
+		//For each equalize.
+		jQuery('*[data-equalize]').each(function() {
+			//Get the equalize value.
+			var	type	=	jQuery(this).data('equalize');
+			
+			//If the type is children.
+			if (type == 'children') {
+				jQuery(this).children().equalizeHeights();
+			} else {
+				jQuery(this).find(type).equalizeHeights();
+			}
+		});
+		
+		//Equalize heights.
+		jQuery('.equalize').equalizeHeights();
 	});
 });
+
+/**
+ * Implements a slide change. 
+ * @param $parent
+ * @param dir
+ */
+function slide($parent, dir) {
+	//Declare variables.
+	var	$this	=	jQuery(this);
+	var	num		=	$parent.children().length;
+	
+	//Fade the element out.
+	$parent.children('.active').fadeOut(400, function() {
+		//Get the current index.
+		var	cur	=	$this.index();
+		
+		//Remove the active class.
+		$this.removeClass('active');
+		
+		//Get the next element depending upon the direction.
+		var	ele	=	(dir < 1) ? (cur != 0) ? (cur - 1) : (num - 1) : (cur != (num - 1)) ? (1 + cur) : 0;
+
+		//Fade in the slide.
+		$parent.children().each(function() {
+			//If the index is correct.
+			if ($this.index() == ele) {
+				//Fade the element in.
+				$this.fadeIn(400).addClass('active');
+			}
+		});
+	});
+}

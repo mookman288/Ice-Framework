@@ -12,16 +12,37 @@ if (typeof jQuery !== 'undefined') {
 	jQuery(document).ready(function() { 
 		//For each element to invoke icebox.
 		jQuery('*[data-icebox]').each(function() { 
+			//Declare variables.
+			var	html;
+			
+			//Add cursor pointer.
+			jQuery(this).addClass('icebox');
+			
 			//For each invoking.
 			jQuery(this).click(function(e) {
-				//Get the element.
-				$e	=	jQuery(jQuery(this).attr('data-icebox-id')); 
+				//Get the image.
+				var	imgSrc	=	jQuery(this).data('src');
+				
+				//If there is no image. 
+				if (!imgSrc) {
+					//Get the element.
+					var	$e	=	jQuery(jQuery(this).attr('data-id')); 
+					
+					//Get the html.
+					html	=	$e.html();
+				} else {
+					//Get the alt text.
+					var alt	=	jQuery(this).attr('alt');
+					
+					//Get the html.
+					html	=	jQuery('<img>', {src: imgSrc, alt: alt});
+				}
 				
 				//Create elements.
 				var	$shadow	=	jQuery('<div>', {id: 'ice-shadow'});
 				var	$close	=	jQuery('<a>', {id: 'icebox-close', 
 					href: 'javascript:void(0);', title: 'Close'}).text('X');
-				var	$div	=	jQuery('<div>').append($e.html());
+				var	$div	=	jQuery('<div>').append(html);
 				var	$icebox	=	jQuery('<div>', {id: 'icebox'}).append($close).append($div);
 				
 				//Append the shadow and icebox.

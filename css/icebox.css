@@ -1,6 +1,10 @@
 /* Cascading Style Sheet Created By: PxO Ink (http://pxoink.net/) */
 /* Cascading Style Sheet Copyright © 2014 PxO Ink. Most Rights Reserved. */
 
+*.icebox {
+	cursor: pointer;
+	}
+
 div#ice-shadow {
 	position: fixed;
 	top: 0px;
@@ -24,7 +28,7 @@ div#icebox {
 	min-height: 20.00%;
 	background-color: #000;
 	border-width: 1px;
-	border-color: #000BA7;
+	border-color: #007BA7;
 	border-style: ridge;
 	border-radius: 2px;
 	box-shadow: 0px 0px 1.00em #000;
