@@ -1218,11 +1218,13 @@ nav ul li.mobile a {
 	line-height: 1.50em;
 	text-align: left;
 	}
-
-/* End Slider Work */
 	
-.stuck {
+.sticky {
 	z-index: 7000;
+	}
+	
+.video.fill {
+	width: 100.00%;
 	}
 	
 #main > footer, #footer {
