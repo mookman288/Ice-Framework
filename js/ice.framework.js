@@ -19,6 +19,9 @@ requirejs.config({
 	}
 });
 
+//Declare global variables.
+var	interval	=	new Object();
+
 //Require Modernizr.
 require(["modernizr.min"]);
 
@@ -103,36 +106,43 @@ require(["jquery"], function(jQuery) {
 		});
 		
 		//Implement slider.
-		jQuery('.slider').each(function() {
+		jQuery('.slider').each(function() { 
+			//Declare variables.
+			var	$this	=	jQuery(this);
+			var	rand	=	Math.round(Date.now() * Math.random());
+			
 			//Fade in the first slide.
-			jQuery(this).children(':first-child').addClass('active');
-
+			$this.children(':first-child').addClass('active');
+			
+			//Add the random value.
+			$this.data('id', rand);
+			
 			//Set interval.
-			$interval = setInterval(function() {
+			interval.rand = setInterval(function() {
 				//Slide. 
-				slide(this, 1);
+				slide($this, 1);
 			}, 10000);
 			
 			//On hover.
-			jQuery(this).hover(function() {
+			$this.hover(function() {
 				//Clear the interval.
-				clearInterval($interval);
+				clearInterval(interval.rand);
 			}, function() {
 				//Restart the interval.
-				$interval = setInterval(function() {
+				interval.rand = setInterval(function() {
 					//Slide. 
-					slide(this, 1);
+					slide($this, 1);
 				}, 10000);
 			});
 			
 			//On slide left.
 			jQuery('.slide-left').click(function() {
-				slide(jQuery(this).find('.slider'), 0);
+				slide($this, 0);
 			});
 			
 			//On slide right. 
 			jQuery('.slide-right').click(function() {
-				slide(jQuery(this).find('.slider'), 1);
+				slide($this, 1);
 			});
 		});
 
@@ -161,26 +171,35 @@ require(["jquery"], function(jQuery) {
  */
 function slide($parent, dir) {
 	//Declare variables.
-	var	$this	=	jQuery(this);
-	var	num		=	$parent.children().length;
+	var	num			=	$parent.children().length;
+	var	rand		=	$parent.data('id');
+	
+	//Clear the interval.
+	clearInterval(interval.rand);
 	
 	//Fade the element out.
 	$parent.children('.active').fadeOut(400, function() {
 		//Get the current index.
-		var	cur	=	$this.index();
+		var	cur		=	jQuery(this).index();
 		
 		//Remove the active class.
-		$this.removeClass('active');
+		jQuery(this).removeClass('active');
 		
 		//Get the next element depending upon the direction.
-		var	ele	=	(dir < 1) ? (cur != 0) ? (cur - 1) : (num - 1) : (cur != (num - 1)) ? (1 + cur) : 0;
+		var	ele		=	(dir < 1) ? (cur != 0) ? (cur - 1) : (num - 1) : (cur != (num - 1)) ? (1 + cur) : 0;
 
 		//Fade in the slide.
-		$parent.children().each(function() {
+		$parent.children().each(function() { 
 			//If the index is correct.
-			if ($this.index() == ele) {
+			if (jQuery(this).index() == ele) {
 				//Fade the element in.
-				$this.fadeIn(400).addClass('active');
+				jQuery(this).fadeIn(400).addClass('active');
+				
+				//Restart the interval.
+				interval.rand = setInterval(function() {
+					//Slide. 
+					slide($parent, 1);
+				}, 10000);
 			}
 		});
 	});

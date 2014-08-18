@@ -6,10 +6,15 @@
  ** @Copyright	© 2014 PxO Ink. All Rights Reserved.
  **/
 
+
+
 //If jQuery exists.
 if (typeof jQuery !== 'undefined') { 
 	//When the document is ready.
 	jQuery(document).ready(function() { 
+		//Declare global variables.
+		var	icebox	=	false;
+		
 		//For each element to invoke icebox.
 		jQuery('*[data-icebox]').each(function() { 
 			//Declare variables.
@@ -20,13 +25,25 @@ if (typeof jQuery !== 'undefined') {
 			
 			//For each invoking.
 			jQuery(this).click(function(e) {
+				//If the icebox is set to true.
+				if (icebox)	{
+					//Prevent default functionality.
+					e.preventDefault();
+					
+					//Return false.
+					return false;
+				}
+				
+				//Set icebox is true.
+				icebox		=	true;
+				
 				//Get the image.
 				var	imgSrc	=	jQuery(this).data('src');
 				
 				//If there is no image. 
-				if (!imgSrc) {
+				if (!imgSrc) { console.log('test');
 					//Get the element.
-					var	$e	=	jQuery(jQuery(this).attr('data-id')); 
+					var	$e	=	jQuery('#' + jQuery(this).attr('data-icebox-id')); 
 					
 					//Get the html.
 					html	=	$e.html();
@@ -37,6 +54,8 @@ if (typeof jQuery !== 'undefined') {
 					//Get the html.
 					html	=	jQuery('<img>', {src: imgSrc, alt: alt});
 				}
+				
+				console.log(html);
 				
 				//Create elements.
 				var	$shadow	=	jQuery('<div>', {id: 'ice-shadow'});
@@ -64,6 +83,9 @@ if (typeof jQuery !== 'undefined') {
 								jQuery('#ice-shadow').fadeOut('400', function() {
 									//Kill the icebox and the shadow.
 									jQuery('#ice-shadow, #icebox').remove();
+									
+									//Set icebox is false.
+									icebox	=	false;
 								});
 							});	
 						});

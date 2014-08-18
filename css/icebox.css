@@ -4,6 +4,10 @@
 *.icebox {
 	cursor: pointer;
 	}
+	
+div#icebox *.icebox {
+	cursor: initial;
+	}
 
 div#ice-shadow {
 	position: fixed;
@@ -22,8 +26,8 @@ div#icebox {
 	display: none;
 	width: auto;
 	height: auto;
-	max-width: 80.00%;
-	max-height: 80.00%;
+	max-width: 88.50%;
+	max-height: 88.50%;
 	min-width: 20.00%;
 	min-height: 20.00%;
 	background-color: #000;
@@ -63,6 +67,12 @@ div#icebox > div, div#icebox img {
 	max-height: 100.00%;
 	}
 	
-div#icebox > div {
+div#icebox > * {
 	margin: 1.25%;
+	}
+	
+div#icebox * {
+	max-width: 100.00%;
+	max-height: 100.00%;
+	color: #FFF;
 	}
