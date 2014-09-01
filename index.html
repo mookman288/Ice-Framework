@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html data-history>
 	<head>
 		<title>Ice Framework</title>
 		<meta charset="utf-8"> <!-- Charset: UTF-8 -->
@@ -20,7 +20,7 @@
 		<link rel="stylesheet" type="text/css" href="css/responsive.css" /> <!-- Cascading Stylesheet -->
 		<link rel="stylesheet" type="text/css" href="css/icebox.css" /> <!-- Cascading Stylesheet -->
 	</head>
-	<body class="single sixty">
+	<body id="top" class="single sixty">
 		<div id="main">
 			<div class="content">
 				<h1>Ice Framework</h1>
@@ -30,6 +30,62 @@
 					system that can provide a basic structure for implementing 
 					fluid and accessible CSS designs. This page represents 
 					examples of what you <em>can</em> do with this framework. 
+ 				</p>
+ 				<p>
+ 					By default, this framework expects all JavaScript to run 
+ 					after the page is loaded. You may choose to leverage 
+ 					certain JavaScript when the page is ready, rather than 
+ 					when the page is loaded. 
+ 				</p>
+ 				<h3>Utilities Used</h3>
+ 				<h4>Fonts</h4>
+ 				<ul>
+ 					<li>Binz by <a href="http://openfontlibrary.org/en/font/binz-medium" target="_blank">Kay Stenschke</a></li>
+ 					<li>Comfortaa by <a href="https://www.google.com/fonts/specimen/Comfortaa" target="_blank">Johan Aakerlund</a></li>
+ 					<li>Great Vibes by <a href="http://openfontlibrary.org/en/font/rebecca" target="_blank">Robert E. Leuschke</a></li>
+ 					<li>La Chata by <a href="http://openfontlibrary.org/font/la-chata" target="_blank">Fernando Haro</a></li>
+ 					<li>Lets Trace by <a href="http://openfontlibrary.org/en/font/lets-trace" target="_blank">zeimusu</a></li>
+ 					<li>Open Baskerville by <a href="http://openfontlibrary.org/font/open-baskerville" target="_blank">Isaac Moore, James Puckett, and Rob Mientjes</a></li>
+ 					<li>Open Sans by <a href="https://www.google.com/fonts/specimen/Open+Sans" target="_blank">Steve Matteson</a></li>
+ 					<li>Trabajo by <a href="http://openfontlibrary.org/en/font/trabajo" target="_blank">Linus</a></li>
+ 				</ul>
+ 				<h4>JavaScript</h4>
+ 				<ul>
+ 					<li>Ajaxify by <a href="https://github.com/browserstate/ajaxify" target="_blank">Benjamin Arthur Lupton, and Bevry Pty Ltd.</a></li>
+ 					<li>EqualizeHeights</li>
+ 					<li>IceBox by <a href="http://pxoink.net/" target="_blank">PxO Ink</a></li>
+ 					<li>History.js by <a href="https://github.com/browserstate/history.js" target="_blank">Benjamin Arthur Lupton, and Bevry Pty Ltd.</a></li>
+ 					<li>jQuery CollagePlus by <a href="https://github.com/ed-lea/jquery-collagePlus" target="_blank">Ed Lea</a></li>
+ 					<li>jQuery RemoveWhitespace</li>
+ 					<li>jQuery ScrollTo by <a href="https://github.com/balupton/jquery-scrollto" target="_blank">Benjamin Arthur Lupton</a></li>
+ 					<li>jQuery Sticky by <a href="http://labs.anthonygarand.com/sticky" target="_blank">Anthony Garand, German M. Bravo, Ruud Kamphuis, Leonardo C. Daronco</a></li>
+ 					<li>Modernizr by <a href="https://github.com/Modernizr/Modernizr" target="_blank">Modernizr</a></li>
+ 					<li>RequireJS by <a href="https://github.com/jrburke/requirejs" target="_blank">James Burke</a></li>
+ 				</ul>
+ 				<h3>License</h3>
+ 				<h4>The MIT License (MIT)</h4>
+ 				<p>Software Copyright &copy; 2014 PxO Ink. Most Rights Reserved.</p>
+ 				<p>
+ 					Permission is hereby granted, free of charge, to any person 
+ 					obtaining a copy of this software and associated documentation 
+ 					files (the "Software"), to deal in the Software without 
+ 					restriction, including without limitation the rights to use, 
+ 					copy, modify, merge, publish, distribute, sublicense, and/or 
+ 					sell copies of the Software, and to permit persons to whom the 
+ 					Software is furnished to do so, subject to the following conditions:
+ 				</p>
+ 				<p>
+ 					The above copyright notice and this permission notice shall be 
+ 					included in all copies or substantial portions of the Software.
+ 				</p>
+ 				<p>
+ 					THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
+ 					EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF 
+ 					MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
+ 					IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY 
+ 					CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, 
+ 					TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
+ 					SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  				</p>
 			</div>
 			<div class="cfx content">
@@ -362,7 +418,7 @@
 						</li>
 					</ul>
 				</nav>
-				<div class="featured background repeat default padding vertical-one horizontal-one">
+				<div class="featured content background repeat default padding vertical-one horizontal-one">
 					<h1 class="two times">Welcome, Highlander</h1>
 					<h2 class="two times">This is featured content.</h2>
 					<p>Below you'll find pagination demonstrations.</p>
@@ -394,7 +450,7 @@
 								<li><a href="">Start</a></li>
 								<li class="current"><a href="">1</a></li>
 								<li><a href="">2</a></li>
-								<li><a href="">&hellip;</a></li>
+								<li>&hellip;</li>
 								<li><a href="">4</a></li>
 								<li><a href="">5</a></li>
 								<li><a href="">End</a></li>
@@ -415,7 +471,7 @@
 								<li><a href="">Start</a></li>
 								<li class="current"><a href="">1</a></li>
 								<li><a href="">2</a></li>
-								<li><a href="">&hellip;</a></li>
+								<li>&hellip;</li>
 								<li><a href="">4</a></li>
 								<li><a href="">5</a></li>
 								<li><a href="">End</a></li>
@@ -434,7 +490,7 @@
 								<li><a href="">Start</a></li>
 								<li><a href="">1</a></li>
 								<li class="current"><a href="">2</a></li>
-								<li><a href="">&hellip;</a></li>
+								<li>&hellip;</li>
 								<li><a href="">4</a></li>
 								<li><a href="">5</a></li>
 								<li><a href="">End</a></li>
@@ -454,7 +510,7 @@
 								<li><a href="">Start</a></li>
 								<li><a href="">1</a></li>
 								<li><a href="">2</a></li>
-								<li><a href="">&hellip;</a></li>
+								<li>&hellip;</li>
 								<li class="current"><a href="">4</a></li>
 								<li><a href="">5</a></li>
 								<li><a href="">End</a></li>
@@ -473,7 +529,7 @@
 								<li><a href="">Start</a></li>
 								<li><a href="">1</a></li>
 								<li><a href="">2</a></li>
-								<li><a href="">&hellip;</a></li>
+								<li>&hellip;</li>
 								<li><a href="">4</a></li>
 								<li class="current"><a href="">5</a></li>
 								<li><a href="">End</a></li>
@@ -491,7 +547,7 @@
 								<li><a href="">Start</a></li>
 								<li><a href="">1</a></li>
 								<li><a href="">2</a></li>
-								<li><a href="">&hellip;</a></li>
+								<li>&hellip;</li>
 								<li><a href="">4</a></li>
 								<li class="current"><a href="">5</a></li>
 								<li><a href="">End</a></li>
@@ -518,12 +574,12 @@
 				<h4>Gradient</h4>
 				<input class="button back black gradient rounded-corners" type="submit" value="Submit" />
 				<button class="button back blue gradient rounded-corners">Submit</button>
-				<button class="button back cerulean gradient rounded-corners">Submit</button>
-				<span class="button back green gradient">Submit</span>
+				<button class="button back cerulean gradient rounded-corners border inset border-blue thin">Submit</button>
+				<span class="button back green gradient border thin outset border-green">Submit</span>
 				<span class="button back orange gradient rounded-corners">Submit</span>
 				<span class="button back purple gradient rounded-corners">Submit</span>
 				<input class="button back red gradient rounded-corners" type="submit" value="Submit" />
-				<button class="button back silver gradient rounded-corners">Submit</button>
+				<button class="button back silver gradient rounded-corners border thin-one border-black">Submit</button>
 			</div>
 			<h3>Alerts</h3>
 			<div class="alert message rounded-corners">
@@ -534,9 +590,9 @@
 				<p>Success! Lorem Ipsum Dolor Sit Amet.</p>
 				<p>Success! Lorem Ipsum Dolor Sit Amet.</p>
 			</div>
-			<div class="alert warning rounded-corners">
-				<p>Warning! Lorem Ipsum Dolor Sit Amet.</p>
-				<p>Warning! Lorem Ipsum Dolor Sit Amet.</p>
+			<div class="alert warning rounded-corners" data-dismiss>
+				<p>Warning! Lorem Ipsum Dolor Sit Amet. Dismiss Me!</p>
+				<p>Warning! Lorem Ipsum Dolor Sit Amet. Dismiss Me!</p>
 			</div>
 			<div class="alert error rounded-corners">
 				<p>Error! Lorem Ipsum Dolor Sit Amet.</p>
@@ -546,7 +602,7 @@
 			<div class="content cfx">
 				<h4>Sticky Navigation</h4>
 				<nav class="horizontal sticky">
-					<ul class="back black rounded-corners padding vertical-one">
+					<ul class="back green rounded-corners padding vertical-one shadow">
 						<li><a href="#">Menu 1</a></li>
 						<li><a href="#">Menu 2</a></li>
 						<li><a href="#">Menu 3</a></li>
@@ -561,10 +617,22 @@
 					<ul class="back black padding vertical-one">
 						<li class="mobile"><a href="#">&equiv;</a></li>
 						<li><a href="#">Menu 1</a></li>
-						<li><a href="#">Menu 2</a></li>
+						<li><a href="#">Menu 2 Drop Down</a>
+							<ul class="back metal">
+								<li><a href="#">Menu 1</a></li>
+								<li><a href="#">Menu 2</a></li>
+								<li><a href="#">Menu 3</a></li>
+								<li><a href="#">Menu 4</a></li>
+							</ul>
+						</li>
 						<li><a href="#">Menu 3</a></li>
 						<li><a href="#">Menu 4</a></li>
 						<li><a href="#">Menu 5</a></li>
+						<li><a href="#">Menu 6</a></li>
+						<li><a href="#">Menu 7</a></li>
+						<li><a href="#">Menu 8</a></li>
+						<li><a href="#">Menu 9</a></li>
+						<li><a href="#">Menu 0</a></li>
 					</ul>
 				</nav>
 			</div>
@@ -605,6 +673,126 @@
 					</div>
 					<a href="javascript:void(0)" class="slide-right">&gt;</a>
 				</div>
+			</div>
+			<h4>ScrollTo</h4>
+			<p><a href="#top">To the top.</a></p>
+			<p><a href="#footer">To the footer.</a></p>
+			<div class="content cfx">
+				<h4>Slide Toggle</h4>
+				<div class="back silver">
+					<h5 class="padding horizontal-one vertical-one"><a href="javascript:void(0)" data-slide-id="slide-me-1">Slide Toggle 1</a></h5>
+					<div id="slide-me-1" class="nod back light-grey padding vertical-one horizontal-one">
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas convallis, 
+							leo eu laoreet gravida, tortor ipsum suscipit ex, in vestibulum velit dolor 
+							quis velit. Ut convallis porta urna vel porta. Donec posuere laoreet neque, 
+							luctus luctus mauris pharetra in. Cras malesuada neque sit amet lacus ultricies, 
+							vel ultricies dui sagittis. Ut orci erat, auctor sed lorem blandit, ornare 
+							efficitur orci. Mauris auctor aliquam augue eu placerat. Vestibulum ante ipsum 
+							primis in faucibus orci luctus et ultrices posuere cubilia Curae.
+						</p>
+					</div>
+					<h5 class="padding horizontal-one vertical-one"><a href="javascript:void(0)" data-slide-id="slide-me-2">Slide Toggle 2</a></h5>
+					<div id="slide-me-2" class="nod back light-grey padding vertical-one horizontal-one">
+						<p>
+							Nullam ante est, sodales blandit metus at, pellentesque cursus mi. Nullam leo 
+							lacus, tempor non turpis eu, pharetra vestibulum libero. Etiam in sem sit amet 
+							velit ultricies scelerisque ac ultrices turpis. 
+						</p>
+					</div>
+					<h5 class="padding horizontal-one vertical-one"><a href="javascript:void(0)" data-slide-id="slide-me-3">Slide Toggle 3</a></h5>
+					<div id="slide-me-3" class="back light-grey padding vertical-one horizontal-one">
+						<p>
+							Vestibulum suscipit lacus sed eros ultrices, ac tincidunt elit venenatis. 
+							Curabitur mollis faucibus est id sollicitudin. Nulla sollicitudin consectetur 
+							leo vitae sodales. Nam viverra, felis at commodo imperdiet, ante orci fermentum 
+							dui, eu laoreet urna justo nec erat. Mauris facilisis, velit a eleifend rhoncus, 
+							urna justo varius sem, mollis lobortis ipsum nibh eu nisi. 
+						</p>
+					</div>
+					<h5 class="padding horizontal-one vertical-one"><a href="javascript:void(0)" data-slide-class="slide-me-4">Slide Toggle 4</a></h5>
+					<div class="slide-me-4 nod back light-grey padding vertical-one horizontal-one">
+						<p>
+							Fusce elit ante, laoreet non commodo sagittis, egestas a magna. Suspendisse potenti. 
+							Cras nec elit non neque rutrum tempor ut elementum lorem. Aliquam porta, dolor quis 
+							porta tincidunt, velit ligula ultricies dolor, dapibus tincidunt erat dui eu mi. 
+							Maecenas tincidunt, nulla in rhoncus aliquet, dolor quam ullamcorper leo, eget 
+							condimentum ante eros non diam.
+						</p>
+					</div>
+					<p class="padding horizontal-one">This text breaks two paragraphs. Don't believe me? Click above.</p>
+					<div class="slide-me-4 nod back light-grey padding vertical-one horizontal-one">
+						<p>
+							Curabitur ex est, convallis nec enim consequat, porttitor placerat lectus. 
+							Donec aliquam, sapien at ornare hendrerit, libero dui sagittis libero, a 
+							accumsan nibh sapien vitae turpis. Praesent eleifend vitae urna et cursus. 
+							Curabitur feugiat felis mauris, non sollicitudin justo aliquet eget.
+						</p>
+					</div>
+				</div>
+			</div>
+			<div class="content cfx">
+				<h4>Tabs</h4>
+				<nav class="tabs rounded-corners">
+					<ul>
+						<li><a href="#tab-1" class="button back metal">Tab 1</a></li>
+						<li><a href="#tab-2" class="button back metal">Tab 2</a></li>
+						<li><a href="#tab-3" class="button back metal">Tab 3</a></li>
+						<li><a href="#tab-4" class="button back blue">Tab 4</a></li>
+						<li><a href="#tab-5" class="button back red gradient">Tab 5</a></li>
+					</ul>
+				</nav>
+				<div id="tab-1">
+					<p>
+						Curabitur eu justo et orci vehicula ornare. Sed mollis efficitur cursus. Interdum et 
+						malesuada fames ac ante ipsum primis in faucibus. Aenean eget euismod nisl. In 
+						dignissim turpis eu dui feugiat molestie. Nam aliquet, ex sed rutrum condimentum, 
+						nunc ligula aliquam quam, sed aliquet orci leo eget odio. Sed ex velit, elementum 
+						a tortor id, vestibulum fermentum metus.
+					</p>
+				</div>
+				<div id="tab-2">
+					<p>
+						Integer vestibulum ut nulla volutpat aliquet. Maecenas dictum sem sit amet consectetur 
+						bibendum. Aliquam molestie sapien quis arcu ullamcorper, at gravida purus facilisis. 
+						Cras nec auctor nisl. Integer varius neque quis mauris dapibus, vitae venenatis erat 
+						vehicula. Aliquam ullamcorper, orci ut semper mollis, dolor tortor lobortis risus, at 
+						suscipit sem felis quis quam. Nam eget purus purus. 
+					</p>
+					<p>
+						Duis eu fringilla mi. Etiam lorem nisl, faucibus id ex in, pretium hendrerit nibh. 
+						Fusce fringilla, eros nec ultrices sollicitudin, nunc neque gravida dui, in efficitur 
+						nisl elit id magna.
+					</p>
+				</div>
+				<div id="tab-3">
+					<p>
+						Maecenas purus est, luctus a nisi non, eleifend varius quam. Cras eu elit eleifend, 
+						luctus turpis id, eleifend lectus. Nullam luctus auctor lectus id dictum. Nam iaculis 
+						nisl quis orci facilisis laoreet. Donec dapibus, purus nec dictum congue, odio eros 
+						luctus tortor, sit amet mattis quam ligula in ipsum. Cras tincidunt purus justo. 
+						Nullam tristique nulla ut facilisis ullamcorper.
+					</p>
+				</div>
+				<div id="tab-4">
+					<p>
+						Fusce laoreet tellus velit, eget rutrum eros rhoncus et. Nullam sit amet lacinia sem. 
+						Morbi laoreet lobortis ex, id lacinia mauris semper nec. Integer aliquet sit amet nisi 
+						vel ultricies. Nulla ultrices justo ut tellus ornare, eget dignissim est blandit. 
+						Praesent ut molestie ligula. Morbi ornare leo commodo arcu volutpat convallis. 
+						Quisque mauris nisl, faucibus ac leo porttitor, pulvinar ultrices tellus.
+					</p>
+				</div>
+				<div id="tab-5">
+					<p>
+						Sed pellentesque viverra tempus. Aliquam ac massa eget odio mattis mollis vel nec arcu. 
+						Fusce pretium turpis tristique, pretium nisl ac, porttitor massa. Quisque a lacus mattis, 
+						suscipit justo at, porttitor diam. Cras sed orci non velit tempus venenatis vitae vitae 
+						elit. Nullam dictum, purus sit amet imperdiet tristique, enim magna posuere diam, et 
+						condimentum libero justo sed sem. 
+					</p>
+				</div>
+				<p>Want to show a tab on page load? <a href="?showTab=tab-4">Click Here</a>.</p>
 			</div>
 			<h3><a href="website.html">Full Website Demonstration</a></h3>
 			<div id="footer">
