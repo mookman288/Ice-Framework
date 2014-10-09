@@ -1348,6 +1348,7 @@ nav ul li.mobile a {
 	}
 	
 .sticky {
+	display: inline-block;
 	z-index: 7000;
 	}
 	
