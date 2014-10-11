@@ -273,26 +273,26 @@ form textarea, .input {
 	text-align: right;
 	}
 	
-body.single {
+.single {
 	margin: 0 auto;
 	}
 	
-body.single.twenty {
+.single.twenty {
 	width: 20.00%;
 	min-width: 640px;
 	}
 	
-body.single.forty {
+.single.forty {
 	width: 40.00%;
 	min-width: 940px;
 	}
 	
-body.single.sixty {
+.single.sixty {
 	width: 60.00%;
 	min-width: 1152px;
 	}
 	
-body.single.eighty {
+.single.eighty {
 	width: 80.00%;
 	min-width: 1440px;
 	}
