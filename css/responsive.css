@@ -41,11 +41,11 @@
 		}
 		
 	.column.margin.column-left {
-		margin-left: 002.49%;
+		margin-left: 001.25%;
 		}
 		
 	.column.margin.column-right {
-		margin-right: 002.49%;
+		margin-right: 001.25%;
 		}
 		
 	.column.padding.horizontal-one {
@@ -59,11 +59,11 @@
 		}
 		
 	.column.padding.column-left {
-		padding-left: 002.49%;
+		padding-left: 001.25%;
 		}
 		
 	.column.padding.column-right {
-		padding-right: 002.49%;
+		padding-right: 001.25%;
 		}
 		
 
@@ -285,6 +285,12 @@
 	.column {
 		width: 100.00% !important;
 		}
+		
+	.column.slider-container {
+		padding: 0px 5.00%;
+		width: 90.00% !important;
+		}
+		
 	}
 	
 @media all and (max-width: 320px) {
