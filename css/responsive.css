@@ -291,6 +291,29 @@
 		width: 90.00% !important;
 		}
 		
+	.column.margin.horizontal-one, .column.margin.horizontal-two, 
+	.column.margin.column-left, .column.margin.column-right {
+		margin: 0px;
+		}
+		
+	.column.padding.horizontal-one {
+		padding-left: 001.25%;
+		padding-right: 001.25%;
+		}
+		
+	.column.padding.horizontal-two {
+		padding-left: 002.49%;
+		padding-right: 002.49%;
+		}
+		
+	.column.padding.column-left {
+		padding-left: 001.25%;
+		}
+		
+	.column.padding.column-right {
+		padding-right: 001.25%;
+		}
+		
 	}
 	
 @media all and (max-width: 320px) {

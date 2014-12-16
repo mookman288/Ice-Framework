@@ -3,7 +3,7 @@
  ** @Author		PxO Ink
  ** @AuthorURI	http://pxoink.net
  ** @License	MIT
- ** @Copyright	© 2014 PxO Ink. All Rights Reserved.
+ ** @Copyright	Â© 2014 PxO Ink. All Rights Reserved.
  **/
 
 //Set the require config.
@@ -139,7 +139,7 @@ require(["jquery"], function(jQuery) {
 			}, 10000);
 			
 			//On hover.
-			$this.hover(function() {
+			$this.mouseenter(function() {
 				//Keystrokes.
 				jQuery(document).keydown(function (e) {
 					//Switch key movements.
@@ -163,7 +163,7 @@ require(["jquery"], function(jQuery) {
 				
 				//Clear the interval.
 				clearInterval(interval.rand);
-			}, function() {
+			}).mouseleave(function() {
 				//Restart the interval.
 				interval.rand = setInterval(function() {
 					//Slide. 
@@ -301,7 +301,7 @@ require(["jquery"], function(jQuery) {
  * Gets query parameters. 
  * @author http://stackoverflow.com/a/439578
  * @param e
- * @returns {___anonymous6837_6838}
+ * @returns string|integer|float|double
  */
 function getQueryParams(e){e=e.split("+").join(" ");var t={},n,r=/[?&]?([^=]+)=([^&]*)/g;while(n=r.exec(e)){t[decodeURIComponent(n[1])]=decodeURIComponent(n[2])}return t}
 
@@ -320,21 +320,27 @@ function slide($parent, dir) {
 	
 	//Fade the element out.
 	$parent.children('.active').fadeOut(400, function() {
+		//Get the element.
+		var	$this		=	jQuery(this);
+		
 		//Get the current index.
-		var	cur		=	jQuery(this).index();
+		var	cur		=	$this.index();
 		
 		//Remove the active class.
-		jQuery(this).removeClass('active');
+		$this.removeClass('active');
 		
 		//Get the next element depending upon the direction.
 		var	ele		=	(dir < 1) ? (cur != 0) ? (cur - 1) : (num - 1) : (cur != (num - 1)) ? (1 + cur) : 0;
 
 		//Fade in the slide.
 		$parent.children().each(function() { 
+			//Declare that.
+			var $that	=	jQuery(this);
+			
 			//If the index is correct.
-			if (jQuery(this).index() == ele) {
+			if ($that.index() == ele) {
 				//Fade the element in.
-				jQuery(this).fadeIn(400).addClass('active');
+				$that.fadeIn(400).addClass('active');
 				
 				//Restart the interval.
 				interval.rand = setInterval(function() {

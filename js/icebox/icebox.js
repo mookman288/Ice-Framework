@@ -3,10 +3,8 @@
  ** @Author		PxO Ink
  ** @AuthorURI	http://pxoink.net
  ** @License	MIT
- ** @Copyright	© 2014 PxO Ink. All Rights Reserved.
+ ** @Copyright	Â© 2014 PxO Ink. All Rights Reserved.
  **/
-
-
 
 //If jQuery exists.
 if (typeof jQuery !== 'undefined') { 
@@ -41,7 +39,7 @@ if (typeof jQuery !== 'undefined') {
 				var	imgSrc	=	jQuery(this).data('src');
 				
 				//If there is no image. 
-				if (!imgSrc) { console.log('test');
+				if (!imgSrc) { 
 					//Get the element.
 					var	$e	=	jQuery('#' + jQuery(this).attr('data-icebox-id')); 
 					
@@ -55,12 +53,10 @@ if (typeof jQuery !== 'undefined') {
 					html	=	jQuery('<img>', {src: imgSrc, alt: alt});
 				}
 				
-				console.log(html);
-				
 				//Create elements.
 				var	$shadow	=	jQuery('<div>', {id: 'ice-shadow'});
 				var	$close	=	jQuery('<a>', {id: 'icebox-close', 
-					href: 'javascript:void(0);', title: 'Close'}).text('X');
+					href: 'javascript:void(0);', title: 'Close'}).html('&times;');
 				var	$div	=	jQuery('<div>').append(html);
 				var	$icebox	=	jQuery('<div>', {id: 'icebox'}).append($close).append($div);
 				

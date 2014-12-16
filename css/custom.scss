@@ -1,0 +1,11 @@
+    h1, h2, h3, h4, h5, h6 {
+        font-family: "Open Baskerville", serif;
+        }
+        
+    .background.default {
+        background-image: url('../images/background.gif');
+        }
+        
+    .background.default > * {
+        text-shadow: 0px 0px 0.50em #000;
+        }
