@@ -3,31 +3,40 @@
  * Author: PxO Ink
  * License: The MIT License (MIT)
  * Copyright: © 2014 PxO Ink. Some Rights Reserved.
- */
- 
-/* CSS Reset */
+ **/
+
+//Sass Variables.
+@import "sass/variables";
+
+//Functions and Mixins.
+@import "sass/fixions";
+
+//CSS Reset.
 @import	"sass/reset";
 
-/* Clearfix */ 
+//Clearfix. 
 @import	"sass/clear";
 
-/* Colors */
+//Colors.
 @import "sass/colors";
 
-/* Fonts */
+//Fonts.
 @import	"sass/fonts";
 
-/* Mixins */
-@import "sass/mixins";
-
-/* Framework */
+//Framework.
 @import	"sass/framework";
 
-/* Responsive */
+//Alerts.
+@import "sass/alerts";
+
+//Columns.
+@import "sass/columns";
+
+//Responsive.
 @import	"sass/responsive";
 
-/* Libraries */
+//Libraries.
 @import	"../icebox/icebox.css";
 
-/* Custom Design */
+//Custom Design.
 @import "custom";

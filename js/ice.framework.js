@@ -22,7 +22,6 @@ requirejs.config({
 
 //Declare global variables.
 var	interval	=	new Object();
-var $_GET		=	getQueryParams(document.location.search);
 
 //Require Modernizr.
 require(["modernizr.min"]);
@@ -301,9 +300,9 @@ require(["jquery"], function(jQuery) {
  * Gets query parameters. 
  * @author http://stackoverflow.com/a/439578
  * @param e
- * @returns string|integer|float|double
+ * @returns object|array
  */
-function getQueryParams(e){e=e.split("+").join(" ");var t={},n,r=/[?&]?([^=]+)=([^&]*)/g;while(n=r.exec(e)){t[decodeURIComponent(n[1])]=decodeURIComponent(n[2])}return t}
+var	$_GET	=	function(){qs=document.location.search;qs=qs.split("+").join(" ");var t={},n,r=/[?&]?([^=]+)=([^&]*)/g;while(!!(n=r.exec(qs))){t[decodeURIComponent(n[1])]=decodeURIComponent(n[2]);}return t;}();	
 
 /**
  * Implements a slide change. 

@@ -1,12 +1,11 @@
-/*
+/**
  * Name: Framework
  * Author: PxO Ink
  * License: The MIT License (MIT)
  * Copyright: © 2014 PxO Ink. Some Rights Reserved.
- */
+ **/
 
-//Reusable Classes 
-
+//Utility classes.
 .clear {
 	clear: both;
 	}
@@ -47,7 +46,55 @@
 	padding: 1.50em 2.50em;
 	}
 	
-//Page Settings 
+.base-margin-down {
+	margin-bottom: 0.50em;
+	}
+	
+.normal {
+	@extend .base-margin-down;
+	@extend .default;
+	@extend .one-half-space;
+	}
+	
+.page {
+	@extend .clearfix;
+	margin: 0 auto;
+	width: 100.00%;
+	min-width: map-get($resolutions, "max");
+	
+	&.twenty {
+		width: 20.00%;
+		min-width: map-get($resolutions, "mobile");
+		}
+	
+	&.forty {
+		width: 40.00%;
+		min--width: map-get($resolutions, "standard");
+		}
+	
+	&.sixty {
+		width: 60.00%;
+		min-width: map-get($resolutions, "tablet");
+		}
+	
+	&.eighty {
+		width: 80.00%;
+		min-width: map-get($resolutions, "wide");
+		}
+	}
+	
+.rounded-corners {
+	border-radius: 0.04em;
+	}
+	
+//Base settings.
+a {
+	color: map-get($colors, "blue");
+	}
+	
+a:hover {
+	color: map-get($offsets, "blue");
+	}
 
 abbr {
 	border-width: 0px;
@@ -58,6 +105,7 @@ abbr {
 	
 blockquote {
 	position: relative;
+	@extend .normal;
 	@extend .plus-margin;
 	}
 	
@@ -113,31 +161,49 @@ code > span:before {
 	}
 	
 h1 {
+	@extend .base-margin-down;
 	@extend .huge;
 	}
 	
 h2 {
+	@extend .base-margin-down;
 	@extend .mega;
 	}
 	
 h3, fieldset legend {
+	@extend .base-margin-down;
 	@extend .heading;
 	}
 	
 h4 {
+	@extend .base-margin-down;
 	@extend .large;
 	}
 	
 h5 {
+	@extend .base-margin-down;
 	@extend .husky;
 	}
 	
 h6 {
+	@extend .base-margin-down;
 	@extend .default;
 	}
 	
 iframe, img, object {
 	max-width: 100.00%;
+	}
+	
+label {
+	@extend .normal;
+	}
+	
+input {
+	@extend .normal;
+	}
+	
+textarea {
+	@extend .normal;
 	}
 	
 input[type=text], input[type=password], input[type=email], input[type=date], input[type=datetime], 
@@ -184,6 +250,10 @@ fieldset, fieldset > legend {
 	border-width: 0px;
 	}
 	
+fieldset > legend {
+	@extend .normal;
+	}
+	
 form label {
 	padding: 0.50em;
 	padding-left: 0px;
@@ -197,13 +267,39 @@ form > label {
 	display: inline-block;
 	}
 	
+p {
+	@extend .normal;
+	}
+	
+ul, ol {
+	margin-left: 1.00em;
+	@extend .normal;
+	}
+	
+ul > li, ol > li {
+	padding-left: 1.00em;
+	list-style-position: inside;
+	text-indent: -1.00em;
+	}
+	
+li li {
+	font-size: 1.00em;
+	line-height: 1.00em;
+	}
+	
 nav ul {
+	margin-left: 0px;
 	padding: 0px;
 	list-style-type: none;
 	}
 	
 nav > ul ul {
 	@extend .nod;
+	}
+	
+nav ul > li {
+	display: inline;
+	padding: 0px;
 	}
 	
 table {
@@ -218,31 +314,5 @@ table thead td input, table tbody td input, table thead td select, table tbody t
 table tbody td textarea {
 	
 	}
-	
-//Alerts 
 
-.alert {
-	&.success {
-		@include back-offset-box($success);
-	}
-	
-	&.warning {
-		@include back-offset-box($warning);
-	}
-
-	&.error {
-		@include back-offset-box($error);
-	}
-	
-	&.message {
-		@include back-offset-box($message);
-	}
-}
-	
-//Page Work 
-
-.normal, #main p, #main blockquote, #main ul > li, nav > ul > li, nav ul.horizontal > li, 
-form label, form input, form textarea, .input, fieldset > legend {
-	@extend .default;
-	@extend .one-half;
-	}
+//Page settings.

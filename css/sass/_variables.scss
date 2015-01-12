@@ -1,0 +1,152 @@
+/**
+ * Name: Variables
+ * Author: PxO Ink
+ * License: The MIT License (MIT)
+ * Copyright: © 2014 PxO Ink. Some Rights Reserved.
+**/
+
+//Declare Colors.
+$colors:	(
+				"white":		#FFF,
+				"silver":		#EEE,
+				"dark-silver":	#DDD,
+				"grey":			#BBB,
+				"dark-grey":	#888,
+				"metal":		#555,
+				"shadow":		#444,
+				"dark":			#222,
+				"darker":		#111,
+				"black":		#000,
+				"success":		#DFE,
+				"warning":		#FFC,
+				"error":		#FDD,
+				"message":		#8CF,
+				"blue":			#007BA7,
+				"brown":		#413836,
+				"cerulean":		#1DACD6,
+				"frost":		#6D9BC3,
+				"green":		#088C48,
+				"gold":			#E6C700,
+				"ice":			#BBDFFF,
+				"neon-blue":	#26C0FF,
+				"neon-green":	#00FF8F,
+				"neon-red":		#F00,
+				"orange":		#FF7F00,
+				"purple":		#60F,
+				"red":			#B00,
+				"yellow":		#FFF000		
+			);
+			
+//Declare Color Variables.
+$white:			map-get($colors, "white");
+$silver:		map-get($colors, "silver");
+$dark-silver:	map-get($colors, "dark-silver");
+$grey:			map-get($colors, "grey");
+$dark-grey:		map-get($colors, "dark-grey");
+$metal:			map-get($colors, "metal");
+$shadow:		map-get($colors, "shadow");
+$dark:			map-get($colors, "dark");
+$darker:		map-get($colors, "darker");
+$black:			map-get($colors, "black");
+$success:		map-get($colors, "success");
+$warning:		map-get($colors, "warning");
+$error:			map-get($colors, "error");
+$message:		map-get($colors, "message");
+$blue:			map-get($colors, "blue");
+$brown:			map-get($colors, "brown");
+$cerulean:		map-get($colors, "cerulean");
+$frost:			map-get($colors, "frost");
+$green:			map-get($colors, "green");
+$gold:			map-get($colors, "gold");
+$ice:			map-get($colors, "ice");
+$neon-blue:		map-get($colors, "neon-blue");
+$neon-green:	map-get($colors, "neon-green");
+$neon-red:		map-get($colors, "neon-red");
+$orange:		map-get($colors, "orange");
+$purple:		map-get($colors, "purple");
+$red:			map-get($colors, "red");
+$yellow:		map-get($colors, "yellow");
+
+//Declare Contrasting Colors.
+$contrasts:	(
+				"white":		$black,
+				"silver":		$black,
+				"dark-silver":	$darker,
+				"grey":			$darker,
+				"dark-grey":	$darker,
+				"metal":		$silver,
+				"shadow":		$silver,
+				"dark":			$silver,
+				"darker":		$white,
+				"black":		$white,
+				"success":		$black,
+				"warning":		$black,
+				"error":		$black,
+				"message":		$black,
+				"blue":			$silver,
+				"brown":		$silver,
+				"cerulean":		$black,
+				"frost":		$black,
+				"green":		$black,
+				"gold":			$darker,
+				"ice":			$black,
+				"neon-blue":	$black,
+				"neon-green":	$black,
+				"neon-red":		$black,
+				"orange":		$black,
+				"purple":		$silver,
+				"red":			$darker,
+				"yellow":		$black
+			);
+
+//Declare Offset Colors.
+$offsets: (
+				"white":		$silver,
+				"silver":		$white,
+				"dark-silver":	$grey,
+				"grey":			$dark-silver,
+				"dark-grey":	$metal,
+				"metal":		$dark-grey,
+				"shadow":		$dark,
+				"dark":			$shadow,
+				"darker":		$black,
+				"black":		$darker,
+				"success":		#F66,
+				"warning":		#FC9,
+				"error":		#F66,
+				"message":		#068,
+				"blue":			$cerulean,
+				"brown":		#413836,
+				"cerulean":		$frost,
+				"frost":		$ice,
+				"green":		#0F0,
+				"gold":			$yellow,
+				"ice":			$blue,
+				"neon-blue":	$neon-green,
+				"neon-green":	$neon-blue,
+				"neon-red":		$red,
+				"orange":		#FFB489,
+				"purple":		#8880BD,
+				"red":			#FF6060,
+				"yellow":		$gold
+			);
+				
+//Declare resolutions.
+$resolutions:	(
+					"max":		1680,
+					"wide":		1440,
+					"tablet":	1280,
+					"crt":		1152,
+					"standard":	1024,
+					"small":	940,
+					"mobile":	640,
+					"tv":		540,
+					"phone":	480,
+					"micro":	320
+				);
+							
+//Declare total number of columns.
+$columns:	20;
+
+//Declare the max width for columns.
+$maxWidth:	99.88;
