@@ -15,7 +15,7 @@
 *.komodoproject
 *.esproj
 *.espressostorage
-
+node_modules
 .DS_Store
 Thumbs.db
 .cache
@@ -36,6 +36,5 @@ dwsync.xml
 .env.php
 composer.phar
 .sass-cache
-
 vendor/
 cache/

@@ -1,0 +1,663 @@
+/**
+ * Name: Framework
+ * Author: PxO Ink
+ * License: The MIT License (MIT)
+ * Copyright: © 2014 PxO Ink. Some Rights Reserved.
+ **/
+
+//Utility classes.
+.clear {
+	clear: both;
+	}
+	
+.nod {
+	display: none;
+	}
+	
+.req {
+	color: $neon-red;
+	}
+	
+.pointer {
+	cursor: pointer;
+	}
+	
+.no-margin {
+	margin: 0px;
+	}
+	
+.base-margin {
+	margin: 0.50em 1.50em;
+	}
+	
+.plus-margin {
+	margin: 1.50em 2.50em;
+	}
+	
+.no-padding {
+	padding: 0px;
+	}
+	
+.base-padding {
+	padding: 0.50em 1.50em;
+	}
+	
+.plus-padding {
+	padding: 1.50em 2.50em;
+	}
+	
+.base-margin-down {
+	margin-bottom: 0.50em;
+	}
+	
+.normal {
+	@extend .base-margin-down;
+	@extend .default;
+	@extend .one-half-space;
+	}
+	
+.page {
+	@extend .cfx;
+	margin: 0 auto;
+	width: 100.00%;
+	min-width: map-get($resolutions, "max");
+	
+	&.twenty {
+		width: 20.00%;
+		min-width: map-get($resolutions, "mobile");
+		}
+	
+	&.forty {
+		width: 40.00%;
+		min--width: map-get($resolutions, "standard");
+		}
+	
+	&.sixty {
+		width: 60.00%;
+		min-width: map-get($resolutions, "tablet");
+		}
+	
+	&.eighty {
+		width: 80.00%;
+		min-width: map-get($resolutions, "wide");
+		}
+	}
+	
+.rounded-corners {
+	border-radius: 0.40em;
+	}
+	
+.rounded-top {
+	border-radius: 0.40em 0.40em 0px 0px;
+	}
+	
+.rounded-bottom {
+	border-radius: 0px 0px 0.40em 0.40em;
+	}
+
+/* Base and Page Settings */	
+
+a {
+	color: map-get($colors, "blue");
+
+	&:hover {
+		color: map-get($offsets, "blue");
+		}
+	}
+
+abbr {
+	border-width: 0px;
+	border-bottom: 1px;
+	border-color: inherit;
+	border-style: dotted;
+	}
+	
+blockquote {
+	position: relative;
+	@extend .normal;
+	@extend .plus-margin;
+	
+	&:before, &:after {
+		position: absolute;
+		@extend .huge;
+		}
+	
+	&:before {
+		content: "\201C";
+		left: -0.50em;
+		}
+	
+	&:after {
+		content: '\201D';
+		bottom: 0.05em;
+		right: -0.50em;
+		}
+	
+	span {
+		display: block;
+		margin-top: 0.50em;
+		text-align: right;
+		}
+	}
+	
+.button {
+	@extend .base-margin;
+	@extend .base-padding;
+	@extend .pointer;
+	border-width: 0px;
+	}
+	
+button {
+	@extend .button;
+	}
+	
+code {
+	display: block;
+	@extend .base-padding;
+	max-width: 100.00%;
+	@extend .default;
+	counter-reset: linecounter;
+	overflow: scroll;
+	white-space: pre;
+	
+	> span {
+		counter-increment: linecounter;
+		}
+	
+	> span:before {
+		content: counter(linecounter);
+		padding-right: 0.50em;
+		margin-right: 0.50em;
+		border-width: 0px;
+		border-right: 0.40em;
+		border-color: $dark-grey;
+		border-style: solid;
+		opacity: 0.40;
+		}
+	}
+	
+/* Headings */
+	
+h1 {
+	@extend .base-margin-down;
+	@extend .huge;
+	}
+	
+h2 {
+	@extend .base-margin-down;
+	@extend .mega;
+	}
+	
+h3 {
+	@extend .base-margin-down;
+	@extend .heading;
+	}
+	
+h4 {
+	@extend .base-margin-down;
+	@extend .large;
+	}
+	
+h5, fieldset legend {
+	@extend .base-margin-down;
+	@extend .husky;
+	}
+	
+h6 {
+	@extend .base-margin-down;
+	@extend .default;
+	}
+	
+iframe, img, object {
+	max-width: 100.00%;
+	}
+	
+label {
+	@extend .normal;
+	}
+	
+/* Inputs */
+	
+input {
+	@extend .normal;
+	}
+	
+textarea {
+	@extend .normal;
+	}
+	
+.input {
+	margin-bottom: 0.50em;
+	padding: 1.00%;
+	max-width: 98.00%;
+	border-width: 1px;
+	border-style: solid;
+	border-color: $grey;
+	-moz-box-sizing: border-box; 
+	-webkit-box-sizing: border-box; 
+	box-sizing: border-box;
+	font-family: sans-serif, serif;
+	}
+	
+input[type=text], input[type=password], input[type=email], input[type=date], input[type=datetime], 
+input[type=datetime-local], input[type=search], input[type=tel], input[type=url], input[type=month], 
+input[type=week], input[type=number], input[type=range], input[type=color], select, textarea {
+	@extend .input;
+	}
+	
+input[readonly] {
+	background-color: buttonface;
+	}
+	
+input[type=submit] {
+	@extend .button;
+	}
+	
+input[type=file] {
+	padding: 0.25em;
+	}
+	
+input[type=image] {
+	vertical-align: top;
+	}
+	
+input[type=reset] {
+	@extend .pointer;
+	}
+	
+input.datepicker {
+	@extend .pointer;
+	}
+	
+fieldset, fieldset > legend {
+	margin: 0.50em 0px;
+	border-width: 0px;
+	}
+	
+fieldset > legend {
+	@extend .normal;
+	}
+	
+form label {
+	padding: 0.50em;
+	padding-left: 0px;
+	}
+	
+form label[for] {
+	@extend .pointer;
+	}
+	
+form > label {
+	display: inline-block;
+	}
+	
+p {
+	@extend .normal;
+	}
+	
+ul, ol {
+	margin-left: 1.00em;
+	@extend .normal;
+	}
+	
+ul > li, ol > li {
+	margin-left: 1.00em;
+	list-style-position: inside;
+	text-indent: -1.00em;
+	}
+	
+li li, ul ul {
+	font-size: 1.00em;
+	line-height: 1.00em;
+	}
+
+/* Navigation */
+	
+nav {
+	@extend .base-margin-down;
+	
+	ul {
+		margin-left: 0px;
+		padding: 0px;
+		list-style-type: none;
+		
+		li {
+			margin: 0px;
+			text-indent: 0em;
+			}
+		
+		> li {
+			display: inline;
+			padding: 0px;
+			}
+			
+		ul li a {
+			display: block;
+			}
+			
+		ul {
+			display: none;
+			}
+		
+		li.mobile {
+			display: none;
+			}
+		
+		ul li.mobile a {
+			font-size: 2.80em;
+			line-height: 1.00em;
+			text-decoration: none;
+			}
+		}
+		
+	&.horizontal {
+		padding: 0.50em;
+		
+		> * {
+			float: left;
+			margin: 0.15em 0px;
+			padding: 0px 1.50em;
+			}
+			
+		ul {
+			position: relative;
+			margin: 0px;
+			padding: 0px;
+			}
+		
+		> ul li {
+			float: left;
+			position: relative;
+			display: block;
+			}
+			
+		ul li a {
+			@extend .base-padding;
+			}
+			
+		> ul li:last-child {
+			margin-right: 0px;
+			}
+			
+		ul li:hover > ul {
+			display: block;
+			}
+			
+		ul ul {
+			display: none;
+			position: absolute;
+			top: 100.00%;
+			margin-top: 0.35em;
+			z-index: 10;
+			}
+			
+		ul ul li {
+			float: none; 
+			position: relative;
+			white-space: nowrap;
+			}
+			
+		ul ul ul {
+			top: 0px;
+			left: 100.00%;
+			}
+		}
+		
+	&.vertical {
+		ul {
+			display: block;
+			}
+			
+		li {
+			display: block;
+			position: relative;
+			}
+		
+		ul li a {
+			display: block;
+			}
+			
+		ul ul {
+			display: none;
+			position: absolute;
+			top: 100.00%;
+			z-index: 10;
+			}
+			
+		ul li:hover > ul {
+			display: block;
+			top: 0px;
+			left: 100.00%;
+			}
+			
+		ul ul li {
+			float: none; 
+			white-space: nowrap;
+			}
+			
+		ul ul ul {
+			top: 0px;
+			left: 100.00%;
+			}
+		}
+	}
+	
+table {
+	width: 100.00%;
+	}
+	
+table caption, table th, table thead td, table tbody th, table tbody td {
+	@extend .align-left;
+	}
+	
+table thead td input, table tbody td input, table thead td select, table tbody td select, table thead td textarea, 
+table tbody td textarea {
+	
+	}
+
+//Page settings.
+body > section {
+	@extend .default;
+	}
+	
+.content {
+	@extend .cfx;
+	@extend .base-margin;
+	}
+	
+.featured {
+	@extend .plus-padding;
+	@extend .ice;
+	@extend .background;
+	}
+	
+.sticky {
+	z-index: 2500;
+	}
+	
+/* Borders */
+
+.border {
+	border-width: 1px;
+	border-style: solid;
+	border-color: inherit;
+	
+	&.thick {
+		border-width: 0.50em;
+		}
+		
+	&.thin {
+		border-width: 0.10em;
+		}
+		
+	&.thinnest {
+		border-width: 1px;
+		}
+		
+	&.groove {
+		border-style: groove;
+		}
+		
+	&.inset {
+		border-style: inset;
+		}
+		
+	&.outset {
+		border-style: outset;
+		}
+		
+	&.ridge {
+		border-style: ridge;
+		}
+	}
+		
+/* Breadcrumbs */
+
+.breadcrumbs {
+	margin: 0px;
+	padding: 0.50em;
+	
+	li {
+		display: inline;
+		padding-left: 0px !important;
+		font-variant: small-caps;
+		text-indent: 0px;
+		text-transform: lowercase;
+		}
+		
+	li:before {
+		content: ' / ';
+		@extend .micro;
+		}
+		
+	li:first-child:before {
+		content: '';
+		}
+		
+	li:last-child a {
+		color: inherit;
+		cursor: default;
+		text-decoration: none;
+		}
+		
+	li:last-child a:hover {
+		color: inherit;
+		}
+	}
+	
+/* Tabs */
+
+.tabs {
+	a {
+		@extend .button;
+		margin: 0px;
+		@extend .base;
+		text-decoration: none;
+		}
+	
+	li {
+		display: inline;
+		margin-right: -1px;
+		padding: 0px !important;
+		text-indent: 0px !important;
+		}
+	
+	&.rounded-corners a {
+		@extend .rounded-top;
+		}
+	}
+	
+/* Pagination */
+
+.pagination {
+	padding: 0.50em 0px;
+	
+	ul li {
+		display: inline;
+		padding: 0px !important;
+		text-indent: 0px;
+		}
+		
+	ul li a {
+		padding: 0.20em 0.50em;
+		text-decoration: none;
+		}
+	
+	&.rounded-corners ul li a {
+		border-radius: 5px;
+		}
+	}
+	
+/* Gallery */
+
+.gallery {
+	> * {
+		margin-bottom: 0.50em !important;
+		margin-right: 0.50% !important;
+		padding: 0.85%;
+		background-color: #000;
+		vertical-align: bottom;
+		}
+	
+	&.resize.twenty > * {
+		width: 15.85%;
+		}
+		
+	&.resize.twenty-five > * {
+		width: 20.85%;
+		}
+	}
+	
+/* Slider */
+
+/* Begin Slider Work */
+
+.slider-container {
+	display: table;
+	padding: 0px 5.00em;
+	position: relative;
+	}
+	
+.slide-left, .slide-right {
+	display: table-cell;
+	padding: 0px 0.50em;
+	font-size: 4.00em;
+	text-decoration: none;
+	vertical-align: middle;
+	}
+	
+.slide-left:hover, .slide-right:hover {
+	text-decoration: none;
+	}
+
+.slider {
+	margin: 0 auto;
+	text-align: center;
+
+	> * {
+		display: none;
+		margin: 0px;
+		text-indent: 0px;
+		list-style-type: none;
+		}
+		
+	> *:first-child {
+		display: initial;
+		}
+	
+	figure {
+		position: relative;
+		}
+		
+	figure figcaption {
+		position: absolute;
+		bottom: 2px;
+		padding: 2.50% 5.00%;
+		width: 90.00%;
+		background-image: url('../images/shadow.png');
+		color: #FFF;
+		font-size: 1.60em;
+		line-height: 1.50em;
+		text-align: left;
+		}
+	}

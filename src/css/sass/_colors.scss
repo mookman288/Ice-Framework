@@ -1,0 +1,144 @@
+/**
+ * Name: Colors
+ * Author: PxO Ink
+ * License: The MIT License (MIT)
+ * Copyright: © 2014 PxO Ink. Some Rights Reserved.
+ **/
+
+//For Each Color.
+@each $key, $value in $colors {
+	//Build Class.
+	.#{"" + $key} {
+		//Declare variables.
+		$color: map-get($colors, $key); 
+		
+		//If there is a color.
+		@if $color != null {
+			//Declare additional colors.
+			$contrast: map-get($contrasts, $key);
+			$offset: map-get($offsets, $key);
+			
+			//Set the color.
+			color: $color;
+			
+			//For anchors.
+			a & {
+				&:hover {
+					color: $offset;
+					}
+				}
+				
+			//For borders.
+			.border &- {
+				border-color: $color;
+				}
+			
+			//Add shadow.
+			&.shadow {
+				text-shadow: 0px -0.10em 0px darken($color, 10.00%);
+				}
+			
+			//Add background.
+			&.background {
+				background-color: $color;
+				color: $contrast;
+				
+				//Set for children.
+				& a {
+					color: $contrast;
+					
+					&:hover {
+						color: $offset;
+						}
+					}
+				}
+				
+				//For navigation elements. 
+				nav & {
+					> ul {
+						background-color: $color;
+						color: $contrast;
+						}
+					}
+					
+				ul & {
+					> ul {
+						background-color: $color;
+						color: $contrast;
+						}
+					}
+				}
+				
+			&.pagination {
+				a {
+					color: $color;
+					
+					&:hover {
+						color: $offset;
+						}
+					}
+			
+				li.current a {
+					background-color: $color;
+					color: $contrast;
+					}
+				}
+			
+			//Add button.
+			&.button {
+				@extend .base-margin;
+				@extend .base-padding;
+				@extend .#{"" + $key}.background;
+				@extend .default;
+				text-decoration: none;
+				}
+			
+			//Add button hover.
+			&.button:hover {
+				background-color: $offset;
+				}
+			
+			//Add active button.
+			&.button:active {
+				background-color: darken($color, 10.00%);
+				}
+			
+			//If the offset value is not null.
+			@if $offset != null {
+				//Add button with gradient.
+				&.button.gradient {
+					background: linear-gradient(top, $color 0%, $offset 100%);
+					background: -moz-linear-gradient(top, $color 0%, $offset 100%);
+					background: -webkit-linear-gradient(top,$color 0%, $offset 100%);
+					}
+				}
+			
+			//Add button with border.
+			&.button.border {
+				border-width: 0.10em;
+				border-color: darken($color, 25.00%);
+				border-style: solid;
+				box-shadow: inset 0px 0.10em 0px lighten($color, 25.00%);
+				}
+			
+			//Add active button with border.
+			&.button.border:active {
+				border-color: lighten($color, 10.00%);
+				box-shadow: inset 0px 0.10em 0px darken($color, 25.00%);
+				}
+			
+			//Add button with radius.
+			&.button.radius {
+				border-radius: 0.80em;
+				}
+			
+			//If the contrast value is not null. 
+			@if $contrast != null {
+				//Add a button shadow.
+				&.button.shadow {
+					text-shadow: 0px -0.10em 0px darken($contrast, 10.00%);
+					}
+				}
+			}
+		}
+}

@@ -1,0 +1,23 @@
+{
+	"name": "Ice-Framework",
+	"version": "0.1.0",
+	"description": "A minimal simplified development framework.",
+	"main": "index.js",
+	"scripts": {},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/mookman288/Ice-Framework.git"
+	},
+	"author": "PxO Ink",
+	"license": "MIT",
+	"dependencies": {
+		"gulp": "*",
+		"gulp-cache": "*",
+		"gulp-concat": "*", 
+		"gulp-jshint": "*", 
+		"gulp-livereload": "*", 
+		"gulp-rename": "*", 
+		"gulp-sass": "*", 
+		"gulp-uglify": "*"
+	}
+}
