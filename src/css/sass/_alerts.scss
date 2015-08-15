@@ -1,9 +1,7 @@
-/*
- * Name: Alerts
- * Author: PxO Ink
- * License: The MIT License (MIT)
- * Copyright: © 2014 PxO Ink. Some Rights Reserved.
- */
+//Name: Alerts
+//Author: PxO Ink
+//License: The MIT License (MIT)
+//Copyright: © 2014 PxO Ink. Most Rights Reserved.
 
 .alert {
 	position: relative;
@@ -14,23 +12,23 @@
 	
 	> * {
 		margin: 0px;
-		}
+	}
 	
 	&.success {
 		@include back-offset-box("success");
-		}
+	}
 	
 	&.warning {
 		@include back-offset-box("warning");
-		}
+	}
 
 	&.error {
 		@include back-offset-box("error");
-		}
+	}
 	
 	&.message {
 		@include back-offset-box("message");
-		}
+	}
 		
 	&.dismiss {
 		@extend .pointer;
@@ -42,6 +40,6 @@
 			content: '\00d7';
 			color: $darker;
 			@extend .husky;
-			}
 		}
 	}
+}

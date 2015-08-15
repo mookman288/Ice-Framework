@@ -1,9 +1,7 @@
-/**
- * Name: Variables
- * Author: PxO Ink
- * License: The MIT License (MIT)
- * Copyright: © 2014 PxO Ink. Some Rights Reserved.
-**/
+//Name: Variables
+//Author: PxO Ink
+//License: The MIT License (MIT)
+//Copyright: © 2014 PxO Ink. Most Rights Reserved.
 
 //Declare Colors.
 $colors:	(
@@ -133,16 +131,26 @@ $offsets: (
 				
 //Declare resolutions.
 $resolutions:	(
-					"max":		1680,
+					"max":		2048,
+					"ultra":	1680,
 					"wide":		1440,
-					"tablet":	1280,
-					"crt":		1152,
-					"standard":	1024,
-					"small":	940,
+					"standard":	1000,
+					"small":	860,
 					"mobile":	640,
-					"tv":		540,
 					"phone":	480,
 					"micro":	320
+				);
+				
+//Declare resolution "DPI" adjustment.
+$resoFontSizes:	(
+					"max":		71.44%,
+					"ultra":	71.44%,
+					"wide":		62.50%,
+					"standard":	62.50%,
+					"small":	62.50%,
+					"mobile":	53.56%,
+					"phone":	53.56%,
+					"micro":	53.56%
 				);
 							
 //Declare total number of columns.
@@ -150,3 +158,15 @@ $columns:	20;
 
 //Declare the max width for columns.
 $maxWidth:	99.88;
+
+//Declare font sizes.
+$micro: 	0.80em;
+$base:		1.00em;
+$small:		1.20em;
+$default:	1.40em;
+$husky:		1.60em;
+$large:		1.80em;
+$heading:	2.40em;
+$mega:		2.80em;
+$huge:		4.00em;
+$collosal:	5.80em;

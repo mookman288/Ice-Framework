@@ -1,16 +1,13 @@
-/**
- * Name: Mixins and Functions
- * Author: PxO Ink
- * License: The MIT License (MIT)
- * Copyright: © 2014 PxO Ink. Some Rights Reserved.
- */
+//Name: Mixins and Functions
+//Author: PxO Ink
+//License: The MIT License (MIT)
+//Copyright: © 2014 PxO Ink. Some Rights Reserved.
 
-/**
- * Calculates a column based on column and resolution.
- * 
- * @param number $column
- * @param text $resolution
- **/
+//Calculates a column based on column and resolution.
+//
+//@param number $column
+//@param text $resolution
+
 @function calcCol($column, $resolution) { 
 	//If the column is equal to zero.
 	@if ($column == 0) {
@@ -18,66 +15,41 @@
 	} @else if ($column == $columns) {
 		@return 100.00;
 	} @else {
-		//Based on the resolution, return a value.
-		@if (map-get($resolutions, $resolution) < 500) {
-			//Get the padding.
-			$padding: (($maxWidth / $columns) * 6) / $columns;
-			$newWidth: $maxWidth - ($padding * $columns);
-			
-			//Return the width.
-			@return (($newWidth / $columns) * $column) + $padding;
-		} @else if (map-get($resolutions, $resolution) < 800) {
-			//Get the padding.
-			$padding: (($maxWidth / $columns) * 4) / $columns;
-			$newWidth: $maxWidth - ($padding * $columns);
-			
-			//Return the width.
-			@return (($newWidth / $columns) * $column) + $padding;
-		} @else if (map-get($resolutions, $resolution) < 1100) {
-			//Get the padding.
-			$padding: (($maxWidth / $columns) * 2) / $columns;
-			$newWidth: $maxWidth - ($padding * $columns);
-			
-			//Return the width.
-			@return (($newWidth / $columns) * $column) + $padding;
-		} @else {
-			//Return the width.
-			@return ($maxWidth / $columns) * $column;
-		}
+		//Return the width.
+		@return (($maxWidth / $columns) * $column);
 	}
 }
 
-/**
- * Converts number to em.
- * @param number $n
- **/
+//Converts number to em.
+//
+//@param number $n
+
 @function toEm($n) {
 	@return $n * 1em;
-	}
+}
 
-/**
- * Converts number to percent.
- * @param number $n
- **/
+//Converts number to percent.
+//
+//@param number $n
+
 @function toPercent($n) {
 	@return $n * 1%
-	}
+}
 
-/**
- * Converts number to pixel.
- * @param number $n
- **/
+//Converts number to pixel.
+//
+//@param number $n
+
 @function toPixel($n) {
 	@return $n * 1px;
-	}
+}
 
-/**
- * Calculates a color based on variables.
- * 
- * @param text $rcolor
- **/
+//Calculates a color based on variables.
+//
+//@param text $rcolor
+
 @mixin back-offset-box($color) {
 	background-color: map-get($colors, $color);
 	border-color: map-get($offsets, $color);
 	color: map-get($contrasts, $color);
-	}
+}

@@ -1,9 +1,7 @@
-/**
- * Name: Framework
- * Author: PxO Ink
- * License: The MIT License (MIT)
- * Copyright: © 2014 PxO Ink. Some Rights Reserved.
- **/
+//Name: Framework
+//Author: PxO Ink
+//License: The MIT License (MIT)
+//Copyright: © 2014 PxO Ink. Some Rights Reserved.
 
 //Utility classes.
 .clear {
@@ -60,26 +58,26 @@
 	@extend .cfx;
 	margin: 0 auto;
 	width: 100.00%;
-	min-width: map-get($resolutions, "max");
+	min-width: map-get($resolutions, "max") + px;
 	
 	&.twenty {
 		width: 20.00%;
-		min-width: map-get($resolutions, "mobile");
+		min-width: map-get($resolutions, "mobile") + px;
 		}
 	
 	&.forty {
 		width: 40.00%;
-		min--width: map-get($resolutions, "standard");
+		min-width: map-get($resolutions, "standard") + px;
 		}
 	
 	&.sixty {
 		width: 60.00%;
-		min-width: map-get($resolutions, "tablet");
+		min-width: map-get($resolutions, "wide") + px;
 		}
 	
 	&.eighty {
 		width: 80.00%;
-		min-width: map-get($resolutions, "wide");
+		min-width: map-get($resolutions, "ultra") + px;
 		}
 	}
 	
