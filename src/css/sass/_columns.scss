@@ -50,6 +50,10 @@
 				&-margin {
 					&-#{"" + $i} {
 						margin: toPercent(calcCol($i, $key));
+						
+						&-half {
+							margin: toPercent(calcCol(0.5, $key));
+						}
 					}
 						
 					&-ends-#{"" + $i} {
@@ -76,10 +80,6 @@
 					
 					&-right-#{"" + $i} {
 						margin-right: toPercent(calcCol($i, $key));
-					}
-						
-					&-half-#{"" + $i} {
-						margin: toPercent(calcCol(0.5, $key));
 					}
 					
 					&-ends-#{"" + $i}-half {
@@ -113,6 +113,10 @@
 				&-padding {
 					&-#{"" + $i} {
 						padding: toPercent(calcCol($i, $key));
+						
+						&-half {
+							padding: toPercent(calcCol(0.5 * $i, $key));
+						}
 					}
 				
 					&-ends-#{"" + $i} {
@@ -139,10 +143,6 @@
 					
 					&-right-#{"" + $i} {
 						padding-right: toPercent(calcCol($i, $key));
-					}
-						
-					&-#{"" + $i}-half {
-						padding: toPercent(calcCol(0.5 * $i, $key));
 					}
 				
 					&-ends-#{"" + $i}-half {

@@ -15,9 +15,9 @@ $colors:	(
 				"dark":			#222,
 				"darker":		#111,
 				"black":		#000,
-				"success":		#DFE,
-				"warning":		#FFC,
-				"error":		#FDD,
+				"success":		#68F0AB,
+				"warning":		#FFC662,
+				"error":		#FF6666,
 				"message":		#8CF,
 				"blue":			#007BA7,
 				"brown":		#413836,
@@ -32,7 +32,8 @@ $colors:	(
 				"orange":		#FF7F00,
 				"purple":		#60F,
 				"red":			#B00,
-				"yellow":		#FFF000		
+				"yellow":		#FFF000, 
+				"pink":			#FF65B8
 			);
 			
 //Declare Color Variables.
@@ -64,6 +65,7 @@ $orange:		map-get($colors, "orange");
 $purple:		map-get($colors, "purple");
 $red:			map-get($colors, "red");
 $yellow:		map-get($colors, "yellow");
+$pink:			map-get($colors, "pink");
 
 //Declare Contrasting Colors.
 $contrasts:	(
@@ -94,7 +96,8 @@ $contrasts:	(
 				"orange":		$black,
 				"purple":		$silver,
 				"red":			$silver,
-				"yellow":		$black
+				"yellow":		$black, 
+				"pink":			$black
 			);
 
 //Declare Offset Colors.
@@ -109,29 +112,30 @@ $offsets: (
 				"dark":			$shadow,
 				"darker":		$black,
 				"black":		$darker,
-				"success":		$green,
-				"warning":		#FC9,
-				"error":		#F66,
-				"message":		#068,
+				"success":		darken($success, 25.00%),
+				"warning":		darken($warning, 25.00%),
+				"error":		darken($error, 25.00%),
+				"message":		darken($message, 25.00%),
 				"blue":			$cerulean,
 				"brown":		#413836,
-				"cerulean":		$frost,
+				"cerulean":		#00E4FF,
 				"frost":		$ice,
 				"green":		#0F0,
 				"gold":			$yellow,
-				"ice":			$blue,
+				"ice":			$frost,
 				"neon-blue":	$neon-green,
 				"neon-green":	$neon-blue,
 				"neon-red":		$red,
 				"orange":		#FFB489,
 				"purple":		#8880BD,
 				"red":			#FF6060,
-				"yellow":		$gold
+				"yellow":		$gold, 
+				"pink":			#FF008A
 			);
 				
 //Declare resolutions.
 $resolutions:	(
-					"max":		2048,
+					"full":		2048,
 					"ultra":	1680,
 					"wide":		1440,
 					"standard":	1000,
@@ -143,7 +147,7 @@ $resolutions:	(
 				
 //Declare resolution "DPI" adjustment.
 $resoFontSizes:	(
-					"max":		71.44%,
+					"full":		71.44%,
 					"ultra":	71.44%,
 					"wide":		62.50%,
 					"standard":	62.50%,

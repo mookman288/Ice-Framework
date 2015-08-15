@@ -49,7 +49,7 @@
 //@param text $rcolor
 
 @mixin back-offset-box($color) {
-	background-color: map-get($colors, $color);
+	background-color: lighten(map-get($colors, $color), 80.00%);
 	border-color: map-get($offsets, $color);
 	color: map-get($contrasts, $color);
 }
