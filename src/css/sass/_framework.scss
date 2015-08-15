@@ -13,7 +13,7 @@
 }
 	
 .req {
-	color: $neon-red;
+	color: #F00;
 }
 	
 .pointer {
@@ -22,6 +22,10 @@
 	
 .no-margin {
 	margin: 0px;
+}
+
+.half-margin {
+	margin: 0px 0.50em;
 }
 	
 .base-margin {
@@ -34,6 +38,10 @@
 	
 .no-padding {
 	padding: 0px;
+}
+
+.half-padding {
+	padding: 0px 0.50em;
 }
 	
 .base-padding {
@@ -150,21 +158,19 @@ blockquote {
 button {
 	@extend .button;
 }
-	
-code {
-	display: block;
+
+pre {
 	@extend .base-padding;
-	max-width: 100.00%;
-	@extend .default;
 	counter-reset: linecounter;
+	@extend .default;
 	overflow: scroll;
 	white-space: pre;
 	
-	> span {
+	code > span {
 		counter-increment: linecounter;
 	}
 	
-	> span:before {
+	code > span:before {
 		content: counter(linecounter);
 		padding-right: 0.50em;
 		margin-right: 0.50em;
@@ -174,6 +180,17 @@ code {
 		border-style: solid;
 		opacity: 0.40;
 	}
+}
+
+code {
+	@extend .half-padding;
+	display: inline;
+	@extend .base;
+}
+
+pre, code {
+	max-width: 100.00%;
+	background-color: $silver;
 }
 	
 /* Headings */
