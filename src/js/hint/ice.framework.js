@@ -21,7 +21,7 @@ requirejs.config({
 });
 
 //Declare global variables.
-var	interval	=	new Object();
+var	interval	=	interval || {};
 
 //Require Modernizr.
 require(["modernizr.min"]);
@@ -146,18 +146,15 @@ require(["jquery"], function(jQuery) {
 						case 37:
 							//Slide left.
 							slide($this, 0);
-							
-							//Return false.
-							return false;
 						break;
 						case 39:
 							//Slide right.
 							slide($this, 1);
-							
-							//Return false.
-							return false;
 						break;
 					}
+					
+					//Return false.
+					return false;
 				});
 				
 				//Clear the interval.
@@ -195,7 +192,7 @@ require(["jquery"], function(jQuery) {
 				hrefs	+=	jQuery(this).attr('href') + ',';
 				
 				//If there is a show tab, and this element matches.
-				if ($_GET['showTab'] && ('#' + $_GET['showTab']) == jQuery(this).attr('href')) {
+				if ($_GET.showTab && ('#' + $_GET.showTab) == jQuery(this).attr('href')) {
 					//Activate.
 					jQuery(this).addClass('active');
 				}
@@ -205,15 +202,15 @@ require(["jquery"], function(jQuery) {
 			hrefs	=	hrefs.replace(/,+$/,'');
 			
 			//If there is no show tab.
-			if (!$_GET['showTab']) {
+			if (!$_GET.showTab) {
 				//Hide all elements.
 				jQuery(hrefs).not($this.find('a:first').addClass('active').attr('href')).hide();
 			} else { 
 				//Scroll down.
-				jQuery('#' + $_GET['showTab']).ScrollTo();
+				jQuery('#' + $_GET.showTab).ScrollTo();
 				
 				//Hide all but this element.
-				jQuery(hrefs).not('#' + $_GET['showTab']).hide();
+				jQuery(hrefs).not('#' + $_GET.showTab).hide();
 			}
 			
 			//For each nav element.
@@ -329,7 +326,7 @@ function slide($parent, dir) {
 		$this.removeClass('active');
 		
 		//Get the next element depending upon the direction.
-		var	ele		=	(dir < 1) ? (cur != 0) ? (cur - 1) : (num - 1) : (cur != (num - 1)) ? (1 + cur) : 0;
+		var	ele		=	(dir < 1) ? (cur !== 0) ? (cur - 1) : (num - 1) : (cur !== (num - 1)) ? (1 + cur) : 0;
 
 		//Fade in the slide.
 		$parent.children().each(function() { 

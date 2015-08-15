@@ -56,7 +56,7 @@ if (typeof jQuery !== 'undefined') {
 				//Create elements.
 				var	$shadow	=	jQuery('<div>', {id: 'ice-shadow'});
 				var	$close	=	jQuery('<a>', {id: 'icebox-close', 
-					href: 'javascript:void(0);', title: 'Close'}).html('&times;');
+					href: '#icebox-close', title: 'Close'}).html('&times;');
 				var	$div	=	jQuery('<div>').append(html);
 				var	$icebox	=	jQuery('<div>', {id: 'icebox'}).append($close).append($div);
 				
@@ -72,7 +72,10 @@ if (typeof jQuery !== 'undefined') {
 						jQuery(this).css("left", (((jQuery(window).width() - jQuery(this).outerWidth()) / 2) + jQuery(window).scrollLeft()));
 						
 						//Set close listener.
-						jQuery('#icebox-close, #ice-shadow').click(function() {
+						jQuery('#icebox-close, #ice-shadow').click(function(e) {
+							//Prevent default.
+							e.preventDefault();
+							
 							//Fade the icebox out.
 							jQuery('#icebox').fadeOut('400', function() {
 								//Fade the shadow out.
@@ -83,7 +86,10 @@ if (typeof jQuery !== 'undefined') {
 									//Set icebox is false.
 									icebox	=	false;
 								});
-							});	
+							});
+							
+							//Return fales.
+							return false;
 						});
 					});
 				});

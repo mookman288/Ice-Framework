@@ -2,29 +2,77 @@
 var	cache		=	require('gulp-cache');
 var	concat		=	require('gulp-concat');
 var	gulp		=	require('gulp');
+var	gulpif		=	require('gulp-if');
+var imagemin    =   require('gulp-imagemin');
 var	jshint		=	require('gulp-jshint');
 var	livereload	=	require('gulp-livereload');
+var	minifyCSS	=	require('gulp-minify-css');
+var notify      =   require('gulp-notify');
 var	rename		=	require('gulp-rename');
 var	sass		=	require('gulp-sass');
+var sourcemaps	=	require('gulp-sourcemaps');
 var	uglify		=	require('gulp-uglify');
+var yargs		=	require('yargs');
+
+//Determine if this is a dev call.
+var	argv		=	require('yargs').argv;
+var	dev			=	(!argv.dev) ? false : true;
+var	err			=	false;
 
 //Handle stylesheets.
 gulp.task('css', function() {
 	return gulp.src('./src/css/stylesheet.scss')
 		.pipe(sass({sourcemap: true}))
-		.on('error', function (error) {
+		.on('error', notify.onError(function (error) {
+			//Log to the console.
 			console.error(error);
-            this.emit('end');
-		})
-		.pipe(gulp.dest('./css'))
-		.pipe(rename({suffix: '.min'}));
+			
+			//Set the error.
+			err	=	true;
+			
+			//Return the error.
+			return "Error: " + error.message;
+		}))
+		.pipe(gulpif(!err, sourcemaps.init()))
+		.pipe(gulpif(!err, gulpif(!dev, minifyCSS({compatibility: 'ie8'}))))
+		.pipe(gulpif(!err, sourcemaps.write()))
+		.pipe(gulpif(!err, gulp.dest('./css')));
 });
 
 //Handle hinting.
 gulp.task('hint', function() {
 	return gulp.src('./src/js/hint/*.js')
 		.pipe(jshint())
+		.pipe(notify(function(file) {
+			//If not success.
+			if (!file.jshint.success) {
+				//Get the errors.
+				var	errors	=	file.jshint.results.map(function(data) {
+					//If there's an error.
+					if (data.error) {
+						//Return the error.
+						return "(" + data.error.line + ":" + data.error.character + ") " + data.error.reason;
+					}
+				}).join("\n");
+				
+				//Display the errors.
+				return file.relative + " [" + file.jshint.results.length + " errors]\n" + errors;
+			}
+		}))
 		.pipe(jshint.reporter('default'));
+});
+
+//Handle images.
+gulp.task('images', function() {
+	return gulp.src('./src/images/*')
+		.pipe(cache(imagemin({
+			interlaced: true, 
+			multipass: true, 
+			optimizationLevel: 5, 
+			progressive: true, 
+			svgoPlugins: [{removeViewBox: false}]
+		})))
+		.pipe(gulp.dest('./images'));
 });
 
 //Handle JavaScript.
@@ -32,8 +80,7 @@ gulp.task('js', function() {
 	return gulp.src('./src/js/**/*.js')
 		.pipe(concat('framework.js'))
 		.pipe(gulp.dest('./js'))
-		.pipe(rename({suffix: '.min'}))
-		.pipe(uglify())
+		.pipe(gulpif(!dev, uglify()))
 		.pipe(gulp.dest('./js'));
 });
 
@@ -52,7 +99,7 @@ gulp.task('watch', function() {
 	livereload.listen();
 	
 	//Watch for livereload. 
-	gulp.watch(['./css/**/*', './js/**/*']).on('change', livereload.changed);
+	gulp.watch(['./css/**/*', './js/**/*', './images/**/*']).on('change', livereload.changed);
 });
 
 //Task runner. 

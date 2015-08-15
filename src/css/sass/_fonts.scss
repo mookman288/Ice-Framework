@@ -98,125 +98,73 @@
 	}
 	
 /* Font Face Shims */
-
+	
 @font-face {
-	font-family: 'Binz';
-	src: url('../fonts/binz-medium/Binz.ttf') format('truetype');
+	font-family: "Nimbus Sans L";
 	font-style: normal;
 	font-weight: normal;
-	}
-
-@font-face {
-	font-family: 'Comfortaa';
-	src: url('../fonts/comfortaa/Comfortaa-Regular.ttf') format('truetype');
-	font-style: normal;
-	font-weight: normal;
+	src: url("../fonts/nimbus-sans-l/nimbus-sans-l_regular.ttf") format("truetype");
 	}
 	
 @font-face {
-	font-family: 'Comfortaa';
-	src: url('../fonts/comfortaa/Comfortaa-Light.ttf') format('truetype');
+	font-family: "Nimbus Sans L";
 	font-style: normal;
-	font-weight: lighter;
-	}
-
-@font-face {
-	font-family: 'Comfortaa';
-	src: url('../fonts/comfortaa/Comfortaa-Bold.ttf') format('truetype');
-	font-style: normal;
-	font-weight: bold;;
+	font-weight: bold;
+	src: url("../fonts/nimbus-sans-l/nimbus-sans-l_bold.ttf") format("truetype");
 	}
 	
 @font-face {
-	font-family: 'Great Vibes';
-	src: url('../fonts/rebecca/GreatVibes-Regular.otf') format('opentype');
-	font-style: normal;
-	font-weight: normal;
-	}
-	
-@font-face {
-	font-family: 'La-chata';
-	src: url('../fonts/la-chata/La-chata-normal.eot');
-	src: url('../fonts/la-chata/La-chata-normal.woff') format('woff'), 
-	url('../fonts/la-chata/La-chata-normal.ttf') format('truetype'), url('../fonts/la-chata/La-chata-normal.svg') format('svg');
-	font-style: normal;
-	font-weight: normal;
-	}
-	
-@font-face {
-	font-family: 'LetsTrace';
-	src: url('../fonts/lets-trace/LetsTracebasic.otf') format('opentype');
-	font-style: normal;
-	font-weight: normal;
-	}
-
-@font-face {
-	font-family: 'LetsTrace';
-	src: url('../fonts/lets-trace/LetsTraceItalic.otf') format('opentype');
+	font-family: "Nimbus Sans L";
 	font-style: italic;
 	font-weight: normal;
-	}
-
-@font-face {
-	font-family: 'LetsTraceRuled';
-	src: url('../fonts/lets-trace/LetsTraceRuledMedium.otf') format('opentype');
-	font-style: normal;
-	font-weight: normal;
+	src: url("../fonts/nimbus-sans-l/nimbus-sans-l_italic.ttf") format("truetype");
 	}
 	
 @font-face {
-	font-family: 'Open Baskerville';
-	src: url('../fonts/open-baskerville/OpenBaskerville-0.0.53.otf') format('opentype');
-	font-style: normal;
-	font-weight: normal;
+	font-family: "Nimbus Sans L";
+	font-style: italic;
+	font-weight: bold;
+	src: url("../fonts/nimbus-sans-l/nimbus-sans-l_bold-italic.ttf") format("truetype");
 	}
-
 	
 @font-face {
-	font-family: 'Open Sans';
-	src: local('Open Sans'), local('OpenSans'), url('../fonts/Open_Sans/OpenSans-Regular.ttf') format('truetype');
+	font-family: "Nimbus Sans L Condensed";
 	font-style: normal;
 	font-weight: normal;
+	src: url("../fonts/nimbus-sans-l/nimbus-sans-l_regular-condensed.ttf") format("truetype");
 	}
-
+	
 @font-face {
-	font-family: 'Open Sans';
-	src: local('Open Sans Italic'), local('OpenSans-Italic'), url('../fonts/Open_Sans/OpenSans-Italic.ttf') format('truetype');
+	font-family: "Nimbus Sans L Condensed";
+	font-style: bold;
+	font-weight: normal;
+	src: url("../fonts/nimbus-sans-l/nimbus-sans-l_bold-condensed.ttf") format("truetype");
+	}
+	
+@font-face {
+	font-family: "Nimbus Sans L Condensed";
 	font-style: italic;
 	font-weight: normal;
+	src: url("../fonts/nimbus-sans-l/nimbus-sans-l_regular-condensed-italic.ttf") format("truetype");
 	}
-
+	
 @font-face {
-	font-family: 'Open Sans';
-	src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url('../fonts/Open_Sans/OpenSans-Semibold.ttf') format('truetype');
-	font-style: normal;
-	font-weight: bold;;
+	font-family: "Nimbus Sans L Condensed";
+	font-style: bold;
+	font-weight: italic;
+	src: url("../fonts/nimbus-sans-l/nimbus-sans-l_bold-condensed-italic.ttf") format("truetype");
 	}
-
+	
 @font-face {
-	font-family: 'Open Sans';
-	src: local('Open Sans Semibold Italic'), local('OpenSans-SemiboldItalic'), url('../fonts/Open_Sans/OpenSans-SemiboldItalic.ttf') format('truetype');
-	font-style: italic;
-	font-weight: bold;;
-	}
-
-@font-face {
-	font-family: 'Open Sans';
-	src: local('Open Sans Extrabold'), local('OpenSans-Extrabold'), url('../fonts/Open_Sans/OpenSans-ExtraBold.ttf') format('truetype');
-	font-style: normal;
-	font-weight: bolder;
-	}
-
-@font-face {
-	font-family: 'Open Sans';
-	src: local('Open Sans Extrabold Italic'), local('OpenSans-ExtraboldItalic'), url('../fonts/Open_Sans/OpenSans-ExtraBoldItalic.ttf') format('truetype');
-	font-style: italic;
-	font-weight: bolder;
-	}
-
-@font-face {
-	font-family: 'Trabajo';
-	src: url('../fonts/trabajo/Trabajo.otf') format('opentype');
+	font-family: "Open Baskerville";
 	font-style: normal;
 	font-weight: normal;
+	src: url("../fonts/open-baskerville/OpenBaskerville-0.0.53.otf") format("opentype");
+	}
+	
+@font-face {
+	font-family: "Pinyon Script";
+	font-style: normal;
+	font-weight: normal;
+	src: url("../fonts/fally-pin/PinyonScript-Regular.ttf") format("truetype");
 	}

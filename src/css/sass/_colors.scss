@@ -53,19 +53,18 @@
 					}
 				}
 				
-				//For navigation elements. 
-				nav & {
-					> ul {
-						background-color: $color;
-						color: $contrast;
-						}
+			//For navigation elements. 
+			nav & {
+				> ul {
+					background-color: $color;
+					color: $contrast;
 					}
+				}
 					
-				ul & {
-					> ul {
-						background-color: $color;
-						color: $contrast;
-						}
+			ul & {
+				> ul {
+					background-color: $color;
+					color: $contrast;
 					}
 				}
 				
@@ -141,4 +140,4 @@
 				}
 			}
 		}
-}
+	}
