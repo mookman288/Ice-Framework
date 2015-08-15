@@ -16,7 +16,7 @@
 		<link rel="stylesheet" type="text/css" href="css/stylesheet.css" /> <!-- Cascading Stylesheet -->
 		<script type="text/javascript" src="js/modernizr.min.js"></script> <!-- Modernizr Must Be Block Loaded -->
 	</head>
-	<body id="top" class="page forty">
+	<body class="page forty">
 		<div id="main">
 			<div class="content">
 				<h1>Ice Framework</h1>
@@ -243,10 +243,10 @@
 				<h4>Example</h4>
 <pre class="padding-ultra-1-half"><code>
 &lt;div class="cfx"&gt;
-	&lt;div class="column normal left full-6 full-padding-ends-1 mobile-8 mobile-padding-ends-1-half"&gt;
+	&lt;div class="column left full-6 full-padding-ends-1 mobile-8 mobile-padding-ends-1-half"&gt;
 		Hello World!
 	&lt;/div&gt;
-	&lt;div class="column husky right full-10 full-padding-ends-1 mobile-12 mobile-padding-ends-1-half"&gt;
+	&lt;div class="column right full-10 full-padding-ends-1 mobile-12 mobile-padding-ends-1-half"&gt;
 		Check out clearfix! 
 	&lt;/div&gt;
 &lt;/div&gt;
@@ -276,7 +276,7 @@
 			<div class="content">
 				<h3>Layout</h3>
 				<h4>Two Columns</h4>
-				<div class="column left small-8 full-3 full-padding-1-half blue background">
+				<div class="column left small-6 full-3 full-padding-1-half blue background">
 					<nav class="vertical">
 						<h4>Menu</h4>
 						<ul>
@@ -323,7 +323,7 @@
 			</div>
 			<div class="content">
 				<h4>Three Columns</h4>
-				<div class="column left mobile-19 small-5 full-3 full-padding-1-half silver background">
+				<div class="column left mobile-19 small-4 full-3 full-padding-1-half silver background">
 					<nav class="vertical">
 						<h4>Menu</h4>
 						<ul class="full-padding-1 black background">
@@ -372,7 +372,7 @@
 						</ul>
 					</nav>
 				</div>
-				<div class="column left mobile-9 mobile-margin-left-0 mobile-margin-right-1 small-7 full-7 full-padding-1-half 
+				<div class="column left mobile-19 mobile-margin-0 mobile-margin-right-1 small-6 full-7 full-padding-1-half 
 					full-margin-left-1-half">
 					<div class="padding horizontal-one vertical-one">
 						<h4>Form Element</h4>
@@ -408,12 +408,12 @@
 								</fieldset>
 								<label for="textarea-input">Textarea Input</label>
 								<textarea id="textarea-input" name="textarea-input" rows="4" cols="40"></textarea>
-								<input class="button blue background" type="submit" value="Submit" />
-								<input class="button background red" type="reset" value="Reset" />
+								<input class="button success" type="submit" value="Submit" />
+								<input class="button warning" type="reset" value="Reset" />
 							</form>
 					</div>
 				</div>
-				<div class="column right mobile-9 mobile-margin-right-0 mobile-margin-left-1 small-7 full-6 full-padding-1-half 
+				<div class="column right mobile-19 mobile-margin-0 mobile-margin-left-1 small-6 full-6 full-padding-1-half 
 					full-margin-left-1-half silver background">
 					<div class="padding horizontal-one vertical-one">
 						<h4>Video Demonstration</h4>
@@ -508,7 +508,7 @@
 					</ul>
 				</nav>
 				<h3>Featured Content</h3>
-				<div class="featured full-padding-ends-3-half full-padding-sides-1">
+				<div class="featured background dark-silver">
 					<h1 class="two times">Welcome, Highlander</h1>
 					<h2 class="two times">This is featured content.</h2>
 				</div>
@@ -674,25 +674,23 @@
 				<p>
 					The <code>button</code> and <code>background</code> classes use the same set of colors. 
 				</p>
-			</div>
-			<h3>Alerts</h3>
-			<div class="alert message rounded-corners">
-				<p>Message: Lorem Ipsum Dolor Sit Amet.</p>
-				<p>Message: Lorem Ipsum Dolor Sit Amet.</p>
-			</div>
-			<div class="alert success rounded-corners">
-				<p>Success! Lorem Ipsum Dolor Sit Amet.</p>
-				<p>Success! Lorem Ipsum Dolor Sit Amet.</p>
-			</div>
-			<div class="alert warning rounded-corners" data-dismiss>
-				<p>Warning! Lorem Ipsum Dolor Sit Amet. Dismiss Me!</p>
-				<p>Warning! Lorem Ipsum Dolor Sit Amet. Dismiss Me!</p>
-			</div>
-			<div class="alert error rounded-corners">
-				<p>Error! Lorem Ipsum Dolor Sit Amet.</p>
-				<p>Error! Lorem Ipsum Dolor Sit Amet.</p>
-			</div>
-			<div class="content">
+				<h3>Alerts</h3>
+				<div class="alert message">
+					<p>Message: Lorem Ipsum Dolor Sit Amet.</p>
+					<p>Message: Lorem Ipsum Dolor Sit Amet.</p>
+				</div>
+				<div class="alert success">
+					<p>Success! Lorem Ipsum Dolor Sit Amet.</p>
+					<p>Success! Lorem Ipsum Dolor Sit Amet.</p>
+				</div>
+				<div class="alert warning" data-dismiss>
+					<p>Warning! Lorem Ipsum Dolor Sit Amet. Dismiss Me!</p>
+					<p>Warning! Lorem Ipsum Dolor Sit Amet. Dismiss Me!</p>
+				</div>
+				<div class="alert error">
+					<p>Error! Lorem Ipsum Dolor Sit Amet.</p>
+					<p>Error! Lorem Ipsum Dolor Sit Amet.</p>
+				</div>
 				<h3>JavaScript</h3>
 				<p>
 					Some care has been taken to provide a graceful fallback for situations where JavaScript is not available. 
@@ -828,7 +826,7 @@
 							condimentum ante eros non diam.
 						</p>
 					</div>
-					<p class="padding horizontal-one">This text breaks two paragraphs. Don't believe me? Click above.</p>
+					<p class="padding horizontal-one">This text breaks two paragraphs. Don't believe it? Click above.</p>
 					<div class="slide-me-4 nod silver background padding vertical-one horizontal-one">
 						<p>
 							Curabitur ex est, convallis nec enim consequat, porttitor placerat lectus. 
@@ -841,13 +839,16 @@
 			</div>
 			<div class="content">
 				<h4>Tabs</h4>
-				<nav class="tabs rounded-corners">
-					<ul>
-						<li><a href="#tab-1" class="button background metal">Tab 1</a></li>
-						<li><a href="#tab-2" class="button background metal">Tab 2</a></li>
-						<li><a href="#tab-3" class="button background metal">Tab 3</a></li>
-						<li><a href="#tab-4" class="button blue background">Tab 4</a></li>
-						<li><a href="#tab-5" class="button background red gradient">Tab 5</a></li>
+				<p>
+					Tabs inherit the button class automatically. 
+				</p>
+				<nav class="tabs">
+					<ul class="rounded-corners">
+						<li><a href="#tab-1" class="dark-silver gradient border thin-one">Tab 1</a></li>
+						<li><a href="#tab-2" class="dark-silver gradient border thin-one">Tab 2</a></li>
+						<li><a href="#tab-3" class="grey gradient border thin-one">Tab 3</a></li>
+						<li><a href="#tab-4" class="grey gradient border thin-one">Tab 4</a></li>
+						<li><a href="#tab-5" class="pink gradient border thin-one">Tab 5</a></li>
 					</ul>
 				</nav>
 				<div id="tab-1">
@@ -901,8 +902,12 @@
 					</p>
 				</div>
 				<p>Want to show a tab on page load? <a href="?showTab=tab-4">Click Here</a>.</p>
+				<h3>Utility Classes</h3>
+<pre><code>
+
+</code></pre>
+				<h3><a href="website.html">Full Website Demonstration</a></h3>
 			</div>
-			<h3><a href="website.html">Full Website Demonstration</a></h3>
 			<div id="footer">
 				<small>Copyright &copy; 2014 PxO Ink. Some Rights Reserved.</small>
 			</div>

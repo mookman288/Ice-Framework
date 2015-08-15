@@ -2,3 +2,58 @@
 //Author: PxO Ink
 //License: The MIT License (MIT)
 //Copyright: © 2015 PxO Ink. Some Rights Reserved.
+
+@media all and (max-width: map-get($resolutions, "full") + "px") {
+	
+}
+
+@media all and (max-width: map-get($resolutions, "ultra") + "px") {
+	.page {
+		min-width: 100.00%;
+		max-width: 100.00%;
+	}
+}
+
+@media all and (max-width: map-get($resolutions, "wide") + "px") {
+	.page.eighty {
+		min-width: 100.00%;
+		width: 100.00%;
+		max-width: 100.00%;
+	}
+}
+
+@media all and (max-width: map-get($resolutions, "standard") + "px") {
+	.page.sixty {
+		min-width: 100.00%;
+		width: 100.00%;
+		max-width: 100.00%;
+	}
+}
+
+@media all and (max-width: map-get($resolutions, "small") + "px") {
+	.page.forty {
+		min-width: 100.00%;
+		width: 100.00%;
+		max-width: 100.00%;
+	}
+}
+
+@media all and (max-width: map-get($resolutions, "mobile") + "px") {
+	.page.twenty {
+		min-width: 100.00%;
+		width: 100.00%;
+		max-width: 100.00%;
+	}
+}
+
+@media all and (max-width: map-get($resolutions, "phone") + "px") {
+	body {
+		width: 100.00%;
+	}
+}
+
+@media all and (max-width: map-get($resolutions, "micro") + "px") {
+	body {
+		width: 100.00%;
+	}
+}

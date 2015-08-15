@@ -32,8 +32,16 @@
 	margin: 0.50em 1.50em;
 }
 	
+.base-margin-down {
+	margin-bottom: 0.50em;
+}
+	
 .plus-margin {
 	margin: 1.50em 2.50em;
+}
+
+.double-plus-margin {
+	margin: 2.50em 5.00em;
 }
 	
 .no-padding {
@@ -51,9 +59,9 @@
 .plus-padding {
 	padding: 1.50em 2.50em;
 }
-	
-.base-margin-down {
-	margin-bottom: 0.50em;
+
+.double-plus-padding {
+	padding: 2.50em 5.00em;
 }
 	
 .normal {
@@ -191,6 +199,7 @@ code {
 pre, code {
 	max-width: 100.00%;
 	background-color: $silver;
+	color: $dark;
 }
 	
 /* Headings */
@@ -483,9 +492,8 @@ body > section {
 }
 	
 .featured {
-	@extend .plus-padding;
-	@extend .ice;
-	@extend .background;
+	@extend .base-margin-down;
+	@extend .double-plus-padding;
 }
 	
 .sticky {
@@ -565,10 +573,16 @@ body > section {
 /* Tabs */
 
 .tabs {
+	border-width: 0px;
+	border-bottom: 1px;
+	border-color: rgba(0, 0, 0, 0.50);
+	border-style: solid;
+	
 	a {
 		@extend .button;
 		margin: 0px;
-		@extend .base;
+		font-size: 1.00em !important;
+		border-bottom: 0px !important;
 		text-decoration: none;
 	}
 	
@@ -579,8 +593,12 @@ body > section {
 		text-indent: 0px !important;
 	}
 	
-	&.rounded-corners a {
-		@extend .rounded-top;
+	ul {
+		margin: 0px;
+		
+		&.rounded-corners a {
+			@extend .rounded-top;
+		}
 	}
 }
 	
