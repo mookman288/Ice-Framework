@@ -92,7 +92,10 @@ gulp.task('watch', function() {
 	//Watch for hint.
 	gulp.watch('./src/js/hint/*.js', ['hint']);
 	
-	//Wtach for JS. 
+	//Watch for images. 
+	gulp.watch('./src/images/*', ['images']);
+	
+	//Watch for JS. 
 	gulp.watch('./src/js/**/*.js', ['js']);
 	
 	//Listen for livreload.
@@ -103,4 +106,4 @@ gulp.task('watch', function() {
 });
 
 //Task runner. 
-gulp.task('default', ['css', 'js', 'watch']);
+gulp.task('default', ['css', 'hint', 'images', 'js', 'watch']);
