@@ -6,8 +6,10 @@
  ** @Copyright	© 2014 PxO Ink. All Rights Reserved.
  **/
 
-//If jQuery exists.
-if (typeof jQuery !== 'undefined') { 
+/**
+ * Icebox.  
+ */
+var	icebox	=	function() {
 	//When the document is ready.
 	jQuery(document).ready(function() { 
 		//Declare global variables.
@@ -102,7 +104,42 @@ if (typeof jQuery !== 'undefined') {
 			});
 		});
 	});
+};
+
+//If jQuery exists.
+if (typeof jQuery !== 'undefined') {
+	//Launch icebox. 
+	icebox();
 } else {
-	//Log the error.
-	console.error('Unexpected error: jQuery must be loaded before running icebox.js.');
+	//Create a new script.
+	var	script		=	document.createElement('script');
+	
+	//Set the script attributes.
+	script.src		=	"https://code.jquery.com/jquery-1.11.1.min.js";
+	script.type		=	"text/javascript";
+	
+	//Shim jQuery in.
+	document.getElementsByTagName("head")[0].appendChild(script);
+	
+	//Create a new interval.
+	var	i			=	0;
+	var	interval	=	setInterval(function() {
+		//Only poll for jQuery five times. 
+		if (i < 5) {
+			//If jQuery is here. 
+			if (window.jQuery) {
+				//Clear the interval.
+				clearInterval(interval);
+				
+				//Launch icebox.
+				icebox();
+			}
+		} else {
+			//Clear the interval.
+			clearInterval(interval);
+			
+			//Log the error.
+			console.error('Unexpected error: jQuery must be loaded before running icebox.js.');
+		}
+	}, 250);
 }

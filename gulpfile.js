@@ -59,7 +59,8 @@ gulp.task('hint', function() {
 				return file.relative + " [" + file.jshint.results.length + " errors]\n" + errors;
 			}
 		}))
-		.pipe(jshint.reporter('default'));
+		.pipe(jshint.reporter('default'))
+		.pipe(gulp.dest('./src/js'));
 });
 
 //Handle images.
