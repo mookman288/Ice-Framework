@@ -39,6 +39,26 @@
 }
 
 @media all and (max-width: map-get($resolutions, "mobile") + "px") {
+	nav, nav.horizontal, nav.vertical {
+		ul {
+			width: 100.00%; 
+			
+			li {
+				display: none;
+				width: 100.00%;
+			
+				&.mobile {
+					display: block !important;
+				}
+				
+				a {
+					padding: 0px 4.00%;
+					width: 92.00%;
+				}
+			}
+		}
+	}
+	
 	.page.twenty {
 		min-width: 100.00%;
 		width: 100.00%;

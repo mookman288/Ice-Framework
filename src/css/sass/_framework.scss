@@ -27,9 +27,25 @@
 .half-margin {
 	margin: 0px 0.50em;
 }
+
+.base-half-margin {
+	margin: 0.50em;
+}
+
+.base-half-ends-margin {
+	margin: 0.50em 0px;
+}
 	
 .base-margin {
 	margin: 0.50em 1.50em;
+}
+
+.base-margin-left {
+	margin-left: 0.50em;
+}
+
+.base-margin-right {
+	margin-right: 0.50em;
 }
 	
 .base-margin-down {
@@ -50,6 +66,14 @@
 
 .half-padding {
 	padding: 0px 0.50em;
+}
+
+.base-half-padding {
+	padding: 0.50em;
+}
+
+.base-half-ends-padding {
+	padding: 0.50em 0px;
 }
 	
 .base-padding {
@@ -169,24 +193,31 @@ button {
 
 pre {
 	@extend .base-padding;
-	counter-reset: linecounter;
+	max-height: 50vh;
 	@extend .default;
-	overflow: scroll;
-	white-space: pre;
+	overflow: auto;
 	
-	code > span {
-		counter-increment: linecounter;
-	}
+	code {
+		padding: 0px;
+		counter-reset: linecounter;
 	
-	code > span:before {
-		content: counter(linecounter);
-		padding-right: 0.50em;
-		margin-right: 0.50em;
-		border-width: 0px;
-		border-right: 0.40em;
-		border-color: $dark-grey;
-		border-style: solid;
-		opacity: 0.40;
+		> span {
+			display: inline-block;
+			width: 100.00%;
+			counter-increment: linecounter;
+			
+			&:before {
+				content: counter(linecounter);
+				margin-left: -1.00em;
+				margin-right: 0.20em;
+				padding-right: 0.40em;
+				border-width: 0px;
+				border-right: 0.40em;
+				border-color: $dark-grey;
+				border-style: solid;
+				opacity: 0.40;
+			}
+		}
 	}
 }
 
@@ -350,6 +381,16 @@ nav {
 		li {
 			margin: 0px;
 			text-indent: 0em;
+			
+			&.mobile {
+				display: none !important;
+				
+				a {
+					@extend .large;
+					@extend .single;
+					text-decoration: none;
+				}
+			}
 		}
 		
 		> li {
@@ -364,106 +405,108 @@ nav {
 		ul {
 			display: none;
 		}
-		
-		li.mobile {
-			display: none;
-		}
-		
-		ul li.mobile a {
-			font-size: 2.80em;
-			line-height: 1.00em;
-			text-decoration: none;
-		}
 	}
 		
 	&.horizontal {
-		padding: 0.50em;
-		
 		> * {
 			float: left;
-			margin: 0.15em 0px;
-			padding: 0px 1.50em;
+			@extend .no-margin;
+			margin-left: 1.00em;
+			@extend .base-half-ends-padding;
 		}
 			
 		ul {
+			@extend .cfx;
 			position: relative;
-			margin: 0px;
-			padding: 0px;
+			@extend .no-margin;
+			@extend .no-padding;
+			
+			li {
+				@extend .cfx;
+			
+				&:hover > ul {
+					display: block;
+				}
+			
+				a {
+					display: block;
+					@extend .no-margin;
+					margin-left: 1.00em;
+					@extend .base-half-ends-padding;
+					height: 100.00%;
+				}
+			}
+			
+			ul {
+				display: none;
+				position: absolute;
+				top: 100.00%;
+				z-index: 10;
+				
+				li {
+					float: none; 
+					position: relative;
+					white-space: nowrap;
+					
+					a {
+						@extend .no-margin;
+						padding: 0.50em 1.00em;
+					}
+				}
+				
+				ul {
+					top: 0px;
+					left: 100.00%;
+				}
+			}
 		}
 		
 		> ul li {
 			float: left;
 			position: relative;
 			display: block;
-		}
 			
-		ul li a {
-			@extend .base-padding;
-		}
-			
-		> ul li:last-child {
-			margin-right: 0px;
-		}
-			
-		ul li:hover > ul {
-			display: block;
-		}
-			
-		ul ul {
-			display: none;
-			position: absolute;
-			top: 100.00%;
-			margin-top: 0.35em;
-			z-index: 10;
-		}
-			
-		ul ul li {
-			float: none; 
-			position: relative;
-			white-space: nowrap;
-		}
-			
-		ul ul ul {
-			top: 0px;
-			left: 100.00%;
+			&:last-child {
+				margin-right: 0px;
+			}
 		}
 	}
 		
 	&.vertical {
 		ul {
 			display: block;
-		}
 			
-		li {
-			display: block;
-			position: relative;
-		}
-		
-		ul li a {
-			display: block;
-		}
+			li {
+				display: block;
+				position: relative;
+				
+				&:hover > ul {
+					display: block;
+					top: 0px;
+					left: 100.00%;
+				}
+				
+				a {
+					display: block;
+				}
+			}
 			
-		ul ul {
-			display: none;
-			position: absolute;
-			top: 100.00%;
-			z-index: 10;
-		}
-			
-		ul li:hover > ul {
-			display: block;
-			top: 0px;
-			left: 100.00%;
-		}
-			
-		ul ul li {
-			float: none; 
-			white-space: nowrap;
-		}
-			
-		ul ul ul {
-			top: 0px;
-			left: 100.00%;
+			ul {
+				display: none;
+				position: absolute;
+				top: 100.00%;
+				z-index: 10;
+				
+				li {
+					float: none; 
+					white-space: nowrap;
+				}
+				
+				ul {
+					top: 0px;
+					left: 100.00%;
+				}
+			}
 		}
 	}
 }
@@ -548,25 +591,25 @@ body > section {
 		font-variant: small-caps;
 		text-indent: 0px;
 		text-transform: lowercase;
-	}
 		
-	li:before {
-		content: ' / ';
-		@extend .micro;
-	}
+		&:before {
+			content: ' / ';
+			@extend .micro;
+		}
 		
-	li:first-child:before {
-		content: '';
-	}
+		&:first-child:before {
+			content: '';
+		}
 		
-	li:last-child a {
-		color: inherit;
-		cursor: default;
-		text-decoration: none;
-	}
+		&:last-child a {
+			color: inherit;
+			cursor: default;
+			text-decoration: none;
+		}
 		
-	li:last-child a:hover {
-		color: inherit;
+		&:last-child a:hover {
+			color: inherit;
+		}
 	}
 }
 	
@@ -611,11 +654,11 @@ body > section {
 		display: inline;
 		padding: 0px !important;
 		text-indent: 0px;
-	}
 		
-	ul li a {
-		padding: 0.20em 0.50em;
-		text-decoration: none;
+		a {
+			padding: 0.20em 0.50em;
+			text-decoration: none;
+		}
 	}
 	
 	&.rounded-corners ul li a {
@@ -648,17 +691,41 @@ body > section {
 /* Begin Slider Work */
 
 .slider-container {
-	display: table;
-	padding: 0px 5.00em;
+	@extend .half-padding;
 	position: relative;
 }
 	
-.slide-left, .slide-right {
-	display: table-cell;
+.slide-control {
+	position: absolute;
+	top: 0px;
+	display: block;
 	padding: 0px 0.50em;
+	height: 100.00%;
+	cursor: pointer;
 	font-size: 4.00em;
-	text-decoration: none;
 	vertical-align: middle;
+	
+	> * {
+		display: table;
+		height: 100.00%;
+	}
+	
+	> * > * {
+		display: table-cell;
+		vertical-align: middle;
+	}
+	
+	&.slide-left {
+		left: 0px;
+	}
+	
+	&.slide-right {
+		right: 0px;
+	}
+	
+	a {
+		text-decoration: none;
+	}
 }
 	
 .slide-left:hover, .slide-right:hover {
@@ -686,7 +753,7 @@ body > section {
 		
 	figure figcaption {
 		position: absolute;
-		bottom: 2px;
+		bottom: 4px;
 		padding: 2.50% 5.00%;
 		width: 90.00%;
 		background-image: url('../images/shadow.png');

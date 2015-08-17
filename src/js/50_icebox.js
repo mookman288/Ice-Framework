@@ -43,7 +43,7 @@ var	icebox	=	function() {
 				//If there is no image. 
 				if (!imgSrc) { 
 					//Get the element.
-					var	$e	=	jQuery('#' + jQuery(this).attr('data-icebox-id')); 
+					var	$e	=	jQuery(jQuery(this).attr('data-icebox-')); 
 					
 					//Get the html.
 					html	=	$e.html();

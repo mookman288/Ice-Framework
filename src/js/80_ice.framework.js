@@ -19,6 +19,23 @@ var	interval	=	interval || {};
 var	$_GET	=	function(){qs=document.location.search;qs=qs.split("+").join(" ");var t={},n,r=/[?&]?([^=]+)=([^&]*)/g;while(!!(n=r.exec(qs))){t[decodeURIComponent(n[1])]=decodeURIComponent(n[2]);}return t;}();	
 
 /**
+ * Accordions/Vertical Slides.
+ */
+ice.accordion	=	(function($) {
+	//For sliders.
+	$('*[data-slide]').each(function() {
+		//Get this.
+		var	$this	=	$(this); 
+		
+		//On click.
+		$this.click(function() { 
+			//Toggle slide.
+			$($this.data('slide')).slideToggle(400);
+		});
+	});
+})(jQuery);
+
+/**
  * Code blocks. 
  */ 
 ice.codeBlocks	=	(function($) {
@@ -86,12 +103,18 @@ ice.dismissals	=	(function($) {
 ice.galleries	=	(function($) {
 	//For each gallery.
 	$('.gallery').removeWhitespace().each(function() {
-		//Get the target height.
-		var	targetHeight	=	$(this).data('height');
-		var	direction		=	$(this).data('direction');
+		//Get this.
+		var	$this	=	$(this);
 		
-		//CollagePlus.
-		$(this).collagePlus({'direction': direction, 'targetHeight': targetHeight, 'allowPartialLastRow': true});
+		//When the images are fully loaded.
+		$this.imagesLoaded(function() {
+			//Get the target height.
+			var	targetHeight	=	$(this).data('height');
+			var	direction		=	$(this).data('direction');
+			
+			//CollagePlus.
+			$this.collagePlus({'direction': direction, 'targetHeight': targetHeight, 'allowPartialLastRow': true});
+		});
 	});
 })(jQuery);
 
@@ -102,20 +125,27 @@ ice.scrolling	=	(function($) {
 	//If scrollto is allowed.
 	if (!$('html').data('no-scroll')) {
 		//For each scrollto.
-		$('a').each(function() { 
+		$('a:not([data-no-scroll])').each(function() { 
+			//Get this.
+			var	$this	=	jQuery(this);
+			
 			//Check if the hash is the first element.
-			if ($(this).attr('href').substring(0, 1) === '#') {
+			if ($this.attr('href').substring(0, 1) === '#' && !$this.data('scroll-set')) {
+				
 				//On click.
-				$(this).click(function(e) {
+				$this.click(function(e) {
 					//Get the element to scroll to.
-					var	ele	=	$(this).attr('href');
-					var	top	=	(!$(ele).length) ? $(ele).offset().top() : -1;
+					var	$ele	=	$($this.attr('href'));
+					var	top		=	(!$ele.length) ? Math.ceil($ele.offset().top()) : -1;
 					
 					//If the area of the element is somewhere in the page. 
 					if (top > 0) {
 						//Scroll to the element.
 						jQuery('body, html').animate({scrollTop: (top > 40) ? top - 40 : top}, 250);
 					}
+					
+					//Indicate this element has a scroll set. 
+					$this.attr('data-scroll-set', true);
 					
 					//Prevent default functionality.
 					e.preventDefault();
@@ -139,7 +169,7 @@ ice.slide	=	function($parent, dir) {
 	var	rand		=	$parent.data('id');
 	
 	//Clear the interval.
-	clearInterval(interval.rand);
+	clearInterval(interval[rand]);
 	
 	//Fade the element out.
 	$parent.children('.active').fadeOut(400, function() {
@@ -166,9 +196,9 @@ ice.slide	=	function($parent, dir) {
 				$that.fadeIn(400).addClass('active');
 				
 				//Restart the interval.
-				interval.rand = setInterval(function() {
+				interval[rand] = setInterval(function() {
 					//Slide. 
-					slide($parent, 1);
+					ice.slide($parent, 1);
 				}, 10000);
 			}
 		});
@@ -189,42 +219,57 @@ ice.sliders		=	(function($) {
 		$this.children(':first-child').addClass('active');
 		
 		//Add the random value.
-		$this.data('id', rand);
+		$this.attr('data-id', rand);
 		
 		//Set interval.
-		interval.rand = setInterval(function() {
+		interval[rand] = setInterval(function() {
 			//Slide. 
 			ice.slide($this, 1);
 		}, 10000);
 		
 		//On hover.
 		$this.mouseenter(function() {
-			//Keystrokes.
-			$(document).keydown(function (e) {
-				//Switch key movements.
-				switch(e.which) {
-					case 37:
-						//Slide left.
-						ice.slide($this, 0);
-					break;
-					case 39:
-						//Slide right.
-						ice.slide($this, 1);
-					break;
-				}
-				
-				//Return false.
-				return false;
-			});
+			//Set active.
+			$this.addClass('active');
 			
 			//Clear the interval.
-			clearInterval(interval.rand);
+			clearInterval(interval[rand]);
 		}).mouseleave(function() {
+			//Set inactive.
+			$this.removeClass('active');
+			
 			//Restart the interval.
-			interval.rand = setInterval(function() {
+			interval[rand] = setInterval(function() {
 				//Slide. 
 				ice.slide($this, 1);
 			}, 10000);
+		});
+		
+		//Keystrokes.
+		$(document).keydown(function (e) {
+			//Switch key movements.
+			switch(e.which) {
+				case 37:
+					//Only activate this keypress if the element is active.
+					if ($this.hasClass('active')) {
+						//Slide right.
+						ice.slide($this, 0);
+						
+						//Return false.
+						return false;
+					}
+				break;
+				case 39:
+					//Only activate this keypress if the element is active.
+					if ($this.hasClass('active')) {
+						//Slide right. 
+						ice.slide($this, 1);
+						
+						//Return false.
+						return false;
+					}
+				break;
+			}
 		});
 		
 		//On slide left.
@@ -237,33 +282,6 @@ ice.sliders		=	(function($) {
 		$('.slide-right').click(function() {
 			//Slide right. 
 			ice.slide($this, 1);
-		});
-		
-		//Keystrokes.
-		jQuery(document).keyup(function (e) {
-			//Switch key movements.
-			switch(e.which) {
-				case '37':
-					//Slide left.
-					ice.slide($this, 0);
-				break;
-				case '39':
-					//Slide right. 
-					ice.slide($this, 1);
-				break;
-			}
-		});
-	});
-	
-	//For sliders.
-	$('*[data-slide-id], *[data-slide-class]').each(function() {
-		//Get the id or class.
-		var	elements	=	(!$(this).data('slide-id')) ? '.' + $(this).data('slide-class') : '#' + $(this).data('slide-id');
-		
-		//On click.
-		$(this).click(function() {
-			//Toggle slide.
-			$(elements).slideToggle(400);
 		});
 	});
 })(jQuery);
@@ -280,6 +298,12 @@ ice.tabs		=	(function($) {
 		
 		//Confirm showtab exists.
 		$_GET.showTab	=	(typeof $_GET.showTab !== 'undefined') ? $_GET.showTab : false;
+		
+		//If there is no show tab.
+		if (!$_GET.showTab) {
+			//Set the active class.
+			$this.find('a').eq(0).addClass('active');
+		}
 		
 		//For each hrefs. 
 		$this.find('a').each(function() {

@@ -78,7 +78,7 @@ gulp.task('images', function() {
 
 //Handle JavaScript.
 gulp.task('js', function() {
-	return gulp.src('./src/js/**/*.js')
+	return gulp.src('./src/js/*.js')
 		.pipe(concat('framework.js'))
 		.pipe(gulp.dest('./js'))
 		.pipe(gulpif(!dev, uglify()))
