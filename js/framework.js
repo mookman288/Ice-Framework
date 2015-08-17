@@ -1653,26 +1653,23 @@ ice.scrolling	=	(function($) {
 	//If scrollto is allowed.
 	if (!$('html').data('no-scroll')) {
 		//For each scrollto.
-		$('a:not([data-no-scroll])').each(function() { 
+		$('a:not([data-no-scroll])').each(function() {
 			//Get this.
-			var	$this	=	jQuery(this);
+			var	$this	=	$(this);
 			
 			//Check if the hash is the first element.
-			if ($this.attr('href').substring(0, 1) === '#' && !$this.data('scroll-set')) {
+			if ($this.attr('href').substring(0, 1) === '#') {
 				//On click.
-				$this.click(function(e) {
+				$this.click(function(e) { 
 					//Get the element to scroll to.
 					var	$ele	=	$($this.attr('href'));
 					var	top		=	(!$ele.length) ? -1 : Math.ceil($ele.offset().top);
 					
 					//If the area of the element is somewhere in the page. 
-					if (top > 0) {
+					if (top > 0 && !$this.data('no-scroll')) {
 						//Scroll to the element.
 						jQuery('body, html').animate({scrollTop: (top > 40) ? top - 40 : top}, 400);
 					}
-					
-					//Indicate this element has a scroll set. 
-					$this.attr('data-scroll-set', true);
 					
 					//Prevent default functionality.
 					e.preventDefault();
