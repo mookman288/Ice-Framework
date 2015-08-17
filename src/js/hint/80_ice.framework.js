@@ -28,7 +28,7 @@ ice.accordion	=	(function($) {
 		var	$this	=	$(this); 
 		
 		//On click.
-		$this.click(function() { 
+		$this.click(function() { console.log($this.data('slide'));
 			//Toggle slide.
 			$($this.data('slide')).slideToggle(400);
 		});
@@ -131,17 +131,16 @@ ice.scrolling	=	(function($) {
 			
 			//Check if the hash is the first element.
 			if ($this.attr('href').substring(0, 1) === '#' && !$this.data('scroll-set')) {
-				
 				//On click.
 				$this.click(function(e) {
 					//Get the element to scroll to.
 					var	$ele	=	$($this.attr('href'));
-					var	top		=	(!$ele.length) ? Math.ceil($ele.offset().top()) : -1;
+					var	top		=	(!$ele.length) ? -1 : Math.ceil($ele.offset().top);
 					
 					//If the area of the element is somewhere in the page. 
 					if (top > 0) {
 						//Scroll to the element.
-						jQuery('body, html').animate({scrollTop: (top > 40) ? top - 40 : top}, 250);
+						jQuery('body, html').animate({scrollTop: (top > 40) ? top - 40 : top}, 400);
 					}
 					
 					//Indicate this element has a scroll set. 
