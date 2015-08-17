@@ -118,7 +118,7 @@
 			}
 			
 			//Add button with gradient.
-			&.button.gradient {
+			&.gradient {
 				background: linear-gradient(top, $color 0%, $offset 100%);
 				background: -moz-linear-gradient(top, $color 0%, $offset 100%);
 				background: -webkit-linear-gradient(top,$color 0%, $offset 100%);

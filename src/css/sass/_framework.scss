@@ -47,6 +47,10 @@
 .base-margin-right {
 	margin-right: 0.50em;
 }
+
+.base-margin-half-top {
+	margin-top: 0.25em;
+}
 	
 .base-margin-down {
 	margin-bottom: 0.50em;
@@ -234,34 +238,33 @@ pre, code {
 }
 	
 /* Headings */
+
+h1, h2, h3, h4, h5, h6, fieldset legend {
+	@extend .base-margin-half-top;
+	@extend .base-margin-down;
+}
 	
 h1 {
-	@extend .base-margin-down;
 	@extend .huge;
 }
 	
 h2 {
-	@extend .base-margin-down;
 	@extend .mega;
 }
 	
 h3 {
-	@extend .base-margin-down;
 	@extend .heading;
 }
 	
 h4 {
-	@extend .base-margin-down;
 	@extend .large;
 }
 	
 h5, fieldset legend {
-	@extend .base-margin-down;
 	@extend .husky;
 }
 	
 h6 {
-	@extend .base-margin-down;
 	@extend .default;
 }
 	
@@ -513,15 +516,47 @@ nav {
 	
 table {
 	width: 100.00%;
-}
+	border-collapse: separate;
+	border-spacing: 0px;
 	
-table caption, table th, table thead td, table tbody th, table tbody td {
-	@extend .align-left;
-}
+	th, td, caption {
+		@extend .base-half-padding;
+		@extend .default;
+	}
 	
-table thead td input, table tbody td input, table thead td select, table tbody td select, table thead td textarea, 
-table tbody td textarea {
+	caption {
+		@extend .align-left;
+	}
 	
+	tr {
+		th, td {
+			border-width: 0.10em;
+			border-top-color: $silver;
+			border-bottom-color: $grey;
+			border-right-color: $dark-silver;
+			border-left-color: $silver;
+			border-style: solid;
+		}
+	
+		th {
+			@extend .background;
+			background-color: lighten($dark-silver, 10.00%);
+		}
+		
+		td {
+			@extend .align-center;
+			@extend .background;
+			background-color: lighten($silver, 5.00%);
+			
+			&:first-child {
+				@extend .align-left;
+			}
+		}
+		
+		&:nth-child(even) td {
+			background-color: lighten($dark-silver, 10.00%);
+		}
+	}
 }
 
 //Page settings.
@@ -691,75 +726,80 @@ body > section {
 /* Begin Slider Work */
 
 .slider-container {
-	@extend .half-padding;
 	position: relative;
-}
 	
-.slide-control {
-	position: absolute;
-	top: 0px;
-	display: block;
-	padding: 0px 0.50em;
-	height: 100.00%;
-	cursor: pointer;
-	font-size: 4.00em;
-	vertical-align: middle;
-	
-	> * {
-		display: table;
-		height: 100.00%;
-	}
-	
-	> * > * {
-		display: table-cell;
-		vertical-align: middle;
-	}
-	
-	&.slide-left {
-		left: 0px;
-	}
-	
-	&.slide-right {
-		right: 0px;
-	}
-	
-	a {
-		text-decoration: none;
-	}
-}
-	
-.slide-left:hover, .slide-right:hover {
-	text-decoration: none;
-}
-
-.slider {
-	margin: 0 auto;
-	text-align: center;
-
-	> * {
-		display: none;
-		margin: 0px;
-		text-indent: 0px;
-		list-style-type: none;
-	}
-		
-	> *:first-child {
-		display: initial;
-	}
-	
-	figure {
+	.slider {
 		position: relative;
-	}
+		margin: 0 auto;
+		text-align: center;
 		
-	figure figcaption {
+		> * {
+			display: none;
+			margin: 0px;
+			text-indent: 0px;
+			list-style-type: none;
+		}
+		
+		> *:first-child {
+			display: initial;
+		}
+		
+		figure {
+			position: relative;
+		}
+		
+		figure figcaption {
+			position: absolute;
+			bottom: 4px;
+			padding: 2.50% 5.00%;
+			width: 90.00%;
+			background-image: url('../images/shadow.png');
+			color: #FFF;
+			font-size: 1.60em;
+			line-height: 1.50em;
+			text-align: left;
+		}
+	}
+	
+	.slide-control {
 		position: absolute;
-		bottom: 4px;
-		padding: 2.50% 5.00%;
-		width: 90.00%;
-		background-image: url('../images/shadow.png');
-		color: #FFF;
-		font-size: 1.60em;
-		line-height: 1.50em;
-		text-align: left;
+		top: 0px;
+		display: block;
+		padding: 0px 0.50em;
+		height: 100.00%;
+		font-size: 4.00em;
+		vertical-align: middle;
+		
+		> * {
+			display: table;
+			height: 100.00%;
+		}
+		
+		> * > * {
+			display: table-cell;
+			vertical-align: middle;
+		}
+		
+		&.slide-left {
+			left: 0px;
+		}
+		
+		&.slide-right {
+			right: 0px;
+		}
+		
+		a {
+			@extend .white;
+			text-shadow: 0px 0px 0.10em $black;
+			text-decoration: none;
+			
+			&:hover {
+				@extend .dark-silver;
+			}
+		}
+	}
+	
+	.slide-left:hover, .slide-right:hover {
+		text-decoration: none;
 	}
 }
