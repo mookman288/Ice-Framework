@@ -99,7 +99,7 @@ gulp.task('watch', function() {
 	//Watch for JS. 
 	gulp.watch('./src/js/**/*.js', ['js']);
 	
-	//Listen for livreload.
+	//Listen for livereload.
 	livereload.listen();
 	
 	//Watch for livereload. 
