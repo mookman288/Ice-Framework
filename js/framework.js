@@ -1354,10 +1354,10 @@ var	icebox	=	function() {
 				//If there is no image. 
 				if (!imgSrc) { 
 					//Get the element.
-					var	$e	=	jQuery(jQuery(this).data('icebox'));
+					var	$e	=	jQuery(jQuery(this).attr('data-icebox-')); 
 					
 					//Get the html.
-					html	=	jQuery('<div>').append($e.clone()).html();
+					html	=	$e.html();
 				} else {
 					//Get the alt text.
 					var alt	=	jQuery(this).attr('alt');
@@ -1380,14 +1380,9 @@ var	icebox	=	function() {
 				jQuery('#ice-shadow').fadeIn('400', function() {
 					//Fade the icebox in.
 					jQuery('#icebox').fadeIn('400', function() {
-						//Get this.
-						var	$this	=	jQuery(this);
-						
 						//Center the element.
-						$this.css("top", (((jQuery(window).height() - 
-								jQuery(this).outerHeight()) / 2) + jQuery(window).scrollTop()));
-						$this.css("left", (((jQuery(window).width() - 
-								jQuery(this).outerWidth()) / 2) + jQuery(window).scrollLeft()));
+						jQuery(this).css("top", (((jQuery(window).height() - jQuery(this).outerHeight()) / 2) + jQuery(window).scrollTop()));
+						jQuery(this).css("left", (((jQuery(window).width() - jQuery(this).outerWidth()) / 2) + jQuery(window).scrollLeft()));
 						
 						//Set close listener.
 						jQuery('#icebox-close, #ice-shadow').click(function(e) {
@@ -1408,24 +1403,6 @@ var	icebox	=	function() {
 							
 							//Return fales.
 							return false;
-						});
-						
-						//Create a new timeout.
-						var	timer;
-						
-						//Resize the element.
-						jQuery(window).bind('resize', function() {
-							//If there is a timer.
-							if (timer) clearTimeout(timer);
-							
-							//Create a new timer.
-							setTimeout(function() { 
-								//Center the element.
-								$this.css("top", (((jQuery(window).height() - 
-										$this.outerHeight()) / 2) + jQuery(window).scrollTop()));
-								$this.css("left", (((jQuery(window).width() - 
-										$this.outerWidth()) / 2) + jQuery(window).scrollLeft()));
-							}, 250);
 						});
 					});
 				});
@@ -1579,7 +1556,7 @@ ice.accordion	=	(function($) {
 		var	$this	=	$(this); 
 		
 		//On click.
-		$this.click(function() { 
+		$this.click(function() { console.log($this.data('slide'));
 			//Toggle slide.
 			$($this.data('slide')).slideToggle(400);
 		});
@@ -1591,7 +1568,7 @@ ice.accordion	=	(function($) {
  */ 
 ice.codeBlocks	=	(function($) {
 	//For each code block.
-	$('pre > code').each(function() {
+	$('code').each(function() {
 		//Declare variables.
 		var	html	=	'';
 		var	current	=	$(this).html();
@@ -1657,49 +1634,14 @@ ice.galleries	=	(function($) {
 		//Get this.
 		var	$this	=	$(this);
 		
-		//Adjust the CSS of each image.
-		$this.addClass('base-half-margin').find('img').css({'vertical-align': 'bottom', 'opacity': 0});
-		
 		//When the images are fully loaded.
 		$this.imagesLoaded(function() {
 			//Get the target height.
-			var	targetHeight	=	$this.data('height');
-			
-			//Get the direction.
-			var	direction		=	$this.data('direction');
-			
-			//Create the settings object.
-			var	settings		=	{'allowPartialLastRow': true};
-			
-			//If there is a target height.
-			if (typeof targetHeight !== "undefined") {
-				//Set the height. 
-				settings.targetHeight	=	targetHeight;
-			}
-			
-			//If there is a direction.
-			if (typeof direction !== "undefined") {
-				//Set the direction.
-				settings.direction	=	direction;
-			}
+			var	targetHeight	=	$(this).data('height');
+			var	direction		=	$(this).data('direction');
 			
 			//CollagePlus.
-			$this.collagePlus(settings);
-			
-			//Create the timer.
-			var	timer;
-			
-			//Resize the element.
-			$(window).bind('resize', function() {
-				//Hide the images.
-				$this.find('img').css('opacity', 0);
-				
-				//If there is a timer.
-				if (timer) clearTimeout(timer);
-				
-				//Create a new timer.
-				setTimeout(function() { $this.collagePlus(settings); }, 250);
-			});
+			$this.collagePlus({'direction': direction, 'targetHeight': targetHeight, 'allowPartialLastRow': true});
 		});
 	});
 })(jQuery);

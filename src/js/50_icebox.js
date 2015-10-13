@@ -43,10 +43,10 @@ var	icebox	=	function() {
 				//If there is no image. 
 				if (!imgSrc) { 
 					//Get the element.
-					var	$e	=	jQuery(jQuery(this).data('icebox'));
+					var	$e	=	jQuery(jQuery(this).attr('data-icebox-')); 
 					
 					//Get the html.
-					html	=	jQuery('<div>').append($e.clone()).html();
+					html	=	$e.html();
 				} else {
 					//Get the alt text.
 					var alt	=	jQuery(this).attr('alt');
@@ -69,14 +69,9 @@ var	icebox	=	function() {
 				jQuery('#ice-shadow').fadeIn('400', function() {
 					//Fade the icebox in.
 					jQuery('#icebox').fadeIn('400', function() {
-						//Get this.
-						var	$this	=	jQuery(this);
-						
 						//Center the element.
-						$this.css("top", (((jQuery(window).height() - 
-								jQuery(this).outerHeight()) / 2) + jQuery(window).scrollTop()));
-						$this.css("left", (((jQuery(window).width() - 
-								jQuery(this).outerWidth()) / 2) + jQuery(window).scrollLeft()));
+						jQuery(this).css("top", (((jQuery(window).height() - jQuery(this).outerHeight()) / 2) + jQuery(window).scrollTop()));
+						jQuery(this).css("left", (((jQuery(window).width() - jQuery(this).outerWidth()) / 2) + jQuery(window).scrollLeft()));
 						
 						//Set close listener.
 						jQuery('#icebox-close, #ice-shadow').click(function(e) {
@@ -97,24 +92,6 @@ var	icebox	=	function() {
 							
 							//Return fales.
 							return false;
-						});
-						
-						//Create a new timeout.
-						var	timer;
-						
-						//Resize the element.
-						jQuery(window).bind('resize', function() {
-							//If there is a timer.
-							if (timer) clearTimeout(timer);
-							
-							//Create a new timer.
-							setTimeout(function() { 
-								//Center the element.
-								$this.css("top", (((jQuery(window).height() - 
-										$this.outerHeight()) / 2) + jQuery(window).scrollTop()));
-								$this.css("left", (((jQuery(window).width() - 
-										$this.outerWidth()) / 2) + jQuery(window).scrollLeft()));
-							}, 250);
 						});
 					});
 				});

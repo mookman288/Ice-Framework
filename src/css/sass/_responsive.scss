@@ -39,10 +39,8 @@
 }
 
 @media all and (max-width: map-get($resolutions, "mobile") + "px") {
-	nav, nav.horizontal, nav.vertical {
+	nav.horizontal, nav.vertical {
 		ul {
-			width: 100.00%; 
-			
 			li {
 				display: none;
 				width: 100.00%;
@@ -59,6 +57,34 @@
 		}
 	}
 	
+	nav.tabs {
+		border-width: 0px;
+	
+		ul {
+			li {
+				width: 49.94%;
+				
+				&:nth-child(odd) {
+					float: left;
+				}
+				
+				&:nth-child(even) {
+					float: right;
+				}
+				
+				a {
+					display: block;
+				}
+			}
+		
+			&.rounded-corners {
+				a {
+					border-radius: 0px;
+				}
+			}
+		}
+	}
+	
 	.page.twenty {
 		min-width: 100.00%;
 		width: 100.00%;
@@ -70,6 +96,19 @@
 	body {
 		width: 100.00%;
 	}
+	
+	nav.tabs {
+		border-width: 0px;
+	
+		ul {
+			li {
+				float: none !important;
+				margin: 0px;
+				width: 100.00%;
+			}
+		}
+	}
+				
 }
 
 @media all and (max-width: map-get($resolutions, "micro") + "px") {
