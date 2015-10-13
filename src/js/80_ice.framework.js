@@ -28,7 +28,7 @@ ice.accordion	=	(function($) {
 		var	$this	=	$(this); 
 		
 		//On click.
-		$this.click(function() { console.log($this.data('slide'));
+		$this.click(function() { 
 			//Toggle slide.
 			$($this.data('slide')).slideToggle(400);
 		});
@@ -40,7 +40,7 @@ ice.accordion	=	(function($) {
  */ 
 ice.codeBlocks	=	(function($) {
 	//For each code block.
-	$('code').each(function() {
+	$('pre > code').each(function() {
 		//Declare variables.
 		var	html	=	'';
 		var	current	=	$(this).html();
@@ -106,14 +106,49 @@ ice.galleries	=	(function($) {
 		//Get this.
 		var	$this	=	$(this);
 		
+		//Adjust the CSS of each image.
+		$this.addClass('base-half-margin').find('img').css({'vertical-align': 'bottom', 'opacity': 0});
+		
 		//When the images are fully loaded.
 		$this.imagesLoaded(function() {
 			//Get the target height.
-			var	targetHeight	=	$(this).data('height');
-			var	direction		=	$(this).data('direction');
+			var	targetHeight	=	$this.data('height');
+			
+			//Get the direction.
+			var	direction		=	$this.data('direction');
+			
+			//Create the settings object.
+			var	settings		=	{'allowPartialLastRow': true};
+			
+			//If there is a target height.
+			if (typeof targetHeight !== "undefined") {
+				//Set the height. 
+				settings.targetHeight	=	targetHeight;
+			}
+			
+			//If there is a direction.
+			if (typeof direction !== "undefined") {
+				//Set the direction.
+				settings.direction	=	direction;
+			}
 			
 			//CollagePlus.
-			$this.collagePlus({'direction': direction, 'targetHeight': targetHeight, 'allowPartialLastRow': true});
+			$this.collagePlus(settings);
+			
+			//Create the timer.
+			var	timer;
+			
+			//Resize the element.
+			$(window).bind('resize', function() {
+				//Hide the images.
+				$this.find('img').css('opacity', 0);
+				
+				//If there is a timer.
+				if (timer) clearTimeout(timer);
+				
+				//Create a new timer.
+				setTimeout(function() { $this.collagePlus(settings); }, 250);
+			});
 		});
 	});
 })(jQuery);

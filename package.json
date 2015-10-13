@@ -11,7 +11,6 @@
 	"author": "PxO Ink",
 	"license": "MIT",
 	"dependencies": {
-		"del": "^1.2.1",
 		"gulp": "^3.9.0",
 		"gulp-cache": "^0.2.10",
 		"gulp-concat": "^2.6.0", 

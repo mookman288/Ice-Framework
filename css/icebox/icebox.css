@@ -24,10 +24,11 @@ div#ice-shadow {
 div#icebox {
 	position: absolute;
 	display: none;
+	padding: 0.25%;
 	width: auto;
 	height: auto;
-	max-width: 88.50%;
-	max-height: 88.50%;
+	max-width: 88.00%;
+	max-height: 88.00%;
 	min-width: 20.00%;
 	min-height: 20.00%;
 	background-color: #000;
@@ -68,7 +69,7 @@ div#icebox > div, div#icebox img {
 	}
 	
 div#icebox > * {
-	margin: 1.25%;
+	overflow: hidden;
 	}
 	
 div#icebox * {

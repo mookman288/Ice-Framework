@@ -515,6 +515,7 @@ nav {
 }
 	
 table {
+	@extend .base-margin-down;
 	width: 100.00%;
 	border-collapse: separate;
 	border-spacing: 0px;
