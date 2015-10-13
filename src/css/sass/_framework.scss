@@ -721,6 +721,24 @@ body > section {
 		width: 20.85%;
 	}
 }
+
+/* Figure */
+
+figure {
+	position: relative;
+	
+	figcaption {
+		position: absolute;
+		bottom: 4px;
+		padding: 2.50% 5.00%;
+		width: 90.00%;
+		background-image: url('../images/shadow.png');
+		color: #FFF;
+		font-size: 1.60em;
+		line-height: 1.50em;
+		text-align: left;
+	}
+}
 	
 /* Slider */
 
@@ -743,22 +761,6 @@ body > section {
 		
 		> *:first-child {
 			display: initial;
-		}
-		
-		figure {
-			position: relative;
-		}
-		
-		figure figcaption {
-			position: absolute;
-			bottom: 4px;
-			padding: 2.50% 5.00%;
-			width: 90.00%;
-			background-image: url('../images/shadow.png');
-			color: #FFF;
-			font-size: 1.60em;
-			line-height: 1.50em;
-			text-align: left;
 		}
 	}
 	

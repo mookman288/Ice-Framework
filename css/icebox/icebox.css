@@ -38,7 +38,7 @@ div#icebox {
 	border-radius: 2px;
 	box-shadow: 0px 0px 1.00em #000;
 	font-family: sans-serif, serif;
-	font-size: 1.40em;
+	font-size: 1.00em;
 	z-index: 8500;
 	}
 	
@@ -54,6 +54,7 @@ div#icebox > a#icebox-close {
 	border-radius: 4px;
 	box-shadow: 0px 0px 0.50em #000;
 	color: #FFF;
+	font-size: 1.40em;
 	font-weight: bold;
 	text-decoration: none;
 	z-index: 8800;

@@ -1354,10 +1354,10 @@ var	icebox	=	function() {
 				//If there is no image. 
 				if (!imgSrc) { 
 					//Get the element.
-					var	$e	=	jQuery(jQuery(this).attr('data-icebox-')); 
+					var	$e	=	jQuery(jQuery(this).data('icebox'));
 					
 					//Get the html.
-					html	=	$e.html();
+					html	=	jQuery('<div>').append($e.clone()).html();
 				} else {
 					//Get the alt text.
 					var alt	=	jQuery(this).attr('alt');
