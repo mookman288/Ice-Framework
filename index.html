@@ -485,7 +485,9 @@
 				<h3>Navigation</h3>
 				<h4>Horizontal Hover Menu</h4>
 				<nav class="cfx horizontal blue background rounded-corners">
-					<h6>Logo</h6>
+					<ul>
+						<li><h6>Logo</h6></li>
+					</ul>
 					<ul>
 						<li>
 							<a href="#">Menu 1</a>
@@ -1015,14 +1017,25 @@
 				<h4>Mobile Navigation</h4>
 				<nav class="cfx horizontal mobile black background">
 					<ul>
-						<li class="mobile"><a href="#">&equiv;</a></li>
+						<li><a href="#">&equiv;</a></li>
+					</ul>
+					<ul>
+						<li><h6>Logo</h6></li>
+					</ul>
+					<ul>
 						<li><a href="#">Menu 1</a></li>
 						<li><a href="#">Menu 2 Drop Down</a>
 							<ul class="background metal">
 								<li><a href="#">Menu 1</a></li>
 								<li><a href="#">Menu 2</a></li>
 								<li><a href="#">Menu 3</a></li>
-								<li><a href="#">Menu 4</a></li>
+								<li><a href="#">Menu 4 Drop Down</a>
+									<ul class="background dark-grey">
+										<li><a href="#">Menu 1</a></li>
+										<li><a href="#">Menu 2</a></li>
+										<li><a href="#">Menu 3</a></li>
+									</ul>
+								</li>
 							</ul>
 						</li>
 						<li><a href="#">Menu 3</a></li>
@@ -1224,6 +1237,7 @@
 				<p>Want to show a tab on page load? <a href="?showTab=tab-4">Click Here</a>.</p>
 				<h3>Utility Classes</h3>
 <pre><code>
+.clear
 </code></pre>
 				<h3>Utility JavaScript</h3>
 <pre><code>

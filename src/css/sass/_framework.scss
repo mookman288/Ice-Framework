@@ -431,7 +431,7 @@ nav {
 					display: block;
 				}
 			
-				a {
+				a, h6, span {
 					display: block;
 					@extend .no-margin;
 					margin-left: 1.00em;
@@ -472,6 +472,11 @@ nav {
 			&:last-child {
 				margin-right: 0px;
 			}
+		}
+		
+		a.chevron:after {
+			content: '\25be';
+			padding-left: 0.25em;
 		}
 	}
 		

@@ -38,20 +38,44 @@
 	}
 }
 
-@media all and (max-width: map-get($resolutions, "mobile") + "px") {
-	nav.horizontal, nav.vertical {
-		ul {
+@media all and (max-width: map-get($resolutions, "mobile") + "px") {	
+	nav.mobile {
+		ul:first-child {
 			li {
-				display: none;
-				width: 100.00%;
-			
-				&.mobile {
-					display: block !important;
+				a {
+					font-size: 1.40em;
+					font-weight: bold;
+					text-decoration: none;
 				}
+			}
+		}
+	
+		ul:last-child {
+			display: none;
+			
+			li {
+				display: block;
+				width: 100.00%;
 				
 				a {
-					padding: 0px 4.00%;
-					width: 92.00%;
+					margin-left: 1.00em;
+					padding: 2.50% 0px;
+					
+					&.chevron:after {
+						float: right;
+						margin-right: 1.00em;
+					}
+				}
+				
+				ul {
+					position: static;
+					margin: 1.00em;
+				}
+				
+				&:hover {
+					> ul {
+						display: none;
+					}
 				}
 			}
 		}
