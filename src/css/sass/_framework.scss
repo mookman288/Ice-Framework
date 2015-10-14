@@ -217,7 +217,7 @@ pre {
 				padding-right: 0.40em;
 				border-width: 0px;
 				border-right: 0.40em;
-				border-color: $dark-grey;
+				border-color: lighten($baseContrast, 10.00%);
 				border-style: solid;
 				opacity: 0.40;
 			}
@@ -233,8 +233,8 @@ code {
 
 pre, code {
 	max-width: 100.00%;
-	background-color: $silver;
-	color: $dark;
+	background-color: $baseOffset;
+	color: lighten($baseContrast, 10.00%);
 }
 	
 /* Headings */
@@ -548,22 +548,22 @@ table {
 	tr {
 		th, td {
 			border-width: 0.10em;
-			border-top-color: $silver;
-			border-bottom-color: $grey;
-			border-right-color: $dark-silver;
-			border-left-color: $silver;
+			border-top-color: $baseOffset;
+			border-bottom-color: darken($baseOffset, 10.00%);
+			border-right-color: darken($baseOffset, 8.00%);
+			border-left-color: $baseOffset;
 			border-style: solid;
 		}
 	
 		th {
 			@extend .background;
-			background-color: lighten($dark-silver, 10.00%);
+			background-color: darken($baseOffset, 6.00%);
 		}
 		
 		td {
 			@extend .align-center;
 			@extend .background;
-			background-color: lighten($silver, 5.00%);
+			background-color: darken($baseOffset, 4.00%);
 			
 			&:first-child {
 				@extend .align-left;
@@ -571,7 +571,7 @@ table {
 		}
 		
 		&:nth-child(even) td {
-			background-color: lighten($dark-silver, 10.00%);
+			background-color: darken($baseOffset, 6.00%);
 		}
 	}
 }

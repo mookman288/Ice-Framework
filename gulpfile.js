@@ -87,6 +87,9 @@ gulp.task('js', function() {
 
 //Watch for changes.
 gulp.task('watch', function() {
+	//Reset err.
+	err	=	false;
+	
 	//Watch for CSS.
 	gulp.watch('./src/**/*.scss', ['css']);
 	

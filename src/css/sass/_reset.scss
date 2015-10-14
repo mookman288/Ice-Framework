@@ -5,6 +5,8 @@
 
 //Base Reset Settings.
 body {
+	background-color: $baseColor;
+	color: $baseContrast;
 	font-family: "Nimbus Sans L", sans-serif, "Open Baskerville", serif;
 	font-size: 62.50%;
 	}

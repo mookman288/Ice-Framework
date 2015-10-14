@@ -3,6 +3,12 @@
 //License: The MIT License (MIT)
 //Copyright: © 2014 PxO Ink. Most Rights Reserved.
 
+//Set the base colors.
+$baseColorVar:	"white";
+$baseColor:		map-get($colors, $baseColorVar);
+$baseContrast:	map-get($contrasts, $baseColorVar);
+$baseOffset:	map-get($offsets, $baseColorVar);
+
 //For Each Color.
 @each $key, $value in $colors {
 	//Build Class.
