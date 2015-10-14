@@ -549,21 +549,21 @@ table {
 		th, td {
 			border-width: 0.10em;
 			border-top-color: $baseOffset;
-			border-bottom-color: darken($baseOffset, 10.00%);
-			border-right-color: darken($baseOffset, 8.00%);
+			border-bottom-color: darken($baseOffset, 8.00%);
+			border-right-color: darken($baseOffset, 6.00%);
 			border-left-color: $baseOffset;
 			border-style: solid;
 		}
 	
 		th {
 			@extend .background;
-			background-color: darken($baseOffset, 6.00%);
+			background-color: darken($baseOffset, 2.00%);
 		}
 		
 		td {
 			@extend .align-center;
 			@extend .background;
-			background-color: darken($baseOffset, 4.00%);
+			background-color: $baseOffset;
 			
 			&:first-child {
 				@extend .align-left;
@@ -571,7 +571,7 @@ table {
 		}
 		
 		&:nth-child(even) td {
-			background-color: darken($baseOffset, 6.00%);
+			background-color: darken($baseOffset, 2.00%);
 		}
 	}
 }
