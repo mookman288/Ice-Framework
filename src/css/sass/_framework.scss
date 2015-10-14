@@ -438,6 +438,10 @@ nav {
 					@extend .base-half-ends-padding;
 					height: 100.00%;
 					font-size: 1.00em;
+					
+					a, span {
+						margin-left: 0px;
+					}
 				}
 			}
 			
@@ -516,6 +520,12 @@ nav {
 					left: 100.00%;
 				}
 			}
+		}
+	}
+	
+	&.mobile {
+		ul:first-child {
+			display: none;
 		}
 	}
 }

@@ -41,10 +41,13 @@
 @media all and (max-width: map-get($resolutions, "mobile") + "px") {	
 	nav.mobile {
 		ul:first-child {
+			display: initial; 
+			
 			li {
 				a {
-					font-size: 1.40em;
-					font-weight: bold;
+					margin-left: 0px;
+					padding: 0px 0.50em;
+					font-size: 1.25em;
 					text-decoration: none;
 				}
 			}
@@ -70,6 +73,7 @@
 				ul {
 					position: static;
 					margin: 1.00em;
+					margin-top: 0px;
 				}
 				
 				&:hover {
