@@ -40,7 +40,7 @@ ice.accordion	=	(function($) {
  */ 
 ice.codeBlocks	=	(function($) {
 	//For each code block.
-	$('code').each(function() {
+	$('pre > code').each(function() {
 		//Declare variables.
 		var	html	=	'';
 		var	current	=	$(this).html();
@@ -106,16 +106,87 @@ ice.galleries	=	(function($) {
 		//Get this.
 		var	$this	=	$(this);
 		
+        //Adjust the CSS of each image.
+        $this.addClass('base-half-margin').find('img').css({'vertical-align': 'bottom', 'opacity': 0});
+		
 		//When the images are fully loaded.
 		$this.imagesLoaded(function() {
 			//Get the target height.
-			var	targetHeight	=	$(this).data('height');
-			var	direction		=	$(this).data('direction');
+            var    targetHeight    =    $this.data('height');
+            
+            //Get the direction.
+            var    direction        =    $this.data('direction');
+            
+            //Create the settings object.
+            var    settings        =    {'allowPartialLastRow': true};
+            
+            //If there is a target height.
+            if (typeof targetHeight !== "undefined") {
+                //Set the height. 
+                settings.targetHeight    =    targetHeight;
+            }
+            
+            //If there is a direction.
+            if (typeof direction !== "undefined") {
+                //Set the direction.
+                settings.direction    =    direction;
+            }
 			
 			//CollagePlus.
-			$this.collagePlus({'direction': direction, 'targetHeight': targetHeight, 'allowPartialLastRow': true});
+            $this.collagePlus(settings);
+            
+            //Create the timer.
+            var    timer;
+            
+            //Resize the element.
+            $(window).bind('resize', function() {
+                //Hide the images.
+                $this.find('img').css('opacity', 0);
+                
+                //If there is a timer.
+                if (timer) clearTimeout(timer);
+                
+                //Create a new timer.
+                setTimeout(function() { $this.collagePlus(settings); }, 250);
+            });
 		});
 	});
+})(jQuery);
+
+/**
+ * Mobile menu code.
+ */
+ice.menues        =    (function($) {
+    //For each horizontal navigation.
+    $('nav.horizontal').each(function() {
+        //Find nested menues.
+        $(this).find('li > ul').each(function() {
+            //Add the chevron class.
+            $(this).parent().children('a').addClass('chevron');
+        });
+    });
+    
+    //For each mobile navigation.
+    $('nav.mobile').each(function() { 
+        //Get this.
+        var    $this    =    $(this);
+        var    $nav    =    $this.children('ul:last-child');
+        
+        //When the mobile menu is clicked.
+        $this.children('ul:first-child').find('a').click(function() { 
+            //Slide the navigation.
+            $nav.slideToggle();
+        });
+        
+        //Slide the nav elements down.
+        $nav.find('li > ul').each(function() {
+            //On click. 
+            $(this).parent().children('a').click(function() { 
+                //Slide the ul.
+                $(this).parent().children('ul').slideToggle();
+            });
+        });
+    });
 })(jQuery);
 
 /**
