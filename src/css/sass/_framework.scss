@@ -557,7 +557,7 @@ table {
 	
 		th {
 			@extend .background;
-			background-color: darken($baseOffset, 2.00%);
+			background-color: darken($baseOffset, 4.00%);
 		}
 		
 		td {
@@ -571,7 +571,7 @@ table {
 		}
 		
 		&:nth-child(even) td {
-			background-color: darken($baseOffset, 2.00%);
+			background-color: darken($baseOffset, 4.00%);
 		}
 	}
 }
