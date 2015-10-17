@@ -32,7 +32,7 @@ should be located.
 ###Documentation
 
 Documentation, credits, utilities, and examples of how the Ice Framework can be used are included in the accompanying 
-index.html file. 
+index.html file. You can also [view the demo here](http://mookman288.github.io/Ice-Framework/).
 
 ###License
 ####The MIT License (MIT)
