@@ -25,9 +25,9 @@ should be located.
 
 | Name          | File Location         | HTML Location                   | Notes                                           |
 |---------------|-----------------------|---------------------------------|-------------------------------------------------|
-| Modernizr     | `js/modernizr.min.js` | Right before the closing <head> | Optional, but highly recommended                |
-| Framework CSS | `css/stylesheet.css`  | In the <head>                   | Load before any render blocking JavaScript      |
-| Framework JS  | `js/framework.js`     | Right before the closing <body> | Required for JavaScript implementations to work |
+| Modernizr     | `js/modernizr.min.js` | Right before the closing `head` | Optional, but highly recommended                |
+| Framework CSS | `css/stylesheet.css`  | In the `head`                   | Load before any render blocking JavaScript      |
+| Framework JS  | `js/framework.js`     | Right before the closing `body` | Required for JavaScript implementations to work |
 
 ###Documentation
 
