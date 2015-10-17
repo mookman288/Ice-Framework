@@ -1,7 +1,7 @@
 //Name: Framework
 //Author: PxO Ink
 //License: The MIT License (MIT)
-//Copyright: © 2014 PxO Ink. Some Rights Reserved.
+//Copyright: © 2014 PxO Ink. Most Rights Reserved.
 
 //Utility classes.
 .clear {
@@ -531,10 +531,12 @@ nav {
 }
 	
 table {
+	display: block;
 	@extend .base-margin-down;
 	width: 100.00%;
 	border-collapse: separate;
 	border-spacing: 0px;
+	overflow-x: auto;
 	
 	th, td, caption {
 		@extend .base-half-padding;

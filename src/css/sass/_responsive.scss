@@ -1,7 +1,7 @@
 //Name: Responsive
 //Author: PxO Ink
 //License: The MIT License (MIT)
-//Copyright: © 2015 PxO Ink. Some Rights Reserved.
+//Copyright: © 2015 PxO Ink. Most Rights Reserved.
 
 @media all and (max-width: map-get($resolutions, "full") + "px") {
 	
@@ -49,6 +49,10 @@
 					padding: 0px 0.50em;
 					font-size: 1.25em;
 					text-decoration: none;
+					
+					span {
+						padding-bottom: 0.25em;
+					}
 				}
 			}
 		}

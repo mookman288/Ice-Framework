@@ -147,7 +147,7 @@ ice.galleries	=	(function($) {
                 if (timer) clearTimeout(timer);
                 
                 //Create a new timer.
-                setTimeout(function() { $this.collagePlus(settings); }, 250);
+               timer	=	setTimeout(function() { $this.collagePlus(settings); }, 250);
             });
 		});
 	});
