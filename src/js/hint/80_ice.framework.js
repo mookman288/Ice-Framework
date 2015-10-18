@@ -363,11 +363,11 @@ ice.tabs		=	(function($) {
 		var	$this	=	$(this);
 		var	hrefs	=	'';
 		
-		//Confirm showtab exists.
-		$_GET.showTab	=	(typeof $_GET.showTab !== 'undefined') ? $_GET.showTab : false;
+		//Confirm tab exists.
+		$_GET.tab	=	(typeof $_GET.tab !== 'undefined') ? $_GET.tab : false;
 		
 		//If there is no show tab.
-		if (!$_GET.showTab) {
+		if (!$_GET.tab) {
 			//Set the active class.
 			$this.find('a').eq(0).addClass('active');
 		}
@@ -384,7 +384,7 @@ ice.tabs		=	(function($) {
 			$that.attr('data-no-scroll', true);
 			
 			//If there is a show tab, and this element matches.
-			if ($_GET.showTab && ('#' + $_GET.showTab) == $(this).attr('href')) {
+			if ($_GET.tab && ('#' + $_GET.tab) == $(this).attr('href')) {
 				//Activate.
 				$that.addClass('active');
 			}
@@ -403,15 +403,15 @@ ice.tabs		=	(function($) {
 		hrefs	=	hrefs.replace(/,+$/,'');
 		
 		//If there is no show tab.
-		if (!$_GET.showTab) {
+		if (!$_GET.tab) {
 			//Hide all elements.
 			$(hrefs).not($this.find('a:first').addClass('active').attr('href')).hide();
 		} else { 
-			//Scroll down.
-			$('#' + $_GET.showTab).ScrollTo();
+			//Scroll to the element.
+			jQuery('body, html').animate({scrollTop: $('#' + $_GET.tab).offset().top}, 400);
 			
 			//Hide all but this element.
-			$(hrefs).not('#' + $_GET.showTab).hide();
+			$(hrefs).not('#' + $_GET.tab).hide();
 		}
 	});
 })(jQuery);
