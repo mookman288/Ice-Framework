@@ -141,7 +141,7 @@ ice.galleries	=	(function($) {
             //Resize the element.
             $(window).bind('resize', function() {
                 //Hide the images.
-                $this.find('img').css('opacity', 0);
+                $this.find('img').animate({'opacity': 0}, 150);
                 
                 //If there is a timer.
                 if (timer) clearTimeout(timer);

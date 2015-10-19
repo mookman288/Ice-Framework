@@ -63,20 +63,39 @@ var	icebox	=	function() {
 				var	$icebox	=	jQuery('<div>', {id: 'icebox'}).append($close).append($div);
 				
 				//Append the shadow and icebox.
-				jQuery('body').append($shadow).append($icebox);
+				jQuery('body').append($shadow.append($icebox));
 				
 				//Fade the shadow in.
 				jQuery('#ice-shadow').fadeIn('400', function() {
 					//Fade the icebox in.
 					jQuery('#icebox').fadeIn('400', function() {
-						//Center the element.
-						jQuery(this).css("top", (((jQuery(window).height() - jQuery(this).outerHeight()) / 2) + 
-								jQuery(window).scrollTop()));
-						jQuery(this).css("left", (((jQuery(window).width() - jQuery(this).outerWidth()) / 2) + 
-								jQuery(window).scrollLeft()));
+						//Declare this.
+						var	$this	=	jQuery(this);
+						var	$parent	=	$this.parent();
+						
+						//Recalculate element.
+						recalculateIcebox($parent, $this, $this.children('div'));
+						
+						//Create a new timer.
+						var    timer;
+						
+						//Resize the element.
+						jQuery(window).bind('resize', function() { 
+							//Set the div to display none.
+							//$this.children('div').animate({'opacity': 0}, 125).css('display': 'none');
+							
+							//If there is a timer.
+							if (timer) clearTimeout(timer);
+							
+							//Create a new timer.
+							timer	=	setTimeout(function() {
+								//Recalculate element.
+								recalculateIcebox($parent, $this, $this.children('div'));
+							}, 250);
+						});
 						
 						//Set close listener.
-						jQuery('#icebox-close, #ice-shadow').click(function(e) {
+						jQuery('#icebox-close').click(function(e) {
 							//Prevent default.
 							e.preventDefault();
 							
@@ -91,24 +110,6 @@ var	icebox	=	function() {
 									icebox	=	false;
 								});
 							});
-	                        
-	                        //Create a new timeout.
-	                        var    timer;
-	                        
-	                        //Resize the element.
-	                        jQuery(window).bind('resize', function() {
-	                            //If there is a timer.
-	                            if (timer) clearTimeout(timer);
-	                            
-	                            //Create a new timer.
-	                            setTimeout(function() { 
-	                                //Center the element.
-	                                $this.css("top", (((jQuery(window).height() - $this.outerHeight()) / 2) + 
-	                                		jQuery(window).scrollTop()));
-	                                $this.css("left", (((jQuery(window).width() - $this.outerWidth()) / 2) + 
-	                                		jQuery(window).scrollLeft()));
-	                            }, 250);
-	                        });
 							
 							//Return fales.
 							return false;
@@ -125,6 +126,60 @@ var	icebox	=	function() {
 		});
 	});
 };
+
+/**
+ * Recalculates an element based on its child and vise-versa.
+ */
+function	recalculateIcebox($parent, $this, $child, repeat) {
+	//Declare variables.
+	var	options	=	{'queue': false, 'duration': (!repeat) ? 0 : 125};
+	
+	//If this is not a repeat.
+	if (!repeat) {
+		//Reset CSS.
+		$this.css({'width': 'auto', 'height': 'auto'});
+		$child.css({'width': 'auto', 'height': 'auto'});
+	}
+	
+	//Get the heights and widths.
+	var	cHeight	=	$child.height();
+	var	cWidth	=	$child.width();
+	var	height	=	$this.height();
+	var	width	=	$this.width();
+	
+	//Calculate the height.
+	if (height > cHeight) {
+		$this.animate({'height': $child.outerHeight()}, options);
+	} else if (cHeight > height) {
+		$child.animate({'height': $this.height()}, options);
+	}
+	
+	//Calculate the width.
+	if (width > cWidth) {
+		$this.animate({'width': $child.outerWidth()}, options);
+	} else if (cWidth > width) {
+		$child.animate({'width': $this.width()}, options);
+	}
+	
+	//If this is not a repeat.
+	if (!repeat) {
+		//Set the CSS.
+		$child.css('display', 'inline-block');
+		
+		//Repeat. 
+		recalculateIcebox($parent, $this, $child, true);
+	} else {
+		//Set a timeout.
+		setTimeout(function() {
+			//Center the element.
+			$this.animate({'top': (($parent.outerHeight() - $this.outerHeight()) / 2)}, options);
+			$this.animate({'left': (($parent.outerWidth() - $this.outerWidth()) / 2)}, options);
+			
+			//Show the element.
+			$this.animate({'opacity': 1}, {'queue': false, 'duration': 250});
+		}, 126);
+	}
+}
 
 //If jQuery exists.
 if (typeof jQuery !== 'undefined') {
