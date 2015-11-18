@@ -4,6 +4,7 @@
 //Copyright: © 2014 PxO Ink. Most Rights Reserved.
 
 //Utility classes.
+
 .clear {
 	clear: both;
 }
@@ -237,7 +238,7 @@ pre, code {
 	color: lighten($baseContrast, 10.00%);
 }
 	
-/* Headings */
+//Headings
 
 h1, h2, h3, h4, h5, h6, fieldset legend {
 	@extend .base-margin-half-top;
@@ -276,11 +277,11 @@ label {
 	@extend .normal;
 }
 	
-/* Inputs */
+//Inputs 
 	
 .input {
 	margin-bottom: 0.50em;
-	padding: 1.00% 2.00%;
+	padding: 0.25em 0.50em;
 	max-width: 96.00%;
 	border-width: 1px;
 	border-style: solid;
@@ -578,10 +579,7 @@ table {
 	}
 }
 
-//Page settings.
-body > section {
-	@extend .default;
-}
+//Page Settings
 	
 .content {
 	@extend .cfx;
@@ -593,11 +591,7 @@ body > section {
 	@extend .double-plus-padding;
 }
 	
-.sticky {
-	z-index: 2500;
-}
-	
-/* Borders */
+//Borders
 
 .border {
 	border-width: 1px;
@@ -633,7 +627,7 @@ body > section {
 	}
 }
 		
-/* Breadcrumbs */
+//Breadcrumbs
 
 .breadcrumbs {
 	margin: 0px;
@@ -667,7 +661,7 @@ body > section {
 	}
 }
 	
-/* Tabs */
+//Tabs
 
 .tabs {
 	@extend .cfx;
@@ -700,8 +694,8 @@ body > section {
 		}
 	}
 }
-	
-/* Pagination */
+
+//Pagination
 
 .pagination {
 	padding: 0.50em 0px;
@@ -722,7 +716,7 @@ body > section {
 	}
 }
 	
-/* Gallery */
+//Gallery
 
 .gallery {
 	> * {
@@ -742,7 +736,7 @@ body > section {
 	}
 }
 
-/* Figure */
+//Figure
 
 figure {
 	position: relative;
@@ -760,9 +754,7 @@ figure {
 	}
 }
 	
-/* Slider */
-
-/* Begin Slider Work */
+//Slider
 
 .slider-container {
 	position: relative;
