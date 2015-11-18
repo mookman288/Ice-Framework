@@ -33,9 +33,9 @@ gulp.task('css', function() {
 			//Return the error.
 			return "Error: " + error.message;
 		}))
-		.pipe(gulpif(!err, sourcemaps.init()))
+		.pipe(gulpif(!err, gulpif(dev, sourcemaps.init())))
 		.pipe(gulpif(!err, gulpif(!dev, minifyCSS({compatibility: 'ie8'}))))
-		.pipe(gulpif(!err, sourcemaps.write()))
+		.pipe(gulpif(!err, gulpif(dev, sourcemaps.write())))
 		.pipe(gulpif(!err, gulp.dest('./css')));
 });
 
