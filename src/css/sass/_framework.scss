@@ -190,6 +190,10 @@ blockquote {
 	@extend .base-padding;
 	@extend .pointer;
 	border-width: 0px;
+	
+	&:last-child {
+		margin-right: 0px;
+	}
 }
 	
 button {
@@ -339,6 +343,10 @@ form {
 		
 		&[for] {
 			@extend .pointer;
+		}
+		
+		+ br {
+			margin-right: 0px;
 		}
 	}
 	
