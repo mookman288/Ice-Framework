@@ -1,0 +1,64 @@
+//Name: Color Variables
+//Author: PxO Ink
+//License: The MIT License (MIT)
+//Copyright: © 2016 PxO Ink. Most Rights Reserved.
+
+//Declare Colors.
+$colors:	(
+				"blue":			#007BA7,
+				"cerulean":		#1DACD6,
+				"green":		#00CA64,
+				"grey":			#BBB, 
+				"orange":		#FF8A22,
+				"purple":		#60F,
+				"red":			#D00,
+				"shadow":		#444, 
+			);
+			
+//Declare Color Variables.
+$body:			map-get($colors, "white");
+$blue:			map-get($colors, "blue");
+$cerulean:		map-get($colors, "cerulean");
+$green:			map-get($colors, "green");
+$grey:			map-get($colors, "grey");
+$orange:		map-get($colors, "orange");
+$purple:		map-get($colors, "purple");
+$red:			map-get($colors, "red");
+$shadow:		map-get($colors, "shadow");
+$white:			map-get($colors, "white");
+
+//Declare Color Variable Alises. 
+$anchor:		$blue !default;
+$body:			#FFF !default;
+$error:			$red !default;
+$message:		$cerulean !default;
+$success:		$green !default;
+$text:			#111 !default;
+$visited:		$purple !default;
+$warning:		$orange !default;
+
+//Declare Color Contrasts.
+$contrasts:	(
+				"blue":			#FFF,
+				"body":			$text, 
+				"cerulean":		#FFF,
+				"green":		#000,
+				"grey":			#000, 
+				"orange":		#000,
+				"purple":		#FFF,
+				"red":			#FFF,
+				"shadow":		#FFF
+				"text":			$body
+			);
+			
+//Declare Color Offsets.
+$offsets:	(
+				"blue":			lighten($blue, 10.00%),
+				"cerulean":		darken($cerulean, 10.00%),
+				"green":		darken($green, 10.00%),
+				"grey":			darken($grey, 10.00%), 
+				"orange":		lighten($orange, 10.00%),
+				"purple":		darken($purple, 10.00%),
+				"red":			darken($red, 10.00%),
+				"shadow":		#444
+			);

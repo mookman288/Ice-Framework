@@ -1,0 +1,63 @@
+//Name: Mixins and Functions
+//Author: PxO Ink
+//License: The MIT License (MIT)
+//Copyright: © 2014 PxO Ink. Most Rights Reserved.
+
+//Calculates a column based on column and resolution.
+//
+//@param number $column
+//@param text $resolution
+
+@function calcCol($column, $resolution) { 
+	//If the column is equal to zero.
+	@if ($column == 0) {
+		@return 0.00;
+	} @else if ($column == $columns) {
+		@return 100.00;
+	} @else {
+		//Return the width.
+		@return (($maxWidth / $columns) * $column);
+	}
+}
+
+//Converts number to em.
+//
+//@param number $n
+
+@function toEm($n) {
+	@return $n * 1em;
+}
+
+//Converts number to rem.
+//
+//@param number $n
+
+@function toRem($n) {
+	@return $n * 1rem;
+}
+
+//Converts number to percent.
+//
+//@param number $n
+
+@function toPercent($n) {
+	@return $n * 1%
+}
+
+//Converts number to pixel.
+//
+//@param number $n
+
+@function toPixel($n) {
+	@return $n * 1px;
+}
+
+//Calculates a color based on variables.
+//
+//@param text $rcolor
+
+@mixin back-offset-box($color) {
+	background-color: lighten(map-get($colors, $color), 34.00%);
+	border-color: map-get($offsets, $color);
+	color: $text;
+}

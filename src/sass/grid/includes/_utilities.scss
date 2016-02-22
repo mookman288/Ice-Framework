@@ -1,0 +1,20 @@
+//Name: Grid Utilities
+//Author: PxO Ink
+//License: The MIT License (MIT)
+//Copyright: © 2016 PxO Ink. Most Rights Reserved.
+
+.left {
+	float: left;
+	
+	&.clear {
+		clear: left;
+	}
+}
+
+.right {
+	float: right;
+	
+	&.clear {
+		clear: right;
+	}
+}

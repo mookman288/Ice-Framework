@@ -1,11 +1,11 @@
 //Declare variables.
+var	autoprefix	=	require('gulp-autoprefixer');
 var	cache		=	require('gulp-cache');
 var	concat		=	require('gulp-concat');
 var	gulp		=	require('gulp');
 var	gulpif		=	require('gulp-if');
 var imagemin    =   require('gulp-imagemin');
 var	jshint		=	require('gulp-jshint');
-var	livereload	=	require('gulp-livereload');
 var	minifyCSS	=	require('gulp-minify-css');
 var notify      =   require('gulp-notify');
 var	rename		=	require('gulp-rename');
@@ -14,58 +14,131 @@ var sourcemaps	=	require('gulp-sourcemaps');
 var	uglify		=	require('gulp-uglify');
 var yargs		=	require('yargs');
 
-//Determine if this is a dev call.
+//Get all arguments.
 var	argv		=	require('yargs').argv;
-var	dev			=	(!argv.dev) ? false : true;
-var	err			=	false;
 
-//Handle stylesheets.
-gulp.task('css', function() {
-	return gulp.src('./src/css/stylesheet.scss')
-		.pipe(sass({sourcemap: true}))
-		.on('error', notify.onError(function (error) {
-			//Log to the console.
-			console.error(error);
+//Check if this is a development version. 
+var	dev			=	(!argv.dev) ? false : true;
+
+//Setup the applications to be processed.
+var	apps		=	{
+		'css': [
+			'alerts', 
+			'grid', 
+			'reset', 
+			'tables'
+		], 
+		'js': [
+			'icebox'
+		]
+}
+
+//Get all paths.
+var	paths		=	{
+	'input': {
+		'images':	'./src/images', 
+		'js':		'./src/js', 
+		'sass':		'./src/sass/'
+	}, 
+	'output': {
+		'css':		'./css', 
+		'images':	'./images', 
+		'js': 		'./js'
+	}
+};
+
+//Set the initial tasks.
+var	tasks		=	['images', 'watch'];
+
+//Store all processing functions. 
+var	functions	=	{
+		hint:	function(app) {
+			//Declare variables.
+			var	die	=	false;
 			
-			//Set the error.
-			err	=	true;
+			//Run Gulp.
+			gulp.src(paths.input.js + app + '/*.js')
+				.pipe(jshint())
+				.pipe(notify(function(file) {
+					//If not success.
+					if (!file.jshint.success) {
+						//Get the errors.
+						var	errors	=	file.jshint.results.map(function(data) {
+							//If there's an error.
+							if (data.error) {
+								//Increment the error.
+								return "(" + data.error.line + ":" + data.error.character + ") " + data.error.reason;
+							}
+						}).join("\n");
+						
+						//Display the errors.
+						return file.relative + "[" + file.jshint.results.length + " errors]\n" + errors;
+					}
+				}))
+				.pipe(jshint.reporter('default'));
+		}, 
+		js:		function(app) {
+			//Declare variables.
+			var	die	=	false;
 			
-			//Return the error.
-			return "Error: " + error.message;
-		}))
-		.pipe(gulpif(!err, gulpif(dev, sourcemaps.init())))
-		.pipe(gulpif(!err, gulpif(!dev, minifyCSS({compatibility: 'ie8'}))))
-		.pipe(gulpif(!err, gulpif(dev, sourcemaps.write())))
-		.pipe(gulpif(!err, gulp.dest('./css')));
+			//Run Gulp.
+			gulp.src(paths.input.js + app + '/*.js')
+				.pipe(concat(app + '.js'))
+				.pipe(gulpif(!dev, uglify()))
+				.pipe(gulp.dest(paths.output.js));
+		}, 
+		sass:	function(app) {
+			//Declare variables.
+			var	die	=	false;
+			
+			//Run Gulp.
+			gulp.src(paths.input.sass + app + '/' + app + '.scss');
+				.pipe(sass(){sourcemap: true}))
+				.on('error', notify.onError(function(error) {
+					//Set die as true.
+					die	=	true;
+					
+					//Log to the console.
+					console.error(error);
+					
+					//Return the error.
+					return error;
+				}))
+				.pipe(gulpif(!err, gulpif(dev, sourcemaps.init())))
+				.pipe(autoprefix({browsers: '>1%'}))
+				.pipe(gulpif(!err, gulpif(!dev, minifyCSS({compatibility: 'ie8'}))))
+				.pipe(gulpif(!err, gulpif(dev, sourcemaps.write())))
+				.pipe(gulpif(!err, gulp.dest(paths.output.css)));
+		}
+};
+
+//For each CSS application.
+apps.css.forEach(function(app) {
+	//Handle application.
+	gulp.task('css-' + app, functions.sass(app));
+	
+	//Add task.
+	tasks.push('css-' + app);
 });
 
-//Handle hinting.
-gulp.task('hint', function() {
-	return gulp.src('./src/js/hint/*.js')
-		.pipe(jshint())
-		.pipe(notify(function(file) {
-			//If not success.
-			if (!file.jshint.success) {
-				//Get the errors.
-				var	errors	=	file.jshint.results.map(function(data) {
-					//If there's an error.
-					if (data.error) {
-						//Return the error.
-						return "(" + data.error.line + ":" + data.error.character + ") " + data.error.reason;
-					}
-				}).join("\n");
-				
-				//Display the errors.
-				return file.relative + " [" + file.jshint.results.length + " errors]\n" + errors;
-			}
-		}))
-		.pipe(jshint.reporter('default'))
-		.pipe(gulp.dest('./src/js'));
+//For each JS application.
+apps.js.forEach(function(app) {
+	//Hint application.
+	gulp.task('hint-' + app, functions.sass(app));
+	
+	//Add task.
+	tasks.push('hint-' + app);
+	
+	//Handle application.
+	gulp.task('js-' + app, functions.sass(app));
+	
+	//Add task.
+	tasks.push('js-' + app);
 });
 
 //Handle images.
 gulp.task('images', function() {
-	return gulp.src('./src/images/*')
+	return gulp.src(paths.input.images + '/*')
 		.pipe(cache(imagemin({
 			interlaced: true, 
 			multipass: true, 
@@ -73,16 +146,7 @@ gulp.task('images', function() {
 			progressive: true, 
 			svgoPlugins: [{removeViewBox: false}]
 		})))
-		.pipe(gulp.dest('./images'));
-});
-
-//Handle JavaScript.
-gulp.task('js', function() {
-	return gulp.src('./src/js/*.js')
-		.pipe(concat('framework.js'))
-		.pipe(gulp.dest('./js'))
-		.pipe(gulpif(!dev, uglify()))
-		.pipe(gulp.dest('./js'));
+		.pipe(gulp.dest(paths.output.images));
 });
 
 //Watch for changes.
@@ -90,24 +154,24 @@ gulp.task('watch', function() {
 	//Reset err.
 	err	=	false;
 	
-	//Watch for CSS.
-	gulp.watch('./src/**/*.scss', ['css']);
+	//For each CSS application.
+	apps.css.forEach(function(app) {
+		//Setup watch for Sass.
+		gulp.watch(paths.input.sass + app + '/**/*.scss', ['css-' + app]);
+	});
 	
-	//Watch for hint.
-	gulp.watch('./src/js/hint/*.js', ['hint']);
+	//For each JS application.
+	apps.js.forEach(function(app) {
+		//Setup watch for Hint.
+		gulp.watch(paths.input.js + app + '/*.js', ['hint-' + app]);
+		
+		//Setup watch for JS.
+		gulp.watch(paths.input.js + app + '/**/*.js', ['js-' + app]);
+	});
 	
 	//Watch for images. 
-	gulp.watch('./src/images/*', ['images']);
-	
-	//Watch for JS. 
-	gulp.watch('./src/js/**/*.js', ['js']);
-	
-	//Listen for livereload.
-	livereload.listen();
-	
-	//Watch for livereload. 
-	gulp.watch(['./css/**/*', './js/**/*', './images/**/*']).on('change', livereload.changed);
+	gulp.watch(paths.input.images + '/*', ['images']);
 });
 
 //Task runner. 
-gulp.task('default', ['css', 'hint', 'images', 'js', 'watch']);
+gulp.task('default', tasks);
