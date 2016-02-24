@@ -28,7 +28,7 @@
 			@for $i from 0 through $columns {
 				&.#{"" + $key} {
 					&-#{"" + $i} {
-						width: toPercent(calcColumnWidth($i, $key));
+						width: toPercent(calcColumnWidth($i));
 						
 						//If this is zero.
 						@if ($i == 0) {

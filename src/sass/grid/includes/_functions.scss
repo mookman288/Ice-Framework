@@ -1,9 +1,8 @@
 //Calculates a column based on the column and resolution.
 //
 //@param number $column
-//@param text $resolution
 
-@function calcColumnWidth($column, $resolution) { 
+@function calcColumnWidth($column) { 
 	//If the column is equal to zero.
 	@if ($column == 0) {
 		@return 0.00;
@@ -11,6 +10,6 @@
 		@return 100.00;
 	} @else {
 		//Return the width.
-		@return (($maxWidth / $columns) * $column);
+		@return (($collectionWidth / $columns) * $column);
 	}
 }
