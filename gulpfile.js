@@ -53,9 +53,6 @@ var	tasks		=	['images', 'watch'];
 //Store all processing functions. 
 var	functions	=	{
 		hint:	function(app) {
-			//Declare variables.
-			var	die	=	false;
-			
 			//Run Gulp.
 			gulp.src(paths.input.js + app + '/*.js')
 				.pipe(jshint())
@@ -78,13 +75,10 @@ var	functions	=	{
 				.pipe(jshint.reporter('default'));
 		}, 
 		js:		function(app) {
-			//Declare variables.
-			var	die	=	false;
-			
 			//Run Gulp.
 			gulp.src(paths.input.js + app + '/*.js')
 				.pipe(concat(app + '.js'))
-				.pipe(gulpif(!dev, uglify()))
+				.pipe(gulpif(!dev, uglify({'preserveComments': 'license'})))
 				.pipe(gulp.dest(paths.output.js));
 		}, 
 		sass:	function(app) {
@@ -92,8 +86,8 @@ var	functions	=	{
 			var	die	=	false;
 			
 			//Run Gulp.
-			gulp.src(paths.input.sass + app + '/' + app + '.scss');
-				.pipe(sass(){sourcemap: true}))
+			gulp.src(paths.input.sass + app + '/' + app + '.scss')
+				.pipe(sass({sourcemap: true}))
 				.on('error', notify.onError(function(error) {
 					//Set die as true.
 					die	=	true;
@@ -104,11 +98,11 @@ var	functions	=	{
 					//Return the error.
 					return error;
 				}))
-				.pipe(gulpif(!err, gulpif(dev, sourcemaps.init())))
+				.pipe(gulpif(!die, gulpif(dev, sourcemaps.init())))
 				.pipe(autoprefix({browsers: '>1%'}))
-				.pipe(gulpif(!err, gulpif(!dev, minifyCSS({compatibility: 'ie8'}))))
-				.pipe(gulpif(!err, gulpif(dev, sourcemaps.write())))
-				.pipe(gulpif(!err, gulp.dest(paths.output.css)));
+				.pipe(gulpif(!die, gulpif(!dev, minifyCSS({compatibility: 'ie8'}))))
+				.pipe(gulpif(!die, gulpif(dev, sourcemaps.write())))
+				.pipe(gulpif(!die, gulp.dest(paths.output.css)));
 		}
 };
 

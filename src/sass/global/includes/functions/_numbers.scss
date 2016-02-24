@@ -1,0 +1,31 @@
+//Converts number to em.
+//
+//@param number $n
+
+@function toEm($n) {
+	@return $n * 1em;
+}
+
+//Converts number to rem.
+//
+//@param number $n
+
+@function toRem($n) {
+	@return $n * 1rem;
+}
+
+//Converts number to percent.
+//
+//@param number $n
+
+@function toPercent($n) {
+	@return $n * 1%
+}
+
+//Converts number to pixel.
+//
+//@param number $n
+
+@function toPixel($n) {
+	@return $n * 1px;
+}

@@ -2,3 +2,61 @@
 //Author: PxO Ink
 //License: The MIT License (MIT)
 //Copyright: © 2016 PxO Ink. Most Rights Reserved.
+
+.container {
+	margin: 0 auto;
+	
+	//For each resolution.
+	@each $key, $value in $resolutions {
+		//If the value is not considered mobile.
+		@if ($value > $desktopMobileBreak) {
+			@media all and (max-width: toPx(value)) {
+				max-width: toPx(round(0.861 * value));
+			}
+		}
+	}
+}
+
+.column {
+	box-sizing: border-box;
+	padding: toRem($gutterWidth / 2);
+	
+	//For each resolution.
+	@each $key, $value in $resolutions {
+		@media all and (max-width: toPx(value)) {
+			//For each column.
+			@for $i from 0 through $columns {
+				&.#{"" + $key} {
+					&-#{"" + $i} {
+						width: toPercent(calcColumnWidth($i, $key));
+						
+						//If this is zero.
+						@if ($i == 0) {
+							display: none;
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	&nth-child(n + 1) {
+		float: left;
+	}
+	
+	&nth-child(n + 1):last-child {
+		float: right;
+	}
+	
+	&.center {
+		margin: 0 auto;
+	}
+	
+	&.left {
+		float: left !important;
+	}
+	
+	&.right {
+		float: right !important;
+	}
+}
