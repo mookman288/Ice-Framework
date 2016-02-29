@@ -29,7 +29,6 @@ var	apps		=	{
 			'alerts', 
 			'framework', 
 			'grid', 
-			'reset', 
 			'stylesheet', 
 			'tables'
 		], 
@@ -56,7 +55,7 @@ var	paths		=	{
 var	functions	=	{
 		hint:	function(app) {
 			//Run Gulp.
-			gulp.src(paths.input.js + app + '/*.js')
+			return gulp.src(paths.input.js + app + '/*.js')
 				.pipe(jshint())
 				.pipe(notify(function(file) {
 					//If not success.
@@ -78,17 +77,17 @@ var	functions	=	{
 		}, 
 		js:		function(app) {
 			//Run Gulp.
-			gulp.src(paths.input.js + '/' + app + '/*.js')
+			return gulp.src(paths.input.js + '/' + app + '/*.js')
 				.pipe(concat(app + '.js'))
 				.pipe(gulpif(!dev, uglify({'preserveComments': 'license'})))
 				.pipe(gulp.dest(paths.output.js));
 		}, 
-		sass:	function(app) {
+		sass:	function(app) { 
 			//Declare variables.
 			var	die	=	false;
 			
 			//Run Gulp.
-			gulp.src(paths.input.sass + '/' + app + '/' + app + '.scss')
+			return gulp.src(paths.input.sass + '/' + app + '/' + app + '.scss')
 				.pipe(sass({sourcemap: true}))
 				.on('error', notify.onError(function(error) {
 					//Set die as true.
@@ -108,6 +107,9 @@ var	functions	=	{
 				.pipe(gulpif(die, function() {
 					//Reset die.
 					die	=	false;
+					
+					//Return true.
+					return true;
 				}));
 		}
 };
@@ -115,7 +117,10 @@ var	functions	=	{
 //For each CSS application.
 apps.css.forEach(function(app) {
 	//Handle application.
-	gulp.task('css-' + app, functions.sass(app));
+	gulp.task('css-' + app, function() {
+		//Run function.
+		return functions.sass(app);
+	});
 	
 	//Add task.
 	tasks.unshift('css-' + app);
@@ -124,13 +129,19 @@ apps.css.forEach(function(app) {
 //For each JS application.
 apps.js.forEach(function(app) {
 	//Hint application.
-	gulp.task('hint-' + app, functions.sass(app));
+	gulp.task('hint-' + app, function() {
+		//Run function.
+		functions.sass(app);
+	});
 	
 	//Add task.
 	tasks.unshift('hint-' + app);
 	
 	//Handle application.
-	gulp.task('js-' + app, functions.sass(app));
+	gulp.task('js-' + app, function() {
+		//Run function.
+		functions.sass(app);
+	});
 	
 	//Add task.
 	tasks.unshift('js-' + app);
@@ -151,9 +162,6 @@ gulp.task('images', function() {
 
 //Watch for changes.
 gulp.task('watch', function() {
-	//Reset err.
-	err	=	false;
-	
 	//For each CSS application.
 	apps.css.forEach(function(app) {
 		//Setup watch for Sass.

@@ -11,8 +11,8 @@
 	@each $key, $value in $resolutions {
 		//If the value is not considered mobile.
 		@if ($value > $desktopMobileBreak) {
-			@media all and (max-width: toPx($value)) {
-				max-width: toPx(round(0.861 * $value));
+			@media all and (max-width: toPixel($value)) {
+				max-width: toPixel(round(0.861 * $value));
 			}
 		}
 	}
@@ -24,16 +24,16 @@
 	
 	//For each resolution.
 	@each $key, $value in $resolutions {
-		@media all and (max-width: toPx($value)) {
+		@media all and (max-width: toPixel($value)) {
 			//For each column.
 			@for $i from 0 through $columns {
 				&.#{"" + $key} {
 					&-#{"" + $i} {
-						width: toPercent(calcColumnWidth($i));
-						
 						//If this is zero.
 						@if ($i == 0) {
 							display: none;
+						} @else {
+							width: toPercent(calcColumnWidth($i));
 						}
 					}
 				}
