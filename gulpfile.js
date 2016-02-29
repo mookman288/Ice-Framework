@@ -20,12 +20,17 @@ var	argv		=	require('yargs').argv;
 //Check if this is a development version. 
 var	dev			=	(!argv.dev) ? false : true;
 
+//Set initial tasks.
+var	tasks		=	['images', 'watch'];
+
 //Setup the applications to be processed.
 var	apps		=	{
 		'css': [
 			'alerts', 
+			'framework', 
 			'grid', 
 			'reset', 
+			'stylesheet', 
 			'tables'
 		], 
 		'js': [
@@ -38,7 +43,7 @@ var	paths		=	{
 	'input': {
 		'images':	'./src/images', 
 		'js':		'./src/js', 
-		'sass':		'./src/sass/'
+		'sass':		'./src/sass'
 	}, 
 	'output': {
 		'css':		'./css', 
@@ -46,9 +51,6 @@ var	paths		=	{
 		'js': 		'./js'
 	}
 };
-
-//Set the initial tasks.
-var	tasks		=	['images', 'watch'];
 
 //Store all processing functions. 
 var	functions	=	{
@@ -76,7 +78,7 @@ var	functions	=	{
 		}, 
 		js:		function(app) {
 			//Run Gulp.
-			gulp.src(paths.input.js + app + '/*.js')
+			gulp.src(paths.input.js + '/' + app + '/*.js')
 				.pipe(concat(app + '.js'))
 				.pipe(gulpif(!dev, uglify({'preserveComments': 'license'})))
 				.pipe(gulp.dest(paths.output.js));
@@ -86,7 +88,7 @@ var	functions	=	{
 			var	die	=	false;
 			
 			//Run Gulp.
-			gulp.src(paths.input.sass + app + '/' + app + '.scss')
+			gulp.src(paths.input.sass + '/' + app + '/' + app + '.scss')
 				.pipe(sass({sourcemap: true}))
 				.on('error', notify.onError(function(error) {
 					//Set die as true.
@@ -99,10 +101,14 @@ var	functions	=	{
 					return error;
 				}))
 				.pipe(gulpif(!die, gulpif(dev, sourcemaps.init())))
-				.pipe(autoprefix({browsers: '>1%'}))
+				.pipe(autoprefix({browsers: '> 1%'}))
 				.pipe(gulpif(!die, gulpif(!dev, minifyCSS({compatibility: 'ie8'}))))
 				.pipe(gulpif(!die, gulpif(dev, sourcemaps.write())))
-				.pipe(gulpif(!die, gulp.dest(paths.output.css)));
+				.pipe(gulpif(!die, gulp.dest(paths.output.css)))
+				.pipe(gulpif(die, function() {
+					//Reset die.
+					die	=	false;
+				}));
 		}
 };
 
@@ -112,7 +118,7 @@ apps.css.forEach(function(app) {
 	gulp.task('css-' + app, functions.sass(app));
 	
 	//Add task.
-	tasks.push('css-' + app);
+	tasks.unshift('css-' + app);
 });
 
 //For each JS application.
@@ -121,13 +127,13 @@ apps.js.forEach(function(app) {
 	gulp.task('hint-' + app, functions.sass(app));
 	
 	//Add task.
-	tasks.push('hint-' + app);
+	tasks.unshift('hint-' + app);
 	
 	//Handle application.
 	gulp.task('js-' + app, functions.sass(app));
 	
 	//Add task.
-	tasks.push('js-' + app);
+	tasks.unshift('js-' + app);
 });
 
 //Handle images.
@@ -151,16 +157,16 @@ gulp.task('watch', function() {
 	//For each CSS application.
 	apps.css.forEach(function(app) {
 		//Setup watch for Sass.
-		gulp.watch(paths.input.sass + app + '/**/*.scss', ['css-' + app]);
+		gulp.watch(paths.input.sass + '/' + app + '/**/*.scss', ['css-' + app]);
 	});
 	
 	//For each JS application.
 	apps.js.forEach(function(app) {
 		//Setup watch for Hint.
-		gulp.watch(paths.input.js + app + '/*.js', ['hint-' + app]);
+		gulp.watch(paths.input.js + '/' + app + '/*.js', ['hint-' + app]);
 		
 		//Setup watch for JS.
-		gulp.watch(paths.input.js + app + '/**/*.js', ['js-' + app]);
+		gulp.watch(paths.input.js + '/' + app + '/**/*.js', ['js-' + app]);
 	});
 	
 	//Watch for images. 

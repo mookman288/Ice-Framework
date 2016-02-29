@@ -4,8 +4,9 @@
 //Copyright: © 2016 PxO Ink. Most Rights Reserved.
 
 //Import global rules.
-@import "../global/global";
+@import "../framework/framework";
 
 //Import includes.
-@import "includes/utilities";
+@import "includes/variables";
+@import "includes/functions";
 @import "includes/columns";
