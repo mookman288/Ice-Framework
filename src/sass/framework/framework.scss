@@ -1,10 +1,17 @@
-//Name: Global
+//Name: Base Framework
 //Author: PxO Ink
 //License: The MIT License (MIT)
 //Copyright: © 2016 PxO Ink. Most Rights Reserved.
 
-//Import variables.
-@import "includes/variables";
+//Import colors.
+@import "variables/colors";
 
-//Import functions and mixins. 
-@import "includes/fixions";
+//Import fonts.
+@import "variables/fonts";
+
+//Import functions.
+@import "functions/numbers";
+
+//Import mixins.
+@import "mixins/cfx";
+@import "mixins/alerts";			

@@ -1,6 +1,6 @@
 //Calculates a color based on variables.
 //
-//@param text $rcolor
+//@param text $color
 
 @mixin alert-offset($color) {
 	background-color: lighten(map-get($colors, $color), 34.00%);

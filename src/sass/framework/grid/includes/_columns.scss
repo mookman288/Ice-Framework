@@ -3,7 +3,7 @@
 //License: The MIT License (MIT)
 //Copyright: © 2016 PxO Ink. Most Rights Reserved.
 
-.container {
+%container {
 	@include cfx;
 	margin: 0 auto;
 	
@@ -18,7 +18,7 @@
 	}
 }
 
-.column {
+%column {
 	box-sizing: border-box;
 	padding: toRem($gutterWidth / 2);
 	

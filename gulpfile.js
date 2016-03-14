@@ -27,9 +27,7 @@ var	tasks		=	['images', 'watch'];
 var	apps		=	{
 		'css': [
 			'alerts', 
-			'framework', 
-			'grid', 
-			'stylesheet', 
+			'grid',
 			'tables'
 		], 
 		'js': [
@@ -87,7 +85,12 @@ var	functions	=	{
 			var	die	=	false;
 			
 			//Run Gulp.
-			return gulp.src(paths.input.sass + '/' + app + '/' + app + '.scss')
+			return gulp.src(
+					[
+					 paths.input.sass + '/framework/' + app + '/' + app + '.scss', 
+					 paths.input.sass + '/stylesheet/' + app + '/' + app + '.scss'
+					]
+				)
 				.pipe(sass({sourcemap: true}))
 				.on('error', notify.onError(function(error) {
 					//Set die as true.

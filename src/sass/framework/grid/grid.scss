@@ -3,10 +3,10 @@
 //License: The MIT License (MIT)
 //Copyright: © 2016 PxO Ink. Most Rights Reserved.
 
-//Import global rules.
-@import "../framework/framework";
+//Import the base framework.
+@import "../framework";
 
-//Import includes.
+//Import additional includes. 
 @import "includes/variables";
 @import "includes/functions";
 @import "includes/columns";
