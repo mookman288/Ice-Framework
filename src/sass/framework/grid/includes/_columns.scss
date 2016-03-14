@@ -41,11 +41,11 @@
 		}
 	}
 	
-	&nth-child(n + 1) {
+	&:nth-child(n + 1) {
 		float: left;
 	}
 	
-	&nth-child(n + 1):last-child {
+	&:nth-child(n + 1):last-child {
 		float: right;
 	}
 	

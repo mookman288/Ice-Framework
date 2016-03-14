@@ -1,0 +1,21 @@
+//Name: Reset Body
+//Author: PxO Ink
+//License: The MIT License (MIT)
+//Copyright: © 2016 PxO Ink. Most Rights Reserved.
+
+%body {
+	@extend %nob;
+	@extend %nomp;
+	height: 100.00%;
+	background-color: $body;
+	color: $text;
+	font-family: sans-serif, serif;
+	font-size: map-get($resoFontSizes, "standard");
+	
+	//For each resolution.
+	@each $key, $value in $resolutions {
+		@media all and (max-width: toPixel($value)) {
+			font-size: map-get($resoFontSizes, $key);
+		}
+	}
+}

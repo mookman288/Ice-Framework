@@ -3,18 +3,13 @@
 //License: The MIT License (MIT)
 //Copyright: © 2016 PxO Ink. Most Rights Reserved.
 
+//Import framework components.
+@import "../framework/clear/clear"; 
+
 .cfx {
-	@include cfx;
+	@extend %cfx;
 }
 
 .clear {
-	clear: both;
-	
-	&-left {
-		clear: left;
-	}
-	
-	&-right {
-		clear: right;
-	}
+	@extend %clear;
 }

@@ -1,9 +1,8 @@
-//Name: Clear:cfx Mixins
+//Name: Clearfix-esque approach (cfx)
 //Author: PxO Ink
 //License: The MIT License (MIT)
 //Copyright: © 2016 PxO Ink. Most Rights Reserved.
 
-//Designed to reproduce a clearfix-esque approach.
 @mixin cfx {
 	height: 1%;
 	overflow: visible;

@@ -1,0 +1,16 @@
+//Name: Reset HTML
+//Author: PxO Ink
+//License: The MIT License (MIT)
+//Copyright: © 2016 PxO Ink. Most Rights Reserved.
+
+%html {
+	@extend %nob;
+	@extend %nomp;
+	height: 100.00%;
+}
+
+* %html {
+	a:hover {
+		visibility: visible;
+	}
+}

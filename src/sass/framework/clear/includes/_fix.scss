@@ -1,9 +1,8 @@
-//Name: Ice
+//Name: Clear Fix
 //Author: PxO Ink
 //License: The MIT License (MIT)
 //Copyright: © 2016 PxO Ink. Most Rights Reserved.
 
-//Build framework. 
-@import "reset";
-@import "clear";
-@import "grid";
+%cfx {
+	@include cfx;
+}

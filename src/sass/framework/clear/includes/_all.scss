@@ -1,0 +1,16 @@
+//Name: Clear All
+//Author: PxO Ink
+//License: The MIT License (MIT)
+//Copyright: © 2016 PxO Ink. Most Rights Reserved.
+
+%clear {
+	clear: both;
+	
+	&-left {
+		clear: left;
+	}
+	
+	&-right {
+		clear: right;
+	}
+}

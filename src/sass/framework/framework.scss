@@ -9,9 +9,9 @@
 //Import fonts.
 @import "variables/fonts";
 
-//Import functions.
-@import "functions/numbers";
+//Import resolutions.
+@import "variables/resolutions";
 
-//Import mixins.
-@import "mixins/cfx";
-@import "mixins/alerts";			
+//Import additional resources.
+@import "resources/numbers";
+@import "resources/cfx";

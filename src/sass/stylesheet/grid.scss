@@ -3,10 +3,13 @@
 //License: The MIT License (MIT)
 //Copyright: © 2016 PxO Ink. Most Rights Reserved.
 
+//Import framework components.
+@import "../framework/grid/grid"; 
+
 .container {
-	@include %container;
+	@extend %container;
 }
 
 .column {
-	@include %column;
+	@extend %column;
 }
