@@ -5,12 +5,12 @@
 
 %clear {
 	clear: both;
-	
-	&-left {
-		clear: left;
-	}
-	
-	&-right {
-		clear: right;
-	}
+}
+
+%clear-left {
+	clear: left;
+}
+
+%clear-right {
+	clear: right;
 }

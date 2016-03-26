@@ -13,3 +13,11 @@
 .clear {
 	@extend %clear;
 }
+
+.clear-left {
+	@extend %clear-left;
+}
+
+.clear-right {
+	@extend %clear-right;
+}
