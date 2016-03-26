@@ -4,11 +4,11 @@
 //Copyright: © 2016 PxO Ink. Most Rights Reserved.
 
 //Import framework components.
-@import "../framework/reset/reset"; 
+@import "../framework/components/reset/reset"; 
 
 body {
 	@extend %body;
-	font-family: "Nimbus Sans L", sans-serif, "Open Baskerville", serif;
+	font-family: $font-family;
 }
 
 html {

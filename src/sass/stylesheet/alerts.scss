@@ -1,15 +1,11 @@
-//Name: Grid
+//Name: Alerts
 //Author: PxO Ink
 //License: The MIT License (MIT)
 //Copyright: © 2016 PxO Ink. Most Rights Reserved.
 
 //Import framework components.
-@import "../framework/components/grid/grid"; 
+@import "../framework/components/alerts/alerts"; 
 
-.container {
-	@extend %container;
-}
-
-.column {
-	@extend %column;
+.alert {
+	@extend %alert;
 }

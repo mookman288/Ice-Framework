@@ -4,10 +4,10 @@ var	cache		=	require('gulp-cache');
 var	concat		=	require('gulp-concat');
 var	gulp		=	require('gulp');
 var	gulpif		=	require('gulp-if');
-var imagemin    =   require('gulp-imagemin');
+var imagemin	=   require('gulp-imagemin');
 var	jshint		=	require('gulp-jshint');
 var	minifyCSS	=	require('gulp-minify-css');
-var notify      =   require('gulp-notify');
+var notify	  =   require('gulp-notify');
 var	rename		=	require('gulp-rename');
 var	sass		=	require('gulp-sass');
 var sourcemaps	=	require('gulp-sourcemaps');
@@ -26,12 +26,12 @@ var	tasks		=	['images', 'watch'];
 //Setup the applications to be processed.
 var	apps		=	{
 		'css': [
-		    'reset', 
-		    'clear', 
-		    'grid', 
-		    'alerts', 
-		    'tables', 
-		    'stylesheet'
+			'reset', 
+			'clear', 
+			'grid', 
+			'alerts', 
+			'tables', 
+			'stylesheet'
 		], 
 		'hint': [
 			'icebox'
@@ -92,7 +92,7 @@ var	functions	=	{
 			
 			//Run Gulp.
 			return gulp.src(app)
-				.pipe(sass({sourcemap: true}))
+				.pipe(sass({sourcemap: true, outputStyle: 'expanded'}))
 				.on('error', notify.onError(function(error) {
 					//Set die as true.
 					die	=	true;

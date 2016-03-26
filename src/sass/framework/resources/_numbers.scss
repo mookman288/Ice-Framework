@@ -26,6 +26,6 @@
 //
 //@param number $n
 
-@function toPixel($n) {
+@function toPx($n) {
 	@return $n * 1px;
 }

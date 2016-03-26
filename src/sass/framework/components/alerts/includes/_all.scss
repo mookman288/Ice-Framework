@@ -1,0 +1,19 @@
+//Name: Alerts Blocks
+//Author: PxO Ink
+//License: The MIT License (MIT)
+//Copyright: © 2016 PxO Ink. Most Rights Reserved.
+
+%alert {
+	margin-bottom: toRem($std-margin);
+	padding: toRem($std-padding);
+	border-width: toPx($border-width);
+	border-style: solid;
+	
+	//For each alert type.
+	@each $key, $value in $alerts {
+		&.#{"" + $key} {
+			@include alert-offset($value);
+		}
+	}
+}
+	
