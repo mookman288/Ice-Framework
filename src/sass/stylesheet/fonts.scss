@@ -1,0 +1,33 @@
+//Name: Fonts
+//Author: PxO Ink
+//License: The MIT License (MIT)
+//Copyright: © 2016 PxO Ink. Most Rights Reserved.
+
+//Import framework components.
+@import "../framework/components/fonts/fonts";
+
+body {
+	@extend %medium;
+	@extend %half-double;
+	font-family: $font-family;
+}
+
+h1 {
+	@extend %h1;
+	@extend %bold;
+}
+
+h2 {
+	@extend %h2;
+	@extend %bold;
+}
+
+h3 {
+	@extend %h3;
+	@extend %bold;
+}
+
+h4, h5, h6, legend, caption {
+	@extend %default;
+	@extend %bold;
+}

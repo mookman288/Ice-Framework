@@ -3,21 +3,6 @@
 //License: The MIT License (MIT)
 //Copyright: © 2016 PxO Ink. Most Rights Reserved.
 
-%container {
-	@include cfx;
-	margin: 0 auto;
-	
-	//For each resolution.
-	@each $key, $value in $resolutions {
-		//If the value is not considered mobile.
-		@if ($value >= $desktopMobileBreak) {
-			@media all and (max-width: toPx($value)) {
-				max-width: toPx(round(0.6665 * $value));
-			}
-		}
-	}
-}
-
 %column {
 	box-sizing: border-box;
 	padding: toRem($gutterWidth / 2);

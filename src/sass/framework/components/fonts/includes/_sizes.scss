@@ -24,9 +24,13 @@
 }
 
 %h1 {
-	font-size: toEm(2 * $large);
+	font-size: toRem(2 * $large);
 }
 
 %h2 {
-	font-size: toEm(2 * $medium)
+	font-size: toRem(2 * $medium)
+}
+
+%h3 {
+	font-size: toRem($medium * $small);
 }
