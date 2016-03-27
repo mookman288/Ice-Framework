@@ -1,15 +1,18 @@
-//Name: Font Variables
+//Name: Fonts Variables
 //Author: PxO Ink
 //License: The MIT License (MIT)
 //Copyright: © 2016 PxO Ink. Most Rights Reserved.
 
 //Declare font sizes.
-$micro:			0.60rem;
-$small:			0.80rem;
-$reset:			1.00rem;
-$medium:		1.20rem;
-$default:		1.40rem;
-$large:			1.80rem;
+$micro:			0.80;
+$default:		1.00;
+$small:			1.20;
+$medium:		1.40;
+$large:			1.80;
+
+//Declare line heights.
+$single:		1.00;
+$double:		2.00;
 
 //Declare font families.
 $font-family:	"Nimbus Sans L", sans-serif, "Open Baskerville", serif;

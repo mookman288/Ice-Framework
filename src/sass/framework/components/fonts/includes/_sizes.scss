@@ -1,0 +1,32 @@
+//Name: Fonts Sizes
+//Author: PxO Ink
+//License: The MIT License (MIT)
+//Copyright: © 2016 PxO Ink. Most Rights Reserved.
+
+%default {
+	font-size: toEm($default);
+}
+
+%micro {
+	font-size: toEm($micro);
+}
+
+%small {
+	font-size: toEm($small);
+}
+
+%medium {
+	font-size: toEm($medium);
+}
+
+%large {
+	font-size: toEm($large);
+}
+
+%h1 {
+	font-size: toEm(2 * $large);
+}
+
+%h2 {
+	font-size: toEm(2 * $medium)
+}

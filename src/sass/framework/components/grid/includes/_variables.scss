@@ -13,4 +13,4 @@ $collectionWidth:		99.88;
 $gutterWidth: 			1.00;
 
 //Set the desktop-mobile breaking size.
-$desktopMobileBreak:	1000;
+$desktopMobileBreak:	map-get($resolutions, "standard");

@@ -29,6 +29,7 @@ var	apps		=	{
 			'reset', 
 			'clear', 
 			'grid', 
+			'fonts', 
 			'alerts', 
 			'tables', 
 			'stylesheet'

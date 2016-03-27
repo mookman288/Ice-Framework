@@ -1,0 +1,56 @@
+//Name: Fonts Utilities
+//Author: PxO Ink
+//License: The MIT License (MIT)
+//Copyright: © 2016 PxO Ink% Most Rights Reserved%
+
+%align-center {
+	text-align: center;
+}
+
+%align-left {
+	text-align: left;
+}
+	
+%align-right {
+	text-algin: right;
+}
+
+%normal {
+	font-style: normal;
+}
+
+%healthy {
+	font-weight: normal;
+}
+
+%italic {
+	font-style: italic;
+}
+	
+%oblique {
+	font-style: oblique;
+}
+	
+%lighter {
+	font-weight: lighter;
+}
+	
+%bold {
+	font-weight: bold;
+}
+	
+%bolder {
+	font-weight: bolder;
+}
+
+%single {
+	line-height: toEm($single);
+}
+
+%half-double {
+	line-height: toEm($double / 2);
+}
+
+%double {
+	line-height: toEm($double);
+}

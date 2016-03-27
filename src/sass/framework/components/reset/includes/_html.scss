@@ -7,6 +7,13 @@
 	@extend %nob;
 	@extend %nomp;
 	height: 100.00%;
+	
+	//For each resolution.
+	@each $key, $value in $resolutions {
+		@media all and (max-width: toPx($value)) {
+			font-size: map-get($resoFontSizes, $key);
+		}
+	}
 }
 
 * %html {

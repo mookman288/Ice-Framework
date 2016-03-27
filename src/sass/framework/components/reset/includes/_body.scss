@@ -7,15 +7,7 @@
 	@extend %nob;
 	@extend %nomp;
 	height: 100.00%;
-	background-color: $body;
-	color: $text;
+	background-color: color($body);
+	color: color($text);
 	font-family: sans-serif, serif;
-	font-size: map-get($resoFontSizes, "standard");
-	
-	//For each resolution.
-	@each $key, $value in $resolutions {
-		@media all and (max-width: toPixel($value)) {
-			font-size: map-get($resoFontSizes, $key);
-		}
-	}
 }

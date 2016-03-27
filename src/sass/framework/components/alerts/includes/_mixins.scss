@@ -10,5 +10,5 @@
 @mixin alert-offset($color) {
 	background-color: lighten(map-get($colors, $color), 34.00%);
 	border-color: map-get($offsets, $color);
-	color: darken(color($color), 15.00%);
+	color: darken(color($color), 34.00%);
 }
