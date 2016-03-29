@@ -11,6 +11,10 @@
 	display: none;
 }
 
+%nofv {
+	font-feature-settings: "liga" off;
+}
+
 %nomp {
 	margin: 0px;
 	padding: 0px; 

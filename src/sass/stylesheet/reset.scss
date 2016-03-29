@@ -11,22 +11,29 @@ q, samp, hr, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldse
 tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, 
 summary, time, mark, audio, video {
 	@extend %nomp;
+	@extend %nofv;
 }
 
 body {
 	@extend %body;
+	@extend %nofv;
 }
 
 html {
 	@extend %html;
+	@extend %nofv;
 }
 	
 iframe, img, object {
 	@extend %nob;
 }
 
-h1, h2, h3, h4, h5, h6, p, blockquote {
+h1, h2 {
 	margin-bottom: toRem($std-margin / 2);
+}
+
+h3, h4, h5, h6, p, blockquote, ul, ol {
+	margin-bottom: toRem($std-margin);
 }
 
 li {
