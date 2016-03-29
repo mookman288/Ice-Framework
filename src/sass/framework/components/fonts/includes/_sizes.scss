@@ -24,13 +24,29 @@
 }
 
 %h1 {
-	font-size: toRem(2 * $large);
+	font-size: toRem(2 * $heading);
 }
 
 %h2 {
-	font-size: toRem(2 * $medium)
+	font-size: toRem($large + $medium)
 }
 
 %h3 {
-	font-size: toRem($medium * $small);
+	font-size: toRem(2 * $medium);
+}
+
+%h4 {
+	font-size: toRem($default + $medium);
+}
+
+%body-size {
+	//For each resolution.
+	@each $key, $value in $resolutions {
+		//If there is a font size. 
+		@if map-get($resoFontSizes, $key) {
+			@media all and (max-width: toPx($value)) {
+				font-size: toRem(map-get($resoFontSizes, $key));
+			}
+		}
+	}
 }

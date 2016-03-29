@@ -5,6 +5,7 @@
 
 //Declare Colors.
 $colors:	(
+				"black":		#000, 
 				"blue":			#007BA7,
 				"cerulean":		#1DACD6,
 				"dark":			#111, 
@@ -19,20 +20,22 @@ $colors:	(
 
 //Declare Color Contrasts.
 $contrasts:	(
-				"blue":			#FFF,
-				"cerulean":		#FFF,
-				"dark":			#FFF,
-				"green":		#000,
-				"grey":			#000, 
-				"orange":		#000,
-				"purple":		#FFF,
-				"red":			#FFF,
-				"shadow":		#FFF, 
-				"white":		#111
+				"black":		map-get($colors, "white"),
+				"blue":			map-get($colors, "white"),
+				"cerulean":		map-get($colors, "white"),
+				"dark":			map-get($colors, "white"),
+				"green":		map-get($colors, "black"),
+				"grey":			map-get($colors, "black"), 
+				"orange":		map-get($colors, "black"),
+				"purple":		map-get($colors, "white"),
+				"red":			map-get($colors, "white"),
+				"shadow":		map-get($colors, "white"), 
+				"white":		map-get($colors, "black")
 			);
 			
 //Declare Color Offsets.
 $offsets:	(
+				"black":		lighten(map-get($colors, "black"), 10.00%), 
 				"blue":			lighten(map-get($colors, "blue"), 10.00%),
 				"cerulean":		darken(map-get($colors, "cerulean"), 10.00%),
 				"dark":			lighten(map-get($colors, "dark"), 10.00%), 

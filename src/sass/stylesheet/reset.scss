@@ -24,3 +24,11 @@ html {
 iframe, img, object {
 	@extend %nob;
 }
+
+h1, h2, h3, h4, h5, h6, p, blockquote {
+	margin-bottom: toRem($std-margin / 2);
+}
+
+li {
+	list-style-position: inside;
+}

@@ -6,7 +6,7 @@
 //Import framework components.
 @import "../framework/components/clear/clear"; 
 
-.cfx {
+.cfx, .row {
 	@extend %cfx;
 }
 

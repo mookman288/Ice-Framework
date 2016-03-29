@@ -30,19 +30,12 @@
 		float: left;
 	}
 	
-	&:nth-child(n + 1):last-child {
+	&:nth-child(n + 1):last-child:not(:only-child) {
 		float: right;
 	}
 	
 	&.center {
+		float: none;
 		margin: 0 auto;
-	}
-	
-	&.left {
-		float: left !important;
-	}
-	
-	&.right {
-		float: right !important;
 	}
 }
