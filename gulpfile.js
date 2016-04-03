@@ -1,5 +1,6 @@
 //Declare variables.
 var	autoprefix	=	require('gulp-autoprefixer');
+var browserSync	=	require('browser-sync').create();
 var	cache		=	require('gulp-cache');
 var	concat		=	require('gulp-concat');
 var	gulp		=	require('gulp');
@@ -7,7 +8,9 @@ var	gulpif		=	require('gulp-if');
 var imagemin	=   require('gulp-imagemin');
 var	jshint		=	require('gulp-jshint');
 var	minifyCSS	=	require('gulp-minify-css');
-var notify	  =   require('gulp-notify');
+var	modernizr	=	require('gulp-modernizr');
+var notify		=   require('gulp-notify');
+var	reload		=	browserSync.reload;
 var	rename		=	require('gulp-rename');
 var	sass		=	require('gulp-sass');
 var sourcemaps	=	require('gulp-sourcemaps');
@@ -21,7 +24,7 @@ var	argv		=	require('yargs').argv;
 var	dev			=	(!argv.dev) ? false : true;
 
 //Set initial tasks.
-var	tasks		=	['images', 'watch'];
+var	tasks		=	(!dev) ? ['modernizr', 'images'] : ['modernizr', 'images', 'browserSync', 'watch'];
 
 //Setup the applications to be processed.
 var	apps		=	{
@@ -50,6 +53,7 @@ var	paths		=	{
 		'sass':		'./src/sass'
 	}, 
 	'output': {
+		'index':	'./', 
 		'css':		'./css', 
 		'images':	'./images', 
 		'js': 		'./js'
@@ -152,6 +156,24 @@ apps.js.forEach(function(app) {
 	tasks.unshift('js-' + app);
 });
 
+//BrowserSync.
+gulp.task('browserSync', function() {
+	//BrowserSync.
+	browserSync.init({
+		files: [
+			paths.output.index + '/*.html', 
+			paths.output.images + '/*',
+			paths.output.css + '/*', 
+			paths.output.js + '/*'
+		], 
+		open: false, 
+		server: {
+			baseDir: "./", 
+			
+		}
+	});
+});
+
 //Handle images.
 gulp.task('images', function() {
 	return gulp.src(paths.input.images + '/*')
@@ -163,6 +185,13 @@ gulp.task('images', function() {
 			svgoPlugins: [{removeViewBox: false}]
 		})))
 		.pipe(gulp.dest(paths.output.images));
+});
+
+//Modernizr.
+gulp.task('modernizr', function() {
+	return gulp.src([paths.input.js + '/**/*.js'])
+		.pipe(modernizr())
+		.pipe(gulp.dest(paths.input.js + '/vendor/'));
 });
 
 //Watch for changes.

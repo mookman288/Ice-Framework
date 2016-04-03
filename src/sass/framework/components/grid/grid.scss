@@ -3,11 +3,16 @@
 //License: The MIT License (MIT)
 //Copyright: © 2016 PxO Ink. Most Rights Reserved.
 
-//Import the base framework.
-@import "../../framework";
+//Import variables.
+@import "../../variables/resolutions";
+@import "../../variables/layout";
+@import "../../variables/grid";
 
-//Import additional includes. 
-@import "includes/variables";
+//Import resources.
+@import "../../resources/cfx";
+@import "../../resources/numbers";
+
+//Import component.
 @import "includes/functions";
 @import "includes/container";
 @import "includes/columns";
