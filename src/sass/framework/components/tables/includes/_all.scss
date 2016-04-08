@@ -1,0 +1,33 @@
+//Name: Tables Layout
+//Author: PxO Ink
+//License: The MIT License (MIT)
+//Copyright: © 2016 PxO Ink. Most Rights Reserved.
+
+%table {
+	max-width: 100.00%;
+	box-sizing: border-box;
+	border-collapse: collapse;
+	border-spacing: 0;
+	
+	@.extend {
+		width: 100.00%;
+	}
+	
+	@media all and max-width(toPx(map-get($resolutions, 'std'))) {
+		overflow-x: auto;
+	}
+	
+	tr {
+		&:nth-child(even) {
+			background-color: color($grey);
+		}
+	
+		th:first-child, td:first-child {
+			text-align: left;
+		}
+		
+		th:last-child, td:last-child {
+			text-align: right;
+		}
+	}
+}

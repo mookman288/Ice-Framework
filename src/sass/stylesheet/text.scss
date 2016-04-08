@@ -1,0 +1,74 @@
+//Name: Text
+//Author: PxO Ink
+//License: The MIT License (MIT)
+//Copyright: © 2016 PxO Ink. Most Rights Reserved.
+
+//Import variables.
+@import "../framework/variables/colors";
+
+//Import framework components.
+@import "../framework/resources/colors";
+@import "../framework/components/text/text";
+
+body {
+	@extend %body-size;
+	@extend %half-double;
+	font-family: $font-family;
+}
+
+a {
+	color: color($anchor);
+	
+	&:hover, &:active {
+		color: color($hover);
+	}
+	
+	&:visited {
+		color: color($visited);
+	}
+}
+
+h1 {
+	@extend %h1;
+	@extend %bold;
+}
+
+h2 {
+	@extend %h2;
+	@extend %bold;
+}
+
+h3 {
+	@extend %h3;
+	@extend %bold;
+}
+
+h4 {
+	@extend %h4;
+	@extend $bold;
+}
+
+h5, h6, legend, caption {
+	@extend %body-size;
+	@extend %bold;
+}
+
+.align-center {
+	@extend %align-center;
+}
+
+.align-left {
+	@extend %align-left;
+}
+	
+.align-right {
+	@extend %align-right;
+}
+
+.caps {
+	@extend %caps;
+}
+
+.small-caps {
+	@extend %small-caps;
+}

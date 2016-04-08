@@ -32,9 +32,15 @@ var	apps		=	{
 			'reset', 
 			'clear', 
 			'grid', 
-			'fonts', 
-			'alerts', 
+			'text', 
+			'buttons', 
+			'menues', 
+			'alerts',
+			'lists', 
+			'forms', 
 			'tables', 
+			'code', 
+			'layout', 
 			'stylesheet'
 		], 
 		'hint': [

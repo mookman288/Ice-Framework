@@ -1,4 +1,4 @@
-//Name: Fonts Sizes
+//Name: Text Sizes
 //Author: PxO Ink
 //License: The MIT License (MIT)
 //Copyright: © 2016 PxO Ink. Most Rights Reserved.
@@ -32,11 +32,11 @@
 }
 
 %h3 {
-	font-size: toRem(2 * $medium);
+	font-size: toRem($default + $medium);
 }
 
 %h4 {
-	font-size: toRem($default + $medium);
+	font-size: toRem($large);
 }
 
 %body-size {

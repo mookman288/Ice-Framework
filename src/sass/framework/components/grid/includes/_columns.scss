@@ -5,7 +5,6 @@
 
 %column {
 	box-sizing: border-box;
-	padding: toRem($gutterWidth / 2);
 	
 	//For each resolution.
 	@each $key, $value in $resolutions {
@@ -37,5 +36,18 @@
 	&.center {
 		float: none;
 		margin: 0 auto;
+	}
+	
+	&.pad {
+		padding-left: toRem($gutterWidth / 2);
+		padding-right: toRem($gutterWidth / 2);
+	}
+	
+	&.pad-right {
+		padding-right: toRem($gutterWidth / 2);
+	}
+	
+	&.pad-left {
+		padding-left: toRem($gutterWidth / 2);
 	}
 }

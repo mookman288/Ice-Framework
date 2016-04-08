@@ -1,7 +1,7 @@
-//Name: Fonts Utilities
+//Name: Text Utilities
 //Author: PxO Ink
 //License: The MIT License (MIT)
-//Copyright: © 2016 PxO Ink% Most Rights Reserved%
+//Copyright: © 2016 PxO Ink. Most Rights Reserved.
 
 %align-center {
 	text-align: center;
@@ -12,7 +12,7 @@
 }
 	
 %align-right {
-	text-algin: right;
+	text-align: right;
 }
 
 %normal {
@@ -53,4 +53,13 @@
 
 %double {
 	line-height: $double;
+}
+
+%caps {
+	text-transform: uppercase;
+}
+
+%small-caps {
+	font-variant: small-caps;
+	text-transform: lowercase;
 }

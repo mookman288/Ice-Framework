@@ -6,9 +6,18 @@
 //Converts a string to a color.
 //
 //@param string $color-text
-@function color($color-text) {
+@function color($color-text, $type:"") {
 	//Get the color.
 	$color:	map-get($colors, $color-text);
+	
+	@if $type == "contrast" {
+		//Get the color.
+		$color:	map-get($contrasts, $color-text);
+	} @elseif $type == "offset" {
+		//Get the color.
+		$color:	map-get($offsets, $color-text);
+	}
+		
 	
 	//If the color does not exist.
 	@if not $color {

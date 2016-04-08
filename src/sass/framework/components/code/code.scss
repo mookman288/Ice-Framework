@@ -1,4 +1,4 @@
-//Name: Reset
+//Name: Code
 //Author: PxO Ink
 //License: The MIT License (MIT)
 //Copyright: © 2016 PxO Ink. Most Rights Reserved.
@@ -6,12 +6,11 @@
 //Import variables.
 @import "../../variables/colors";
 @import "../../variables/layout";
+@import "../../variables/text";
 
 //Import resources.
-@import "../../resources/cfx";
+@import "../../resources/colors";
 @import "../../resources/numbers";
 
 //Import component. 
 @import "includes/selectors";
-@import "includes/html";
-@import "includes/body";
