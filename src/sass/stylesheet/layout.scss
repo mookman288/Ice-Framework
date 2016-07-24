@@ -1,7 +1,7 @@
 //Name: Reset
 //Author: PxO Ink
 //License: The MIT License (MIT)
-//Copyright: © 2016 PxO Ink. Most Rights Reserved.
+//Copyright: ï¿½ 2016 PxO Ink. Most Rights Reserved.
 
 //Import framework components.
 @import "../framework/components/reset/reset"; 
@@ -33,7 +33,7 @@ h1, h2 {
 	margin-bottom: toRem($std-margin / 2);
 }
 
-h3, h4, h5, h6, p, blockquote, ul, ol, table {
+h3, h4, h5, h6, p, pre, blockquote, ul, ol, table {
 	margin-bottom: toRem($std-margin);
 }
 

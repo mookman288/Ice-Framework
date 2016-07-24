@@ -2,9 +2,8 @@
 <html>
 	<head>
 		<title>Design Framework Proof of Concept | Ice</title>
-		<meta charset="utf-8"> <!-- Charset: UTF-8 -->
-		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"> <!-- Edge -->
-		<meta name="author" content="PxO Ink" /> <!-- Author: website void if removed. -->
+		<meta charset="utf-8" /> <!-- Charset: UTF-8 -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
 		<meta name="HandheldFriendly" content="True" /> <!-- Handheld Friendly -->
 		<meta name="MobileOptimized" content="320" /> <!-- Optimized Tag -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Responsive Indicator -->
@@ -30,90 +29,369 @@
 						</p>
 						<h3>Third-Party Resources</h3>
 						<h4>Fonts</h4>
-		 				<ul>
-		 					<li>Fally Pin by <a href="http://sorkintype.com/" target="_blank">Nicole Fally</a></li>
-		 					<li>Linecons by <a href="http://designmodo.com/linecons-free/" target="_blank">Design Modo</a></li>
-		 					<li>
-		 						Nimbus Sans L by <a href="http://openfontlibrary.org/en/font/nimbus-sans-l" target="_blank">URW++</a>
-		 					</li>
-		 					<li>
-		 						Open Baskerville by 
+						<ul>
+							<li>Fally Pin by <a href="http://sorkintype.com/" target="_blank">Nicole Fally</a></li>
+							<li>Linecons by <a href="http://designmodo.com/linecons-free/" target="_blank">Design Modo</a></li>
+							<li>
+								Nimbus Sans L by <a href="http://openfontlibrary.org/en/font/nimbus-sans-l" target="_blank">URW++</a>
+							</li>
+							<li>
+								Open Baskerville by 
 								<a href="http://openfontlibrary.org/font/open-baskerville" target="_blank">
 									Isaac Moore, James Puckett, and Rob Mientjes
 								</a>
-		 					</li>
-		 				</ul>
-		 				<h4>JavaScript</h4>
-		 				<ul>
-		 					<li>IceBox by <a href="http://pxoink.net/" target="_blank">PxO Ink</a></li>
-		 					<li>jQuery 1.11.1 by <a href="https://jquery.org/team/" target="_blank">The jQuery Foundation</a></li>
-		 					<li>lte ie7 by <a href="http://designmodo.com/linecons-free/" target="_blank">Design Modo</a></li>
-		 					<li>Modernizr by <a href="https://github.com/Modernizr/Modernizr" target="_blank">Modernizr</a></li>
-		 				</ul>
-		 				<h5>Recommended Libraries</h5>
-		 				<ul>
-		 					<li>
-		 						jQuery Masked Input by 
-		 						<a href="http://digitalbush.com/projects/masked-input-plugin/" target="_blank">
-		 							Josh Bush
-		 						</a>
-		 					</li>
-		 					<li>
-		 						jQuery Validation by 
-		 						<a href="https://github.com/jzaefferer/jquery-validation" target="_blank">
-		 							Jörn Zaefferer
-		 						</a>
-		 					</li>
-		 				</ul>
+							</li>
+						</ul>
+						<h4>JavaScript</h4>
+						<ul>
+							<li>IceBox by <a href="http://pxoink.net/" target="_blank">PxO Ink</a></li>
+							<li>jQuery 1.12.0 by <a href="https://jquery.org/team/" target="_blank">The jQuery Foundation</a></li>
+							<li>lte ie7 by <a href="http://designmodo.com/linecons-free/" target="_blank">Design Modo</a></li>
+							<li>Modernizr by <a href="https://github.com/Modernizr/Modernizr" target="_blank">Modernizr</a></li>
+						</ul>
+						<h5>Recommended Libraries</h5>
+						<ul>
+							<li>
+								jQuery Masked Input by 
+								<a href="http://digitalbush.com/projects/masked-input-plugin/" target="_blank">
+									Josh Bush
+								</a>
+							</li>
+							<li>
+								jQuery Validation by 
+								<a href="https://github.com/jzaefferer/jquery-validation" target="_blank">
+									Jörn Zaefferer
+								</a>
+							</li>
+						</ul>
 						<h3>Installation</h3>
-		 				<p>
-		 					Ice Framework comes packaged compiled and compressed for implementation. Besides fonts, there are only 
-		 					three additional files that need to be included on each page to load Ice Framework. The following table 
-		 					explains what these files are and where they should be located. This example page can act as an HTML 
-		 					template for how to structure Ice Framework HTML and a how-to on implementing an Ice Framework driven 
-		 					design. 
-		 				</p>
-		 				<h3>Modifications</h3>
-		 				<p>
-		 					Because Ice is built to be a framework, and does not come packaged with a design, it's up to the 
-		 					developer how they want to modify or extend the framework. The core of the framework is entirely 
-		 					based on Sass, and is run through the task runner known as Gulp. Gulp is written to work with 
-		 					Node.js. If you're not familiar with these technologies, take a look at Travis Maynard's article 
-		 					<a href="https://travismaynard.com/writing/getting-started-with-gulp" target="_blank">here</a>. 
-		 				</p>
-		 				<p>
-		 					Once you've cloned this repository, you should simply need to run <code>npm install</code> to 
-		 					load all of the dependencies used in this build. You can then begin working by calling 
-		 					<code>gulp</code> for production, or <code>gulp --dev</code> for development. 
-		 				</p>
+						<p>
+							Ice Framework comes packaged compiled and compressed for implementation. The following table 
+							describes what files are required for implementation, where they should be located, and what 
+							they are designed to accomplish. This example page can act as an HTML template outlining the 
+							structure Ice expects, as well as a how-to on implementing the Ice Framework. 
+						</p>
+						<table class="extend striped">
+							<thead>
+								<tr>
+									<th>File</th>
+									<th>Description</th>
+									<th>Required</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>
+										<code>public/css/stylesheet.css</code>
+									</td>
+									<td>
+										The pre-compiled stylesheet containing all rules.
+									</td>
+									<td>
+										Yes
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<code>public/js/modernizr.js</code>
+									</td>
+									<td>
+										The pre-compiled custom Modernizr build.
+									</td>
+									<td>
+										No
+									</td>
+								</tr>
+								
+								<tr>
+									<td>
+										<code>public/js/jquery.js</code>
+									</td>
+									<td>
+										The most stable compatible version of jQuery available.
+									</td>
+									<td>
+										No
+									</td>
+								</tr>
+								
+								<tr>
+									<td>
+										<code>public/js/script.js</code>
+									</td>
+									<td>
+										The pre-compiled script containing all JS. 
+									</td>
+									<td>
+										No
+									</td>
+								</tr>
+								
+								<tr>
+									<td>
+										<code>public/fonts/*</code>
+									</td>
+									<td>
+										All of the necessary fonts for basic use.
+									</td>
+									<td>
+										No
+									</td>
+								</tr>
+							</tbody>
+						</table>
+						<p>
+							Here's an example of how a basic page structure might look: 
+						</p>
+<pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;Title Tag&lt;/title&gt;
+		&lt;meta charset=&quot;utf-8&quot; /&gt;
+		&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge, chrome=1&quot; /&gt;
+		&lt;meta name=&quot;HandheldFriendly&quot; content=&quot;True&quot; /&gt;
+		&lt;meta name=&quot;MobileOptimized&quot; content=&quot;320&quot; /&gt;
+		&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
+		&lt;link rel=&quot;icon&quot; href=&quot;images/favicon.png&quot; /&gt;
+		&lt;link rel=&quot;shortcut icon&quot; href=&quot;favicon.ico&quot; /&gt;
+		&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;css/stylesheet.css&quot; /&gt;
+		&lt;script type=&quot;text/javascript&quot; src=&quot;js/modernizr.js&quot;&gt;&lt;/script&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;-- HTML Goes Here --&gt;
+		&lt;script type=&quot;text/javascript&quot; src=&quot;js/jquery.js&quot;&gt;&lt;/script&gt;
+		&lt;script type=&quot;text/javascript&quot; src=&quot;js/script.js&quot;&gt;&lt;/script&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+						<h3>Modifications</h3>
+						<p>
+							Because Ice is built to be a framework, and does not come packaged with a design, it's up to the 
+							developer how they want to modify or extend the framework. The core of the framework is entirely 
+							based on Sass, and is run through the task runner known as Gulp. Gulp is written to work with 
+							Node.js. If you're not familiar with these technologies, take a look at Travis Maynard's article 
+							<a href="https://travismaynard.com/writing/getting-started-with-gulp" target="_blank">here</a>. 
+						</p>
+						<p>
+							Once you've cloned this repository, you should simply need to run <code>npm install</code> to 
+							load all of the dependencies used in this build. You can then begin working by calling 
+							<code>gulp</code> for production, or <code>gulp --dev</code> for development. 
+						</p>
+						<h3>Documentation</h3>
+						<h4 id="grid">Grid</h4>
+						<div class="row">
+							<div class="column hd-0 wide-0 std-0 tab-0 mob-0 tel-0 alert message">
+								Zero
+							</div>
+							<div class="column hd-20 wide-20 std-20 tab-20 mob-20 tel-20 alert message">
+								Twenty
+							</div>
+						</div>
+						<div class="row">
+							<div class="column hd-1 wide-1 std-1 tab-1 mob-1 tel-1 alert message">
+								One
+							</div>
+							<div class="column hd-19 wide-19 std-19 tab-19 mob-19 tel-19 alert message">
+								Nineteen
+							</div>
+						</div>
+						<div class="row">
+							<div class="column hd-2 wide-2 std-2 tab-2 mob-2 tel-2 alert message">
+								Two
+							</div>
+							<div class="column hd-18 wide-18 std-18 tab-18 mob-18 tel-18 alert message">
+								Eighteen
+							</div>
+						</div>
+						<div class="row">
+							<div class="column hd-3 wide-3 std-3 tab-3 mob-3 tel-3 alert message">
+								Three
+							</div>
+							<div class="column hd-17 wide-17 std-17 tab-17 mob-17 tel-17 alert message">
+								Seventeen
+							</div>
+						</div>
+						<div class="row">
+							<div class="column hd-4 wide-4 std-4 tab-4 mob-4 tel-4 alert message">
+								Four
+							</div>
+							<div class="column hd-16 wide-16 std-16 tab-16 mob-16 tel-16 alert message">
+								Sixteen
+							</div>
+						</div>
+						<div class="row">
+							<div class="column hd-5 wide-5 std-5 tab-5 mob-5 tel-5 alert message">
+								Five
+							</div>
+							<div class="column hd-15 wide-15 std-15 tab-15 mob-15 tel-15 alert message">
+								Fifteen
+							</div>
+						</div>
+						<div class="row">
+							<div class="column hd-6 wide-6 std-6 tab-6 mob-6 tel-6 alert message">
+								Six
+							</div>
+							<div class="column hd-14 wide-14 std-14 tab-14 mob-14 tel-14 alert message">
+								Fourteen
+							</div>
+						</div>
+						<div class="row">
+							<div class="column hd-7 wide-7 std-7 tab-7 mob-7 tel-7 alert message">
+								Seven
+							</div>
+							<div class="column hd-13 wide-13 std-13 tab-13 mob-13 tel-13 alert message">
+								Thirteen
+							</div>
+						</div>
+						<div class="row">
+							<div class="column hd-8 wide-8 std-8 tab-8 mob-8 tel-8 alert message">
+								Eight
+							</div>
+							<div class="column hd-12 wide-12 std-12 tab-12 mob-12 tel-12 alert message">
+								Twelve
+							</div>
+						</div>
+						<div class="row">
+							<div class="column hd-9 wide-9 std-9 tab-9 mob-9 tel-9 alert message">
+								Nine
+							</div>
+							<div class="column hd-11 wide-11 std-11 tab-11 mob-11 tel-11 alert message">
+								Eleven
+							</div>
+						</div>
+						<div class="row">
+							<div class="column hd-10 wide-10 std-10 tab-10 mob-10 tel-10 alert message">
+								Ten
+							</div>
+							<div class="column hd-10 wide-10 std-10 tab-10 mob-10 tel-10 alert message">
+								Ten
+							</div>
+						</div>
+						<p>
+							Most common grid systems are designed around an arbitrary standard of 960px maximum width. This 
+							decision has been near-unanimously supported by the ever increasing number of twelve-to-sixteen 
+							grid column layouts. As a result of this choice, many websites have begun adopting a mobile-first 
+							strategy. This methodology has inadvertently forced websites to cut back on innovative 
+							functionality in favor of simplistic form. Although effective on smaller resolution devices, 
+							this has significantly deteriorated the browsing experience on higher resolution devices. 
+							Ultimately, what these grid systems lack is functional scalability across a plethora of device 
+							widths. 
+						</p>
+						<p>
+							Despite the fact that developing an accessible experience across a vast number of device widths 
+							is a complicated and difficult task, abandoning major functionality to attain said accessibility 
+							is not necessary. Ice hopes to introduce a conceptual argument in favor of highly scalable grid 
+							systems that are geared toward a <strong>desktop first</strong> experience. In doing so, it is 
+							expected that developers will be able to maintain a rich browsing experience for higher 
+							resolution devices, while also catering to the simplistic expectations found in smaller 
+							resolution devices. 
+						<p>
+							In order to accomplish this level of scalability, five major breakpoints have been selected 
+							based on a variety of device width data. In order of greatest to least: 
+							<table class="striped">
+								<thead>
+									<tr>
+										<th>Description</th>
+										<th>Selector</th>
+										<th>Breakpoint</th>
+										<th>Font Size Multiplier</th>
+										<th>Example</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>High Resolution</td>
+										<td><code>hd</code></td>
+										<td>2160</td>
+										<td>1.60</td>
+										<td><code>hd-6</code></td>
+									</tr>
+									<tr>
+										<td>Extended Resolution</td>
+										<td><code>wide</code></td>
+										<td>1440</td>
+										<td>1.60</td>
+										<td><code>wide-8</code></td>
+									</tr>
+									<tr>
+										<td>Standard Devices</td>
+										<td><code>std</code></td>
+										<td>1000</td>
+										<td>1.40</td>
+										<td><code>std-10</code></td>
+									</tr>
+									<tr>
+										<td>Tablet Devices</td>
+										<td><code>tab</code></td>
+										<td>768</td>
+										<td>1.40</td>
+										<td><code>tab-12</code></td>
+									</tr>
+									<tr>
+										<td>Mobile Devices</td>
+										<td><code>mob</code></td>
+										<td>640</td>
+										<td>1.20</td>
+										<td><code>mob-14</code></td>
+									</tr>
+									<tr>
+										<td>Legacy Phones</td>
+										<td><code>tel</code></td>
+										<td>384</td>
+										<td>1.00</td>
+										<td><code>tel-16</code></td>
+									</tr>
+								</tbody>
+							</table>
+						</p>
+						<h5>Demonstration</h5>
+						<div class="row">
+							<div class="column hd-14 wide-13 std-12 tab-11 mob-10 tel-20 alert message">
+								Lorem Ipsum Dolor
+							</div>
+							<div class="column hd-6 wide-7 std-8 tab-9 mob-10 tel-20 alert message">
+								Sit Amet
+							</div>
+						</div>
+<pre><code>
+&lt;div class=&quot;row&quot;&gt;
+	&lt;div class=&quot;column hd-14 wide-13 std-12 tab-11 mob-10 tel-20&quot;&gt;
+		Lorem Ipsum Dolor
+	&lt;/div&gt;
+	&lt;div class=&quot;column hd-6 wide-7 std-8 tab-9 mob-10 tel-20&quot;&gt;
+		Sit Amet
+	&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
 					</div>
-					<div class="column hd-6 std-8 mob-0 pad-left">
+					<div class="column hd-6 std-8 mob-20 pad-left">
 						<h3>License</h3>
 						<h4>The MIT License (MIT)</h4>
 						<p>Software Copyright &copy; 2014 PxO Ink. Most Rights Reserved.</p>
-		 				<p>
-		 					Permission is hereby granted, free of charge, to any person 
-		 					obtaining a copy of this software and associated documentation 
-		 					files (the "Software"), to deal in the Software without 
-		 					restriction, including without limitation the rights to use, 
-		 					copy, modify, merge, publish, distribute, sublicense, and/or 
-		 					sell copies of the Software, and to permit persons to whom the 
-		 					Software is furnished to do so, subject to the following conditions:
-		 				</p>
-		 				<p>
-		 					The above copyright notice and this permission notice shall be 
-		 					included in all copies or substantial portions of the Software.
-		 				</p>
-		 				<p>
-		 					THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
-		 					EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF 
-		 					MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
-		 					IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY 
-		 					CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, 
-		 					TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
-		 					SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-		 				</p>
-		 				<h3>Show Your Support</h3>
+						<p>
+							Permission is hereby granted, free of charge, to any person 
+							obtaining a copy of this software and associated documentation 
+							files (the "Software"), to deal in the Software without 
+							restriction, including without limitation the rights to use, 
+							copy, modify, merge, publish, distribute, sublicense, and/or 
+							sell copies of the Software, and to permit persons to whom the 
+							Software is furnished to do so, subject to the following conditions:
+						</p>
+						<p>
+							The above copyright notice and this permission notice shall be 
+							included in all copies or substantial portions of the Software.
+						</p>
+						<p>
+							THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, 
+							EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF 
+							MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
+							IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY 
+							CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, 
+							TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
+							SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+						</p>
+						<h3>Show Your Support</h3>
 						<p>
 							If you've learned from this repository and you wish to contribute to it monetarily, you can show 
 							your support by contacting the owner, contributing through 
@@ -124,7 +402,7 @@
 				</div>
 				<div class="column hd-20">
 					
-		 				
+						
 	 			
 					
 					

@@ -1,7 +1,7 @@
 //Name: Text
 //Author: PxO Ink
 //License: The MIT License (MIT)
-//Copyright: © 2016 PxO Ink. Most Rights Reserved.
+//Copyright: ï¿½ 2016 PxO Ink. Most Rights Reserved.
 
 //Import variables.
 @import "../framework/variables/colors";
@@ -49,7 +49,7 @@ h4 {
 }
 
 h5, h6, legend, caption {
-	@extend %body-size;
+	@extend %h5;
 	@extend %bold;
 }
 

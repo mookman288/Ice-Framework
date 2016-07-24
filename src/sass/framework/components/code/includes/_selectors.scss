@@ -1,21 +1,22 @@
 //Name: Code Selectors
 //Author: PxO Ink
 //License: The MIT License (MIT)
-//Copyright: © 2016 PxO Ink. Most Rights Reserved.
+//Copyright: ï¿½ 2016 PxO Ink. Most Rights Reserved.
 
-%code-border {
+%code-design {
+	background-color: color($white, 'offset');
 	border-width: toPx($border-width);
 	border-color: color($grey);
 	border-style: $border-style;
 	border-radius: toEm($border-radius);
+	color: color($black);
 }
 
 %pre {
-	@extend %code-border;
+	@extend %code-design;
 	padding: toRem($std-padding);
 	max-width: 100.00%;
 	max-height: 50vh;
-	background-color: color($grey);
 	overflow: auto;
 	
 	code {
@@ -31,25 +32,26 @@
 			
 			&:before {
 				content: counter(linecounter);
-				margin-left: toEm(-1 * $std-margin);
+				display: inline-block;
+				margin-left: toEm(-0.5 * $std-margin);
 				margin-right: toEm($std-margin / 4);
 				padding-right: toEm($std-padding / 2);
+				width: toEm(1.50 * $std-margin);
 				border-width: 0px;
 				border-right: toRem($border-width / 2);
 				border-color: color($shadow);
 				border-style: $border-style;
 				opacity: 0.40;
+				text-align: right;
 			}
 		}
 	}
 }
 
 %code {
-	@extend %code-border;
+	@extend %code-design;
 	display: inline-block;
 	padding: 0 toRem($std-padding / 4);
-	background-color: lighten(color($grey), 12.50%);
-	color: color($shadow);
 	font-family: $font-mono;
-	font-size: toRem($small);
+	font-size: toEm($micro);
 }
