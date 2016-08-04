@@ -43,14 +43,16 @@
 	}
 	
 	&.transact {
-		tr {
-			th:first-child, td:first-child {
-				text-align: left;
-			}
-			
-			th:last-child, td:last-child {
-				text-align: right;
-			}
+		th, td {
+			text-align: center;
+		}
+	
+		th:first-child, td:first-child {
+			text-align: left;
+		}
+		
+		th:last-child, td:last-child {
+			text-align: right;
 		}
 	}
 	
