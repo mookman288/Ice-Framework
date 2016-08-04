@@ -1,7 +1,7 @@
-//Name: Tables Layout
+//Name: Table
 //Author: PxO Ink
 //License: The MIT License (MIT)
-//Copyright: � 2016 PxO Ink. Most Rights Reserved.
+//Copyright: © 2016 PxO Ink. Most Rights Reserved.
 
 %table {
 	max-width: 100.00%;
@@ -9,7 +9,7 @@
 	border-collapse: collapse;
 	border-spacing: 0;
 	
-	@.extend {
+	&.extend {
 		width: 100.00%;
 	}
 	
@@ -21,7 +21,7 @@
 		}
 	}
 	
-	@media all and max-width(toPx(map-get($resolutions, 'std'))) {
+	@media all and (max-width: toPx(map-get($resolutions, 'std'))) {
 		overflow-x: auto;
 	}
 	
