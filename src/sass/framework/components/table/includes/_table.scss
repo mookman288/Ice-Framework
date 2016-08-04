@@ -9,29 +9,52 @@
 	border-collapse: collapse;
 	border-spacing: 0;
 	
+	tr {
+		td, th {
+			padding: toRem($std-padding);
+			text-align: left;
+		}
+	}
+	
 	&.extend {
 		width: 100.00%;
 	}
 	
 	&.striped {
+		border-width: toPx($border-width);
+		border-color: color($white, 'offset');
+		border-style: $border-style;
+	
+		thead {
+			tr {
+				&:nth-child(odd) {
+					background-color: color($white, 'offset');
+				}
+			}
+		}
+	
+		tbody {
+			tr {
+				&:nth-child(even) {
+					background-color: color($white, 'offset');
+				}
+			}
+		}
+	}
+	
+	&.transact {
 		tr {
-			&:nth-child(even) {
-				background-color: color($grey);
+			th:first-child, td:first-child {
+				text-align: left;
+			}
+			
+			th:last-child, td:last-child {
+				text-align: right;
 			}
 		}
 	}
 	
 	@media all and (max-width: toPx(map-get($resolutions, 'std'))) {
 		overflow-x: auto;
-	}
-	
-	tr {
-		th:first-child, td:first-child {
-			text-align: left;
-		}
-		
-		th:last-child, td:last-child {
-			text-align: right;
-		}
 	}
 }

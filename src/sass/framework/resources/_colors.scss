@@ -1,7 +1,7 @@
 //Name: Color Resources
 //Author: PxO Ink
 //License: The MIT License (MIT)
-//Copyright: © 2016 PxO Ink. Most Rights Reserved.
+//Copyright: ï¿½ 2016 PxO Ink. Most Rights Reserved.
 
 //Converts a string to a color.
 //
@@ -17,7 +17,6 @@
 		//Get the color.
 		$color:	map-get($offsets, $color-text);
 	}
-		
 	
 	//If the color does not exist.
 	@if not $color {
