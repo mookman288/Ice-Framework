@@ -1,7 +1,7 @@
 //Name: Code
 //Author: PxO Ink
 //License: The MIT License (MIT)
-//Copyright: © 2016 PxO Ink. Most Rights Reserved.
+//Copyright: Â© 2016 PxO Ink. Most Rights Reserved.
 
 //Import variables.
 @import "../../variables/colors";
@@ -12,5 +12,6 @@
 @import "../../resources/colors";
 @import "../../resources/numbers";
 
-//Import component. 
-@import "includes/selectors";
+//Import components. 
+@import "includes/code";
+@import "includes/preformatted";

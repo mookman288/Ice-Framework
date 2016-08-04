@@ -1,0 +1,21 @@
+//Name: Code
+//Author: PxO Ink
+//License: The MIT License (MIT)
+//Copyright: © 2016 PxO Ink. Most Rights Reserved.
+
+%code-design {
+    background-color: color($white, 'offset');
+    border-width: toPx($border-width);
+    border-color: color($grey);
+    border-style: $border-style;
+    border-radius: toEm($border-radius);
+    color: color($black);
+}
+
+%code {
+    @extend %code-design;
+    display: inline-block;
+    padding: 0 toRem($std-padding / 4);
+    font-family: $font-mono;
+    font-size: toEm($micro);
+}

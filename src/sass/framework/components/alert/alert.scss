@@ -1,7 +1,7 @@
-//Name: Alerts
+//Name: Alert (Callout)
 //Author: PxO Ink
 //License: The MIT License (MIT)
-//Copyright: © 2016 PxO Ink. Most Rights Reserved.
+//Copyright: Â© 2016 PxO Ink. Most Rights Reserved.
 
 //Import variables.
 @import "../../variables/colors";
@@ -12,6 +12,6 @@
 @import "../../resources/numbers";
 @import "../../resources/colors";
 
-//Import component.
+//Import components.
 @import "includes/mixins";
-@import "includes/all";
+@import "includes/alert";
