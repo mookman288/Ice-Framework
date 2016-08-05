@@ -1,10 +1,9 @@
-//Name: Layout
+//Name: Menu
 //Author: PxO Ink
 //License: The MIT License (MIT)
-//Copyright: © 2016 PxO Ink. Most Rights Reserved.
+//Copyright: Â© 2016 PxO Ink. Most Rights Reserved.
 
 //Import variables.
-@import "../../variables/colors";
 @import "../../variables/resolutions";
 @import "../../variables/layout";
 
@@ -12,4 +11,5 @@
 @import "../../resources/cfx";
 @import "../../resources/numbers";
 
-//Import component. 
+//Import components.
+@import "includes/nav";

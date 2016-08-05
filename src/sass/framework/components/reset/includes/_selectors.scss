@@ -15,7 +15,15 @@
 	font-feature-settings: "liga" off;
 }
 
-%nomp {
+%nom {
 	margin: 0px;
-	padding: 0px; 
+}
+
+%nop {
+	padding: 0px;
+}
+
+%nomp {
+	@extend %nom;
+	@extend %nop;
 }

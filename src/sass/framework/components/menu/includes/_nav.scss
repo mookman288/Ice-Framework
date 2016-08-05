@@ -1,0 +1,77 @@
+//Name: Menu Navigation
+//Author: PxO Ink
+//License: The MIT License (MIT)
+//Copyright: © 2016 PxO Ink. Most Rights Reserved.
+
+%nav {
+	@extend %cfx;
+	z-index: 100;
+	
+	ul {
+		position: relative;
+		padding: 0;
+		list-style-type: none;
+	
+		li {
+			float: left;
+			position: relative;
+			margin: 0;
+			text-indent: 0;
+			
+			&:hover > ul {
+				display: block;
+			}
+		}
+		
+		> li {
+			margin-right: toRem($std-margin);
+			
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+		
+		ul {
+			display: none;
+			position: absolute;
+			top: 100.00%;
+			z-index: 110;
+			
+			li {
+				position: relative;
+				white-space: nowrap;
+				
+				a {
+					padding-right: toRem($std-padding / 2);
+				}
+				
+				ul {
+					top: 0;
+					left: 100.00%;
+				}
+			}
+		}
+	}
+	
+	&.vertical {
+		display: inline-block;
+		
+		ul {
+			li {
+				display: block;
+				float: none;
+				margin-right: 0;
+				
+				a {
+					display: block;
+					padding-right: toRem($std-padding / 2);
+				}
+			}
+			
+			ul {
+				top: 0;
+				left: 100.00%;
+			}
+		}
+	}
+}
