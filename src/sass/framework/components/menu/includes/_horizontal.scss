@@ -1,4 +1,4 @@
-//Name: Menu Navigation
+//Name: Menu Navigation (Horizontal/Base)
 //Author: PxO Ink
 //License: The MIT License (MIT)
 //Copyright: © 2016 PxO Ink. Most Rights Reserved.
@@ -7,7 +7,14 @@
 	@extend %cfx;
 	z-index: 100;
 	
+	h6 {
+		float: left;
+		margin-right: toRem($std-margin);
+	}
+	
 	ul {
+		@extend %cfx;
+		float: left;
 		position: relative;
 		padding: 0;
 		list-style-type: none;
@@ -49,28 +56,6 @@
 					top: 0;
 					left: 100.00%;
 				}
-			}
-		}
-	}
-	
-	&.vertical {
-		display: inline-block;
-		
-		ul {
-			li {
-				display: block;
-				float: none;
-				margin-right: 0;
-				
-				a {
-					display: block;
-					padding-right: toRem($std-padding / 2);
-				}
-			}
-			
-			ul {
-				top: 0;
-				left: 100.00%;
 			}
 		}
 	}
