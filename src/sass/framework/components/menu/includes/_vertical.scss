@@ -7,6 +7,10 @@
 	&.vertical {
 		display: inline-block;
 		
+		&.indent {
+			padding-left: toRem($std-padding);
+		}
+		
 		h6 {
 			float: none;
 			margin: 0;

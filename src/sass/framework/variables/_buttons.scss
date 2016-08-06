@@ -1,0 +1,11 @@
+//Name: Alerts Variables
+//Author: PxO Ink
+//License: The MIT License (MIT)
+//Copyright: � 2016 PxO Ink. Most Rights Reserved.
+
+//Declare the types of alerts.
+$buttons:	(
+	"highlight":	$error, 
+	"focus":		$success,  
+	"warn":			$warning
+);

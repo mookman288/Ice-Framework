@@ -1,0 +1,25 @@
+//Name: Button Mixins
+//Author: PxO Ink
+//License: The MIT License (MIT)
+//Copyright: © 2016 PxO Ink. Most Rights Reserved.
+
+//Calculates a color based on variables.
+//
+//@param text $color
+
+@mixin button-design($color) {
+	background-color: color($color);
+	box-shadow: 0 toRem(-0.40) 0 0 lighten(color($color), 14.00%) inset;
+	color: color($color, 'contrast');
+	
+	&:hover {
+		background-color: lighten(color($color), 14.00%);
+		color: color($color, 'contrast');
+	}
+	
+	&:active {
+		background-color: darken(color($color), 8.00%);
+		box-shadow: 0 toRem(0.40) toRem(0.40) 0 darken(color($color), 14.00%) inset;
+		color: color($color, 'contrast');
+	}
+}

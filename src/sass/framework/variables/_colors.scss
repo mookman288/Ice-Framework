@@ -1,7 +1,7 @@
 //Name: Color Variables
 //Author: PxO Ink
 //License: The MIT License (MIT)
-//Copyright: © 2016 PxO Ink. Most Rights Reserved.
+//Copyright: ï¿½ 2016 PxO Ink. Most Rights Reserved.
 
 //Declare Colors.
 $colors:	(
@@ -24,9 +24,9 @@ $contrasts:	(
 				"blue":			map-get($colors, "white"),
 				"cerulean":		map-get($colors, "white"),
 				"dark":			map-get($colors, "white"),
-				"green":		map-get($colors, "black"),
+				"green":		map-get($colors, "white"),
 				"grey":			map-get($colors, "black"), 
-				"orange":		map-get($colors, "black"),
+				"orange":		map-get($colors, "white"),
 				"purple":		map-get($colors, "white"),
 				"red":			map-get($colors, "white"),
 				"shadow":		map-get($colors, "white"), 

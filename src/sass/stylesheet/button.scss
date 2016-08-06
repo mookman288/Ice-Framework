@@ -1,0 +1,15 @@
+//Name: Button
+//Author: PxO Ink
+//License: The MIT License (MIT)
+//Copyright: � 2016 PxO Ink. Most Rights Reserved.
+
+//Import framework components.
+@import "../framework/components/button/button"; 
+
+.button, button, input[type=submit], input[type=reset] {
+	@extend %button;
+}
+
+input[type=reset] {
+	@extend .highlight;
+}
