@@ -1,0 +1,31 @@
+//Name: Menu Navigation Breadcrumbs
+//Author: PxO Ink
+//License: The MIT License (MIT)
+//Copyright: © 2016 PxO Ink. Most Rights Reserved.
+
+%nav {
+	&.pagination {
+		ul {
+			li {
+				a {
+					padding: toRem($std-padding / 2) toRem($std-padding);
+					background-color: color($message, 'offset');
+					border-radius: toRem($border-radius);
+					color: color($message, 'contrast');
+					text-decoration: none;
+					
+					&:hover {
+						background-color: color($message);
+					}
+				}
+				
+				span {
+					padding: toRem($std-padding / 2) toRem($std-padding);
+					background-color: color($message);
+					border-radius: toRem($border-radius);
+					color: color($message, 'contrast');
+				}
+			}
+		}
+	}	
+}
