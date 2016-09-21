@@ -7,10 +7,15 @@
 	&.pagination {
 		ul {
 			li {
-				a {
-					padding: toRem($std-padding / 2) toRem($std-padding);
-					background-color: color($message, 'offset');
+				a, span {
+					display: block;
+					padding: toRem($std-padding / 2) toRem(1.25 * $std-padding);
 					border-radius: toRem($border-radius);
+					
+				}
+			
+				a {
+					background-color: color($message, 'offset');
 					color: color($message, 'contrast');
 					text-decoration: none;
 					
@@ -20,7 +25,6 @@
 				}
 				
 				span {
-					padding: toRem($std-padding / 2) toRem($std-padding);
 					background-color: color($message);
 					border-radius: toRem($border-radius);
 					color: color($message, 'contrast');
