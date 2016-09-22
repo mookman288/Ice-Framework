@@ -5,13 +5,6 @@
 
 %button {
 	@include button-design($message);
-	display: inline-block;
-	margin-bottom: toRem($std-margin);
-	padding: toRem($std-padding / 2) toRem($std-padding);
-	border-width: 0;
-	border-radius: toRem($border-radius);
-	cursor: pointer;
-	text-decoration: none;
 	
 	//For each alert type.
 	@each $key, $value in $buttons {
@@ -19,5 +12,7 @@
 			@include button-design($value);
 		}
 	}
+	
+	text-decoration: none;
 }
 	

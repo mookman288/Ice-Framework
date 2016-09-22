@@ -8,18 +8,28 @@
 //@param text $color
 
 @mixin button-design($color) {
+	display: inline-block;
+	margin-bottom: toRem($std-margin);
+	padding: toRem($std-padding / 2) toRem($std-padding);
+	border-radius: toRem($border-radius);
+	cursor: pointer;
 	background-color: color($color);
-	box-shadow: 0 toRem(-0.40) 0 0 lighten(color($color), 14.00%) inset;
+	border-width: 0;
+	border-bottom: toRem(0.25);
+	border-color: lighten(color($color), 14.00%);
+	border-style: $border-style;
 	color: color($color, 'contrast');
 	
 	&:hover {
 		background-color: lighten(color($color), 14.00%);
+		border-color: color($color);
 		color: color($color, 'contrast');
 	}
 	
 	&:active {
 		background-color: darken(color($color), 8.00%);
-		box-shadow: 0 toRem(0.40) toRem(0.40) 0 darken(color($color), 14.00%) inset;
 		color: color($color, 'contrast');
+		border-width: 0; 
+		box-shadow: inset 0 toRem(0.15) 0 0 darken(color($color), 14.00%);
 	}
 }
