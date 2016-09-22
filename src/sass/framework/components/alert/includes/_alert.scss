@@ -12,7 +12,7 @@
 	//For each alert type.
 	@each $key, $value in $alerts {
 		&.#{"" + $key} {
-			@include alert-offset($value);
+			@include alert-design($value);
 		}
 	}
 }

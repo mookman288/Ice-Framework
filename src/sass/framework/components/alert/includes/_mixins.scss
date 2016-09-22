@@ -7,8 +7,8 @@
 //
 //@param text $color
 
-@mixin alert-offset($color) {
-	background-color: lighten(map-get($colors, $color), 34.00%);
-	border-color: map-get($offsets, $color);
+@mixin alert-design($color) {
+	background-color: lighten(color($color), 34.00%);
+	border-color: color($color, 'offset');
 	color: darken(color($color), 34.00%);
 }

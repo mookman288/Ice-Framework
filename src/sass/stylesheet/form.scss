@@ -1,0 +1,35 @@
+//Name: Form
+//Author: PxO Ink
+//License: The MIT License (MIT)
+//Copyright: � 2016 PxO Ink. Most Rights Reserved.
+
+//Import framework components.
+@import "../framework/components/form/form"; 
+
+form {
+	@extend %form;
+}
+
+.fields {
+	@extend %fields;
+}
+
+label {
+	@extend %label;
+}
+
+input {
+	@extend %input;
+}
+
+select {
+	@extend %select;
+}
+
+fieldset {
+	@extend %fieldset;
+}
+
+textarea {
+	@extend %textarea;
+}

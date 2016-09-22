@@ -1,0 +1,10 @@
+//Name: Form Textarea
+//Author: PxO Ink
+//License: The MIT License (MIT)
+//Copyright: © 2016 PxO Ink. Most Rights Reserved.
+
+%textarea {
+	@include input-design();
+	display: block;
+	min-height: toRem(10);
+}

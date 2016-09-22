@@ -536,6 +536,161 @@
 &lt;/div&gt;
 </code></pre>
 						<h4>Forms</h4>
+						<h5>Demonstration</h5>
+						<form action="#" method="get">
+							<label for="text-input">Text Input</label>
+							<input id="text-input" name="text-input" type="text" />
+<pre><code>
+&lt;label for=&quot;text-input&quot;&gt;Text Input&lt;/label&gt;
+&lt;input id=&quot;text-input&quot; name=&quot;text-input&quot; type=&quot;text&quot; /&gt;
+</code></pre>
+							<label for="select-input">Select Input</label>
+							<select id="select-input" name="select-input">
+								<option value="Select A">Select A</option>
+								<option value="Select B" selected="selected">Select B</option>
+								<option value="Select C">Select C</option>
+								<option value="Select D">Select D</option>
+							</select>
+<pre><code>
+&lt;label for=&quot;select-input&quot;&gt;Select Input&lt;/label&gt;
+&lt;select id=&quot;select-input&quot; name=&quot;select-input&quot;&gt;
+	&lt;option value=&quot;Select A&quot;&gt;Select A&lt;/option&gt;
+	&lt;option value=&quot;Select B&quot; selected=&quot;selected&quot;&gt;Select B&lt;/option&gt;
+	&lt;option value=&quot;Select C&quot;&gt;Select C&lt;/option&gt;
+	&lt;option value=&quot;Select D&quot;&gt;Select D&lt;/option&gt;
+&lt;/select&gt;
+</code></pre>
+							<fieldset>
+								<legend>Radio Selection</legend>
+								<label for="radio-input-a">
+									<input id="radio-input-a" name="radio-input" type="radio" />
+									Radio A
+								</label>
+								<label for="radio-input-b">
+									<input id="radio-input-b" name="radio-input" type="radio" />
+									Radio B
+								</label>
+							</fieldset>
+<pre><code>
+&lt;fieldset&gt;
+	&lt;legend&gt;Radio Selection&lt;/legend&gt;
+	&lt;label for=&quot;radio-input-a&quot;&gt;
+		&lt;input id=&quot;radio-input-a&quot; name=&quot;radio-input&quot; type=&quot;radio&quot; /&gt;
+		Radio A
+	&lt;/label&gt;
+	&lt;label for=&quot;radio-input-b&quot;&gt;
+		&lt;input id=&quot;radio-input-b&quot; name=&quot;radio-input&quot; type=&quot;radio&quot; /&gt;
+		Radio B
+	&lt;/label&gt;
+&lt;/fieldset&gt;
+</code></pre>
+							<fieldset>
+								<legend>Checkbox</legend>
+								<label for="checkbox-input-a">
+									<input id="checkbox-input-a" name="checkbox-input-a" type="checkbox" />
+									Checkbox A
+								</label>
+								<br />
+								<label for="checkbox-input-b">
+									<input id="checkbox-input-b" name="checkbox-input-b" type="checkbox" />
+									Checkbox B
+								</label>
+							</fieldset>
+<pre><code>
+&lt;fieldset&gt;
+	&lt;legend&gt;Checkbox&lt;/legend&gt;
+	&lt;label for=&quot;checkbox-input-a&quot;&gt;
+		&lt;input id=&quot;checkbox-input-a&quot; name=&quot;checkbox-input-a&quot; type=&quot;checkbox&quot; /&gt;
+		Checkbox A
+	&lt;/label&gt;
+	&lt;br /&gt;
+	&lt;label for=&quot;checkbox-input-b&quot;&gt;
+		&lt;input id=&quot;checkbox-input-b&quot; name=&quot;checkbox-input-b&quot; type=&quot;checkbox&quot; /&gt;
+		Checkbox B
+	&lt;/label&gt;
+&lt;/fieldset&gt;
+</code></pre>
+							<label for="textarea-input">Textarea Input</label>
+							<div class="row">
+								<textarea id="textarea-input" name="textarea-input" class="column hd-10 tab-15 mob-20"></textarea>
+							</div>
+<pre><code>
+&lt;label for=&quot;textarea-input&quot;&gt;Textarea Input&lt;/label&gt;
+&lt;div class=&quot;row&quot;&gt;
+	&lt;textarea id=&quot;textarea-input&quot; name=&quot;textarea-input&quot; class=&quot;column hd-10 tab-15 mob-20&quot;&gt;&lt;/textarea&gt;
+&lt;/div&gt;
+</code></pre>
+							<input type="submit" value="Submit" />
+							<button class="focus">Continue</button>
+							<input type="reset" value="Reset" />
+<pre><code>
+&lt;input type=&quot;submit&quot; value=&quot;Submit&quot; /&gt;
+&lt;button class=&quot;focus&quot;&gt;Continue&lt;/button&gt;
+&lt;input type=&quot;reset&quot; value=&quot;Reset&quot; /&gt;
+</code></pre>	
+							<fieldset>
+								<legend><label for="phone-input">Telephone Number</label></legend>
+								<div class="fields">
+									<span>
+										+1
+									</span>
+									<input id="phone-input" name="phone-input" type="tel" placeholder="555 5555" />
+								</div>
+							</fieldset>
+<pre><code>
+&lt;fieldset&gt;
+	&lt;legend&gt;&lt;label for=&quot;phone-input&quot;&gt;Telephone Number&lt;/label&gt;&lt;/legend&gt;
+	&lt;div class=&quot;fields&quot;&gt;
+		&lt;span&gt;
+			+1
+		&lt;/span&gt;
+		&lt;input id=&quot;phone-input&quot; name=&quot;phone-input&quot; type=&quot;tel&quot; placeholder=&quot;555 5555&quot; /&gt;
+	&lt;/div&gt;
+&lt;/fieldset&gt;
+</code></pre>
+							<div>
+								<div class="fields">
+									<span>
+										<label for="email-input">Email Input</label>
+									</span>
+									<input id="email-input" name="email-input" type="email" />
+									<span>
+										@example.com
+									</span>
+								</div>
+							</div>
+<pre><code>
+&lt;div&gt;
+	&lt;div class=&quot;fields&quot;&gt;
+		&lt;span&gt;
+			&lt;label for=&quot;email-input&quot;&gt;Email Input&lt;/label&gt;
+		&lt;/span&gt;
+		&lt;input id=&quot;email-input&quot; name=&quot;email-input&quot; type=&quot;email&quot; /&gt;
+		&lt;span&gt;
+			@example.com
+		&lt;/span&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+							<div>
+								<label for="number-input">Please donate? </label>
+								<div class="fields">
+									<span>$</span>
+									<input id="number-input" name="number-input" type="number" min="1" max="5" />
+									<input type="submit" value="Donate" />
+								</div>
+							</div>
+<pre><code>
+&lt;div&gt;
+	&lt;label for=&quot;number-input&quot;&gt;Please donate? &lt;/label&gt;
+	&lt;div class=&quot;fields&quot;&gt;
+		&lt;span&gt;$&lt;/span&gt;
+		&lt;input id=&quot;number-input&quot; name=&quot;number-input&quot; type=&quot;number&quot; min=&quot;1&quot; max=&quot;5&quot; /&gt;
+		&lt;input type=&quot;submit&quot; value=&quot;Donate&quot; /&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+						</form>
 						<h4>Layout</h4>
 						<h4>JavaScript</h4>
 						<h5>IceBox</h5>

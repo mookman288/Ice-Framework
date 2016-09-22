@@ -1,0 +1,13 @@
+//Name: Form Label
+//Author: PxO Ink
+//License: The MIT License (MIT)
+//Copyright: © 2016 PxO Ink. Most Rights Reserved.
+
+%label {
+	display: inline-block;
+	margin-bottom: toRem($std-margin / 2);
+	
+	&[for] {
+		cursor: pointer; 
+	}
+}

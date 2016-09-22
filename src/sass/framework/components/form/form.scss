@@ -1,20 +1,22 @@
-//Name: Menu
+//Name: Form
 //Author: PxO Ink
 //License: The MIT License (MIT)
 //Copyright: © 2016 PxO Ink. Most Rights Reserved.
 
 //Import variables.
+@import "../../variables/form";
 @import "../../variables/colors";
-@import "../../variables/resolutions";
 @import "../../variables/layout";
 
 //Import resources.
 @import "../../resources/colors";
-@import "../../resources/cfx";
 @import "../../resources/numbers";
 
-//Import components.
-@import "includes/horizontal";
-@import "includes/vertical";
-@import "includes/breadcrumbs";
-@import "includes/pagination";
+//Import component. 
+@import "../alert/includes/mixins";
+@import "includes/mixins";
+@import "includes/label";
+@import "includes/input";
+@import "includes/select";
+@import "includes/fieldset";
+@import "includes/textarea";

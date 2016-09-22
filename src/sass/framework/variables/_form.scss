@@ -1,0 +1,22 @@
+//Name: Form Variables
+//Author: PxO Ink
+//License: The MIT License (MIT)
+//Copyright: � 2016 PxO Ink. Most Rights Reserved.
+
+//Declare the type of inputs.
+$inputs: (
+	"[type=text]", 
+	"[type=password]", 
+	"[type=email]", 
+	"[type=date]", 
+	"[type=datetime]", 
+	"[type=datetime-local]", 
+	"[type=search]", 
+	"[type=tel]", 
+	"[type=url]", 
+	"[type=month]", 
+	"[type=week]", 
+	"[type=number]", 
+	"[type=range]", 
+	"[type=color]"
+);

@@ -10,7 +10,7 @@
 @import "../framework/resources/colors";
 @import "../framework/components/text/text";
 
-body {
+body, input, button, select, textarea {
 	@extend %body-size;
 	@extend %half-double;
 	font-family: $font-family;
