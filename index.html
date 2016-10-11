@@ -31,43 +31,6 @@
 							that frameworks should not try and reinvent design, but to provide a <em>fast</em> and 
 							<em>scalable</em> groundwork for the <u>imagination</u> to take advantage of. 
 						</p>
-						<h3>Third-Party Resources</h3>
-						<h4>Fonts</h4>
-						<ul>
-							<li>Fally Pin by <a href="http://sorkintype.com/" target="_blank">Nicole Fally</a></li>
-							<li>Linecons by <a href="http://designmodo.com/linecons-free/" target="_blank">Design Modo</a></li>
-							<li>
-								Nimbus Sans L by <a href="http://openfontlibrary.org/en/font/nimbus-sans-l" target="_blank">URW++</a>
-							</li>
-							<li>
-								Open Baskerville by 
-								<a href="http://openfontlibrary.org/font/open-baskerville" target="_blank">
-									Isaac Moore, James Puckett, and Rob Mientjes
-								</a>
-							</li>
-						</ul>
-						<h4>JavaScript</h4>
-						<ul>
-							<li>IceBox by <a href="http://pxoink.net/" target="_blank">PxO Ink</a></li>
-							<li>jQuery 1.12.0 by <a href="https://jquery.org/team/" target="_blank">The jQuery Foundation</a></li>
-							<li>lte ie7 by <a href="http://designmodo.com/linecons-free/" target="_blank">Design Modo</a></li>
-							<li>Modernizr by <a href="https://github.com/Modernizr/Modernizr" target="_blank">Modernizr</a></li>
-						</ul>
-						<h5>Recommended Libraries</h5>
-						<ul>
-							<li>
-								jQuery Masked Input by 
-								<a href="http://digitalbush.com/projects/masked-input-plugin/" target="_blank">
-									Josh Bush
-								</a>
-							</li>
-							<li>
-								jQuery Validation by 
-								<a href="https://github.com/jzaefferer/jquery-validation" target="_blank">
-									Jörn Zaefferer
-								</a>
-							</li>
-						</ul>
 						<h3>Installation</h3>
 						<p>
 							Ice Framework comes packaged compiled and compressed for implementation. The following table 
@@ -691,7 +654,205 @@
 &lt;/div&gt;
 </code></pre>
 						</form>
-						<h4>Layout</h4>
+						<h4>Tables</h4>
+						<h5>Demonstration</h5>
+						<h6>Basic Table</h6>
+						<table>
+							<thead>
+								<tr>
+									<th>Column</th>
+									<th>Column</th>
+									<th>Column</th>
+									<th>Column</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Row</td>
+									<td>Row</td>
+									<td>Row</td>
+									<td>$50.00</td>
+								</tr>
+								<tr>
+									<td>Row</td>
+									<td>Row</td>
+									<td>Row</td>
+									<td>$50.00</td>
+								</tr>
+							</tbody>
+							<tfoot>
+								<tr>
+									<td>Foot</td>
+									<td>Foot</td>
+									<td colspan="2">$100.00</td>
+								</tr>
+							</tfoot>
+						</table>
+						<h6>Striped Table</h6>
+						<table class="striped">
+							<thead>
+								<tr>
+									<th>Column</th>
+									<th>Column</th>
+									<th>Column</th>
+									<th>Column</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Row</td>
+									<td>Row</td>
+									<td>Row</td>
+									<td>$50.00</td>
+								</tr>
+								<tr>
+									<td>Row</td>
+									<td>Row</td>
+									<td>Row</td>
+									<td>$50.00</td>
+								</tr>
+							</tbody>
+							<tfoot>
+								<tr>
+									<td>Foot</td>
+									<td>Foot</td>
+									<td colspan="2">$100.00</td>
+								</tr>
+							</tfoot>
+						</table>
+						<h6>Extended Table</h6>
+						<table class="extend">
+							<thead>
+								<tr>
+									<th>Column</th>
+									<th>Column</th>
+									<th>Column</th>
+									<th>Column</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Row</td>
+									<td>Row</td>
+									<td>Row</td>
+									<td>$50.00</td>
+								</tr>
+								<tr>
+									<td>Row</td>
+									<td>Row</td>
+									<td>Row</td>
+									<td>$50.00</td>
+								</tr>
+							</tbody>
+							<tfoot>
+								<tr>
+									<td>Foot</td>
+									<td>Foot</td>
+									<td colspan="2">$100.00</td>
+								</tr>
+							</tfoot>
+						</table>
+						<h6>Transaction Table</h6>
+						<table class="transact">
+							<thead>
+								<tr>
+									<th>Column</th>
+									<th>Column</th>
+									<th>Column</th>
+									<th>Column</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Row</td>
+									<td>Row</td>
+									<td>Row</td>
+									<td>$50.00</td>
+								</tr>
+								<tr>
+									<td>Row</td>
+									<td>Row</td>
+									<td>Row</td>
+									<td>$50.00</td>
+								</tr>
+							</tbody>
+							<tfoot>
+								<tr>
+									<td>Foot</td>
+									<td>Foot</td>
+									<td colspan="2">$100.00</td>
+								</tr>
+							</tfoot>
+						</table>
+						<h6>Everything Table</h6>
+						<table class="extend striped transact">
+							<thead>
+								<tr>
+									<th>Column</th>
+									<th>Column</th>
+									<th>Column</th>
+									<th>Column</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Row</td>
+									<td>Row</td>
+									<td>Row</td>
+									<td>$50.00</td>
+								</tr>
+								<tr>
+									<td>Row</td>
+									<td>Row</td>
+									<td>Row</td>
+									<td>$50.00</td>
+								</tr>
+							</tbody>
+							<tfoot>
+								<tr>
+									<td>Foot</td>
+									<td>Foot</td>
+									<td colspan="2">$100.00</td>
+								</tr>
+							</tfoot>
+						</table>
+<pre><code>
+	&lt;table class=&quot;extend striped transact&quot;&gt;
+		&lt;thead&gt;
+			&lt;tr&gt;
+				&lt;th&gt;Column&lt;/th&gt;
+				&lt;th&gt;Column&lt;/th&gt;
+				&lt;th&gt;Column&lt;/th&gt;
+				&lt;th&gt;Column&lt;/th&gt;
+			&lt;/tr&gt;
+		&lt;/thead&gt;
+		&lt;tbody&gt;
+			&lt;tr&gt;
+				&lt;td&gt;Row&lt;/td&gt;
+				&lt;td&gt;Row&lt;/td&gt;
+				&lt;td&gt;Row&lt;/td&gt;
+				&lt;td&gt;$50.00&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+				&lt;td&gt;Row&lt;/td&gt;
+				&lt;td&gt;Row&lt;/td&gt;
+				&lt;td&gt;Row&lt;/td&gt;
+				&lt;td&gt;$50.00&lt;/td&gt;
+			&lt;/tr&gt;
+		&lt;/tbody&gt;
+		&lt;tfoot&gt;
+			&lt;tr&gt;
+				&lt;td&gt;Foot&lt;/td&gt;
+				&lt;td&gt;Foot&lt;/td&gt;
+				&lt;td colspan=&quot;2&quot;&gt;$100.00&lt;/td&gt;
+			&lt;/tr&gt;
+		&lt;/tfoot&gt;
+	&lt;/table&gt;
+</code></pre>
+						<h4>Video</h4>
+						<h5>Demonstration</h5>
+						<h4>Quotes</h4>
+						<h5>Demonstration</h5>
 						<h4>JavaScript</h4>
 						<h5>IceBox</h5>
 						<h5>Slider</h5>
@@ -700,6 +861,43 @@
 						<h5>Tabs</h5>
 					</div>
 					<div class="column hd-6 std-8 mob-20 pad-left">
+						<h3>Third-Party Resources</h3>
+						<h4>Fonts</h4>
+						<ul>
+							<li>Fally Pin by <a href="http://sorkintype.com/" target="_blank">Nicole Fally</a></li>
+							<li>Linecons by <a href="http://designmodo.com/linecons-free/" target="_blank">Design Modo</a></li>
+							<li>
+								Nimbus Sans L by <a href="http://openfontlibrary.org/en/font/nimbus-sans-l" target="_blank">URW++</a>
+							</li>
+							<li>
+								Open Baskerville by 
+								<a href="http://openfontlibrary.org/font/open-baskerville" target="_blank">
+									Isaac Moore, James Puckett, and Rob Mientjes
+								</a>
+							</li>
+						</ul>
+						<h4>JavaScript</h4>
+						<ul>
+							<li>IceBox by <a href="http://pxoink.net/" target="_blank">PxO Ink</a></li>
+							<li>jQuery 1.12.0 by <a href="https://jquery.org/team/" target="_blank">The jQuery Foundation</a></li>
+							<li>lte ie7 by <a href="http://designmodo.com/linecons-free/" target="_blank">Design Modo</a></li>
+							<li>Modernizr by <a href="https://github.com/Modernizr/Modernizr" target="_blank">Modernizr</a></li>
+						</ul>
+						<h5>Recommended Libraries</h5>
+						<ul>
+							<li>
+								jQuery Masked Input by 
+								<a href="http://digitalbush.com/projects/masked-input-plugin/" target="_blank">
+									Josh Bush
+								</a>
+							</li>
+							<li>
+								jQuery Validation by 
+								<a href="https://github.com/jzaefferer/jquery-validation" target="_blank">
+									Jörn Zaefferer
+								</a>
+							</li>
+						</ul>
 						<h3>License</h3>
 						<h4>The MIT License (MIT)</h4>
 						<p>Software Copyright &copy; 2014 PxO Ink. Most Rights Reserved.</p>
@@ -732,19 +930,6 @@
 							<a href="https://gratipay.com/~mookman288/" target="_blank">Gratipay</a>, or contributing through 
 							<a href="https://www.patreon.com/bePatron?patAmt=1&u=3081691" target="_blank">Patreon</a>.
 						</p>
-						<h3>Table of Contents</h3>
-						<nav class="vertical indent">
-							<ul>
-								<li><a href="#grid">Grid</a></li>
-								<li><a href="#menues">Navigation and Menues</a></li>
-								<li><a href="#breadcrumbs">Breadcrumbs</a></li>
-								<li><a href="#alerts">Alerts</a></li>
-								<li><a href="#buttons">Buttons</a></li>
-								<li><a href="#forms">Forms</a></li>
-								<li><a href="#layout">Layout</a></li>
-								<li><a href="#javascript">JavaScript</a></li>
-							</ul>
-						</nav>
 					</div>
 				</div>
 			</div>

@@ -173,10 +173,13 @@ gulp.task('browserSync', function() {
 			paths.output.js + '/*'
 		], 
 		open: false, 
+		ui: {
+			port: 4040
+		}, 
 		server: {
 			baseDir: "./", 
-			
-		}
+		}, 
+		port: 4044
 	});
 });
 
