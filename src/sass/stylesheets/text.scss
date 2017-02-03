@@ -28,6 +28,14 @@ a {
 	}
 }
 
+h1, h2 {
+	margin-bottom: toRem($std-margin / 2);
+}
+
+h3, h4, h5, h6, p, pre, blockquote, ul, ol, table {
+	margin-bottom: toRem($std-margin);
+}
+
 h1 {
 	@extend %h1;
 	@extend %bold;

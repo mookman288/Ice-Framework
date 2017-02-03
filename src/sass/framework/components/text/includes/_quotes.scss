@@ -10,7 +10,7 @@
 }
 
 %quote {
-	padding: toRem($std-padding);
+	margin-top: toRem($std-margin);
 	display: inline-block; 
 	quotes: "“" "”" "‘" "’";
 	
