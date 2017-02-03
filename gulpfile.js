@@ -3,6 +3,7 @@ var	autoprefix	=	require('gulp-autoprefixer');
 var browserSync	=	require('browser-sync').create();
 var	cache		=	require('gulp-cache');
 var	concat		=	require('gulp-concat');
+var	fs			=	require('fs'); 
 var	gulp		=	require('gulp');
 var	gulpif		=	require('gulp-if');
 var imagemin	=   require('gulp-imagemin');
@@ -12,6 +13,7 @@ var	modernizr	=	require('gulp-modernizr');
 var notify		=   require('gulp-notify');
 var	reload		=	browserSync.reload;
 var	rename		=	require('gulp-rename');
+var replace		=	require('gulp-replace');
 var	sass		=	require('gulp-sass');
 var sourcemaps	=	require('gulp-sourcemaps');
 var	uglify		=	require('gulp-uglify');
@@ -24,32 +26,39 @@ var	argv		=	require('yargs').argv;
 var	dev			=	(!argv.dev) ? false : true;
 
 //Set initial tasks.
-var	tasks		=	(!dev) ? ['modernizr', 'images'] : ['modernizr', 'images', 'browserSync', 'watch'];
+var	tasks		=	(!dev) ? ['images', 'scripts', 'version'] : ['images', 'scripts', 'browserSync', 'watch', 'version'];
 
-//Setup the applications to be processed.
-var	apps		=	{
-		'css': [
-			'reset', 
-			'clear', 
-			'grid', 
-			'text', 
-			'button', 
-			'menu', 
-			'alert',
-			'list', 
-			'form', 
-			'table', 
-			'code', 
-			'layout', 
-			'stylesheet'
-		], 
-		'hint': [
-			'icebox'
-		], 
-		'js': [
-			'icebox'
-		]
+//Set tasks specifically for JavaScript. 
+var	scripts		=	[];
+
+//Get the package.json version.
+var	version		=	JSON.parse(fs.readFileSync('./package.json')).version.split('.');
+
+//Set the increment value based on whether this is a development version. 
+var	increment	=	(!dev) ? 2 : 1;
+
+//For each version value.
+for(i = 0; i < version.length; i++) {
+	//Parse the version as an integer type. 
+	version[i]	=	parseInt(version[i]); 
 }
+
+//Based on the existing version number.
+if (version[3] + increment >= 10) {
+	if (version[2] + 1 >= 10) {
+		version[1]	+=	1;
+		version[2]	=	0;
+	} else {
+		version[2]	+=	1;
+	}
+	
+	version[3]		+=	increment - 10;
+} else {
+	version[3]		+=	increment;
+}
+
+//Rebuild the version. 
+version	=	version.join('.'); 
 
 //Get all paths.
 var	paths		=	{
@@ -66,11 +75,22 @@ var	paths		=	{
 	}
 };
 
+//Get all applications to process. 
+var	files	=	{
+		sass:			fs.readdirSync(paths.input.sass + '/stylesheets/'),
+		js: {
+		//	init: 		fs.readdirSync(paths.input.js) + '/init/',
+		//	vendor:		fs.readdirSync(paths.input.js) + '/vendor/',
+		//	utilities:	fs.readdirSync(paths.input.js) + '/utilities/', 
+		//	functions:	fs.readdirSync(paths.input.js) + '/functions/'
+		}
+};
+
 //Store all processing functions. 
 var	functions	=	{
 		hint:	function(app) {
 			//Run Gulp.
-			return gulp.src(app)
+			return gulp.src(app + '/**/*.js')
 				.pipe(jshint())
 				.pipe(notify(function(file) {
 					//If not success.
@@ -92,7 +112,7 @@ var	functions	=	{
 		}, 
 		js:		function(app) {
 			//Run Gulp.
-			return gulp.src(app)
+			return gulp.src(app + '/**/*.js')
 				.pipe(concat(app + '.js'))
 				.pipe(gulpif(!dev, uglify({'preserveComments': 'license'})))
 				.pipe(gulp.dest(paths.output.js));
@@ -118,8 +138,7 @@ var	functions	=	{
 				.pipe(autoprefix({browsers: '> 1%'}))
 				.pipe(gulpif(!die, gulpif(!dev, minifyCSS({compatibility: 'ie8'}))))
 				.pipe(gulpif(!die, gulpif(dev, sourcemaps.write())))
-				.pipe(gulpif(!die, gulp.dest(paths.output.css)))
-				.pipe(gulpif(die, function() {
+				.pipe(gulpif(!die, gulp.dest(paths.output.css), function() {
 					//Reset die.
 					die	=	false;
 					
@@ -129,37 +148,58 @@ var	functions	=	{
 		}
 };
 
-//For each CSS application.
-apps.css.forEach(function(app) {
+//For each CSS/Sass application. 
+files.sass.forEach(function(file) {
+	//Get the name of the css application. 
+	var	name	=	'css-' + file.replace('.scss', '');
+	
 	//Handle application.
-	gulp.task('css-' + app, function() {
+	gulp.task(name, function() {
 		//Run function.
-		return functions.sass([paths.input.sass + '/stylesheet/' + app + '.scss']);
+		return functions.sass([paths.input.sass + '/stylesheets/' + file]);
 	});
 	
 	//Add task.
-	tasks.unshift('css-' + app);
+	tasks.unshift(name);
 });
 
-//For each JS application.
-apps.js.forEach(function(app) {
-	//Hint application.
-	gulp.task('hint-' + app, function() {
-		//Run function.
-		//return functions.hint(app);
+//For each JavaScript application category.
+/*files.js.forEach(function(jsFiles, app) {
+	//For each set of files.
+	jsFiles.forEach(function(file) {
+		//Avoid hinting vendor code, it never works out.
+		if (app !== 'vendor') {
+			//Hint application.
+			gulp.task('hint-' + app, function() {
+				//Run function.
+				return functions.hint(file);
+			});
+		}
+		
+		//Handle application.
+		gulp.task('js-' + app, ['hint-' + file], function() {
+			//Run function.
+			return functions.js(file);
+		});
+		
+		//Add task to modernizr. 
+		scripts.unshift('js-' + file);
 	});
+});*/
+
+//Version control.
+gulp.task('version', function() {
+	//Run Gulp.
+	gulp.src([
+		'index.html'
+	], {base: './'})
+		.pipe(replace(/(.*(css|js))(\?v=.*)?(\".*)/g, '$1?v=' + version + '$4'))
+		.pipe(gulp.dest('./'));
 	
-	//Add task.
-	tasks.unshift('hint-' + app);
-	
-	//Handle application.
-	gulp.task('js-' + app, function() {
-		//Run function.
-		//return functions.js(app);
-	});
-	
-	//Add task.
-	tasks.unshift('js-' + app);
+	//Run Gulp.
+	gulp.src('./package.json')
+		.pipe(replace(/(.*)(\"version\": \")(.*)(\".*)/g, '$1$2' + version + '$4'))
+		.pipe(gulp.dest('./'));
 });
 
 //BrowserSync.
@@ -197,32 +237,30 @@ gulp.task('images', function() {
 });
 
 //Modernizr.
-gulp.task('modernizr', function() {
+gulp.task('scripts', scripts, function() {
 	return gulp.src([paths.input.js + '/**/*.js'])
 		.pipe(modernizr())
-		.pipe(gulp.dest(paths.input.js + '/vendor/'));
+		.pipe(gulp.dest(paths.output.js));
 });
 
 //Watch for changes.
 gulp.task('watch', function() {
 	//For each CSS application.
-	apps.css.forEach(function(app) {
+	//apps.css.forEach(function(app) {
 		//Setup watch for Sass Apps. 
-		gulp.watch([paths.input.sass + '/**/*.scss'], ['css-' + app]);
-	});
+		//gulp.watch([paths.input.sass + '/**/*.scss'], ['css-' + app]);
+	//});
 	
 	//For each JS application.
-	apps.js.forEach(function(app) {
+	//apps.js.forEach(function(app) {
 		//Setup watch for Hint.
-		//gulp.watch(paths.input.js + '/' + app + '/*.js', ['hint-' + app]);
-		
-		//Setup watch for JS.
-		//gulp.watch(paths.input.js + '/' + app + '/**/*.js', ['js-' + app]);
-	});
+		//gulp.watch(paths.input.js + '/' + app + '/*.js', ['js-' + app]);
+	//});
 	
 	//Watch for images. 
-	gulp.watch(paths.input.images + '/*', ['images']);
+	//gulp.watch(paths.input.images + '/*', ['images']);
 });
 
-//Task runner. 
+
+//Task runner.
 gulp.task('default', tasks);

@@ -1,6 +1,1 @@
-ul li, ol li {
-  list-style-position: outside;
-  margin-left: 2rem;
-}
-
-/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImxpc3QuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsNkJBQTZCO0VBQzdCLGtCQUFrQjtDQUNuQiIsImZpbGUiOiJsaXN0LmNzcyIsInNvdXJjZXNDb250ZW50IjpbInVsIGxpLCBvbCBsaSB7XG4gIGxpc3Qtc3R5bGUtcG9zaXRpb246IG91dHNpZGU7XG4gIG1hcmdpbi1sZWZ0OiAycmVtO1xufVxuIl0sInNvdXJjZVJvb3QiOiIvc291cmNlLyJ9 */
+ol li,ul li{list-style-position:outside;margin-left:2rem}
