@@ -3,32 +3,32 @@
 //License: The MIT License (MIT)
 //Copyright: © 2017 PxO Ink. Most Rights Reserved.
 
+%quotes {
+	@extend %h1;
+	font-family: "Open Baskerville", cursive, sans-serif, serif; 
+	line-height: $single;
+}
+
 %quote {
 	padding: toRem($std-padding);
-	quotes: "“" "”" "‘" "’";
 	display: inline-block; 
-	
-	&:before, &:after {
-		@extend %h1;
-		font-family: "Pinyon Script", "Open Baskerville", cursive, sans-serif, serif; 
-		line-height: $single;
-	}
+	quotes: "“" "”" "‘" "’";
 	
 	&:before {
+		@extend %quotes;
 		content: open-quote;
 		float: left;
-	}
-	
-	&:after {
-		content: close-quote;
-		float: right;
+		margin-top: toRem(-1 * $std-margin);
 	}
 	
 	footer {
-		@include cfx;
+		text-align: right;
 		
-		cite {
+		&:after {
+			@extend %quotes;
+			content: close-quote;
 			float: right;
+			margin-top: toRem(-2 * $std-margin);
 		}
 	}
 }
