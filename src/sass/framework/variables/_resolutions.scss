@@ -11,7 +11,7 @@ $resolutions:	(
 					"tab":		768,
 					"mob":		640,
 					"tel":		384
-				);
+				) !default;
 				
 //Declare resolution adjustments for global font sizes.
 $resoFontSizes:	(
@@ -19,4 +19,4 @@ $resoFontSizes:	(
 					"std":		1.40,
 					"mob":		1.20,
 					"tel":		1.00
-				);
+				) !default;

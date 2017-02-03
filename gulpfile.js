@@ -34,14 +34,14 @@ var	scripts		=	[];
 //Get the package.json version.
 var	version		=	JSON.parse(fs.readFileSync('./package.json')).version.split('.');
 
-//Set the increment value based on whether this is a development version. 
-var	increment	=	(!dev) ? 2 : 1;
-
 //For each version value.
 for(i = 0; i < version.length; i++) {
 	//Parse the version as an integer type. 
 	version[i]	=	parseInt(version[i]); 
 }
+
+//Get the increment value.
+var	increment	=	(!dev) ? ((version[3] % 2 !== 0) ? 1 : 2) : ((version[3] % 2 !== 0) ? 2 : 1);
 
 //Based on the existing version number.
 if (version[3] + increment >= 10) {
@@ -245,20 +245,30 @@ gulp.task('scripts', scripts, function() {
 
 //Watch for changes.
 gulp.task('watch', function() {
-	//For each CSS application.
-	//apps.css.forEach(function(app) {
-		//Setup watch for Sass Apps. 
-		//gulp.watch([paths.input.sass + '/**/*.scss'], ['css-' + app]);
-	//});
+	//For each CSS/Sass application. 
+	files.sass.forEach(function(file) {
+		//Get the name of the css application. 
+		var	name	=	file.replace('.scss', '');
+		
+		//Adjust for the stylesheet being a special catch-all for the framework CSS. 
+		var	watcher	=	(name !== 'stylesheet') ? [
+			paths.input.sass +	 '/resources/**/*.scss', 
+			paths.input.sass + '/variables/**/*.scss', 
+			paths.input.sass + '/components/' + name + '/**/*.scss', 
+			paths.input.sass + '/stylesheets/' + file
+		] : [
+			paths.input.sass + '/**/*.scss'
+		];
+		
+		//Watch for changes to the Sass.
+		gulp.watch(watcher, ['css-' + name]);
+	});
 	
-	//For each JS application.
-	//apps.js.forEach(function(app) {
-		//Setup watch for Hint.
-		//gulp.watch(paths.input.js + '/' + app + '/*.js', ['js-' + app]);
-	//});
+	//Watch for changes to the JavaScript. 
+	gulp.watch(paths.input.js + '/**/*.js', ['scripts']);
 	
 	//Watch for images. 
-	//gulp.watch(paths.input.images + '/*', ['images']);
+	gulp.watch(paths.input.images + '/*', ['images']);
 });
 
 

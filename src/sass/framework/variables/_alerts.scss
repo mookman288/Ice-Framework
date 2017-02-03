@@ -1,7 +1,7 @@
 //Name: Alerts Variables
 //Author: PxO Ink
 //License: The MIT License (MIT)
-//Copyright: © 2016 PxO Ink. Most Rights Reserved.
+//Copyright: ï¿½ 2016 PxO Ink. Most Rights Reserved.
 
 //Declare the types of alerts.
 $alerts:	(
@@ -9,4 +9,4 @@ $alerts:	(
 	"message":	$message,
 	"success":	$success,  
 	"warning":	$warning
-);
+) !default;

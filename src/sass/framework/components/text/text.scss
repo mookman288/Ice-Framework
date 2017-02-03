@@ -1,14 +1,16 @@
 //Name: Fonts
 //Author: PxO Ink
 //License: The MIT License (MIT)
-//Copyright: © 2016 PxO Ink. Most Rights Reserved.
+//Copyright: ï¿½ 2016 PxO Ink. Most Rights Reserved.
 
 //Import variables.
 @import "../../variables/colors";
+@import "../../variables/layout";
 @import "../../variables/resolutions";
 @import "../../variables/text";
 
 //Import resources.
+@import "../../resources/cfx";
 @import "../../resources/colors";
 @import "../../resources/numbers";
 
@@ -16,3 +18,4 @@
 @import "includes/fonts";
 @import "includes/utilities";
 @import "includes/sizes";
+@import "includes/quotes";

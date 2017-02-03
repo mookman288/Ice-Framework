@@ -1,0 +1,10 @@
+video, audio, iframe, embed, object {
+  display: block;
+  max-width: 100.00%;
+}
+
+video, audio, iframe, embed, object {
+  margin-bottom: 1rem;
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm1lZGlhLmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLGVBQWU7RUFDZixtQkFBbUI7Q0FDcEI7O0FBRUQ7RUFDRSxvQkFBb0I7Q0FDckIiLCJmaWxlIjoibWVkaWEuY3NzIiwic291cmNlc0NvbnRlbnQiOlsidmlkZW8sIGF1ZGlvLCBpZnJhbWUsIGVtYmVkLCBvYmplY3Qge1xuICBkaXNwbGF5OiBibG9jaztcbiAgbWF4LXdpZHRoOiAxMDAuMDAlO1xufVxuXG52aWRlbywgYXVkaW8sIGlmcmFtZSwgZW1iZWQsIG9iamVjdCB7XG4gIG1hcmdpbi1ib3R0b206IDFyZW07XG59XG4iXSwic291cmNlUm9vdCI6Ii9zb3VyY2UvIn0= */

@@ -16,7 +16,7 @@ $colors:	(
 				"red":			#D00,
 				"shadow":		#444, 
 				"white":		#FFF
-			);
+			) !default;
 
 //Declare Color Contrasts.
 $contrasts:	(
@@ -31,7 +31,7 @@ $contrasts:	(
 				"red":			map-get($colors, "white"),
 				"shadow":		map-get($colors, "white"), 
 				"white":		map-get($colors, "black")
-			);
+			) !default;
 			
 //Declare Color Offsets.
 $offsets:	(
@@ -46,7 +46,7 @@ $offsets:	(
 				"red":			darken(map-get($colors, "red"), 10.00%),
 				"shadow":		lighten(map-get($colors, "shadow"), 10.00%),
 				"white":		darken(map-get($colors, "white"), 10.00%)
-			);
+			) !default;
 			
 //Declare Color Alises.
 $anchor:		"cerulean"	!default;

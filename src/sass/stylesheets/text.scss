@@ -45,12 +45,16 @@ h3 {
 
 h4 {
 	@extend %h4;
-	@extend $bold;
+	@extend %bold;
 }
 
 h5, h6, legend, caption {
 	@extend %h5;
 	@extend %bold;
+}
+
+blockquote {
+	@extend %quote;
 }
 
 .align-center {

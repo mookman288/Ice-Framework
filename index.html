@@ -9,7 +9,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Responsive Indicator -->
 		<link rel="icon" href="images/favicon.png" /> <!-- Standard Favicon -->
 		<link rel="shortcut icon" href="favicon.ico" /> <!-- Ico Format Favicon -->
-		<link rel="stylesheet" type="text/css" href="css/stylesheet.css?v=0.0.2.1" /> <!-- Cascading Stylesheet -->
+		<link rel="stylesheet" type="text/css" href="css/stylesheet.css?v=0.0.3.5" /> <!-- Cascading Stylesheet -->
 	</head>
 	<body>
 		<header>
@@ -849,9 +849,66 @@
 		&lt;/tfoot&gt;
 	&lt;/table&gt;
 </code></pre>
-						<h4>Video</h4>
+						<h4>Media</h4>
+						<p>
+							Both HTML5 Video and Audio elements are supported through built-in browser applets adjusted to act 
+							responsively. 
+						</p>
 						<h5>Demonstration</h5>
+						<h6>Video</h6>
+						<p>
+							<a href="https://vimeo.com/201926132" target="_blank">
+								<strong>FutureDeluxe</strong> &ndash; Intel Experiments (Embedded Vimeo)
+							</a>
+						</p>
+						<iframe src="https://player.vimeo.com/video/201926132?color=ffffff&title=0&byline=0&portrait=0&badge=0" 
+							width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>
+						</iframe>
+<pre><code>
+&lt;iframe src=&quot;https://player.vimeo.com/video/201926132?color=ffffff&title=0&byline=0&portrait=0&badge=0&quot; 
+	width=&quot;640&quot; height=&quot;360&quot; frameborder=&quot;0&quot; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;
+&lt;/iframe&gt;
+</code></pre>
+						<p>
+							<a href="https://archive.org/details/Analog_Recycling_VJ_Loops_II" target="_blank">
+								<strong>Erik Schermer, Bas Icke, and Gary Berendsen</strong> &ndash; Analog Recycling VJ loops 
+								II (HTML5 Player)
+							</a>
+						</p>
+						<video controls>
+							<source src="https://archive.org/download/Analog_Recycling_VJ_Loops_II/Ar_8BIT_8_512kb.mp4" 
+								type="video/mp4" />
+						</video>
+<pre><code>
+&lt;video controls&gt;
+	&lt;source src=&quot;https://archive.org/download/Analog_Recycling_VJ_Loops_II/Ar_8BIT_8_512kb.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+&lt;/video&gt;
+</code></pre>
+						<h6>Audio</h6>
+						<p>
+							<a href="https://archive.org/details/BackToTheFutureMr.MoonDjSet" target="_blank">
+								<strong>Mr. Moon</strong> &ndash; Back To The Future
+							</a>
+						</p>
+						<audio controls>
+							<source 
+								src="https://archive.org/download/BackToTheFutureMr.MoonDjSet/Back%20To%20The%20Future@Mr.%20Moon%20dj%20set.mp3" 
+								type="audio/mp3" />
+						</audio>
+<pre><code>
+&lt;audio controls&gt;
+	&lt;source src=&quot;https://archive.org/download/BackToTheFutureMr.MoonDjSet/Back%20To%20The%20Future@Mr.%20Moon%20dj%20set.mp3&quot; type=&quot;audio/mp3&quot; /&gt;
+&lt;/audio&gt;
+</code></pre>
 						<h4>Quotes</h4>
+						<blockquote>
+							<p>
+								The way of life can be free and beautiful. But we have lost the way.
+							</p>
+							<footer>
+								<cite>Charlie Chaplin, The Great Dictator</cite>
+							</footer>
+						</blockquote>
 						<h5>Demonstration</h5>
 						<h4>JavaScript</h4>
 						<h5>IceBox</h5>
@@ -2144,6 +2201,6 @@
 				<small>Copyright &copy; 2014 PxO Ink. Most Rights Reserved.</small>
 			</div>
 		</div>
-		<script type="text/javascript" src="js/framework.js?v=0.0.2.1"></script>
+		<script type="text/javascript" src="js/framework.js?v=0.0.3.5"></script>
 	</body>
 </html>

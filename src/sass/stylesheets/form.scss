@@ -6,10 +6,6 @@
 //Import framework components.
 @import "../framework/components/form/form"; 
 
-form {
-	@extend %form;
-}
-
 .fields {
 	@extend %fields;
 }
