@@ -55,6 +55,7 @@ var	icebox	=	function() {
 				
 				//Get the image.
 				var	imgSrc	=	jQuery(this).data('src');
+				var	title	=	jQuery(this).attr('title'); 
 				
 				//If there is no image. 
 				if (!imgSrc) { 
@@ -75,7 +76,8 @@ var	icebox	=	function() {
 				var	$shadow	=	jQuery('<div>', {id: 'ice-shadow'});
 				var	$close	=	jQuery('<a>', {id: 'icebox-close', 
 					href: '#icebox-close', title: 'Close'}).html('&times;');
-				var	$div	=	jQuery('<div>').append(html);
+				var	$title	=	(title.length > 0) ? jQuery('<p>').text(title) : '';
+				var	$div	=	jQuery('<div>').append(html).append($title);
 				var	$icebox	=	jQuery('<div>', {id: 'icebox'}).append($close).append($div);
 				
 				//Append the shadow and icebox.
@@ -89,8 +91,11 @@ var	icebox	=	function() {
 						var	$this	=	jQuery(this);
 						var	$parent	=	$this.parent();
 						
-						//Recalculate element.
-						recalculateIcebox($parent, $this, $this.children('div'));
+						//Put this to the bottom of the stack. 
+						setTimeout(function() {
+							//Recalculate element.
+							recalculateIcebox($parent, $this, $this.children('div'));
+						}, 100);
 						
 						//Create a new timer.
 						var    timer;
@@ -463,7 +468,7 @@ if (typeof ice !== 'undefined') {
 					e.preventDefault();
 					
 					//Toggle slide.
-					$($toggler.data('toggle')).slideToggle(ice.interval);
+					$($toggler.data('toggle')).stop().slideToggle(ice.interval);
 					
 					//Return false.
 					return false;

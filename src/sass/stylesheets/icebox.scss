@@ -25,7 +25,6 @@ div#icebox {
 	position: relative;
 	top: 25.00%;
 	left: 25.00%;
-	padding: 0.25em;
 	width: auto;
 	height: auto;
 	max-width: 85.00%;
@@ -33,7 +32,7 @@ div#icebox {
 	min-width: 15.00%;
 	min-height: 15.00%;
 	background-color: #000;
-	border-width: 1px;
+	border-width: 2px;
 	border-color: #007BA7;
 	border-style: ridge;
 	border-radius: 2px;
@@ -47,9 +46,9 @@ div#icebox {
 	
 div#icebox > a#icebox-close {
 	position: absolute;
-	top: -0.85em;
-	right: -0.85em;
-	padding: 0.25em 0.50em;
+	top: -0.80em;
+	right: -0.80em;
+	padding: 0.80em 0.50em;
 	background-color: #000;
 	border-width: 1px;
 	border-color: #EEE;
@@ -59,7 +58,7 @@ div#icebox > a#icebox-close {
 	color: #FFF;
 	font-size: 1.40em;
 	font-weight: bold;
-	line-height: 1.00;
+	line-height: 0;
 	text-decoration: none;
 	z-index: 8800;
 	}
@@ -78,3 +77,14 @@ div#icebox > div * {
 	max-height: 100.00%;
 	color: #FFF;
 	}
+	
+div#icebox p {
+	position: absolute;
+	bottom: 0; 
+	left: 0; 
+	margin: 0;
+	padding: 0.50em;
+	width: 100.00%;
+	background-color: rgba(0, 0, 0, 0.85);
+	box-sizing: border-box;
+}

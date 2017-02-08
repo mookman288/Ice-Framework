@@ -16,7 +16,7 @@ if (typeof ice !== 'undefined') {
 					e.preventDefault();
 					
 					//Toggle slide.
-					$($toggler.data('toggle')).slideToggle(ice.interval);
+					$($toggler.data('toggle')).stop().slideToggle(ice.interval);
 					
 					//Return false.
 					return false;
