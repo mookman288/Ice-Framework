@@ -8,6 +8,10 @@
 		list-style-position: outside;
 		margin-left: toRem(2 * $std-margin);
 	}
+	
+	ul, ol {
+		margin-bottom: 0;
+	}
 }
 
 %ul {

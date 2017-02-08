@@ -9,10 +9,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Responsive Indicator -->
 		<link rel="icon" href="images/favicon.png" /> <!-- Standard Favicon -->
 		<link rel="shortcut icon" href="favicon.ico" /> <!-- Ico Format Favicon -->
-		<link rel="stylesheet" type="text/css" href="css/stylesheet.css?v=0.0.3.5" /> <!-- Cascading Stylesheet -->
+		<link rel="stylesheet" type="text/css" href="css/stylesheet.css?v=0.0.8.7" /> <!-- Cascading Stylesheet -->
 	</head>
 	<body>
-		<header>
+		<header id="top">
 			<div class="container">
 				<h1>Ice</h1>
 				<h2>A Design Framework Proof of Concept</h2>
@@ -49,10 +49,10 @@
 							<tbody>
 								<tr>
 									<td>
-										<code>public/css/stylesheet.css</code>
+										<code>css/stylesheet.css</code>
 									</td>
 									<td>
-										The pre-compiled stylesheet containing all rules.
+										Pre-compiled stylesheet containing all rules.
 									</td>
 									<td>
 										Yes
@@ -60,22 +60,10 @@
 								</tr>
 								<tr>
 									<td>
-										<code>public/js/modernizr.js</code>
+										<code>js/modernizr.js</code>
 									</td>
 									<td>
-										The pre-compiled custom Modernizr build.
-									</td>
-									<td>
-										No
-									</td>
-								</tr>
-								
-								<tr>
-									<td>
-										<code>public/js/jquery.js</code>
-									</td>
-									<td>
-										The most stable compatible version of jQuery available.
+										Pre-compiled custom Modernizr build.
 									</td>
 									<td>
 										No
@@ -84,10 +72,10 @@
 								
 								<tr>
 									<td>
-										<code>public/js/script.js</code>
+										<code>js/vendor.js</code>
 									</td>
 									<td>
-										The pre-compiled script containing all JS. 
+										Compilation of vendor libraries.
 									</td>
 									<td>
 										No
@@ -96,7 +84,19 @@
 								
 								<tr>
 									<td>
-										<code>public/fonts/*</code>
+										<code>js/framework.js</code>
+									</td>
+									<td>
+										Pre-compiled framework containing all JS. 
+									</td>
+									<td>
+										No
+									</td>
+								</tr>
+								
+								<tr>
+									<td>
+										<code>fonts/*</code>
 									</td>
 									<td>
 										All of the necessary fonts for basic use.
@@ -110,25 +110,24 @@
 						<p>
 							Here's an example of how a basic page structure might look: 
 						</p>
-<pre><code>
-&lt;!DOCTYPE html&gt;
+<pre><code>&lt;!DOCTYPE html&gt;
 &lt;html&gt;
 	&lt;head&gt;
 		&lt;title&gt;Title Tag&lt;/title&gt;
 		&lt;meta charset=&quot;utf-8&quot; /&gt;
 		&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge, chrome=1&quot; /&gt;
-		&lt;meta name=&quot;HandheldFriendly&quot; content=&quot;True&quot; /&gt;
+		&lt;meta name=&quot;HandheldFriendly&quot; content=&quot;true&quot; /&gt;
 		&lt;meta name=&quot;MobileOptimized&quot; content=&quot;320&quot; /&gt;
 		&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot; /&gt;
 		&lt;link rel=&quot;icon&quot; href=&quot;images/favicon.png&quot; /&gt;
 		&lt;link rel=&quot;shortcut icon&quot; href=&quot;favicon.ico&quot; /&gt;
 		&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;css/stylesheet.css&quot; /&gt;
-		&lt;script type=&quot;text/javascript&quot; src=&quot;js/modernizr.js&quot;&gt;&lt;/script&gt;
 	&lt;/head&gt;
 	&lt;body&gt;
-		&lt;-- HTML Goes Here --&gt;
-		&lt;script type=&quot;text/javascript&quot; src=&quot;js/jquery.js&quot;&gt;&lt;/script&gt;
-		&lt;script type=&quot;text/javascript&quot; src=&quot;js/script.js&quot;&gt;&lt;/script&gt;
+		&lt;-- Replace this with your custom HTML. --&gt;
+		&lt;script type=&quot;text/javascript&quot; src=&quot;js/modernizr.js&quot;&gt;&lt;/script&gt;
+		&lt;script type=&quot;text/javascript&quot; src=&quot;js/vendor.js&quot;&gt;&lt;/script&gt;
+		&lt;script type=&quot;text/javascript&quot; src=&quot;js/framework.js&quot;&gt;&lt;/script&gt;
 	&lt;/body&gt;
 &lt;/html&gt;
 </code></pre>
@@ -321,8 +320,7 @@
 								Sit Amet
 							</div>
 						</div>
-<pre><code>
-&lt;div class=&quot;row&quot;&gt;
+<pre><code>&lt;div class=&quot;row&quot;&gt;
 	&lt;div class=&quot;column hd-14 des-13 std-12 tab-11 mob-10 tel-20&quot;&gt;
 		Lorem Ipsum Dolor
 	&lt;/div&gt;
@@ -331,10 +329,46 @@
 	&lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
-						<h4 id="nav">Navigation and Menues</h4>
+						<h4 id="lists">Lists</h4>
+						<h5>Demonstration</h5>
+						<h6>Unordered List</h6>
+						<ul>
+							<li>Unordered 1</li>
+							<li>Unordered 2
+								<ul>
+									<li>Sub-List 1</li>
+									<li>Sub-List 2</li>
+									<li>Sub-List 3</li>
+									<li>Sub-List 4</li>
+								</ul>
+							</li>
+							<li>Unordered 3</li>
+							<li>Unordered 4</li>
+						</ul>
+						<h6>Ordered</h6>
+						<ol>
+							<li>Ordered 1</li>
+							<li>Ordered 2
+								<ol>
+									<li>Sub-List 1</li>
+									<li>Sub-List 2
+										<ol>
+											<li>Sub-Sub 1</li>
+											<li>Sub-Sub 2</li>
+										</ol>
+									</li>
+									<li>Sub-List 3</li>
+									<li>Sub-List 4</li>
+								</ol>
+							</li>
+							<li>Ordered 3</li>
+							<li>Ordered 4</li>
+						</ol>
+						<h4 id="navigation">Navigation and Menues</h4>
+						<h5>Demonstration</h5>
 						<div class="row">
 							<div class="column hd-6 std-8 mob-10 tel-20">
-								<h5>Vertical Menu</h5>
+								<h6>Vertical Menu</h6>
 								<nav class="vertical">
 									<h6>Menu</h6>
 									<ul>
@@ -358,7 +392,7 @@
 								</nav>
 							</div>
 							<div class="column hd-14 std-12 mob-10 tel-20">
-								<h5>Horizontal Menu</h5>
+								<h6>Horizontal Menu</h6>
 								<nav>
 									<h6>Menu</h6>
 									<ul>
@@ -391,8 +425,7 @@
 								<li>Current</li>
 							</ul>
 						</nav>
-<pre><code>
-&lt;nav class=&quot;breadcrumbs&quot;&gt;
+<pre><code>&lt;nav class=&quot;breadcrumbs&quot;&gt;
 	&lt;ul&gt;
 		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Parent&lt;/a&gt;&lt;/li&gt;
 		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Child&lt;/a&gt;&lt;/li&gt;
@@ -413,8 +446,7 @@
 								<li><a href="#8">8</a></li>
 							</ul>
 						</nav>
-<pre><code>
-&lt;nav class=&quot;pagination&quot;&gt;
+<pre><code>&lt;nav class=&quot;pagination&quot;&gt;
 	&lt;ul&gt;
 		&lt;li&gt;&lt;a href=&quot;#1&quot;&gt;1&lt;/a&gt;&lt;/li&gt;
 		&lt;li&gt;&lt;a href=&quot;#2&quot;&gt;2&lt;/a&gt;&lt;/li&gt;
@@ -440,8 +472,7 @@
 						<div class="alert warning">
 							<strong>Warning:</strong> Lorem Ipsum Dolor Sit Amet.
 						</div>
-<pre><code>
-&lt;div class=&quot;alert error&quot;&gt;
+<pre><code>&lt;div class=&quot;alert error&quot;&gt;
 	&lt;strong&gt;Error:&lt;/strong&gt; Lorem Ipsum Dolor Sit Amet.
 &lt;/div&gt;
 &lt;div class=&quot;alert message&quot;&gt;
@@ -454,8 +485,9 @@
 	&lt;strong&gt;Warning:&lt;/strong&gt; Lorem Ipsum Dolor Sit Amet.
 &lt;/div&gt;
 </code></pre>
-						<h4>Buttons</h4>
+						<h4 id="buttons">Buttons</h4>
 						<h5>Demonstration</h5>
+						<h6>Button</h6>
 						<div>
 							<button>
 								Button
@@ -470,6 +502,7 @@
 								Warn
 							</button>
 						</div>
+						<h6>Anchor</h6>
 						<div>
 							<a href="#" class="button">
 								Button
@@ -484,8 +517,7 @@
 								Warn
 							</a>
 						</div>
-<pre><code>
-&lt;div&gt;
+<pre><code>&lt;div&gt;
 	&lt;button&gt;Button&lt;/button&gt;
 	&lt;button class=&quot;highlight&quot;&gt;Highlight&lt;/button&gt;
 	&lt;button class=&quot;focus&quot;&gt;Focus&lt;/button&gt;
@@ -498,13 +530,12 @@
 	&lt;a href=&quot;#&quot; class=&quot;button warn&quot;&gt;Warn&lt;/a&gt;
 &lt;/div&gt;
 </code></pre>
-						<h4>Forms</h4>
+						<h4 id="forms">Forms</h4>
 						<h5>Demonstration</h5>
 						<form action="#" method="get">
 							<label for="text-input">Text Input</label>
 							<input id="text-input" name="text-input" type="text" />
-<pre><code>
-&lt;label for=&quot;text-input&quot;&gt;Text Input&lt;/label&gt;
+<pre><code>&lt;label for=&quot;text-input&quot;&gt;Text Input&lt;/label&gt;
 &lt;input id=&quot;text-input&quot; name=&quot;text-input&quot; type=&quot;text&quot; /&gt;
 </code></pre>
 							<label for="select-input">Select Input</label>
@@ -514,8 +545,7 @@
 								<option value="Select C">Select C</option>
 								<option value="Select D">Select D</option>
 							</select>
-<pre><code>
-&lt;label for=&quot;select-input&quot;&gt;Select Input&lt;/label&gt;
+<pre><code>&lt;label for=&quot;select-input&quot;&gt;Select Input&lt;/label&gt;
 &lt;select id=&quot;select-input&quot; name=&quot;select-input&quot;&gt;
 	&lt;option value=&quot;Select A&quot;&gt;Select A&lt;/option&gt;
 	&lt;option value=&quot;Select B&quot; selected=&quot;selected&quot;&gt;Select B&lt;/option&gt;
@@ -534,8 +564,7 @@
 									Radio B
 								</label>
 							</fieldset>
-<pre><code>
-&lt;fieldset&gt;
+<pre><code>&lt;fieldset&gt;
 	&lt;legend&gt;Radio Selection&lt;/legend&gt;
 	&lt;label for=&quot;radio-input-a&quot;&gt;
 		&lt;input id=&quot;radio-input-a&quot; name=&quot;radio-input&quot; type=&quot;radio&quot; /&gt;
@@ -559,8 +588,7 @@
 									Checkbox B
 								</label>
 							</fieldset>
-<pre><code>
-&lt;fieldset&gt;
+<pre><code>&lt;fieldset&gt;
 	&lt;legend&gt;Checkbox&lt;/legend&gt;
 	&lt;label for=&quot;checkbox-input-a&quot;&gt;
 		&lt;input id=&quot;checkbox-input-a&quot; name=&quot;checkbox-input-a&quot; type=&quot;checkbox&quot; /&gt;
@@ -577,8 +605,7 @@
 							<div class="row">
 								<textarea id="textarea-input" name="textarea-input" class="column hd-10 tab-15 mob-20"></textarea>
 							</div>
-<pre><code>
-&lt;label for=&quot;textarea-input&quot;&gt;Textarea Input&lt;/label&gt;
+<pre><code>&lt;label for=&quot;textarea-input&quot;&gt;Textarea Input&lt;/label&gt;
 &lt;div class=&quot;row&quot;&gt;
 	&lt;textarea id=&quot;textarea-input&quot; name=&quot;textarea-input&quot; class=&quot;column hd-10 tab-15 mob-20&quot;&gt;&lt;/textarea&gt;
 &lt;/div&gt;
@@ -586,8 +613,7 @@
 							<input type="submit" value="Submit" />
 							<button class="focus">Continue</button>
 							<input type="reset" value="Reset" />
-<pre><code>
-&lt;input type=&quot;submit&quot; value=&quot;Submit&quot; /&gt;
+<pre><code>&lt;input type=&quot;submit&quot; value=&quot;Submit&quot; /&gt;
 &lt;button class=&quot;focus&quot;&gt;Continue&lt;/button&gt;
 &lt;input type=&quot;reset&quot; value=&quot;Reset&quot; /&gt;
 </code></pre>	
@@ -600,8 +626,7 @@
 									<input id="phone-input" name="phone-input" type="tel" placeholder="555 5555" />
 								</div>
 							</fieldset>
-<pre><code>
-&lt;fieldset&gt;
+<pre><code>&lt;fieldset&gt;
 	&lt;legend&gt;&lt;label for=&quot;phone-input&quot;&gt;Telephone Number&lt;/label&gt;&lt;/legend&gt;
 	&lt;div class=&quot;fields&quot;&gt;
 		&lt;span&gt;
@@ -622,8 +647,7 @@
 									</span>
 								</div>
 							</div>
-<pre><code>
-&lt;div&gt;
+<pre><code>&lt;div&gt;
 	&lt;div class=&quot;fields&quot;&gt;
 		&lt;span&gt;
 			&lt;label for=&quot;email-input&quot;&gt;Email Input&lt;/label&gt;
@@ -643,8 +667,7 @@
 									<input type="submit" value="Donate" />
 								</div>
 							</div>
-<pre><code>
-&lt;div&gt;
+<pre><code>&lt;div&gt;
 	&lt;label for=&quot;number-input&quot;&gt;Please donate? &lt;/label&gt;
 	&lt;div class=&quot;fields&quot;&gt;
 		&lt;span&gt;$&lt;/span&gt;
@@ -654,7 +677,7 @@
 &lt;/div&gt;
 </code></pre>
 						</form>
-						<h4>Tables</h4>
+						<h4 id="tables">Tables</h4>
 						<h5>Demonstration</h5>
 						<h6>Basic Table</h6>
 						<table>
@@ -816,40 +839,39 @@
 								</tr>
 							</tfoot>
 						</table>
-<pre><code>
-	&lt;table class=&quot;extend striped transact&quot;&gt;
-		&lt;thead&gt;
-			&lt;tr&gt;
-				&lt;th&gt;Column&lt;/th&gt;
-				&lt;th&gt;Column&lt;/th&gt;
-				&lt;th&gt;Column&lt;/th&gt;
-				&lt;th&gt;Column&lt;/th&gt;
-			&lt;/tr&gt;
-		&lt;/thead&gt;
-		&lt;tbody&gt;
-			&lt;tr&gt;
-				&lt;td&gt;Row&lt;/td&gt;
-				&lt;td&gt;Row&lt;/td&gt;
-				&lt;td&gt;Row&lt;/td&gt;
-				&lt;td&gt;$50.00&lt;/td&gt;
-			&lt;/tr&gt;
-			&lt;tr&gt;
-				&lt;td&gt;Row&lt;/td&gt;
-				&lt;td&gt;Row&lt;/td&gt;
-				&lt;td&gt;Row&lt;/td&gt;
-				&lt;td&gt;$50.00&lt;/td&gt;
-			&lt;/tr&gt;
-		&lt;/tbody&gt;
-		&lt;tfoot&gt;
-			&lt;tr&gt;
-				&lt;td&gt;Foot&lt;/td&gt;
-				&lt;td&gt;Foot&lt;/td&gt;
-				&lt;td colspan=&quot;2&quot;&gt;$100.00&lt;/td&gt;
-			&lt;/tr&gt;
-		&lt;/tfoot&gt;
-	&lt;/table&gt;
+<pre><code>&lt;table class=&quot;extend striped transact&quot;&gt;
+	&lt;thead&gt;
+		&lt;tr&gt;
+			&lt;th&gt;Column&lt;/th&gt;
+			&lt;th&gt;Column&lt;/th&gt;
+			&lt;th&gt;Column&lt;/th&gt;
+			&lt;th&gt;Column&lt;/th&gt;
+		&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+		&lt;tr&gt;
+			&lt;td&gt;Row&lt;/td&gt;
+			&lt;td&gt;Row&lt;/td&gt;
+			&lt;td&gt;Row&lt;/td&gt;
+			&lt;td&gt;$50.00&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td&gt;Row&lt;/td&gt;
+			&lt;td&gt;Row&lt;/td&gt;
+			&lt;td&gt;Row&lt;/td&gt;
+			&lt;td&gt;$50.00&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/tbody&gt;
+	&lt;tfoot&gt;
+		&lt;tr&gt;
+			&lt;td&gt;Foot&lt;/td&gt;
+			&lt;td&gt;Foot&lt;/td&gt;
+			&lt;td colspan=&quot;2&quot;&gt;$100.00&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/tfoot&gt;
+&lt;/table&gt;
 </code></pre>
-						<h4>Media</h4>
+						<h4 id="media">Media</h4>
 						<p>
 							Both HTML5 Video and Audio elements are supported through built-in browser applets adjusted to act 
 							responsively. 
@@ -864,8 +886,7 @@
 						<iframe src="https://player.vimeo.com/video/201926132?color=ffffff&title=0&byline=0&portrait=0&badge=0" 
 							width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>
 						</iframe>
-<pre><code>
-&lt;iframe src=&quot;https://player.vimeo.com/video/201926132?color=ffffff&title=0&byline=0&portrait=0&badge=0&quot; 
+<pre><code>&lt;iframe src=&quot;https://player.vimeo.com/video/201926132?color=ffffff&title=0&byline=0&portrait=0&badge=0&quot; 
 	width=&quot;640&quot; height=&quot;360&quot; frameborder=&quot;0&quot; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;
 &lt;/iframe&gt;
 </code></pre>
@@ -879,8 +900,7 @@
 							<source src="https://archive.org/download/Analog_Recycling_VJ_Loops_II/Ar_8BIT_8_512kb.mp4" 
 								type="video/mp4" />
 						</video>
-<pre><code>
-&lt;video controls&gt;
+<pre><code>&lt;video controls&gt;
 	&lt;source src=&quot;https://archive.org/download/Analog_Recycling_VJ_Loops_II/Ar_8BIT_8_512kb.mp4&quot; type=&quot;video/mp4&quot; /&gt;
 &lt;/video&gt;
 </code></pre>
@@ -895,12 +915,12 @@
 								src="https://archive.org/download/BackToTheFutureMr.MoonDjSet/Back%20To%20The%20Future@Mr.%20Moon%20dj%20set.mp3" 
 								type="audio/mp3" />
 						</audio>
-<pre><code>
-&lt;audio controls&gt;
+<pre><code>&lt;audio controls&gt;
 	&lt;source src=&quot;https://archive.org/download/BackToTheFutureMr.MoonDjSet/Back%20To%20The%20Future@Mr.%20Moon%20dj%20set.mp3&quot; type=&quot;audio/mp3&quot; /&gt;
 &lt;/audio&gt;
 </code></pre>
-						<h4>Quotes</h4>
+						<h4 id="quotes">Quotes</h4>
+						<h5>Demonstration</h5>
 						<blockquote>
 							<p>
 								The way of life can be free and beautiful. But we have lost the way.
@@ -909,22 +929,467 @@
 								<cite>Charlie Chaplin, The Great Dictator</cite>
 							</footer>
 						</blockquote>
-						<h5>Demonstration</h5>
+<pre><code>&lt;blockquote&gt;
+	&lt;p&gt;
+		The way of life can be free and beautiful. But we have lost the way.
+	&lt;/p&gt;
+	&lt;footer&gt;
+		&lt;cite&gt;Charlie Chaplin, The Great Dictator&lt;/cite&gt;
+	&lt;/footer&gt;
+&lt;/blockquote&gt;
+</code></pre>
 						<h4>JavaScript</h4>
-						<h5>IceBox</h5>
-						<h5>Slider</h5>
-						<h5>Scrolling</h5>
-						<h5>Toggler</h5>
-						<h5>Tabs</h5>
+						<p>
+							While the JavaScript in the Ice Framework is not absolutely necessary for its operation, there is 
+							functionality that it provides that will help the user's overall experience. 
+						</p>
+						<p>
+							By default, mobile menus currently rely on JavaScript to handle animation. 
+						</p>
+						<h5 id="icebox">IceBox</h5>
+						<h6>Demonstration</h6>
+						<div class="row">
+							<div class="column hd-5 tab-10 tel-20 pad">
+								<img src="https://archive.org/download/VE-IMG-3119/FranzJosef.A2002098.1050.1km.jpg" 
+									alt="Franz Josef Land, Arctic Ocean" class="thumbnail" 
+									title="Franz Josef Land, Arctic Ocean. Jacques Descloitres, 
+									MODIS Land Rapid Response Team, NASA/GSFC" data-icebox 
+									data-src="https://archive.org/download/VE-IMG-3119/FranzJosef.A2002098.1050.1km.jpg" />
+							</div>
+							<div class="column hd-5 tab-10 tel-20 pad">
+								<img src="https://archive.org/download/VE-IMG-3118/FranzJosef.A2002092.1125.1km.jpg" 
+									alt="Franz Josef Land, Arctic Ocean" class="thumbnail" 
+									title="Franz Josef Land, Arctic Ocean. Jacques Descloitres, 
+									MODIS Land Rapid Response Team, NASA/GSFC" data-icebox 
+									data-src="https://archive.org/download/VE-IMG-3118/FranzJosef.A2002092.1125.1km.jpg" />
+							</div>
+							<div class="column hd-5 tab-10 tel-20 pad">
+								<img src="https://archive.org/download/VE-IMG-3120/FranzJosef.A2002120.1010.1km.jpg" 
+									alt="Franz Josef Land, Arctic Ocean" class="thumbnail" 
+									title="Franz Josef Land, Arctic Ocean. Jacques Descloitres, 
+									MODIS Land Rapid Response Team, NASA/GSFC" data-icebox 
+									data-src="https://archive.org/download/VE-IMG-3120/FranzJosef.A2002120.1010.1km.jpg" />
+							</div>
+							<div class="column hd-5 tab-10 tel-20 pad">
+								<img src="https://archive.org/download/VE-IMG-3369/Svalbard.A2002113.1325.500m.jpg" 
+									alt="Franz Josef Land, Arctic Ocean" class="thumbnail" 
+									title="Franz Josef Land, Arctic Ocean. Jacques Descloitres, 
+									MODIS Land Rapid Response Team, NASA/GSFC" data-icebox 
+									data-src="https://archive.org/download/VE-IMG-3369/Svalbard.A2002113.1325.500m.jpg" />
+							</div>
+						</div>
+<pre><code>&lt;img src=&quot;https://archive.org/download/VE-IMG-3119/FranzJosef.A2002098.1050.1km.jpg&quot; 
+	alt=&quot;Franz Josef Land, Arctic Ocean&quot; class=&quot;thumbnail&quot; 
+	title=&quot;Franz Josef Land, Arctic Ocean. Jacques Descloitres, 
+	MODIS Land Rapid Response Team, NASA/GSFC&quot; data-icebox 
+	data-src=&quot;https://archive.org/download/VE-IMG-3119/FranzJosef.A2002098.1050.1km.jpg&quot; /&gt;
+</code></pre>
+						<h5 id="scroller">Scroller</h5>
+						<h6>Demonstration</h6>
+						<ul>
+							<li><a href="#top">To the top</a></li>
+							<li><a href="#bottom">To the footer</a></li>
+						</ul>
+						<h5 id="toggler">Toggler</h5>
+						<h6>Demonstration</h6>
+						<a href="javascript:void(0)" data-slide="#toggle-me-1">
+							Click this to toggle a hidden box. 
+						</a>
+						<div id="toggle-me-1" class="nod">
+							This is your typical hidden content. 
+						</div>
+						<h5 id="tabs">Tabs</h5>
+						<h6>Demonstration</h6>
+						<nav class="tabs">
+							<ul>
+								<li><a href="#tab-1">Tab 1</a></li>
+								<li><a href="#tab-2">Tab 2</a></li>
+								<li><a href="#tab-3">Tab 3</a></li>
+								<li><a href="#tab-4">Tab 4</a></li>
+								<li><a href="#tab-5">Tab 5</a></li>
+							</ul>
+						</nav>
+						<div id="tab-1">
+							<p>
+								Curabitur eu justo et orci vehicula ornare. Sed mollis efficitur cursus. Interdum et 
+								malesuada fames ac ante ipsum primis in faucibus. Aenean eget euismod nisl. In 
+								dignissim turpis eu dui feugiat molestie. Nam aliquet, ex sed rutrum condimentum, 
+								nunc ligula aliquam quam, sed aliquet orci leo eget odio. Sed ex velit, elementum 
+								a tortor id, vestibulum fermentum metus.
+							</p>
+						</div>
+						<div id="tab-2">
+							<p>
+								Integer vestibulum ut nulla volutpat aliquet. Maecenas dictum sem sit amet consectetur 
+								bibendum. Aliquam molestie sapien quis arcu ullamcorper, at gravida purus facilisis. 
+								Cras nec auctor nisl. Integer varius neque quis mauris dapibus, vitae venenatis erat 
+								vehicula. Aliquam ullamcorper, orci ut semper mollis, dolor tortor lobortis risus, at 
+								suscipit sem felis quis quam. Nam eget purus purus. 
+							</p>
+							<p>
+								Duis eu fringilla mi. Etiam lorem nisl, faucibus id ex in, pretium hendrerit nibh. 
+								Fusce fringilla, eros nec ultrices sollicitudin, nunc neque gravida dui, in efficitur 
+								nisl elit id magna.
+							</p>
+						</div>
+						<div id="tab-3">
+							<p>
+								Maecenas purus est, luctus a nisi non, eleifend varius quam. Cras eu elit eleifend, 
+								luctus turpis id, eleifend lectus. Nullam luctus auctor lectus id dictum. Nam iaculis 
+								nisl quis orci facilisis laoreet. Donec dapibus, purus nec dictum congue, odio eros 
+								luctus tortor, sit amet mattis quam ligula in ipsum. Cras tincidunt purus justo. 
+								Nullam tristique nulla ut facilisis ullamcorper.
+							</p>
+						</div>
+						<div id="tab-4">
+							<p>
+								Fusce laoreet tellus velit, eget rutrum eros rhoncus et. Nullam sit amet lacinia sem. 
+								Morbi laoreet lobortis ex, id lacinia mauris semper nec. Integer aliquet sit amet nisi 
+								vel ultricies. Nulla ultrices justo ut tellus ornare, eget dignissim est blandit. 
+								Praesent ut molestie ligula. Morbi ornare leo commodo arcu volutpat convallis. 
+								Quisque mauris nisl, faucibus ac leo porttitor, pulvinar ultrices tellus.
+							</p>
+						</div>
+						<div id="tab-5">
+							<p>
+								Sed pellentesque viverra tempus. Aliquam ac massa eget odio mattis mollis vel nec arcu. 
+								Fusce pretium turpis tristique, pretium nisl ac, porttitor massa. Quisque a lacus mattis, 
+								suscipit justo at, porttitor diam. Cras sed orci non velit tempus venenatis vitae vitae 
+								elit. Nullam dictum, purus sit amet imperdiet tristique, enim magna posuere diam, et 
+								condimentum libero justo sed sem. 
+							</p>
+						</div>
+						<p>Want to show a tab on page load? <a href="?tab=tab-4">Click Here</a>.</p>
+						<h4>Linecons</h4>
+						<table>
+							<caption>
+								Linecons use CSS classes attached to <code>&lt;span&gt;</code> or <code>&lt;i&gt;</code> tags. 
+							</caption>
+							<colgroup>
+								<col />
+								<col />
+								<col />
+								<col />
+								<col />
+								<col />
+								<col />
+								<col />
+							</colgroup>
+							<thead>
+								<tr>
+									<th colspan="8" class="align-center">
+										Linecons
+									</th>
+								</tr>
+							</thead>
+							<tfoot>
+								<tr>
+									<td>
+										<span class="large">
+											&#8678;
+										</span><br />
+										<code>&amp;#8678;</code>
+									</td>
+									<td>
+										<span class="large">
+											&#8679;
+										</span><br />
+										<code>&amp;#8679;</code>
+									</td>
+									<td colspan="4">
+										Arrows use HTML codes.
+									</td>
+									<td>
+										<span class="large">
+											&#8680;
+										</span><br />
+										<code>&amp;#8680;</code>
+									</td>
+									<td>
+										<span class="large">
+											&#8681;
+										</span><br />
+										<code>&amp;#8681;</code>
+									</td>
+								</tr>
+							</tfoot>
+							<tbody>
+								<tr>
+									<td>
+										<span aria-hidden="true" class="i-heart large"></span><br />
+										<code>.i-heart</code>
+									</td>
+									<td>
+										<span aria-hidden="true" class="i-cloud large"></span><br />
+										<code>.i-cloud</code>
+									</td>
+									<td>
+										<span aria-hidden="true" class="i-star large"></span><br />
+										<code>.i-star</code>
+									</td>
+									<td>
+										<span aria-hidden="true" class="i-tv large"></span><br />
+										<code>.i-tv</code>
+									</td>
+									<td>
+										<span aria-hidden="true" class="i-sound large"></span><br />
+										<code>.i-sound</code>
+									</td>
+									<td>
+										<span aria-hidden="true" class="i-video large"></span><br />
+										<code>.i-video</code>
+									</td>
+									<td>
+										<span aria-hidden="true" class="i-trash large"></span><br />
+										<code>.i-trash</code>
+									</td>
+									<td>
+										<span aria-hidden="true" class="i-user large"></span><br />
+										<code>.i-user</code>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<span aria-hidden="true" class="i-key large"></span><br />
+										<code>.i-key</code>
+									</td>
+									<td>
+										<span aria-hidden="true" class="i-search large"></span><br />
+										<code>.i-search</code>
+									</td>
+									<td>
+										<span aria-hidden="true" class="i-settings large"></span><br />
+										<code>.i-settings</code>
+									</td>
+									<td>
+										<span aria-hidden="true" class="i-camera large"></span><br />
+										<code>.i-camera</code>
+									</td>
+									<td>
+										<span aria-hidden="true" class="i-tag large"></span><br />
+										<code>.i-tag</code>
+									</td>
+									<td>
+										<span aria-hidden="true" class="i-lock large"></span><br />
+										<code>.i-lock</code>
+									</td>
+									<td>
+										<span aria-hidden="true" class="i-bulb large"></span><br />
+										<code>.i-bulb</code>
+									</td>
+									<td>
+										<span aria-hidden="true" class="i-pen large"></span><br />
+										<code>.i-pen</code>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<span aria-hidden="true" class="i-diamond large"></span><br />
+										<code>.i-diamond</code>
+									</td>
+									<td>
+										<span aria-hidden="true" class="i-display large"></span><br />
+										<code>.i-display</code>
+									</td>
+									<td>
+										<span aria-hidden="true" class="i-location large"></span><br />
+										<code>.i-location</code>
+									</td>
+									<td>
+										<span aria-hidden="true" class="i-eye large"></span><br />
+										<code>.i-eye</code>
+									</td>
+									<td>
+										<span aria-hidden="true" class="i-bubble large"></span><br />
+										<code>.i-bubble</code>
+									</td>
+									<td>
+										<span aria-hidden="true" class="i-stack large"></span><br />
+										<code>.i-stack</code>
+									</td>
+									<td>
+										<span aria-hidden="true" class="i-cup large"></span><br />
+										<code>.i-cup</code>
+									</td>
+									<td>
+										<span aria-hidden="true" class="i-phone large"></span><br />
+										<code>.i-phone</code>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<span aria-hidden="true" class="i-news large"></span><br />
+										<code>.i-news</code>
+									</td>
+									<td>
+										<span aria-hidden="true" class="i-mail large"></span><br />
+										<code>.i-mail</code>
+									</td>
+									<td>
+										<span aria-hidden="true" class="i-like large"></span><br />
+										<code>.i-like</code>
+									</td>
+									<td>
+										<span aria-hidden="true" class="i-photo large"></span><br />
+										<code>.i-photo</code>
+									</td>
+									<td>
+										<span aria-hidden="true" class="i-note large"></span><br />
+										<code>.i-note</code>
+									</td>
+									<td>
+										<span aria-hidden="true" class="i-clock large"></span><br />
+										<code>.i-clock</code>
+									</td>
+									<td>
+										<span aria-hidden="true" class="i-paperplane large"></span><br />
+										<code>.i-paperplane</code>
+									</td>
+									<td>
+										<span aria-hidden="true" class="i-params large"></span><br />
+										<code>.i-params</code>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<span aria-hidden="true" class="i-banknote large"></span><br />
+										<code>.i-banknote</code>
+									</td>
+									<td>
+										<span aria-hidden="true" class="i-data large"></span><br />
+										<code>.i-data</code>
+									</td>
+									<td>
+										<span aria-hidden="true" class="i-music large"></span><br />
+										<code>.i-music</code>
+									</td>
+									<td>
+										<span aria-hidden="true" class="i-megaphone large"></span><br />
+										<code>.i-megaphone</code>
+									</td>
+									<td>
+										<span aria-hidden="true" class="i-study large"></span><br />
+										<code>.i-study</code>
+									</td>
+									<td>
+										<span aria-hidden="true" class="i-lab large"></span><br />
+										<code>.i-lab</code>
+									</td>
+									<td>
+										<span aria-hidden="true" class="i-food large"></span><br />
+										<code>.i-food</code>
+									</td>
+									<td>
+										<span aria-hidden="true" class="i-t-shirt large"></span><br />
+										<code>.i-t-shirt</code>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<span aria-hidden="true" class="i-fire large"></span><br />
+										<code>.i-fire</code>
+									</td>
+									<td>
+										<span aria-hidden="true" class="i-clip large"></span><br />
+										<code>.i-clip</code>
+									</td>
+									<td>
+										<span aria-hidden="true" class="i-shop large"></span><br />
+										<code>.i-shop</code>
+									</td>
+									<td>
+										<span aria-hidden="true" class="i-calendar large"></span><br />
+										<code>.i-calendar</code>
+									</td>
+									<td>
+										<span aria-hidden="true" class="i-vallet large"></span><br />
+										<code>.i-vallet</code>
+									</td>
+									<td>
+										<span aria-hidden="true" class="i-vinyl large"></span><br />
+										<code>.i-vinyl</code>
+									</td>
+									<td>
+										<span aria-hidden="true" class="i-truck large"></span><br />
+										<code>.i-truck</code>
+									</td>
+									<td>
+										<span aria-hidden="true" class="i-world large"></span><br />
+										<code>.i-world</code>
+									</td>
+								</tr>
+							</tbody>
+						</table>
 					</div>
 					<div class="column hd-6 std-8 mob-20 pad-left">
+						<h3>Table of Contents</h3>
+						<div>
+							<nav class="vertical">
+								<h6>Core Framework</h6>
+								<ul>
+									<li>
+										<a href="#grid">Grid</a>
+									</li>
+									<li>
+										<a href="#lists">Lists</a>
+									</li>
+									<li>
+										<a href="#navigation">Navigation</a>
+									</li>
+									<li>
+										<a href="#breadcrumbs">Breadcrumbs</a>
+									</li>
+									<li>
+										<a href="#pagination">Pagination</a>
+									</li>
+									<li>
+										<a href="#alerts">Alerts</a>
+									</li>
+									<li>
+										<a href="#buttons">Buttons</a>
+									</li>
+									<li>
+										<a href="#forms">Forms</a>
+									</li>
+									<li>
+										<a href="#tables">Tables</a>
+									</li>
+									<li>
+										<a href="#media">Media</a>
+									</li>
+									<li>
+										<a href="#quotes">Quotes</a>
+									</li>
+								</ul>
+							</nav>
+						</div>
+						<div>
+							<nav class="vertical">
+								<h6>JavaScript</h6>
+								<ul>
+									<li>
+										<a href="#icebox">Icebox</a>
+									</li>
+									<li>
+										<a href="#scroller">Scroller</a>
+									</li>
+									<li>
+										<a href="#toggler">Toggler</a>
+									</li>
+									<li>
+										<a href="#tabs">Tabs</a>
+									</li>
+								</ul>
+							</nav>
+						</div>
 						<h3>Third-Party Resources</h3>
 						<h4>Fonts</h4>
 						<ul>
 							<li>Fally Pin by <a href="http://sorkintype.com/" target="_blank">Nicole Fally</a></li>
 							<li>Linecons by <a href="http://designmodo.com/linecons-free/" target="_blank">Design Modo</a></li>
 							<li>
-								Nimbus Sans L by <a href="http://openfontlibrary.org/en/font/nimbus-sans-l" target="_blank">URW++</a>
+								Nimbus Sans L by 
+								<a href="http://openfontlibrary.org/en/font/nimbus-sans-l" target="_blank">URW++</a>
 							</li>
 							<li>
 								Open Baskerville by 
@@ -935,10 +1400,12 @@
 						</ul>
 						<h4>JavaScript</h4>
 						<ul>
-							<li>IceBox by <a href="http://pxoink.net/" target="_blank">PxO Ink</a></li>
-							<li>jQuery 1.12.0 by <a href="https://jquery.org/team/" target="_blank">The jQuery Foundation</a></li>
+							<li>$_GET by <a href="http://stackoverflow.com/a/439578" target="_blank">Ates Goral</a></li>
+							<li>jQuery by <a href="https://jquery.org/team/" target="_blank">The jQuery Foundation</a></li>
 							<li>lte ie7 by <a href="http://designmodo.com/linecons-free/" target="_blank">Design Modo</a></li>
-							<li>Modernizr by <a href="https://github.com/Modernizr/Modernizr" target="_blank">Modernizr</a></li>
+							<li>
+								Modernizr by <a href="https://github.com/Modernizr/Modernizr" target="_blank">Modernizr</a>
+							</li>
 						</ul>
 						<h5>Recommended Libraries</h5>
 						<ul>
@@ -957,7 +1424,7 @@
 						</ul>
 						<h3>License</h3>
 						<h4>The MIT License (MIT)</h4>
-						<p>Software Copyright &copy; 2014 PxO Ink. Most Rights Reserved.</p>
+						<p>Software Copyright &copy; 2014 PxO Ink. Some Rights Reserved.</p>
 						<p>
 							Permission is hereby granted, free of charge, to any person 
 							obtaining a copy of this software and associated documentation 
@@ -983,1224 +1450,20 @@
 						<h3>Show Your Support</h3>
 						<p>
 							If you've learned from this repository and you wish to contribute to it monetarily, you can show 
-							your support by contacting the owner, contributing through 
-							<a href="https://gratipay.com/~mookman288/" target="_blank">Gratipay</a>, or contributing through 
+							your support by <a href="https://twitter.com/mookman288" target="_blank">contacting the owner</a>, 
+							contributing through <a href="https://gratipay.com/~mookman288/" target="_blank">Gratipay</a>, or 
+							contributing through 
 							<a href="https://www.patreon.com/bePatron?patAmt=1&u=3081691" target="_blank">Patreon</a>.
 						</p>
 					</div>
 				</div>
 			</div>
 		</section>
-		<footer>
-		
+		<footer id="bottom">
+			Copyright &copy; PxO Ink. Some Rights Reserved. See License. 
 		</footer>
-
-
-	</body>
-</html>
-	
-	
-	
-		<div id="main">
-			<div class="content">
-				<h1>Ice Framework</h1>
-				<h2>By PxO Ink</h2>
-				<p>
-					The Ice Framework is a modifiable and reusable system that can provide a basic structure for implementing 
-					fluid and accessible websites. This framework isn't designed to provide the most compelling aesthetic 
-					experience. Nor is it designed to standardize the web. Instead, utilizing the Ice Framework should provide 
-					a clean and scalable experience that delivers DOM content quickly, and then focuses on displaying it in a 
-					way that users can appreciate, but not be overwhelmed by. This page represents examples of what 
-					<em>can</em> be done with this framework. 
-				</p>
-				<p>
-					<a href="https://github.com/mookman288/Ice-Framework/archive/master.zip">Download</a> the latest version. 
-					Looking for something lighter? Try <a href="http://getskeleton.com" target="_blank">Skeleton</a>. Looking 
-					for something more robust? Try <a href="http://foundation.zurb.com" target="_blank">Foundation</a>.
-				</p>
- 				<h3>Utilities Used</h3>
- 				<h4>Fonts</h4>
- 				<ul>
- 					<li>Fally Pin by <a href="http://sorkintype.com/" target="_blank">Nicole Fally</a></li>
- 					<li>Linecons by <a href="http://designmodo.com/linecons-free/" target="_blank">Design Modo</a></li>
- 					<li>
- 						Nimbus Sans L by <a href="http://openfontlibrary.org/en/font/nimbus-sans-l" target="_blank">URW++</a>
- 					</li>
- 					<li>
- 						Open Baskerville by 
-						<a href="http://openfontlibrary.org/font/open-baskerville" target="_blank">
-							Isaac Moore, James Puckett, and Rob Mientjes
-						</a>
- 					</li>
- 				</ul>
- 				<h4>JavaScript</h4>
- 				<ul>
- 					<li>IceBox by <a href="http://pxoink.net/" target="_blank">PxO Ink</a></li>
- 					<li>jQuery 1.11.1 by <a href="https://jquery.org/team/" target="_blank">The jQuery Foundation</a></li>
- 					<li>
- 						jQuery CollagePlus by <a href="https://github.com/ed-lea/jquery-collagePlus" target="_blank">Ed Lea</a>
- 					</li>
- 					<li>
- 						jQuery RemoveWhitespace by 
- 						<a href="https://github.com/ed-lea/jquery-collagePlus/tree/master/extras" target="_blank">Ed Lea</a>
- 					</li>
- 					<li>imagesLoaded by <a href="http://imagesloaded.desandro.com" target="_blank">David Desandro</a></li>
- 					<li>lte ie7 by <a href="http://designmodo.com/linecons-free/" target="_blank">Design Modo</a></li>
- 					<li>Modernizr by <a href="https://github.com/Modernizr/Modernizr" target="_blank">Modernizr</a></li>
- 				</ul>
- 				<h5>Recommended</h5>
- 				<ul>
- 					<li>
- 						jQuery Masked Input by 
- 						<a href="http://digitalbush.com/projects/masked-input-plugin/" target="_blank">
- 							Josh Bush
- 						</a>
- 					</li>
- 					<li>
- 						jQuery Validation by 
- 						<a href="https://github.com/jzaefferer/jquery-validation" target="_blank">
- 							Jörn Zaefferer
- 						</a>
- 					</li>
- 				</ul>
- 				<h3>License</h3>
- 				
- 				<table>
- 					<caption>
- 						Installation Requirements
- 					</caption>
- 					<colgroup>
- 						<col />
- 						<col />
- 						<col />
- 						<col />
- 					</colgroup>
- 					<thead>
- 						<tr>
- 							<th>Name</th>
- 							<th>File Location</th>
- 							<th>HTML Location</th>
- 							<th>Notes</th>
- 						</tr>
- 					</thead>
- 					<tbody>
- 						<tr>
- 							<td>Modernizr</td>
- 							<td><code>js/modernizr.min.js</code></td>
- 							<td>Right before the closing <code>&lt;head&gt;</code></td>
- 							<td>Optional, but highly recommended</td>
- 						</tr>
- 						<tr>
- 							<td>Framework CSS</td>
- 							<td><code>css/stylesheet.css</code></td>
- 							<td>In the <code>&lt;head&gt;</code></td>
- 							<td>Load before any render blocking JavaScript</td>
- 						</tr>
- 						<tr>
- 							<td>Framework JS</td>
- 							<td><code>js/framework.js</code></td>
- 							<td>Right before the closing <code>&lt;body&gt;</code></td>
- 							<td>Required for JavaScript implementations to work</td>
- 						</tr>
- 					</tbody>
- 				</table>
- 				<h3>Modifications</h3>
-				<p>
-					Modifications to Ice Framework can be just as easy. This framework ships with a package.json file, that, 
-					when paired with Node.js&reg;, allows for Gulp automated building. Read more about getting started with 
-					Gulp <a href="https://travismaynard.com/writing/getting-started-with-gulp" target="_blank">here</a>. 
-				</p>
-				<p>
-					While a nicety, Gulp and Node.js&reg; are not required to modify Ice Framework. Simply include your own 
-					stylesheet after the Ice Framework stylesheet has been loaded to ensure that your custom design is not
-					overridden.
-				</p>
-			</div>
-			<div class="content">
-				<h3>DOM</h3>
-				<p>
-					Please keep in mind that when fleshing out your own design, having readable content for your users to 
-					peruse while waiting for the website to load is an absolute must. Therefore, Ice Framework is designed 
-					for, and encourages, a healthy DOM content load time.
-				</p>
-				<h3>Grid</h3>
-				<p>
-					Most common grid systems are designed around a standardized 960px maximum width. This is supported by the 
-					ever increasing number of 12&ndash;16 column layouts. This provides for centered designs that only 
-					harness a small portion of large resolutions, while catering to smaller resolutions almost exclusively. 
-					Mobile-first design isn't always the best or correct solution. 
-				</p>
-				<p>What those grid systems lack is <strong>scalability across a plethora of device widths.</strong></p>
-				<p>
-					Today's devices are quite quirky. They often fail to  conform to any type of easily perceived standard, 
-					especially one that would satiate the cravings of both designers and developers alike. For instance, 
-					some devices will have a horizontal resolution of 720px, but will masquerade themselves as having 
-					anywhere between a 360&ndash;384px viewport width. This is an act of device engineers trying to provide 
-					their users a comfortable experience, based on the physical dimensions of the device itself. 
-				</p>
-				<p>
-					Other devices have the possibility of toting a massive 2560&ndash;3840px+ viewport width. Imagine the 
-					stress and difficulty when building and implementing a design across a wide variety of devices. 
-				</p>
-				<p>
-					Trying to cater to every single device can waste precious time that would be better spent on providing a 
-					more accessible experience. Too often do teams abandon important aspects of the site for the sake of 
-					presenting a compelling design. It's time to focus less on pixel perfection, and more on providing a 
-					worthwhile and fast experience for users. 
-				</p>
-				<div class="normal full-margin-ends-1-half">
-					<div class="column full-20 dark background">Twenty</div>
-					<div class="column full-1 small-2 mobile-4 phone-7 micro-20 right dark-grey background">One</div>
-					<div class="column full-19 small-18 mobile-16 phone-13 micro-20 left grey background">Nineteen</div>
-					<div class="column full-2 small-3 mobile-5 phone-7 micro-20 right dark-grey background">Two</div>
-					<div class="column full-18 small-17 mobile-15 phone-13 micro-20 left grey background">Eighteen</div>
-					<div class="column full-3 small-4 mobile-6 phone-8 micro-20 right dark-grey background">Three</div>
-					<div class="column full-17 small-16 mobile-14 phone-12 micro-20 left grey background">Seventeen</div>
-					<div class="column full-4 small-5 mobile-7 phone-8 micro-20 right dark-grey background">Four</div>
-					<div class="column full-16 small-15 mobile-13 phone-12 micro-20 left grey background">Sixteen</div>
-					<div class="column full-5 small-6 mobile-8 micro-20 right dark-grey background">Five</div>
-					<div class="column full-15 small-14 mobile-12 micro-20 left fifteen grey background">Fifteen</div>
-					<div class="column full-6 small-7 mobile-9 micro-20 right dark-grey background">Six</div>
-					<div class="column full-14 small-13 mobile-11 micro-20 left grey background">Fourteen</div>
-					<div class="column full-7 small-8 mobile-9 right dark-grey background">Seven</div>
-					<div class="column full-13 small-12 mobile-11 left grey background">Thirteen</div>
-					<div class="column full-8 small-9 right dark-grey background">Eight</div>
-					<div class="column full-12 small-11 left grey background">Twelve</div>
-					<div class="column full-9 small-10 right dark-grey background">Nine</div>
-					<div class="column full-11 small-10 left grey background">Eleven</div>
-					<div class="column full-10 left grey background">Ten</div>
-					<div class="column full-10 right dark-grey background">Ten</div>
-					<div class="column full-9 small-10 mobile-10 micro-10 left grey background">Nine</div>
-					<div class="column full-11 small-10 mobile-10 micro-10 right dark-grey background">Eleven</div>
-					<div class="column full-8 small-9 left grey background">Eight</div>
-					<div class="column full-12 small-11 right twelve dark-grey background">Twelve</div>
-					<div class="column full-7 small-8 mobile-9 left grey background">Seven</div>
-					<div class="column full-13 small-12 mobile-11 right thirteen dark-grey background">Thirteen</div>
-					<div class="column full-6 small-7 mobile-9 micro-20 left grey background">Six</div>
-					<div class="column full-14 small-13 mobile-11 micro-20 right fourteen dark-grey background">Fourteen</div>
-					<div class="column full-5 small-6 mobile-8 micro-20 left grey background">Five</div>
-					<div class="column full-15 small-14 mobile-12 micro-20 right dark-grey background">Fifteen</div>
-					<div class="column full-4 small-5 mobile-7 phone-8 micro-20 left grey background">Four</div>
-					<div class="column full-16 small-15 mobile-13 phone-12 micro-20 right dark-grey background">Sixteen</div>
-					<div class="column full-3 small-4 mobile-6 phone-8 micro-20 left grey background">Three</div>
-					<div class="column full-17 small-16 mobile-14 phone-12 micro-20 right dark-grey background">Seventeen</div>
-					<div class="column full-2 small-3 mobile-5 phone-7 micro-20 left grey background">Two</div>
-					<div class="column full-18 small-17 mobile-15 phone-13 micro-20 right dark-grey background">Eighteen</div>
-					<div class="column full-1 small-2 mobile-4 phone-7 micro-20 left grey background">One</div>
-					<div class="column full-19 small-18 mobile-16 phone-13 micro-20 right dark-grey background">Nineteen</div>
-					<div class="column full-20 dark background clear">Twenty Clear</div>
-				</div>
-				<p>
-					The Ice Framework is designed around granularity with a base 20 column layout anchored by a maximum 99.88% 
-					container reach (this can be easily modified.) The philosophy behind this particular grid is scalability 
-					across a wide array of devices, approximate or estimated design, and basic mathematical support. In order 
-					for the framework to succeed, it needs to look presentable on as many resolutions as possible while still 
-					loading quickly. Therefore, eight common break points were chosen resulting in enough classes to handle 
-					almost any situation. 
-				</p>
-				<ul>
-					<li>
-						<code>column</code> class &ndash; <code>left</code> &ndash; <code>right</code> &ndash; 
-						<code>clear</code> &ndash; <code>cfx</code> clearfix
-					</li>
-					<li>
-						<strong>full &ndash; 2160px</strong> &ndash; ex: <code>full-10</code> &ndash; 
-						<code>full-margin-half-10</code> &ndash; <code>full-margin-ends-10-half</code><br />
-						<code>full-margin-(ends | sides | top | bottom | left | right | half)-#(-half)</code><br />
-						<code>full-padding-(ends | sides | top | bottom | left | right | half)-#(-half)</code>
-					</li>
-					<li>
-						<strong>ultra &ndash; 1680px</strong> &ndash; ex: <code>ultra-16</code> &ndash; 
-						<code>ultra-padding-2</code> <br />
-						<code>ultra-margin-(ends | sides | top | bottom | left | right | half)-#(-half)</code><br />
-						<code>ultra-padding-(ends | sides | top | bottom | left | right | half)-#(-half)</code>
-					</li>
-					<li>
-						<strong>wide &ndash; 1440px</strong> &ndash; ex: <code>des-4</code> <br />
-						<code>des-margin-(ends | sides | top | bottom | left | right | half)-#(-half)</code><br />
-						<code>des-padding-(ends | sides | top | bottom | left | right | half)-#(-half)</code>
-					</li>
-					<li>
-						<strong>standard &ndash; 1000px</strong><br />
-						<code>standard-margin-(ends | sides | top | bottom | left | right | half)-#(-half)</code><br />
-						<code>standard-padding-(ends | sides | top | bottom | left | right | half)-#(-half)</code>
-					</li>
-					<li>
-						<strong>small &ndash; 860px</strong><br />
-						<code>small-margin-(ends | sides | top | bottom | left | right | half)-#(-half)</code><br />
-						<code>small-padding-(ends | sides | top | bottom | left | right | half)-#(-half)</code>
-					</li>
-					<li>
-						<strong>mobile &ndash; 640px</strong><br />
-						<code>mobile-margin-(ends | sides | top | bottom | left | right | half)-#(-half)</code><br />
-						<code>mobile-padding-(ends | sides | top | bottom | left | right | half)-#(-half)</code>
-					</li>
-					<li>
-						<strong>phone &ndash; 480px</strong><br />
-						<code>phone-margin-(ends | sides | top | bottom | left | right | half)-#(-half)</code><br />
-						<code>phone-padding-(ends | sides | top | bottom | left | right | half)-#(-half)</code>
-					</li>
-					<li>
-						<strong>micro &ndash; 320px</strong><br />
-						<code>micro-margin-(ends | sides | top | bottom | left | right | half)-#(-half)</code><br />
-						<code>micro-padding-(ends | sides | top | bottom | left | right | half)-#(-half)</code>
-					</li>
-				</ul> 
-				<p>
-					This column system, and the responsive system at large, is inverted. Most systems have the class system 
-					specifying the smallest break point, expanding upward to the largest break point. Ice Framework, however, 
-					works by specifying the largest break point, and then specifying smaller break points as needed. 
-				</p>
-				<h4>Example</h4>
-<pre class="padding-ultra-1-half"><code>&lt;div class="cfx"&gt;
-	&lt;div class="column left full-6 full-padding-ends-1 mobile-8 mobile-padding-ends-1-half"&gt;
-		Hello World!
-	&lt;/div&gt;
-	&lt;div class="column right full-10 full-padding-ends-1 mobile-12 mobile-padding-ends-1-half"&gt;
-		Check out clearfix! 
-	&lt;/div&gt;
-&lt;/div&gt;</code></pre>
-				<div class="cfx">
-					<div class="column left full-6 full-padding-ends-1 mobile-8 mobile-padding-ends-1-half">
-						Hello World!
-					</div>
-					<div class="column right full-10 full-padding-ends-1 mobile-12 mobile-padding-ends-1-half">
-						Check out clearfix!
-					</div>
-				</div>
-				<p>
-					Focus less on pixel perfect design, and estimate design based upon what aesthetically appears and feels 
-					right. Conform less to unweidly grids, and embrace granularity. 
-				</p>
-				<p>
-					Prefer a different design? This framework provides a set of variables that can be tuned to a particular 
-					design need. During compilation, Sass will re-calculate the grid based on input. 
-				</p>
-				<p>
-					In the future, it might be nice to fork this grid to be based on the 
-					<a href="https://engineering.fundingcircle.com/blog/2015/06/08/golden-ratio-grid-system-in-sass/" 
-						target="_blank">golden ratio grid system in Sass</a>. 
-				</p>
-			</div>
-			<div class="content">
-				<h3>Layout</h3>
-				<h4>Two Columns</h4>
-				<div class="column left small-6 full-3 full-padding-1-half blue background">
-					<nav class="vertical">
-						<h4>Menu</h4>
-						<ul>
-							<li><a href="#">Menu 1</a></li>
-							<li><a href="#">Menu 2</a></li>
-							<li><a href="#">Menu 3</a></li>
-							<li><a href="#">Menu 4</a></li>
-							<li><a href="#">Menu 5</a></li>
-						</ul>
-					</nav>
-				</div>
-				<div class="column right small-11 full-14 full-margin-left-1 full-padding-1-half cerulean background">
-					<div>
-						<h4>Heading 4</h4>
-						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi a lorem accumsan, 
-							eleifend libero a, porta enim. Cum sociis natoque penatibus et magnis dis parturient 
-							montes, nascetur ridiculus mus. Donec tristique magna nec arcu convallis, sit amet 
-							posuere magna accumsan. Sed adipiscing eget lorem id varius. Lorem ipsum dolor sit 
-							amet, consectetur adipiscing elit. Aliquam congue ante odio. Mauris eu tortor sit 
-							amet mauris vehicula volutpat vitae at neque. Donec dui orci, eleifend eu arcu sit 
-							amet, tempor ultricies lacus. Sed convallis ornare nunc, sit amet gravida arcu aliquet 
-							ac. Etiam blandit nulla et mattis dignissim. Proin diam tellus, ornare et massa sed, 
-							pellentesque ultricies urna. Donec euismod tristique facilisis. Nunc vestibulum eleifend 
-							quam at posuere. 
-	 					</p>
-	 					<h5>Heading 5</h5>
-	 					<p>
-							Sed nisi arcu, feugiat pulvinar odio a, venenatis tempor lectus. Nulla volutpat tellus 
-							vel turpis varius, in tempus lorem elementum. Aliquam erat volutpat. Donec tristique massa 
-							ac libero mattis, vitae dignissim diam iaculis. Curabitur consequat congue nisi id pretium. 
-							Nunc tincidunt bibendum tellus, eu venenatis nisi ultrices eget. Proin facilisis metus lorem, 
-							vel consequat ligula ornare convallis. Quisque bibendum auctor turpis at porta. Sed rutrum 
-							turpis sit amet leo ultricies, sit amet feugiat neque condimentum. Cras nisi nisl, iaculis 
-							mattis varius in, molestie at lacus.  
-						</p>
-						<h6>Heading 6</h6>
-						<p>
-							Cras et dolor facilisis libero facilisis venenatis in eget nisl. Mauris condimentum sapien 
-							bibendum felis lacinia sollicitudin nec viverra nibh.
-						</p>
-					</div>
-				</div>
-			</div>
-			<div class="content">
-				<h4>Three Columns</h4>
-				<div class="column left mobile-19 small-4 full-3 full-padding-1-half silver background">
-					<nav class="vertical">
-						<h4>Menu</h4>
-						<ul class="full-padding-1 black background">
-							<li><a href="#">Menu 1</a>
-								<ul class="full-padding-1 dark background">
-									<li><a href="#">Menu 1</a></li>
-									<li><a href="#">Menu 2</a></li>
-									<li><a href="#">Menu 3 Hover</a>
-										<ul class="full-padding-1 dark background">
-											<li><a href="#">Menu 1</a></li>
-											<li><a href="#">Menu 2</a></li>
-											<li><a href="#">Menu 3</a></li>
-											<li><a href="#">Menu 4</a></li>
-										</ul>
-									</li>
-									<li><a href="#">Menu 4</a></li>
-									<li><a href="#">Menu 5</a></li>
-								</ul>
-							</li>
-							<li><a href="#">Menu 2</a>
-								<ul class="full-padding-1 dark background">
-									<li><a href="#">Menu 1</a></li>
-									<li><a href="#">Menu 2</a></li>
-									<li><a href="#">Menu 3</a></li>
-									<li><a href="#">Menu 4</a></li>
-								</ul>
-							</li>
-							<li><a href="#">Menu 3</a>
-								<ul class="full-padding-1 dark background">
-									<li><a href="#">Menu 1</a></li>
-									<li><a href="#">Menu 2</a></li>
-									<li><a href="#">Menu 3</a></li>
-								</ul>
-							</li>
-							<li><a href="#">Menu 4</a>
-								<ul class="full-padding-1 dark background">
-									<li><a href="#">Menu 1</a></li>
-									<li><a href="#">Menu 2</a></li>
-								</ul>
-							</li>
-							<li><a href="#">Menu 5</a>
-								<ul class="full-padding-1 dark background">
-									<li><a href="#">Menu 1</a></li>
-								</ul>
-							</li>
-						</ul>
-					</nav>
-				</div>
-				<div class="column left mobile-19 mobile-margin-0 mobile-margin-right-1 small-6 full-7 full-padding-1-half 
-					full-margin-left-1-half">
-					<div>
-						<h4>Form Element</h4>
-							<form action="#" method="get">
-								<label for="text-input">Text Input</label><br />
-								<input id="text-input" name="text-input" type="text" size="40" />
-								<label for="phone-input">Phone Input </label>
-								<span class="description">+1</span><input id="phone-input" name="phone-input" type="tel" size="15" />
-								<br />
-								<label for="email-input">Email Input</label><br />
-								<input id="email-input" name="email-input" type="text" size="20" />
-								<span class="description">@example.com</span>
-								<label for="select-input">Select Input</label>
-								<select id="select-input" name="select-input">
-									<option value="Select A">Select A</option>
-									<option value="Select B" selected="selected">Select B</option>
-									<option value="Select C">Select C</option>
-									<option value="Select D">Select D</option>
-								</select>
-								<fieldset>
-									<legend>Radio Buttons</legend>
-									<input id="radio-input-a" name="radio-input" type="radio" />
-									<label for="radio-input-a">Radio A</label>
-									<input id="radio-input-b" name="radio-input" type="radio" />
-									<label for="radio-input-b">Radio B</label>
-								</fieldset>
-								<fieldset>
-									<legend>Checkbox</legend>
-									<input id="checkbox-input-a" name="checkbox-input-a" type="checkbox" />
-									<label for="checkbox-input-a">checkbox A</label>
-									<input id="checkbox-input-b" name="checkbox-input-b" type="checkbox" />
-									<label for="checkbox-input-b">checkbox B</label>
-								</fieldset>
-								<label for="textarea-input">Textarea Input</label>
-								<textarea id="textarea-input" name="textarea-input" rows="4" cols="40"></textarea>
-								<input class="button success" type="submit" value="Submit" />
-								<input class="button dark-silver" type="reset" value="Reset" />
-							</form>
-					</div>
-				</div>
-				<div class="column right mobile-19 mobile-margin-0 mobile-margin-left-1 small-6 full-6 full-padding-1-half 
-					full-margin-left-1-half silver background">
-					<div>
-						<h4>Video Demonstration</h4>
-						<p>Videos expand to their full width, and in most cases are completely responsive.</p>
-	 					<iframe class="video fill" src="https://player.vimeo.com/video/102301772" width="500" height="281" 
-	 						webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> 
-	 					<p>
-	 						<small>
-	 							<a href="http://vimeo.com/102301772">"Goodnight"</a> from 
-	 							<a href="http://vimeo.com/rekfilmsmt">REK Films</a> on <a href="https://vimeo.com">Vimeo</a>.
-	 						</small>
-	 					</p>
-						</div>
-				</div>
-			</div>
-			<div class="content">
-				<h3>Navigation</h3>
-				<h4>Horizontal Hover Menu</h4>
-				<nav class="cfx horizontal blue background rounded-corners">
-					<ul>
-						<li><h6>Logo</h6></li>
-					</ul>
-					<ul>
-						<li>
-							<a href="#">Menu 1</a>
-							<ul class="blue background">
-								<li><a href="#">Menu 1</a></li>
-								<li><a href="#">Menu 2 Hover</a>
-									<ul class="blue background">
-										<li><a href="#">Menu 1</a></li>
-										<li><a href="#">Menu 2</a></li>
-										<li><a href="#">Menu 3 Hover Large</a>
-											<ul class="blue background">
-												<li><a href="#">Menu 1</a></li>
-												<li><a href="#">Menu 2</a></li>
-												<li><a href="#">Menu 3</a></li>
-												<li><a href="#">Menu 4 Hover</a>
-													<ul class="blue background">
-														<li><a href="#">Menu 1</a></li>
-														<li><a href="#">Menu 2</a></li>
-														<li><a href="#">Menu Large Width 3</a></li>
-														<li><a href="#">Menu 4</a></li>
-														<li><a href="#">Menu 5</a></li>
-													</ul>
-												</li>
-												<li><a href="#">Menu 5</a></li>
-											</ul>
-										</li>
-										<li><a href="#">Menu 4</a></li>
-										<li><a href="#">Menu 5</a></li>
-									</ul>
-								</li>
-								<li><a href="#">Menu 3</a></li>
-								<li><a href="#">Menu 4</a></li>
-								<li><a href="#">Menu 5</a></li>
-							</ul>
-						</li>
-						<li><a href="#">Menu 2</a>
-							<ul class="blue background">
-								<li><a href="#">Menu 1</a></li>
-								<li><a href="#">Menu 2</a></li>
-								<li><a href="#">Menu 3</a></li>
-								<li><a href="#">Menu 4</a></li>
-								<li><a href="#">Menu 5</a></li>
-							</ul>
-						</li>
-						<li><a href="#">Menu 3</a>
-							<ul class="blue background">
-								<li><a href="#">Menu Large 1</a></li>
-								<li><a href="#">Menu Large 2</a></li>
-								<li><a href="#">Menu Large 3</a></li>
-								<li><a href="#">Menu Large 4</a></li>
-								<li><a href="#">Menu Large 5</a></li>
-							</ul>
-						</li>
-						<li><a href="#">Menu 4</a>
-							<ul class="blue background">
-								<li><a href="#">Menu 1</a></li>
-								<li><a href="#">Menu 2</a></li>
-								<li><a href="#">Menu 3</a></li>
-								<li><a href="#">Menu 4</a></li>
-								<li><a href="#">Menu 5</a></li>
-							</ul>
-						</li>
-						<li><a href="#">Menu 5</a>
-							<ul class="blue background">
-								<li><a href="#">Menu 1</a></li>
-								<li><a href="#">Menu 2</a></li>
-								<li><a href="#">Menu 3</a></li>
-								<li><a href="#">Menu 4</a></li>
-								<li><a href="#">Menu 5</a></li>
-							</ul>
-						</li>
-					</ul>
-				</nav>
-				<h3>Featured Content</h3>
-				<div class="featured background dark-silver">
-					<h1 class="two times">Welcome, Highlander</h1>
-					<h2 class="two times">This is featured content.</h2>
-				</div>
-				<h3>Breadcrumbs</h3>
-				<nav class="breadcrumbs">
-					<ul>
-						<li><a href="">Breadcrumbs</a></li>
-						<li><a href="">Parent</a></li>
-						<li>Current</li>
-					</ul>
-				</nav>
-				<h3>Blockquote</h3>
-				<div class="column full-10 small-15 mobile-20">
-					<blockquote>
-						Lorem ipsum dolor sit amet consectetur adipscing elit.
-						<span>Bernard</span>
-					</blockquote>
-				</div>
-				<h3>Pagination</h3>
-				<div class="column left full-6 small-10 mobile-20">
-					<nav class="black pagination rounded-corners">
-						<ul>
-							<li><a href="">Start</a></li>
-							<li class="current"><a href="">1</a></li>
-							<li><a href="">2</a></li>
-							<li>&hellip;</li>
-							<li><a href="">4</a></li>
-							<li><a href="">5</a></li>
-							<li><a href="">End</a></li>
-						</ul>
-					</nav>
-				</div>
-				<div class="column left full-6 full-padding-sides-1 small-10 small-padding-0 mobile-20">
-					<nav class="gold pagination">
-						<ul>
-							<li><a href="">Start</a></li>
-							<li class="current"><a href="">1</a></li>
-							<li><a href="">2</a></li>
-							<li>&hellip;</li>
-							<li><a href="">4</a></li>
-							<li><a href="">5</a></li>
-							<li><a href="">End</a></li>
-						</ul>
-					</nav>
-				</div>
-				<div class="column left full-6 small-10 mobile-20">
-					<nav class="orange pagination">
-						<ul>
-							<li><a href="">Start</a></li>
-							<li><a href="">1</a></li>
-							<li class="current"><a href="">2</a></li>
-							<li>&hellip;</li>
-							<li><a href="">4</a></li>
-							<li><a href="">5</a></li>
-							<li><a href="">End</a></li>
-						</ul>
-					</nav>
-				</div>
-				<div class="column left full-6 small-10 mobile-20">
-					<nav class="blue pagination">
-						<ul>
-							<li><a href="">Start</a></li>
-							<li><a href="">1</a></li>
-							<li><a href="">2</a></li>
-							<li>&hellip;</li>
-							<li class="current"><a href="">4</a></li>
-							<li><a href="">5</a></li>
-							<li><a href="">End</a></li>
-						</ul>
-					</nav>
-				</div>
-				<div class="column left full-6 full-padding-sides-1 small-10 small-padding-0 mobile-20">
-					<nav class="purple pagination rounded-corners">
-						<ul>
-							<li><a href="">Start</a></li>
-							<li><a href="">1</a></li>
-							<li><a href="">2</a></li>
-							<li>&hellip;</li>
-							<li><a href="">4</a></li>
-							<li class="current"><a href="">5</a></li>
-							<li><a href="">End</a></li>
-						</ul>
-					</nav>
-				</div>
-				<div class="column left full-6 small-10 mobile-20">
-					<nav class="red pagination rounded-corners">
-						<ul>
-							<li><a href="">Start</a></li>
-							<li><a href="">1</a></li>
-							<li><a href="">2</a></li>
-							<li>&hellip;</li>
-							<li><a href="">4</a></li>
-							<li class="current"><a href="">5</a></li>
-							<li><a href="">End</a></li>
-						</ul>
-					</nav>
-				</div>
-			</div>
-			<div class="content">
-				<h3>Buttons</h3>
-				<h4>Solid</h4>
-				<input class="button black background" type="submit" value="Submit" />
-				<input class="button darker background" type="submit" value="Submit" />
-				<input class="button dark background" type="submit" value="Submit" />
-				<input class="button shadow background" type="submit" value="Submit" />
-				<input class="button metal background" type="submit" value="Submit" />
-				<input class="button dark-grey text-shadow" type="submit" value="Submit" />
-				<input class="button grey text-shadow" type="submit" value="Submit" />
-				<input class="button dark-silver text-shadow" type="submit" value="Submit" />
-				<input class="button silver background" type="submit" value="Submit" />
-				<input class="button white background" type="submit" value="Submit" />
-				<button class="button blue background">Submit</button>
-				<button class="button cerulean background">Submit</button>
-				<button class="button red background">Submit</button>
-				<button class="button purple background">Submit</button>
-				<button class="button neon rounded-corners">Submit</button>
-				<button class="button brown rounded-corners">Submit</button>
-				<span class="button green rounded-corners">Submit</span>
-				<span class="button orange rounded-corners">Submit</span>
-				<span class="button yellow rounded-corners">Submit</span>
-				<span class="button pink background">Submit</span> <br />
-				<span class="button success text-shadow-inverse">Submit</span>
-				<span class="button warning text-shadow-inverse">Submit</span>
-				<span class="button error text-shadow-inverse">Submit</span>
-				<span class="button message text-shadow-inverse">Submit</span>
-			</div>
-			<div class="content">
-				<h4>Gradient</h4>
-				<input class="button black gradient border thin outset" type="submit" value="Submit" />
-				<input class="button darker gradient border thin outset" type="submit" value="Submit" />
-				<input class="button dark gradient border thin outset" type="submit" value="Submit" />
-				<input class="button shadow gradient border thin outset" type="submit" value="Submit" />
-				<input class="button metal gradient border thin outset" type="submit" value="Submit" />
-				<input class="button dark-grey gradient border thin outset text-shadow" type="submit" 
-					value="Submit" />
-				<input class="button grey gradient border thin outset text-shadow" type="submit" value="Submit" />
-				<input class="button dark-silver gradient border thin-one solid border thin outset text-shadow" 
-					type="submit" value="Submit" />
-				<input class="button silver gradient border thin-one solid border thin outset" type="submit" 
-					value="Submit" />
-				<input class="button white gradient border thin-one solid" type="submit" 
-					value="Submit" />
-				<button class="button blue gradient border thin-one outset">Submit</button>
-				<button class="button cerulean gradient border inset thin ">Submit</button>
-				<button class="button red gradient border thin outset text-shadow-inverse">Submit</button>
-				<button class="button purple gradient border thin outset text-shadow-inverse">Submit</button>
-				<button class="button neon gradient rounded-corners border thin outset text-shadow-inverse">
-					Submit
-				</button>
-				<button class="button brown gradient rounded-corners border thin outset text-shadow-inverse">
-					Submit
-				</button>
-				<span class="button green gradient rounded-corners border thin outset text-shadow-inverse">
-					Submit
-				</span>
-				<span class="button orange gradient rounded-corners border thin outset">Submit</span>
-				<span class="button yellow gradient rounded-corners border thin outset">Submit</span>
-				<span class="button pink gradient border thin outset text-shadow">Submit</span> <br />
-				<span class="button success gradient border thin outset text-shadow-inverse">Submit</span>
-				<span class="button warning gradient border thin outset text-shadow-inverse">Submit</span>
-				<span class="button error gradient border thin outset text-shadow-inverse">Submit</span>
-				<span class="button message gradient border thin outset text-shadow-inverse">Submit</span>
-				<p>
-					The <code>button</code> and <code>background</code> classes use the same set of colors. 
-				</p>
-				<h3>Alerts</h3>
-				<div class="alert message">
-					<p>Message: Lorem Ipsum Dolor Sit Amet.</p>
-					<p>Message: Lorem Ipsum Dolor Sit Amet.</p>
-				</div>
-				<div class="alert success">
-					<p>Success! Lorem Ipsum Dolor Sit Amet.</p>
-					<p>Success! Lorem Ipsum Dolor Sit Amet.</p>
-				</div>
-				<div class="alert warning" data-dismiss>
-					<p>Warning! Lorem Ipsum Dolor Sit Amet. Dismiss Me!</p>
-					<p>Warning! Lorem Ipsum Dolor Sit Amet. Dismiss Me!</p>
-				</div>
-				<div class="alert error">
-					<p>Error! Lorem Ipsum Dolor Sit Amet.</p>
-					<p>Error! Lorem Ipsum Dolor Sit Amet.</p>
-				</div>
-				<h3>Table Showcasing Linecons</h3>
-				<table>
-					<caption>
-						Note that by default, the first column of each table is aligned left. <br />
-						Linecons use CSS classes attached to <code>&lt;span&gt;</code> or <code>&lt;i&gt;</code> tags. Note 
-						that <code>&lt;i&gt;</code> tags may not be conceptually accurate, but are acceptable replacements. 
-					</caption>
-					<colgroup>
-						<col />
-						<col />
-						<col />
-						<col />
-						<col />
-						<col />
-						<col />
-						<col />
-					</colgroup>
-					<thead>
-						<tr>
-							<th colspan="8" class="align-center">
-								Linecons
-							</th>
-						</tr>
-					</thead>
-					<tfoot>
-						<tr>
-							<td>
-								<span class="large">
-									&#8678;
-								</span><br />
-								<code>&amp;#8678;</code>
-							</td>
-							<td>
-								<span class="large">
-									&#8679;
-								</span><br />
-								<code>&amp;#8679;</code>
-							</td>
-							<td colspan="4">
-								Arrows use HTML codes.
-							</td>
-							<td>
-								<span class="large">
-									&#8680;
-								</span><br />
-								<code>&amp;#8680;</code>
-							</td>
-							<td>
-								<span class="large">
-									&#8681;
-								</span><br />
-								<code>&amp;#8681;</code>
-							</td>
-						</tr>
-					</tfoot>
-					<tbody>
-						<tr>
-							<td>
-								<span aria-hidden="true" class="i-heart large"></span><br />
-								<code>.i-heart</code>
-							</td>
-							<td>
-								<span aria-hidden="true" class="i-cloud large"></span><br />
-								<code>.i-cloud</code>
-							</td>
-							<td>
-								<span aria-hidden="true" class="i-star large"></span><br />
-								<code>.i-star</code>
-							</td>
-							<td>
-								<span aria-hidden="true" class="i-tv large"></span><br />
-								<code>.i-tv</code>
-							</td>
-							<td>
-								<span aria-hidden="true" class="i-sound large"></span><br />
-								<code>.i-sound</code>
-							</td>
-							<td>
-								<span aria-hidden="true" class="i-video large"></span><br />
-								<code>.i-video</code>
-							</td>
-							<td>
-								<span aria-hidden="true" class="i-trash large"></span><br />
-								<code>.i-trash</code>
-							</td>
-							<td>
-								<span aria-hidden="true" class="i-user large"></span><br />
-								<code>.i-user</code>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<span aria-hidden="true" class="i-key large"></span><br />
-								<code>.i-key</code>
-							</td>
-							<td>
-								<span aria-hidden="true" class="i-search large"></span><br />
-								<code>.i-search</code>
-							</td>
-							<td>
-								<span aria-hidden="true" class="i-settings large"></span><br />
-								<code>.i-settings</code>
-							</td>
-							<td>
-								<span aria-hidden="true" class="i-camera large"></span><br />
-								<code>.i-camera</code>
-							</td>
-							<td>
-								<span aria-hidden="true" class="i-tag large"></span><br />
-								<code>.i-tag</code>
-							</td>
-							<td>
-								<span aria-hidden="true" class="i-lock large"></span><br />
-								<code>.i-lock</code>
-							</td>
-							<td>
-								<span aria-hidden="true" class="i-bulb large"></span><br />
-								<code>.i-bulb</code>
-							</td>
-							<td>
-								<span aria-hidden="true" class="i-pen large"></span><br />
-								<code>.i-pen</code>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<span aria-hidden="true" class="i-diamond large"></span><br />
-								<code>.i-diamond</code>
-							</td>
-							<td>
-								<span aria-hidden="true" class="i-display large"></span><br />
-								<code>.i-display</code>
-							</td>
-							<td>
-								<span aria-hidden="true" class="i-location large"></span><br />
-								<code>.i-location</code>
-							</td>
-							<td>
-								<span aria-hidden="true" class="i-eye large"></span><br />
-								<code>.i-eye</code>
-							</td>
-							<td>
-								<span aria-hidden="true" class="i-bubble large"></span><br />
-								<code>.i-bubble</code>
-							</td>
-							<td>
-								<span aria-hidden="true" class="i-stack large"></span><br />
-								<code>.i-stack</code>
-							</td>
-							<td>
-								<span aria-hidden="true" class="i-cup large"></span><br />
-								<code>.i-cup</code>
-							</td>
-							<td>
-								<span aria-hidden="true" class="i-phone large"></span><br />
-								<code>.i-phone</code>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<span aria-hidden="true" class="i-news large"></span><br />
-								<code>.i-news</code>
-							</td>
-							<td>
-								<span aria-hidden="true" class="i-mail large"></span><br />
-								<code>.i-mail</code>
-							</td>
-							<td>
-								<span aria-hidden="true" class="i-like large"></span><br />
-								<code>.i-like</code>
-							</td>
-							<td>
-								<span aria-hidden="true" class="i-photo large"></span><br />
-								<code>.i-photo</code>
-							</td>
-							<td>
-								<span aria-hidden="true" class="i-note large"></span><br />
-								<code>.i-note</code>
-							</td>
-							<td>
-								<span aria-hidden="true" class="i-clock large"></span><br />
-								<code>.i-clock</code>
-							</td>
-							<td>
-								<span aria-hidden="true" class="i-paperplane large"></span><br />
-								<code>.i-paperplane</code>
-							</td>
-							<td>
-								<span aria-hidden="true" class="i-params large"></span><br />
-								<code>.i-params</code>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<span aria-hidden="true" class="i-banknote large"></span><br />
-								<code>.i-banknote</code>
-							</td>
-							<td>
-								<span aria-hidden="true" class="i-data large"></span><br />
-								<code>.i-data</code>
-							</td>
-							<td>
-								<span aria-hidden="true" class="i-music large"></span><br />
-								<code>.i-music</code>
-							</td>
-							<td>
-								<span aria-hidden="true" class="i-megaphone large"></span><br />
-								<code>.i-megaphone</code>
-							</td>
-							<td>
-								<span aria-hidden="true" class="i-study large"></span><br />
-								<code>.i-study</code>
-							</td>
-							<td>
-								<span aria-hidden="true" class="i-lab large"></span><br />
-								<code>.i-lab</code>
-							</td>
-							<td>
-								<span aria-hidden="true" class="i-food large"></span><br />
-								<code>.i-food</code>
-							</td>
-							<td>
-								<span aria-hidden="true" class="i-t-shirt large"></span><br />
-								<code>.i-t-shirt</code>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<span aria-hidden="true" class="i-fire large"></span><br />
-								<code>.i-fire</code>
-							</td>
-							<td>
-								<span aria-hidden="true" class="i-clip large"></span><br />
-								<code>.i-clip</code>
-							</td>
-							<td>
-								<span aria-hidden="true" class="i-shop large"></span><br />
-								<code>.i-shop</code>
-							</td>
-							<td>
-								<span aria-hidden="true" class="i-calendar large"></span><br />
-								<code>.i-calendar</code>
-							</td>
-							<td>
-								<span aria-hidden="true" class="i-vallet large"></span><br />
-								<code>.i-vallet</code>
-							</td>
-							<td>
-								<span aria-hidden="true" class="i-vinyl large"></span><br />
-								<code>.i-vinyl</code>
-							</td>
-							<td>
-								<span aria-hidden="true" class="i-truck large"></span><br />
-								<code>.i-truck</code>
-							</td>
-							<td>
-								<span aria-hidden="true" class="i-world large"></span><br />
-								<code>.i-world</code>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-				<h3>JavaScript</h3>
-				<p>
-					Some care has been taken to provide a graceful fallback for situations where JavaScript is not available. 
-					Elements of the Ice Framework may not function completely without JavaScript. In order to provide a 
-					speedy environment, this framework expects most JavaScript to be compiled, minified, and loaded after the 
-					DOM has rendered. 
-				</p>
-				<h4>Mobile Navigation</h4>
-				<nav class="cfx horizontal mobile black background">
-					<ul>
-						<li>
-							<a href="#">
-								<span aria-hidden="true" class="i-phone large"></span>
-							</a>
-						</li>
-					</ul>
-					<ul>
-						<li><h6>Logo</h6></li>
-					</ul>
-					<ul>
-						<li><a href="#">Menu 1</a></li>
-						<li><a href="#">Menu 2 Drop Down</a>
-							<ul class="background metal">
-								<li><a href="#">Menu 1</a></li>
-								<li><a href="#">Menu 2</a></li>
-								<li><a href="#">Menu 3</a></li>
-								<li><a href="#">Menu 4 Drop Down</a>
-									<ul class="background dark-grey">
-										<li><a href="#">Menu 1</a></li>
-										<li><a href="#">Menu 2</a></li>
-										<li><a href="#">Menu 3</a></li>
-									</ul>
-								</li>
-							</ul>
-						</li>
-						<li><a href="#">Menu 3</a></li>
-						<li><a href="#">Menu 4</a></li>
-						<li><a href="#">Menu 5</a></li>
-						<li><a href="#">Menu 6</a></li>
-						<li><a href="#">Menu 7</a></li>
-						<li><a href="#">Menu 8</a></li>
-						<li><a href="#">Menu 9</a></li>
-						<li><a href="#">Menu 0</a></li>
-					</ul>
-				</nav>
-				<h4>Icebox + CollagePlus</h4>
-				<div class="gallery" data-height="100">
-					<img src="http://i.imgur.com/iA0EH3k.png" alt="Cyberpunk Sketch" data-icebox 
-						data-src="http://i.imgur.com/iA0EH3k.png" />
-					<img src="http://i.imgur.com/n4LA7h9.jpg" alt="Cyberpunk Sketch" data-icebox 
-						data-src="http://i.imgur.com/n4LA7h9.jpg" />
-					<img src="http://i.imgur.com/xcFMiFc.jpg" alt="Cyberpunk Sketch" data-icebox 
-						data-src="http://i.imgur.com/xcFMiFc.jpg" />
-					<img src="http://i.imgur.com/xLWlJ7a.jpg" alt="Cyberpunk Sketch" data-icebox 
-						data-src="http://i.imgur.com/xLWlJ7a.jpg" />
-					<img src="http://i.imgur.com/dVjjMgb.png" alt="Cyberpunk Sketch" data-icebox 
-						data-src="http://i.imgur.com/dVjjMgb.png" />
-					<img src="http://i.imgur.com/M6G6ocs.jpg" alt="Cyberpunk Sketch" data-icebox 
-						data-src="http://i.imgur.com/M6G6ocs.jpg" />
-					<img src="http://i.imgur.com/ctXIQCN.png" alt="Cyberpunk Sketch" data-icebox 
-						data-src="http://i.imgur.com/ctXIQCN.png" />
-					<img src="http://i.imgur.com/p4SEpUQ.png" alt="Cyberpunk Sketch" data-icebox 
-						data-src="http://i.imgur.com/p4SEpUQ.png" />
-				</div>
-				<h4>Slider With Icebox</h4>
-				<div class="slider-container">
-					<div class="slider">
-						<figure id="slide-01" data-icebox="#slide-01">
-							<img src="http://i.imgur.com/iA0EH3k.png" alt="Cyberpunk Sketch" />
-							<figcaption>Slide 1 Caption</figcaption>
-						</figure>
-						<figure id="slide-02" data-icebox="#slide-02">
-							<img src="http://i.imgur.com/n4LA7h9.jpg" alt="Cyberpunk Sketch" />
-							<figcaption>Slide 2 Caption</figcaption>
-						</figure>
-						<figure id="slide-03" data-icebox="#slide-03">
-							<img src="http://i.imgur.com/xcFMiFc.jpg" alt="Cyberpunk Sketch" />
-							<figcaption>Slide 3 Caption</figcaption>
-						</figure>
-						<figure id="slide-04" data-icebox="#slide-04">
-							<img src="http://i.imgur.com/xLWlJ7a.jpg" alt="Cyberpunk Sketch" />
-							<figcaption>Slide 4 Caption</figcaption>
-						</figure>
-					</div>
-					<div class="slide-control slide-left">
-						<span>
-							<a href="javascript:void(0)">&#8678;</a>
-						</span>
-					</div>
-					<div class="slide-control slide-right">
-						<a href="javascript:void(0)">
-							<span>&#8680;</span>
-						</a>
-					</div>
-				</div>
-				<h4>Scrolling</h4>
-				<p><a href="#main">To the top</a>.</p>
-				<p><a href="#footer">To the footer</a>.</p>
-				<h4>Slide Toggle</h4>
-				<div class="base-padding">
-					<h5>
-						<a href="javascript:void(0)" data-slide="#slide-me-1">
-							Slide Toggle 1
-						</a>
-					</h5>
-					<div id="slide-me-1" class="nod">
-						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas convallis, 
-							leo eu laoreet gravida, tortor ipsum suscipit ex, in vestibulum velit dolor 
-							quis velit. Ut convallis porta urna vel porta. Donec posuere laoreet neque, 
-							luctus luctus mauris pharetra in. Cras malesuada neque sit amet lacus ultricies, 
-							vel ultricies dui sagittis. Ut orci erat, auctor sed lorem blandit, ornare 
-							efficitur orci. Mauris auctor aliquam augue eu placerat. Vestibulum ante ipsum 
-							primis in faucibus orci luctus et ultrices posuere cubilia Curae.
-						</p>
-					</div>
-					<h5>
-						<a href="javascript:void(0)" data-slide="#slide-me-2">
-							Slide Toggle 2
-						</a>
-					</h5>
-					<div id="slide-me-2" class="nod">
-						<p>
-							Nullam ante est, sodales blandit metus at, pellentesque cursus mi. Nullam leo 
-							lacus, tempor non turpis eu, pharetra vestibulum libero. Etiam in sem sit amet 
-							velit ultricies scelerisque ac ultrices turpis. 
-						</p>
-					</div>
-					<h5>
-						<a href="javascript:void(0)" data-slide="#slide-me-3">
-							Slide Toggle 3
-						</a>
-					</h5>
-					<div id="slide-me-3">
-						<p>
-							Vestibulum suscipit lacus sed eros ultrices, ac tincidunt elit venenatis. 
-							Curabitur mollis faucibus est id sollicitudin. Nulla sollicitudin consectetur 
-							leo vitae sodales. Nam viverra, felis at commodo imperdiet, ante orci fermentum 
-							dui, eu laoreet urna justo nec erat. Mauris facilisis, velit a eleifend rhoncus, 
-							urna justo varius sem, mollis lobortis ipsum nibh eu nisi. 
-						</p>
-					</div>
-					<h5>
-						<a href="javascript:void(0)" data-slide=".slide-me-4">
-							Slide Toggle 4
-						</a>
-					</h5>
-					<div class="slide-me-4 nod">
-						<p>
-							Fusce elit ante, laoreet non commodo sagittis, egestas a magna. Suspendisse potenti. 
-							Cras nec elit non neque rutrum tempor ut elementum lorem. Aliquam porta, dolor quis 
-							porta tincidunt, velit ligula ultricies dolor, dapibus tincidunt erat dui eu mi. 
-							Maecenas tincidunt, nulla in rhoncus aliquet, dolor quam ullamcorper leo, eget 
-							condimentum ante eros non diam.
-						</p>
-					</div>
-					<p>This text breaks two paragraphs. Don't believe it? Click above.</p>
-					<div class="slide-me-4 nod">
-						<p>
-							Curabitur ex est, convallis nec enim consequat, porttitor placerat lectus. 
-							Donec aliquam, sapien at ornare hendrerit, libero dui sagittis libero, a 
-							accumsan nibh sapien vitae turpis. Praesent eleifend vitae urna et cursus. 
-							Curabitur feugiat felis mauris, non sollicitudin justo aliquet eget.
-						</p>
-					</div>
-				</div>
-			</div>
-			<div class="content">
-				<h4>Tabs</h4>
-				<p>
-					Tabs inherit the button class automatically. 
-				</p>
-				<nav class="tabs">
-					<ul class="rounded-corners">
-						<li><a href="#tab-1" class="dark-silver gradient border thin-one">Tab 1</a></li>
-						<li><a href="#tab-2" class="dark-silver gradient border thin-one">Tab 2</a></li>
-						<li><a href="#tab-3" class="grey gradient border thin-one">Tab 3</a></li>
-						<li><a href="#tab-4" class="grey gradient border thin-one">Tab 4</a></li>
-						<li><a href="#tab-5" class="pink gradient border thin-one">Tab 5</a></li>
-					</ul>
-				</nav>
-				<div id="tab-1">
-					<p>
-						Curabitur eu justo et orci vehicula ornare. Sed mollis efficitur cursus. Interdum et 
-						malesuada fames ac ante ipsum primis in faucibus. Aenean eget euismod nisl. In 
-						dignissim turpis eu dui feugiat molestie. Nam aliquet, ex sed rutrum condimentum, 
-						nunc ligula aliquam quam, sed aliquet orci leo eget odio. Sed ex velit, elementum 
-						a tortor id, vestibulum fermentum metus.
-					</p>
-				</div>
-				<div id="tab-2">
-					<p>
-						Integer vestibulum ut nulla volutpat aliquet. Maecenas dictum sem sit amet consectetur 
-						bibendum. Aliquam molestie sapien quis arcu ullamcorper, at gravida purus facilisis. 
-						Cras nec auctor nisl. Integer varius neque quis mauris dapibus, vitae venenatis erat 
-						vehicula. Aliquam ullamcorper, orci ut semper mollis, dolor tortor lobortis risus, at 
-						suscipit sem felis quis quam. Nam eget purus purus. 
-					</p>
-					<p>
-						Duis eu fringilla mi. Etiam lorem nisl, faucibus id ex in, pretium hendrerit nibh. 
-						Fusce fringilla, eros nec ultrices sollicitudin, nunc neque gravida dui, in efficitur 
-						nisl elit id magna.
-					</p>
-				</div>
-				<div id="tab-3">
-					<p>
-						Maecenas purus est, luctus a nisi non, eleifend varius quam. Cras eu elit eleifend, 
-						luctus turpis id, eleifend lectus. Nullam luctus auctor lectus id dictum. Nam iaculis 
-						nisl quis orci facilisis laoreet. Donec dapibus, purus nec dictum congue, odio eros 
-						luctus tortor, sit amet mattis quam ligula in ipsum. Cras tincidunt purus justo. 
-						Nullam tristique nulla ut facilisis ullamcorper.
-					</p>
-				</div>
-				<div id="tab-4">
-					<p>
-						Fusce laoreet tellus velit, eget rutrum eros rhoncus et. Nullam sit amet lacinia sem. 
-						Morbi laoreet lobortis ex, id lacinia mauris semper nec. Integer aliquet sit amet nisi 
-						vel ultricies. Nulla ultrices justo ut tellus ornare, eget dignissim est blandit. 
-						Praesent ut molestie ligula. Morbi ornare leo commodo arcu volutpat convallis. 
-						Quisque mauris nisl, faucibus ac leo porttitor, pulvinar ultrices tellus.
-					</p>
-				</div>
-				<div id="tab-5">
-					<p>
-						Sed pellentesque viverra tempus. Aliquam ac massa eget odio mattis mollis vel nec arcu. 
-						Fusce pretium turpis tristique, pretium nisl ac, porttitor massa. Quisque a lacus mattis, 
-						suscipit justo at, porttitor diam. Cras sed orci non velit tempus venenatis vitae vitae 
-						elit. Nullam dictum, purus sit amet imperdiet tristique, enim magna posuere diam, et 
-						condimentum libero justo sed sem. 
-					</p>
-				</div>
-				<p>Want to show a tab on page load? <a href="?tab=tab-4">Click Here</a>.</p>
-			</div>
-			<div id="footer">
-				<small>Copyright &copy; 2014 PxO Ink. Most Rights Reserved.</small>
-			</div>
-		</div>
-		<script type="text/javascript" src="js/framework.js?v=0.0.3.5"></script>
+		<script type="text/javascript" src="js/modernizr.js?v=0.0.8.7"></script>
+		<script type="text/javascript" src="js/vendor.js?v=0.0.8.7"></script>
+		<script type="text/javascript" src="js/framework.js?v=0.0.8.7"></script>
 	</body>
 </html>

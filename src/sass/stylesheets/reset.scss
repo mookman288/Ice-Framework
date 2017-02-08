@@ -1,7 +1,7 @@
 //Name: Reset
 //Author: PxO Ink
 //License: The MIT License (MIT)
-//Copyright: © 2016 PxO Ink. Most Rights Reserved.
+//Copyright: ï¿½ 2016 PxO Ink. Most Rights Reserved.
 
 //Import framework components.
 @import "../framework/components/reset/reset"; 
@@ -38,4 +38,8 @@ h3, h4, h5, h6, p, blockquote, ul, ol {
 
 li {
 	list-style-position: inside;
+}
+
+.nod {
+	@extend %nod;
 }

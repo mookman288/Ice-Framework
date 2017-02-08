@@ -26,10 +26,7 @@ var	argv		=	require('yargs').argv;
 var	dev			=	(!argv.dev) ? false : true;
 
 //Set initial tasks.
-var	tasks		=	(!dev) ? ['images', 'scripts', 'version'] : ['images', 'scripts', 'browserSync', 'watch', 'version'];
-
-//Set tasks specifically for JavaScript. 
-var	scripts		=	[];
+var	tasks		=	(!dev) ? ['images', 'javascript', 'version'] : ['images', 'javascript', 'browserSync', 'watch', 'version'];
 
 //Get the package.json version.
 var	version		=	JSON.parse(fs.readFileSync('./package.json')).version.split('.');
@@ -65,7 +62,8 @@ var	paths		=	{
 	'input': {
 		'images':	'./src/images', 
 		'js':		'./src/js', 
-		'sass':		'./src/sass'
+		'sass':		'./src/sass',
+		'npm':		'./node_modules'
 	}, 
 	'output': {
 		'index':	'./', 
@@ -79,18 +77,21 @@ var	paths		=	{
 var	files	=	{
 		sass:			fs.readdirSync(paths.input.sass + '/stylesheets/'),
 		js: {
-		//	init: 		fs.readdirSync(paths.input.js) + '/init/',
-		//	vendor:		fs.readdirSync(paths.input.js) + '/vendor/',
-		//	utilities:	fs.readdirSync(paths.input.js) + '/utilities/', 
-		//	functions:	fs.readdirSync(paths.input.js) + '/functions/'
-		}
+			init: 			paths.input.js + '/init/',
+			utilities:		paths.input.js + '/utilities/', 
+			functionality:	paths.input.js + '/functionality/', 
+			vendor:			paths.input.js + '/vendor/'
+		}, 
+		"js-vendor":			[
+			paths.input.npm + '/jquery/dist/jquery.js'
+		]
 };
 
 //Store all processing functions. 
 var	functions	=	{
-		hint:	function(app) {
+		hint:	function(files) { 
 			//Run Gulp.
-			return gulp.src(app + '/**/*.js')
+			return gulp.src(files)
 				.pipe(jshint())
 				.pipe(notify(function(file) {
 					//If not success.
@@ -110,11 +111,11 @@ var	functions	=	{
 				}))
 				.pipe(jshint.reporter('default'));
 		}, 
-		js:		function(app) {
+		js:		function(files, filename) { console.log(filename); 
 			//Run Gulp.
-			return gulp.src(app + '/**/*.js')
-				.pipe(concat(app + '.js'))
+			return gulp.src(files)
 				.pipe(gulpif(!dev, uglify({'preserveComments': 'license'})))
+				.pipe(concat(filename))
 				.pipe(gulp.dest(paths.output.js));
 		}, 
 		sass:	function(app) { 
@@ -162,30 +163,6 @@ files.sass.forEach(function(file) {
 	//Add task.
 	tasks.unshift(name);
 });
-
-//For each JavaScript application category.
-/*files.js.forEach(function(jsFiles, app) {
-	//For each set of files.
-	jsFiles.forEach(function(file) {
-		//Avoid hinting vendor code, it never works out.
-		if (app !== 'vendor') {
-			//Hint application.
-			gulp.task('hint-' + app, function() {
-				//Run function.
-				return functions.hint(file);
-			});
-		}
-		
-		//Handle application.
-		gulp.task('js-' + app, ['hint-' + file], function() {
-			//Run function.
-			return functions.js(file);
-		});
-		
-		//Add task to modernizr. 
-		scripts.unshift('js-' + file);
-	});
-});*/
 
 //Version control.
 gulp.task('version', function() {
@@ -236,8 +213,64 @@ gulp.task('images', function() {
 		.pipe(gulp.dest(paths.output.images));
 });
 
-//Modernizr.
-gulp.task('scripts', scripts, function() {
+//Handle all vendor JS. 
+gulp.task('js-vendor', function() {
+	return gulp.src(files["js-vendor"])
+		.pipe(gulp.dest(paths.input.js + '/vendor/'));
+});
+
+//Hint the files.
+gulp.task('js-hint', ['js-vendor'], function() {
+	//Declare variables.
+	var	scripts	=	[];
+	
+	//For each JavaScript application category.
+	for (var type in files.js) {
+		//Skip the loop if the property is from prototype.
+		if (!files.js.hasOwnProperty(type)) continue;
+		
+		//For each set of files.
+		fs.readdirSync(files.js[type]).forEach(function(file) {
+			//Never hint a vendor file. 
+			if (type !== 'vendor') { 
+				scripts.push(paths.input.js + '/' + type + '/' + file);
+			} 
+		});
+	}
+	
+	//Hint the file. 
+	functions.hint(scripts);
+});
+
+//Handle all framework JS. 
+gulp.task('js-framework', ['js-hint'], function() {
+	//Declare variables.
+	var	vendor	=	[];
+	var	scripts	=	[];
+	
+	//For each JavaScript application category.
+	for (var type in files.js) {
+		//Skip the loop if the property is from prototype.
+		if (!files.js.hasOwnProperty(type)) continue;
+		
+		//For each set of files.
+		fs.readdirSync(files.js[type]).forEach(function(file) { 
+			//Handle vendors differently. 
+			if (type.indexOf('vendor') < 0) {
+				scripts.push(paths.input.js + '/' + type + '/' + file);
+			} else {
+				vendor.push(paths.input.js + '/' + type + '/' + file);
+			}
+		});
+	}
+	
+	//Run the JavaScript compiler.
+	functions.js(vendor, 'vendor.js');
+	functions.js(scripts, 'framework.js');
+});
+
+//Scripts and modernizr. 
+gulp.task('javascript', ['js-framework'], function() {
 	return gulp.src([paths.input.js + '/**/*.js'])
 		.pipe(modernizr())
 		.pipe(gulp.dest(paths.output.js));
@@ -265,7 +298,7 @@ gulp.task('watch', function() {
 	});
 	
 	//Watch for changes to the JavaScript. 
-	gulp.watch(paths.input.js + '/**/*.js', ['scripts']);
+	gulp.watch(paths.input.js + '/**/*.js', ['javascript']);
 	
 	//Watch for images. 
 	gulp.watch(paths.input.images + '/*', ['images']);

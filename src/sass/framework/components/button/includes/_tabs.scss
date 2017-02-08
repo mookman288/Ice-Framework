@@ -1,0 +1,13 @@
+//Name: Tabs
+//Author: PxO Ink
+//License: The MIT License (MIT)
+//Copyright: © 2016 PxO Ink. Most Rights Reserved.
+
+%tabs {
+	li {
+		a {
+			@extend %button;
+			border-radius: toRem($border-radius) toRem($border-radius) 0 0;
+		}
+	}
+}

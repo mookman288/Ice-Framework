@@ -10,3 +10,7 @@ video, audio, iframe, embed, object {
 	@extend %embed;
 	margin-bottom: toRem($std-margin);
 }
+
+img {
+	@extend %img;
+}
