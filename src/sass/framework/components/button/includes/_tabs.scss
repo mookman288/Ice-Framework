@@ -4,10 +4,28 @@
 //Copyright: © 2016 PxO Ink. Most Rights Reserved.
 
 %tabs {
-	li {
-		a {
-			@extend %button;
-			border-radius: toRem($border-radius) toRem($border-radius) 0 0;
+	border-width: 0;
+	border-bottom: toPx($border-width);
+	border-style: solid;
+	border-color: color($blue); 
+	
+	ul {
+		margin: 0;
+		
+		li {
+			a {
+				@extend %button;
+				margin: 0;
+				border-radius: toRem($border-radius) toRem($border-radius) 0 0;
+			}
 		}
+	}
+	
+	+ div.tabbed {
+		padding: toRem($std-padding); 
+		border-width: toPx($border-width);
+		border-top: 0;
+		border-style: solid;
+		border-color: color($blue);
 	}
 }

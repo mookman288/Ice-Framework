@@ -65,6 +65,10 @@ blockquote {
 	@extend %quote;
 }
 
+.large {
+	@extend %h3;
+}
+
 .align-center {
 	@extend %align-center;
 }

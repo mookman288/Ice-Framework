@@ -25,11 +25,19 @@
 		}
 	}
 	
-	&:nth-child(n + 1) {
+	&:nth-child(n + 1):not(.left):not(.right) {
 		float: left;
 	}
 	
-	&:nth-child(n + 1):last-child:not(:only-child) {
+	&:nth-child(n + 1):last-child:not(:only-child):not(.left):not(.right) {
+		float: right;
+	}
+	
+	&.left {
+		float: left;
+	}
+	
+	&.right {
 		float: right;
 	}
 	
@@ -41,6 +49,11 @@
 	&.pad {
 		padding-left: toRem($gutterWidth / 2);
 		padding-right: toRem($gutterWidth / 2);
+	}
+	
+	&.v-pad {
+		padding-top: toRem($gutterWidth / 2);
+		padding-bottom: toRem($gutterWidth / 2); 
 	}
 	
 	&.pad-right {

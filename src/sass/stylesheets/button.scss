@@ -13,3 +13,7 @@
 input[type=reset] {
 	@extend .highlight;
 }
+
+.tabs {
+	@extend %tabs;
+}
