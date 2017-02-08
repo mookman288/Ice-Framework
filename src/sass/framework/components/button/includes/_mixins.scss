@@ -26,7 +26,7 @@
 		color: color($color, 'contrast');
 	}
 	
-	&:active {
+	&:active, &.active {
 		background-color: darken(color($color), 8.00%);
 		color: color($color, 'contrast');
 		border-width: 0; 

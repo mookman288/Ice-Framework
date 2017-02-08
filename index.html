@@ -9,10 +9,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Responsive Indicator -->
 		<link rel="icon" href="images/favicon.png" /> <!-- Standard Favicon -->
 		<link rel="shortcut icon" href="favicon.ico" /> <!-- Ico Format Favicon -->
-		<link rel="stylesheet" type="text/css" href="css/stylesheet.css?v=0.0.8.9" /> <!-- Cascading Stylesheet -->
+		<link rel="stylesheet" type="text/css" href="css/stylesheet.css?v=0.0.9.3" /> <!-- Cascading Stylesheet -->
 	</head>
 	<body>
-		<header id="top">
+		<header id="header">
 			<div class="container">
 				<h1>Ice</h1>
 				<h2>A Design Framework Proof of Concept</h2>
@@ -68,7 +68,7 @@
 								<h6>JavaScript</h6>
 								<ul>
 									<li>
-										<a href="#icebox">Icebox</a>
+										<a href="#icebox-demo">Icebox</a>
 									</li>
 									<li>
 										<a href="#scroller">Scroller</a>
@@ -275,9 +275,10 @@
 							<a href="https://travismaynard.com/writing/getting-started-with-gulp" target="_blank">here</a>. 
 						</p>
 						<p>
-							Once you've cloned this repository, you should simply need to run <code>npm install</code> to 
-							load all of the dependencies used in this build. You can then begin working by calling 
-							<code>gulp</code> for production, or <code>gulp --dev</code> for development. 
+							If you have <code>npm</code> or <code>yarn</code> previously installed, once you've cloned this 
+							repository, you should simply need to install the dependencies found in the 
+							<code>package.json</code> file. Then you can begin working by calling <code>gulp</code> for 
+							production, or <code>gulp --dev</code> for development. 
 						</p>
 						<h3>Documentation</h3>
 						<h4 id="grid">Grid</h4>
@@ -388,14 +389,13 @@
 							</div>
 						</div>
 						<p>
-							Most common grid systems are designed around an arbitrary standard of 960px maximum width. This 
-							decision has been near-unanimously supported by the ever increasing number of twelve-to-sixteen 
-							grid column layouts. As a result of this choice, many websites have begun adopting a mobile-first 
-							strategy. This methodology has inadvertently forced websites to cut back on innovative 
-							functionality in favor of simplistic form. Although effective on smaller resolution devices, 
-							this has significantly deteriorated the browsing experience on higher resolution devices. 
-							Ultimately, what these grid systems lack is functional scalability across a plethora of device 
-							widths. 
+							Most common grid systems are designed around an arbitrary standard of 960px maximum width. This, 
+							coupled with the adoption of a mobile-first design strategy, has once again put pixel perfect 
+							design above organic architectural design. This methodology has inadvertently forced websites to 
+							cut back on innovative functionality in favor of simplistic form. Although effective on smaller 
+							resolution devices, it is the <strong>opinion</strong> of this author that this has significantly 
+							deteriorated the browsing experience on higher resolution devices. Ultimately, what these grid 
+							systems lack is functional scalability across a plethora of device widths. 
 						</p>
 						<p>
 							Despite the fact that developing an accessible experience across a vast number of device widths 
@@ -407,7 +407,7 @@
 							resolution devices. 
 						<p>
 							In order to accomplish this level of scalability, five major breakpoints have been selected 
-							based on a variety of device width data. In order of greatest to least: 
+							based on a variety of device width data as of Q1 2016. In order of greatest to least: 
 						</p>
 						<table class="striped transact extend">
 							<thead>
@@ -485,14 +485,19 @@
 						<h4 id="lists">Lists</h4>
 						<h5>Demonstration</h5>
 						<div class="row">
-							<div class="column hd-12 std-24">
+							<div class="column hd-12 std-24 pad">
 								<h6>Unordered List</h6>
 								<ul>
 									<li>Unordered 1</li>
 									<li>Unordered 2
 										<ul>
 											<li>Sub-List 1</li>
-											<li>Sub-List 2</li>
+											<li>Sub-List 2
+												<ul>
+													<li>Sub-Sub 1</li>
+													<li>Sub-Sub 2</li>
+												</ul>
+											</li>
 											<li>Sub-List 3</li>
 											<li>Sub-List 4</li>
 										</ul>
@@ -500,8 +505,27 @@
 									<li>Unordered 3</li>
 									<li>Unordered 4</li>
 								</ul>
+<pre><code>&lt;ul&gt;
+	&lt;li&gt;Unordered 1&lt;/li&gt;
+	&lt;li&gt;Unordered 2
+		&lt;ul&gt;
+			&lt;li&gt;Sub-List 1&lt;/li&gt;
+			&lt;li&gt;Sub-List 2
+				&lt;ul&gt;
+					&lt;li&gt;Sub-Sub 1&lt;/li&gt;
+					&lt;li&gt;Sub-Sub 2&lt;/li&gt;
+				&lt;/ul&gt;
+			&lt;/li&gt;
+			&lt;li&gt;Sub-List 3&lt;/li&gt;
+			&lt;li&gt;Sub-List 4&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/li&gt;
+	&lt;li&gt;Unordered 3&lt;/li&gt;
+	&lt;li&gt;Unordered 4&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>								
 							</div>
-							<div class="column hd-12 std-24">
+							<div class="column hd-12 std-24 pad">
 								<h6>Ordered List</h6>
 								<ol>
 									<li>Ordered 1</li>
@@ -522,14 +546,30 @@
 									<li>Ordered 4</li>
 								</ol>
 							</div>
-						</div>
-<pre><code>
-
+<pre><code>&lt;ol&gt;
+	&lt;li&gt;Ordered 1&lt;/li&gt;
+	&lt;li&gt;Ordered 2
+		&lt;ol&gt;
+			&lt;li&gt;Sub-List 1&lt;/li&gt;
+			&lt;li&gt;Sub-List 2
+				&lt;ol&gt;
+					&lt;li&gt;Sub-Sub 1&lt;/li&gt;
+					&lt;li&gt;Sub-Sub 2&lt;/li&gt;
+				&lt;/ol&gt;
+			&lt;/li&gt;
+			&lt;li&gt;Sub-List 3&lt;/li&gt;
+			&lt;li&gt;Sub-List 4&lt;/li&gt;
+		&lt;/ol&gt;
+	&lt;/li&gt;
+	&lt;li&gt;Ordered 3&lt;/li&gt;
+	&lt;li&gt;Ordered 4&lt;/li&gt;
+&lt;/ol&gt;
 </code></pre>
+						</div>
 						<h4 id="navigation">Navigation and Menues</h4>
 						<h5>Demonstration</h5>
 						<div class="row">
-							<div class="column hd-8 std-10 mob-12 tel-24">
+							<div class="column hd-8 std-10 mob-12 tel-24 pad">
 								<h6>Vertical Menu</h6>
 								<nav class="vertical">
 									<h6>Menu</h6>
@@ -553,7 +593,7 @@
 									</ul>
 								</nav>
 							</div>
-							<div class="column hd-16 std-14 mob-12 tel-24">
+							<div class="column hd-16 std-14 mob-12 tel-24 pad">
 								<h6>Horizontal Menu</h6>
 								<nav>
 									<h6>Menu</h6>
@@ -578,6 +618,51 @@
 								</nav>
 							</div>
 						</div>
+<pre><code>&lt;nav class=&quot;vertical&quot;&gt;
+	&lt;h6&gt;Menu&lt;/h6&gt;
+	&lt;ul&gt;
+		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Menu 1&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Menu 2&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Dropdown&lt;/a&gt;
+			&lt;ul&gt;
+				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Menu Three-One&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Menu Three-Two&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Menu Three-Dropdown&lt;/a&gt;
+					&lt;ul&gt;
+						&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Menu Three-Three-One&lt;/a&gt;&lt;/li&gt;
+						&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Menu Three-Three-Two&lt;/a&gt;&lt;/li&gt;
+					&lt;/ul&gt;
+				&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Menu 4&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Menu 5&lt;/a&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/nav&gt;
+</code></pre>
+<pre><code>
+&lt;nav&gt;
+	&lt;h6&gt;Menu&lt;/h6&gt;
+	&lt;ul&gt;
+		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Menu 1&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Menu 2&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Dropdown&lt;/a&gt;
+			&lt;ul&gt;
+				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Menu Three-One&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Menu Three-Two&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Menu Three-Dropdown&lt;/a&gt;
+					&lt;ul&gt;
+						&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Menu Three-Three-One&lt;/a&gt;&lt;/li&gt;
+						&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Menu Three-Three-Two&lt;/a&gt;&lt;/li&gt;
+					&lt;/ul&gt;
+				&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Menu 4&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;#&quot;&gt;Menu 5&lt;/a&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/nav&gt;
+</code></pre>
 						<h4 id="breadcrumbs">Breadcrumbs</h4>
 						<h5>Demonstration</h5>
 						<nav class="breadcrumbs">
@@ -1108,7 +1193,7 @@
 						<p>
 							By default, mobile menus currently rely on JavaScript to handle animation. 
 						</p>
-						<h5 id="icebox">IceBox</h5>
+						<h5 id="icebox-demo">IceBox</h5>
 						<h6>Demonstration</h6>
 						<div class="row">
 							<div class="column hd-6 tab-12 tel-24 pad">
@@ -1149,17 +1234,29 @@
 						<h5 id="scroller">Scroller</h5>
 						<h6>Demonstration</h6>
 						<ul>
-							<li><a href="#top">To the top</a></li>
-							<li><a href="#bottom">To the footer</a></li>
+							<li><a href="#header">To the top</a></li>
+							<li><a href="#footer">To the footer</a></li>
+							<li><a href="#header" data-no-scroll>No Scroll</a></li>
 						</ul>
+<pre><code>&lt;a href=&quot;#top&quot;&gt;To the top&lt;/a&gt;
+&lt;a href=&quot;#top&quot; data-no-scroll&gt;No Scroll&lt;/a&gt;
+</code></pre>
 						<h5 id="toggler">Toggler</h5>
 						<h6>Demonstration</h6>
-						<a href="javascript:void(0)" data-slide="#toggle-me-1">
+						<a href="#" data-no-scroll data-toggle="#toggle-me-1">
 							Click this to toggle a hidden box. 
 						</a>
 						<div id="toggle-me-1" class="nod">
 							This is your typical hidden content. 
 						</div>
+<pre><code>
+&lt;a href=&quot;#&quot; data-no-scroll data-toggle=&quot;#toggle-me-1&quot;&gt;
+	Click this to toggle a hidden box. 
+&lt;/a&gt;
+&lt;div id=&quot;toggle-me-1&quot; class=&quot;nod&quot;&gt;
+	This is your typical hidden content. 
+&lt;/div&gt;
+</code></pre>
 						<h5 id="tabs">Tabs</h5>
 						<h6>Demonstration</h6>
 						<nav class="tabs">
@@ -1465,11 +1562,11 @@
 				</div>
 			</div>
 		</section>
-		<footer id="bottom" class="align-center">
+		<footer id="footer" class="align-center">
 			<p>Copyright &copy; PxO Ink. Some Rights Reserved. See License.</p> 
 		</footer>
-		<script type="text/javascript" src="js/modernizr.js?v=0.0.8.9"></script>
-		<script type="text/javascript" src="js/vendor.js?v=0.0.8.9"></script>
-		<script type="text/javascript" src="js/framework.js?v=0.0.8.9"></script>
+		<script type="text/javascript" src="js/modernizr.js?v=0.0.9.3"></script>
+		<script type="text/javascript" src="js/vendor.js?v=0.0.9.3"></script>
+		<script type="text/javascript" src="js/framework.js?v=0.0.9.3"></script>
 	</body>
 </html>

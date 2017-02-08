@@ -1,0 +1,80 @@
+/* Cascading Style Sheet Created By: PxO Ink (http://pxoink.net/) */
+/* Cascading Style Sheet Copyright © 2014 PxO Ink. Most Rights Reserved. */
+
+*.icebox {
+	cursor: pointer;
+	}
+	
+div#icebox *.icebox {
+	cursor: initial;
+	}
+
+div#ice-shadow {
+	display: none;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.85); 
+	z-index: 8400;
+	}
+	
+div#icebox {
+	display: none;
+	position: relative;
+	top: 25.00%;
+	left: 25.00%;
+	padding: 0.25em;
+	width: auto;
+	height: auto;
+	max-width: 85.00%;
+	max-height: 85.00%;
+	min-width: 15.00%;
+	min-height: 15.00%;
+	background-color: #000;
+	border-width: 1px;
+	border-color: #007BA7;
+	border-style: ridge;
+	border-radius: 2px;
+	box-shadow: 0px 0px 1.00em #000;
+	font-family: sans-serif, serif;
+	font-size: 1.00em;
+	opacity: 0;
+	overflow: visible !important;
+	z-index: 8500;
+	}
+	
+div#icebox > a#icebox-close {
+	position: absolute;
+	top: -0.85em;
+	right: -0.85em;
+	padding: 0.25em 0.50em;
+	background-color: #000;
+	border-width: 1px;
+	border-color: #EEE;
+	border-style: ridge;
+	border-radius: 4px;
+	box-shadow: 0px 0px 0.50em #000;
+	color: #FFF;
+	font-size: 1.40em;
+	font-weight: bold;
+	line-height: 1.00;
+	text-decoration: none;
+	z-index: 8800;
+	}
+	
+div#icebox > a#icebox-close:hover, div#icebox > a#icebox-close:active {
+	background-color: #D00;
+	}
+	
+div#icebox > div {
+	width: auto;
+	height: auto;
+	}
+	
+div#icebox > div * {
+	max-width: 100.00%;
+	max-height: 100.00%;
+	color: #FFF;
+	}

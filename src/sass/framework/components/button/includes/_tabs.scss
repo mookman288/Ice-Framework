@@ -15,7 +15,9 @@
 		li {
 			a {
 				@extend %button;
+				position: relative;
 				margin: 0;
+				border-width: 0;
 				border-radius: toRem($border-radius) toRem($border-radius) 0 0;
 			}
 		}

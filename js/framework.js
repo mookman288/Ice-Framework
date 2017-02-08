@@ -362,10 +362,10 @@ if (typeof ice !== 'undefined') {
 							
 							//Get the element to scroll to.
 							var	$ele	=	$($a.attr('href'));
-							var	top		=	(!$ele.length) ? -1 : Math.ceil($ele.offset().top);
+							var	top		=	(!$ele.length) ? null : Math.ceil($ele.offset().top);
 							
 							//If the area of the element is somewhere in the page. 
-							if (top > 0 && !$a.data('no-scroll')) {
+							if (!$a.data('no-scroll')) {
 								//Scroll to the element.
 								jQuery('body, html').animate({scrollTop: (top > ice.gutter) ? top - ice.gutter : top}, ice.interval);
 							}
@@ -376,27 +376,6 @@ if (typeof ice !== 'undefined') {
 					}
 				});
 			}
-		}
-	})(jQuery);
-}
-if (typeof ice !== 'undefined') {
-	ice.f.slider	=	(function($) {
-		//Capture all of the sliders.
-		var	$sliders	=	$('*[data-slider]');
-		
-		//If there are sliders.
-		if ($sliders.length > 0) {
-			//For each slide. 
-			$sliders.each(function() {
-				//Assign the individual slider from this. 
-				var	$slider	=	$(this); 
-				
-				//On click.
-				$slider.click(function() { 
-					//Toggle slide.
-					$($slider.data('slide')).slideToggle(ice.interval);
-				});
-			});
 		}
 	})(jQuery);
 }
@@ -462,6 +441,33 @@ if (typeof ice !== 'undefined') {
 					//Hide all but this element.
 					$(hrefs).not('#' + $_GET.tab).hide();
 				}
+			});
+		}
+	})(jQuery);
+}
+if (typeof ice !== 'undefined') {
+	ice.f.toggler	=	(function($) {
+		//Capture all of the togglers.
+		var	$togglers	=	$('*[data-toggle]');
+		
+		//If there are togglers.
+		if ($togglers.length > 0) {
+			//For each slide. 
+			$togglers.each(function() {
+				//Assign the individual toggler from this. 
+				var	$toggler	=	$(this); 
+				
+				//On click.
+				$toggler.click(function(e) { 
+					//Prevent the element from triggering its normal action. 
+					e.preventDefault();
+					
+					//Toggle slide.
+					$($toggler.data('toggle')).slideToggle(ice.interval);
+					
+					//Return false.
+					return false;
+				});
 			});
 		}
 	})(jQuery);

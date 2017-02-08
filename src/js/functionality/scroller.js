@@ -18,10 +18,10 @@ if (typeof ice !== 'undefined') {
 							
 							//Get the element to scroll to.
 							var	$ele	=	$($a.attr('href'));
-							var	top		=	(!$ele.length) ? -1 : Math.ceil($ele.offset().top);
+							var	top		=	(!$ele.length) ? null : Math.ceil($ele.offset().top);
 							
 							//If the area of the element is somewhere in the page. 
-							if (top > 0 && !$a.data('no-scroll')) {
+							if (!$a.data('no-scroll')) {
 								//Scroll to the element.
 								jQuery('body, html').animate({scrollTop: (top > ice.gutter) ? top - ice.gutter : top}, ice.interval);
 							}
