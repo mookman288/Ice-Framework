@@ -6,25 +6,6 @@
 %column {
 	box-sizing: border-box;
 	
-	//For each resolution.
-	@each $key, $value in $resolutions {
-		@media all and (max-width: toPx($value)) {
-			//For each column.
-			@for $i from 0 through $columns {
-				&.#{"" + $key} {
-					&-#{"" + $i} {
-						//If this is zero.
-						@if ($i == 0) {
-							display: none;
-						} @else {
-							width: toPercent(calcColumnWidth($i));
-						}
-					}
-				}
-			}
-		}
-	}
-	
 	&:nth-child(n + 1):not(.left):not(.right) {
 		float: left;
 	}
@@ -62,5 +43,36 @@
 	
 	&.pad-left {
 		padding-left: toRem($gutterWidth / 2);
+	}
+	
+	//For each resolution.
+	@each $key, $value in $resolutions {
+		@media all and (max-width: toPx($value)) {
+			//For each column.
+			@for $i from 0 through $columns {
+				&.#{"" + $key} {
+					&-#{"" + $i} {
+						//If this is zero.
+						@if ($i == 0) {
+							display: none;
+						} @else {
+							width: toPercent(calcColumnWidth($i));
+						}
+					}
+					
+					&-no-pad {
+						padding: 0; 
+					}
+					
+					&-no-pad-left {
+						padding-left: 0;
+					}
+					
+					&-no-pad-right {
+						padding-right: 0; 
+					}
+				}
+			}
+		}
 	}
 }

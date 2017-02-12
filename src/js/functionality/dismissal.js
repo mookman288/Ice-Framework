@@ -6,7 +6,7 @@ if (typeof ice !== 'undefined') {
 		//If there are dismissable elements.
 		if ($dismissals.length > 0) {
 			//For each dismissable elements.
-			$dismissals.each(function() {
+			$dismissals.each(function() { 
 				//Assign the individual element from this.
 				$dismissal	=	$(this); 
 				
@@ -16,7 +16,7 @@ if (typeof ice !== 'undefined') {
 				//On click.
 				$dismissal.click(function() {
 					//Fade the element out.
-					$dismissal.fadeOut(400);
+					$(this).fadeOut(400);
 				});
 			});
 		}

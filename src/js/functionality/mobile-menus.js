@@ -1,31 +1,34 @@
 if (typeof ice !== 'undefined') {
 	ice.f.mobile.menus	=	(function($) {
-		//For each horizontal navigation.
-		$('nav.horizontal').each(function() {
+		//For each navigation.
+		$('nav').each(function() { 
+			//Capture this navigational element.
+			var	$nav	=	$(this); 
+			
 			//Find nested menues.
-			$(this).find('li > ul').each(function() {
-				//Add the chevron class.
-				$(this).parent().children('a').addClass('chevron');
-			});
-		});
-		
-		//For each mobile navigation.
-		$('nav.mobile').each(function() { 
-			//Capture the last navigational element.
-			var	$nav	=	$(this).children('ul:last-child');
-			
-			//When the mobile menu is clicked.
-			$(this).children('ul:first-child').find('a').click(function() { 
-				//Slide the navigation.
-				$nav.slideToggle();
-			});
-			
-			//Slide the nav elements down.
 			$nav.find('li > ul').each(function() {
-				//On click. 
-				$(this).parent().children('a').click(function() { 
-					//Slide the ul.
-					$(this).parent().children('ul').slideToggle();
+				//Get the target dropdown. 
+				$target		=	$(this); 
+				
+				//Get the dropdown nav. 
+				$dropdown	=	$target.parent();
+				
+				//Add the appropriate dropdown class.
+				$dropdown.addClass('dropdown');
+				
+				//For specific anchors that are clicked. 
+				$dropdown.children('a').click(function(e) {
+					//If this is a target, prevent the link from working.
+					if ($(this).attr('href').substring(0, 1) === '#') e.preventDefault();
+				});
+				
+				//When the mobile menu is clicked.
+				$dropdown.click(function(e) {
+					//Toggle the dropdown class.
+					$(this).toggleClass('active'); 
+					
+					//Toggle the navigation into view. 
+					$target.slideToggle(ice.interval);
 				});
 			});
 		});

@@ -7,9 +7,17 @@
 	@include cfx;
 	z-index: 100;
 	
+	@media all and (max-width: toPx($mobileBreak)) {
+		width: 100.00%;
+	}
+	
 	h6 {
 		float: left;
 		margin-right: toRem($std-margin);
+		
+		@media all and (max-width: toPx($mobileBreak)) {
+			float: none;
+		}
 	}
 	
 	ul {
@@ -18,6 +26,12 @@
 		position: relative;
 		padding: 0;
 		list-style-type: none;
+		
+		@media all and (max-width: toPx($mobileBreak)) {
+			float: none;
+			position: static;
+			display: block;
+		}
 	
 		li {
 			float: left;
@@ -25,8 +39,36 @@
 			margin: 0;
 			text-indent: 0;
 			
-			&:hover > ul {
+			@media all and (min-width: toPx(1 + $mobileBreak)) {
+				&:hover, &:focus {
+					> ul {
+						display: block;
+					}
+				}
+			}
+			
+			@media all and (max-width: toPx($mobileBreak)) {
+				float: none;
+				position: static;
 				display: block;
+				
+				&.dropdown {
+					&:before {
+						content: '\0021e6';
+						float: right; 
+						cursor: pointer; 
+					}
+					
+					&.active {
+						&:before {
+							content: '\0021e9';
+						}
+						
+						ul {
+							padding-left: toRem($std-padding); 
+						}
+					}
+				}
 			}
 		}
 		
@@ -40,9 +82,12 @@
 		
 		ul {
 			display: none;
-			position: absolute;
-			top: 100.00%;
-			z-index: 110;
+			
+			@media all and (min-width: toPx(1 + $mobileBreak)) {
+				position: absolute;
+				top: 100.00%;
+				z-index: 110;
+			}
 			
 			li {
 				position: relative;
@@ -52,9 +97,11 @@
 					padding-right: toRem($std-padding / 2);
 				}
 				
-				ul {
-					top: 0;
-					left: 100.00%;
+				@media all and (min-width: toPx(1 + $mobileBreak)) {
+					ul {
+						top: 0;
+						left: 100.00%;
+					}
 				}
 			}
 		}

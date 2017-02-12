@@ -10,6 +10,9 @@ if (typeof ice !== 'undefined') {
 				//Assign the individual toggler from this. 
 				var	$toggler	=	$(this); 
 				
+				//Add the no scroll attribute.
+				$toggler.attr('data-no-scroll', true); 
+				
 				//On click.
 				$toggler.click(function(e) { 
 					//Prevent the element from triggering its normal action. 

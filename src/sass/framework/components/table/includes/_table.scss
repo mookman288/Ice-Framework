@@ -4,8 +4,6 @@
 //Copyright: © 2016 PxO Ink. Most Rights Reserved.
 
 %table {
-	max-width: 100.00%;
-	box-sizing: border-box;
 	border-collapse: collapse;
 	border-spacing: 0;
 	
@@ -55,8 +53,9 @@
 			text-align: right;
 		}
 	}
-	
-	@media all and (max-width: toPx(map-get($resolutions, 'std'))) {
-		overflow-x: auto;
-	}
+}
+
+%table-container {
+	max-width: 100.00%;
+	overflow-x: auto; 
 }

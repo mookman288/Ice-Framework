@@ -28,14 +28,6 @@ iframe, img, object {
 	@extend %nob;
 }
 
-h1, h2 {
-	margin-bottom: toRem($std-margin / 2);
-}
-
-h3, h4, h5, h6, p, blockquote, ul, ol {
-	margin-bottom: toRem($std-margin);
-}
-
 li {
 	list-style-position: inside;
 }

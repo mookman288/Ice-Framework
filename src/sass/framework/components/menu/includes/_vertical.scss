@@ -18,6 +18,7 @@
 		
 		ul {
 			float: none;
+			
 			li {
 				display: block;
 				float: none;
@@ -26,12 +27,21 @@
 				a {
 					display: block;
 					padding-right: toRem($std-padding / 2);
+					
+					@media all and (max-width: toPx($mobileBreak)) {
+						display: initial;
+					}
 				}
 			}
 			
 			ul {
 				top: 0;
 				left: 100.00%;
+			
+				@media all and (max-width: toPx($mobileBreak)) {
+					top: auto;
+					left: auto; 
+				}
 			}
 		}
 	}

@@ -111,11 +111,11 @@ var	functions	=	{
 				}))
 				.pipe(jshint.reporter('default'));
 		}, 
-		js:		function(files, filename) { console.log(filename); 
+		js:		function(files, filename) { 
 			//Run Gulp.
 			return gulp.src(files)
-				.pipe(gulpif(!dev, uglify({'preserveComments': 'license'})))
 				.pipe(concat(filename))
+				.pipe(gulpif(!dev, uglify({'preserveComments': 'license'})))
 				.pipe(gulp.dest(paths.output.js));
 		}, 
 		sass:	function(app) { 
@@ -273,6 +273,7 @@ gulp.task('js-framework', ['js-hint'], function() {
 gulp.task('javascript', ['js-framework'], function() {
 	return gulp.src([paths.input.js + '/**/*.js'])
 		.pipe(modernizr())
+		.pipe(gulpif(!dev, uglify({'preserveComments': 'license'})))
 		.pipe(gulp.dest(paths.output.js));
 });
 

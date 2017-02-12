@@ -1,5 +1,5 @@
 /*!
- * jQuery JavaScript Library v1.12.0
+ * jQuery JavaScript Library v1.12.4
  * http://jquery.com/
  *
  * Includes Sizzle.js
@@ -9,7 +9,7 @@
  * Released under the MIT license
  * http://jquery.org/license
  *
- * Date: 2016-01-08T19:56Z
+ * Date: 2016-05-20T17:17Z
  */
 
 (function( global, factory ) {
@@ -65,7 +65,7 @@ var support = {};
 
 
 var
-	version = "1.12.0",
+	version = "1.12.4",
 
 	// Define a local copy of jQuery
 	jQuery = function( selector, context ) {
@@ -3625,11 +3625,10 @@ jQuery.ready.promise = function( obj ) {
 
 		// Catch cases where $(document).ready() is called
 		// after the browser event has already occurred.
-		// we once tried to use readyState "interactive" here,
-		// but it caused issues like the one
-		// discovered by ChrisS here:
-		// http://bugs.jquery.com/ticket/12282#comment:15
-		if ( document.readyState === "complete" ) {
+		// Support: IE6-10
+		// Older IE sometimes signals "interactive" too soon
+		if ( document.readyState === "complete" ||
+			( document.readyState !== "loading" && !document.documentElement.doScroll ) ) {
 
 			// Handle it asynchronously to allow scripts the opportunity to delay ready
 			window.setTimeout( jQuery.ready );
@@ -6673,6 +6672,7 @@ var documentElement = document.documentElement;
 		if ( reliableHiddenOffsetsVal ) {
 			div.style.display = "";
 			div.innerHTML = "<table><tr><td></td><td>t</td></tr></table>";
+			div.childNodes[ 0 ].style.borderCollapse = "separate";
 			contents = div.getElementsByTagName( "td" );
 			contents[ 0 ].style.cssText = "margin:0;border:0;padding:0;display:none";
 			reliableHiddenOffsetsVal = contents[ 0 ].offsetHeight === 0;
@@ -6701,7 +6701,7 @@ if ( window.getComputedStyle ) {
 		// FF meanwhile throws on frame elements through "defaultView.getComputedStyle"
 		var view = elem.ownerDocument.defaultView;
 
-		if ( !view.opener ) {
+		if ( !view || !view.opener ) {
 			view = window;
 		}
 
@@ -6717,11 +6717,14 @@ if ( window.getComputedStyle ) {
 		// getPropertyValue is only needed for .css('filter') in IE9, see #12537
 		ret = computed ? computed.getPropertyValue( name ) || computed[ name ] : undefined;
 
-		if ( computed ) {
+		// Support: Opera 12.1x only
+		// Fall back to style even without computed
+		// computed is undefined for elems on document fragments
+		if ( ( ret === "" || ret === undefined ) && !jQuery.contains( elem.ownerDocument, elem ) ) {
+			ret = jQuery.style( elem, name );
+		}
 
-			if ( ret === "" && !jQuery.contains( elem.ownerDocument, elem ) ) {
-				ret = jQuery.style( elem, name );
-			}
+		if ( computed ) {
 
 			// A tribute to the "awesome hack by Dean Edwards"
 			// Chrome < 17 and Safari 5.0 uses "computed value"
@@ -6993,19 +6996,6 @@ function getWidthOrHeight( elem, name, extra ) {
 		styles = getStyles( elem ),
 		isBorderBox = support.boxSizing &&
 			jQuery.css( elem, "boxSizing", false, styles ) === "border-box";
-
-	// Support: IE11 only
-	// In IE 11 fullscreen elements inside of an iframe have
-	// 100x too small dimensions (gh-1764).
-	if ( document.msFullscreenElement && window.top !== window ) {
-
-		// Support: IE11 only
-		// Running getBoundingClientRect on a disconnected node
-		// in IE throws an error.
-		if ( elem.getClientRects().length ) {
-			val = Math.round( elem.getBoundingClientRect()[ name ] * 100 );
-		}
-	}
 
 	// some non-html elements return undefined for offsetWidth, so check for null/undefined
 	// svg - https://bugzilla.mozilla.org/show_bug.cgi?id=649285
@@ -8196,7 +8186,8 @@ jQuery.fn.delay = function( time, type ) {
 } )();
 
 
-var rreturn = /\r/g;
+var rreturn = /\r/g,
+	rspaces = /[\x20\t\r\n\f]+/g;
 
 jQuery.fn.extend( {
 	val: function( value ) {
@@ -8276,7 +8267,9 @@ jQuery.extend( {
 
 					// Support: IE10-11+
 					// option.text throws exceptions (#14686, #14858)
-					jQuery.trim( jQuery.text( elem ) );
+					// Strip and collapse whitespace
+					// https://html.spec.whatwg.org/#strip-and-collapse-whitespace
+					jQuery.trim( jQuery.text( elem ) ).replace( rspaces, " " );
 			}
 		},
 		select: {
@@ -8330,7 +8323,7 @@ jQuery.extend( {
 				while ( i-- ) {
 					option = options[ i ];
 
-					if ( jQuery.inArray( jQuery.valHooks.option.get( option ), values ) >= 0 ) {
+					if ( jQuery.inArray( jQuery.valHooks.option.get( option ), values ) > -1 ) {
 
 						// Support: IE6
 						// When new option element is added to select box we need to
@@ -8749,8 +8742,11 @@ if ( !support.hrefNormalized ) {
 }
 
 // Support: Safari, IE9+
-// mis-reports the default selected property of an option
-// Accessing the parent's selectedIndex property fixes it
+// Accessing the selectedIndex property
+// forces the browser to respect setting selected
+// on the option
+// The getter ensures a default option is selected
+// when in an optgroup
 if ( !support.optSelected ) {
 	jQuery.propHooks.selected = {
 		get: function( elem ) {
@@ -8765,6 +8761,16 @@ if ( !support.optSelected ) {
 				}
 			}
 			return null;
+		},
+		set: function( elem ) {
+			var parent = elem.parentNode;
+			if ( parent ) {
+				parent.selectedIndex;
+
+				if ( parent.parentNode ) {
+					parent.parentNode.selectedIndex;
+				}
+			}
 		}
 	};
 }
@@ -9981,6 +9987,11 @@ function getDisplay( elem ) {
 }
 
 function filterHidden( elem ) {
+
+	// Disconnected elements are considered hidden
+	if ( !jQuery.contains( elem.ownerDocument || document, elem ) ) {
+		return true;
+	}
 	while ( elem && elem.nodeType === 1 ) {
 		if ( getDisplay( elem ) === "none" || elem.type === "hidden" ) {
 			return true;
@@ -10347,13 +10358,6 @@ function createActiveXHR() {
 
 
 
-// Prevent auto-execution of scripts when no explicit dataType was provided (See gh-2432)
-jQuery.ajaxPrefilter( function( s ) {
-	if ( s.crossDomain ) {
-		s.contents.script = false;
-	}
-} );
-
 // Install script dataType
 jQuery.ajaxSetup( {
 	accepts: {
@@ -10540,21 +10544,6 @@ jQuery.ajaxPrefilter( "json jsonp", function( s, originalSettings, jqXHR ) {
 
 
 
-// Support: Safari 8+
-// In Safari 8 documents created via document.implementation.createHTMLDocument
-// collapse sibling forms: the second one becomes a child of the first one.
-// Because of that, this security measure has to be disabled in Safari 8.
-// https://bugs.webkit.org/show_bug.cgi?id=137337
-support.createHTMLDocument = ( function() {
-	if ( !document.implementation.createHTMLDocument ) {
-		return false;
-	}
-	var doc = document.implementation.createHTMLDocument( "" );
-	doc.body.innerHTML = "<form></form><form></form>";
-	return doc.body.childNodes.length === 2;
-} )();
-
-
 // data: string of html
 // context (optional): If specified, the fragment will be created in this context,
 // defaults to document
@@ -10567,12 +10556,7 @@ jQuery.parseHTML = function( data, context, keepScripts ) {
 		keepScripts = context;
 		context = false;
 	}
-
-	// document.implementation stops scripts or inline event handlers from
-	// being executed immediately
-	context = context || ( support.createHTMLDocument ?
-		document.implementation.createHTMLDocument( "" ) :
-		document );
+	context = context || document;
 
 	var parsed = rsingleTag.exec( data ),
 		scripts = !keepScripts && [];
@@ -10654,7 +10638,7 @@ jQuery.fn.load = function( url, params, callback ) {
 		// If it fails, this function gets "jqXHR", "status", "error"
 		} ).always( callback && function( jqXHR, status ) {
 			self.each( function() {
-				callback.apply( self, response || [ jqXHR.responseText, status, jqXHR ] );
+				callback.apply( this, response || [ jqXHR.responseText, status, jqXHR ] );
 			} );
 		} );
 	}
@@ -10818,11 +10802,8 @@ jQuery.fn.extend( {
 			}
 
 			// Add offsetParent borders
-			// Subtract offsetParent scroll positions
-			parentOffset.top += jQuery.css( offsetParent[ 0 ], "borderTopWidth", true ) -
-				offsetParent.scrollTop();
-			parentOffset.left += jQuery.css( offsetParent[ 0 ], "borderLeftWidth", true ) -
-				offsetParent.scrollLeft();
+			parentOffset.top  += jQuery.css( offsetParent[ 0 ], "borderTopWidth", true );
+			parentOffset.left += jQuery.css( offsetParent[ 0 ], "borderLeftWidth", true );
 		}
 
 		// Subtract parent offsets and element margins
@@ -11034,57 +11015,57 @@ window.onload = function() {
 		el.innerHTML = '<span style="font-family: \'linecons\'">' + entity + '</span>' + html;
 	}
 	var icons = {
-			'li_heart' : '&#xe000;',
-			'li_cloud' : '&#xe001;',
-			'li_star' : '&#xe002;',
-			'li_tv' : '&#xe003;',
-			'li_sound' : '&#xe004;',
-			'li_video' : '&#xe005;',
-			'li_trash' : '&#xe006;',
-			'li_user' : '&#xe007;',
-			'li_key' : '&#xe008;',
-			'li_search' : '&#xe009;',
-			'li_settings' : '&#xe00a;',
-			'li_camera' : '&#xe00b;',
-			'li_tag' : '&#xe00c;',
-			'li_lock' : '&#xe00d;',
-			'li_bulb' : '&#xe00e;',
-			'li_pen' : '&#xe00f;',
-			'li_diamond' : '&#xe010;',
-			'li_display' : '&#xe011;',
-			'li_location' : '&#xe012;',
-			'li_eye' : '&#xe013;',
-			'li_bubble' : '&#xe014;',
-			'li_stack' : '&#xe015;',
-			'li_cup' : '&#xe016;',
-			'li_phone' : '&#xe017;',
-			'li_news' : '&#xe018;',
-			'li_mail' : '&#xe019;',
-			'li_like' : '&#xe01a;',
-			'li_photo' : '&#xe01b;',
-			'li_note' : '&#xe01c;',
-			'li_clock' : '&#xe01d;',
-			'li_paperplane' : '&#xe01e;',
-			'li_params' : '&#xe01f;',
-			'li_banknote' : '&#xe020;',
-			'li_data' : '&#xe021;',
-			'li_music' : '&#xe022;',
-			'li_megaphone' : '&#xe023;',
-			'li_study' : '&#xe024;',
-			'li_lab' : '&#xe025;',
-			'li_food' : '&#xe026;',
-			'li_t-shirt' : '&#xe027;',
-			'li_fire' : '&#xe028;',
-			'li_clip' : '&#xe029;',
-			'li_shop' : '&#xe02a;',
-			'li_calendar' : '&#xe02b;',
-			'li_vallet' : '&#xe02c;',
-			'li_vynil' : '&#xe02d;',
-			'li_truck' : '&#xe02e;',
-			'li_world' : '&#xe02f;'
+			'i-heart' : '&#xe000;',
+			'i-cloud' : '&#xe001;',
+			'i-star' : '&#xe002;',
+			'i-tv' : '&#xe003;',
+			'i-sound' : '&#xe004;',
+			'i-video' : '&#xe005;',
+			'i-trash' : '&#xe006;',
+			'i-user' : '&#xe007;',
+			'i-key' : '&#xe008;',
+			'i-search' : '&#xe009;',
+			'i-settings' : '&#xe00a;',
+			'i-camera' : '&#xe00b;',
+			'i-tag' : '&#xe00c;',
+			'i-lock' : '&#xe00d;',
+			'i-bulb' : '&#xe00e;',
+			'i-pen' : '&#xe00f;',
+			'i-diamond' : '&#xe010;',
+			'i-display' : '&#xe011;',
+			'i-location' : '&#xe012;',
+			'i-eye' : '&#xe013;',
+			'i-bubble' : '&#xe014;',
+			'i-stack' : '&#xe015;',
+			'i-cup' : '&#xe016;',
+			'i-phone' : '&#xe017;',
+			'i-news' : '&#xe018;',
+			'i-mail' : '&#xe019;',
+			'i-like' : '&#xe01a;',
+			'i-photo' : '&#xe01b;',
+			'i-note' : '&#xe01c;',
+			'i-clock' : '&#xe01d;',
+			'i-paperplane' : '&#xe01e;',
+			'i-params' : '&#xe01f;',
+			'i-banknote' : '&#xe020;',
+			'i-data' : '&#xe021;',
+			'i-music' : '&#xe022;',
+			'i-megaphone' : '&#xe023;',
+			'i-study' : '&#xe024;',
+			'i-lab' : '&#xe025;',
+			'i-food' : '&#xe026;',
+			'i-t-shirt' : '&#xe027;',
+			'i-fire' : '&#xe028;',
+			'i-clip' : '&#xe029;',
+			'i-shop' : '&#xe02a;',
+			'i-calendar' : '&#xe02b;',
+			'i-vallet' : '&#xe02c;',
+			'i-vynil' : '&#xe02d;',
+			'i-truck' : '&#xe02e;',
+			'i-world' : '&#xe02f;'
 		},
 		els = document.getElementsByTagName('*'),
-		i, attr, html, c, el;
+		span, i, attr, html, c, el;
 	for (i = 0; i < els.length; i += 1) {
 		el = els[i];
 		attr = el.getAttribute('data-icon');
@@ -11092,9 +11073,10 @@ window.onload = function() {
 			addIcon(el, attr);
 		}
 		c = el.className;
-		c = c.match(/li_[^\s'"]+/);
+		c = c.match(/i-[^\s'"]+/);
 		if (c && icons[c[0]]) {
 			addIcon(el, icons[c[0]]);
+			el.classList.remove(c[0]); 
 		}
 	}
 };
