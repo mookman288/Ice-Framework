@@ -40,6 +40,10 @@
 		padding-bottom: 0;
 		background-color: color($white, 'offset'); 
 		
+		@media all and (max-width: toPx($mobileBreak)) {
+			background-color: initial;
+		}
+		
 		label {
 			margin-bottom: 0;
 		}

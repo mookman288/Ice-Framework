@@ -34,12 +34,34 @@
 	border-width: toPx($border-width);
 
 	&:first-child {
-		border-right: 0px;
+		border-right: 0; 
 		border-radius: toRem($border-radius) 0 0 toRem($border-radius);
+		
+		@media all and (max-width: toPx($mobileBreak)) {
+			border: none;
+			border-radius: 0;
+			
+			&[type=submit] {
+				margin-right: toRem($std-margin / 2);
+			}
+		}
 	}
 	
 	&:last-child {
-		border-left: 0px;
+		border-left: 0;
 		border-radius: 0 toRem($border-radius) toRem($border-radius) 0;
+		
+		@media all and (max-width: toPx($mobileBreak)) {
+			border: none;
+			border-radius: 0;
+			
+			&[type=submit] {
+				margin-left: toRem($std-margin / 2);
+			}
+		}
+	}
+	
+	span[aria-hidden] {
+		display: none;
 	}
 }

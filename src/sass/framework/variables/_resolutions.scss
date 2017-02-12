@@ -22,4 +22,4 @@ $resoFontSizes:	(
 				) !default;
 
 //Set the mobile breakpoint.
-$mobileBreak: map-get($resolutions, "mob"); 
+$mobileBreak: map-get($resolutions, "tab"); 

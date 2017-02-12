@@ -19,6 +19,10 @@
 						font-size: 50.00%;
 					}
 				}
+				
+				@media all and (max-width: toPx($mobileBreak)) {
+					display: inline-block; 
+				}
 			}
 		}
 	}	

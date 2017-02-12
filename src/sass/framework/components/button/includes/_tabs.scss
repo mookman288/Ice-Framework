@@ -13,12 +13,22 @@
 		margin: 0;
 		
 		li {
+			@media all and (max-width: toPx($mobileBreak)) {
+				margin: 0;
+			}
+		
 			a {
 				@extend %button;
 				position: relative;
 				margin: 0;
 				border-width: 0;
 				border-radius: toRem($border-radius) toRem($border-radius) 0 0;
+				
+				@media all and (max-width: toPx($mobileBreak)) {
+					width: 100.00%;
+					box-sizing: border-box;
+					border-radius: 0; 
+				}
 			}
 		}
 	}
