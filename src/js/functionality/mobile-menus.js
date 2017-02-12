@@ -1,35 +1,41 @@
 if (typeof ice !== 'undefined') {
 	ice.f.mobile.menus	=	(function($) {
 		//For each navigation.
-		$('nav').each(function() { 
-			//Capture this navigational element.
-			var	$nav	=	$(this); 
+		$('nav').find('li > ul').each(function() { 
+			//Get the dropdown nav. 
+			var	$trigger	=	$(this).parent('li');
 			
-			//Find nested menues.
-			$nav.find('li > ul').each(function() {
-				//Get the target dropdown. 
-				$target		=	$(this); 
+			//Get the target.
+			var $target		=	$trigger.children('ul');
+			
+			//Add the appropriate dropdown class.
+			$trigger.addClass('dropdown');
+			
+			//For specific anchors that are clicked. 
+			$trigger.children('a').click(function(e) {
+				//If this is a target, prevent the link from working.
+				if ($(this).attr('href').substring(0, 1) === '#') e.preventDefault();
+			});
+			
+			//When the mobile menu is clicked.
+			$trigger.click(function(e) {
+				//Stop propagation up for nested elements. 
+				e.stopPropagation();
 				
-				//Get the dropdown nav. 
-				$dropdown	=	$target.parent();
-				
-				//Add the appropriate dropdown class.
-				$dropdown.addClass('dropdown');
-				
-				//For specific anchors that are clicked. 
-				$dropdown.children('a').click(function(e) {
-					//If this is a target, prevent the link from working.
-					if ($(this).attr('href').substring(0, 1) === '#') e.preventDefault();
-				});
-				
-				//When the mobile menu is clicked.
-				$dropdown.click(function(e) {
-					//Toggle the dropdown class.
-					$(this).toggleClass('active'); 
+				//Based on whether there is an active class (this ensures order of operations on class assignment.) 
+				if (!$trigger.hasClass('active')) {
+					//Add the active class. 
+					$trigger.addClass('active');
 					
-					//Toggle the navigation into view. 
-					$target.slideToggle(ice.interval);
-				});
+					//Slide the target down. 
+					$target.stop().slideDown(ice.interval);
+				} else {
+					//Slide the target up.
+					$target.stop().slideUp(ice.interval, function() {
+						//Remove the active class.
+						$trigger.removeClass('active'); 
+					});
+				}
 			});
 		});
 	})(jQuery);

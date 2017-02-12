@@ -69,6 +69,14 @@
 						}
 					}
 				}
+				
+				&:not(.dropdown) {
+					&:hover, &:focus {
+						> ul {
+							display: block;
+						}
+					}
+				}
 			}
 		}
 		
