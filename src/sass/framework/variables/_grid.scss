@@ -1,0 +1,16 @@
+//Name: Grid Variables
+//Author: PxO Ink
+//License: The MIT License (MIT)
+//Copyright: � 2016 PxO Ink. Most Rights Reserved.
+
+//Declare the number of columns to be used.
+$columns:				24 !default;
+
+//Declare the maximum width for a collection of columns.
+$collectionWidth:		99.88 !default;
+
+//Declare the total gutter.
+$gutterWidth: 			2.00 !default;
+
+//Set the desktop-mobile breaking size.
+$desktopMobileBreak:	map-get($resolutions, "std") !default;

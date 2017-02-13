@@ -1,43 +1,33 @@
 #Ice Framework
 ##PxO Ink
 
-The Ice Framework is a modifiable and reusable system that can provide a basic structure for implementing fluid and accessible 
-websites. This framework isn't designed to provide the most compelling aesthetic experience. Nor is it designed to standardize 
-the web. Instead, utilizing the Ice Framework should provide a clean and scalable experience that delivers DOM content 
-quickly, and then focuses on displaying it in a way that users can appreciate, but not be overwhelmed by.
+The Ice Framework has gone through numerable iterations of re-development. First, and foremost, the Ice Framework serves to provide its author a method to better understand the difficulties and benefits of building and supporting a modern web framework. To that end, development of this framework has provided valuable experience in transition from an aged understanding of HTML and CSS to a more modern approach using Node, Gulp, Sass and JavaScript to expedite, augment, and ultimately improve the development process. Not to mention that this excercise has been incredibly fun. 
 
-###Origins
+###Purpose Statement
 
-Building the Ice Framework serves a collection of purposes to: 
+The **Ice** Framework is a modifiable and reusable proof of concept designed to provide a basic structure for implementing fluid and accessible website designs. Originally, Ice was designed to be a working alternative to other modern frameworks that focused too heavily on pixel-based grid systems. However, as Ice has progressed over time, it has become abundantly clear that frameworks should not try and reinvent design, but to provide a *fast* and *scalable* groundwork for the _imagination_ to take advantage of. 
 
-* Better understand the difficulties and benefits of building and supporting a web design framework. 
-* Freshen up on HTML, CSS, and JavaScript / jQuery.
-* Explore and be introduced to Require, Node, Gulp, and the benefits of task running. 
-* Explore the possibility of creating a unique framework concept, and methods that may improve website experiences. 
-* Become more familiar with modern website technology and design aesthetic.
-* To have a little fun!
+To read more about the purpose and documentation of this framework, please see the [demo and documentation page here](http://mookman288.github.io/Ice-Framework/).
 
-###Installation
+###Installation, Development, and Modification
 
-ce Framework comes packaged compiled and compressed for implementation. Besides fonts, there are only three additional files 
-that need to be included on each page to load Ice Framework. The following table explains what these files are and where they 
-should be located.
+Ice is built using Node, Gulp, Sass, and many more dependencies found in the accompanying `package.json` file. To learn more about how to use and expand on Ice, please take a look at the [demo and documentation page here](http://mookman288.github.io/Ice-Framework/).
 
-| Name          | File Location         | HTML Location                   | Notes                                           |
-|---------------|-----------------------|---------------------------------|-------------------------------------------------|
-| Modernizr     | `js/modernizr.min.js` | Right before the closing `head` | Optional, but highly recommended                |
-| Framework CSS | `css/stylesheet.css`  | In the `head`                   | Load before any render blocking JavaScript      |
-| Framework JS  | `js/framework.js`     | Right before the closing `body` | Required for JavaScript implementations to work |
+###Third Party Attribution
 
-###Documentation
-
-Documentation, credits, utilities, and examples of how the Ice Framework can be used are included in the accompanying 
-index.html file. You can also [view the demo here](http://mookman288.github.io/Ice-Framework/).
+* Fally Pin by [Nicole Fally](http://sorkintype.com/)
+* Linecons by [Design Modo](http://designmodo.com/linecons-free/)
+* Nimbus Sans L by [URW++](http://openfontlibrary.org/en/font/nimbus-sans-l)
+* Open Baskerville by [Isaac Moore, James Puckett, and Rob Mientjes](http://openfontlibrary.org/font/open-baskerville)
+* $_GET by [Ates Goral](http://stackoverflow.com/a/439578)
+* jQuery by [The jQuery Foundation](https://jquery.org/team/)
+* lte ie7 by [Design Modo](http://designmodo.com/linecons-free/)
+* Modernizr by [Modernizr](https://github.com/Modernizr/Modernizr)
 
 ###License
 ####The MIT License (MIT)
 
-Software Copyright &copy; 2014 PxO Ink. Most Rights Reserved.
+Software Copyright &copy; 2014 PxO Ink. Some Rights Reserved.
 
 Permission is hereby granted, free of charge, to any person 
 obtaining a copy of this software and associated documentation 

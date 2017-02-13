@@ -1,0 +1,117 @@
+//Name: Menu Navigation (Horizontal/Base)
+//Author: PxO Ink
+//License: The MIT License (MIT)
+//Copyright: © 2016 PxO Ink. Most Rights Reserved.
+
+%nav {
+	@include cfx;
+	z-index: 100;
+	
+	@media all and (max-width: toPx($mobileBreak)) {
+		width: 100.00%;
+	}
+	
+	h6 {
+		float: left;
+		margin-right: toRem($std-margin);
+		
+		@media all and (max-width: toPx($mobileBreak)) {
+			float: none;
+		}
+	}
+	
+	ul {
+		@include cfx;
+		float: left;
+		position: relative;
+		padding: 0;
+		list-style-type: none;
+		
+		@media all and (max-width: toPx($mobileBreak)) {
+			float: none;
+			position: static;
+			display: block;
+		}
+	
+		li {
+			float: left;
+			position: relative;
+			margin: 0;
+			text-indent: 0;
+			
+			@media all and (min-width: toPx(1 + $mobileBreak)) {
+				&:hover, &:focus {
+					> ul {
+						display: block;
+					}
+				}
+			}
+			
+			@media all and (max-width: toPx($mobileBreak)) {
+				float: none;
+				position: static;
+				display: block;
+				
+				&.dropdown {
+					&:before {
+						content: '\0021e6';
+						float: right; 
+						cursor: pointer; 
+					}
+					
+					&.active {
+						&:before {
+							content: '\0021e9';
+						}
+						
+						ul {
+							padding-left: toRem($std-padding); 
+						}
+					}
+				}
+				
+				&:not(.dropdown) {
+					&:hover, &:focus {
+						> ul {
+							display: block;
+						}
+					}
+				}
+			}
+		}
+		
+		> li {
+			margin-right: toRem($std-margin);
+			
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+		
+		ul {
+			display: none;
+			
+			@media all and (min-width: toPx(1 + $mobileBreak)) {
+				position: absolute;
+				top: 100.00%;
+				z-index: 110;
+			}
+			
+			li {
+				position: relative;
+				white-space: nowrap;
+				
+				a {
+					padding-right: toRem($std-padding / 2);
+				}
+				
+				@media all and (min-width: toPx(1 + $mobileBreak)) {
+					ul {
+						top: 0;
+						left: 100.00%;
+					}
+				}
+			}
+		}
+	}
+}

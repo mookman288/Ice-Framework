@@ -1,0 +1,18 @@
+//Name: Buttons
+//Author: PxO Ink
+//License: The MIT License (MIT)
+//Copyright: © 2016 PxO Ink. Most Rights Reserved.
+
+%button {
+	@include button-design($message);
+	
+	//For each alert type.
+	@each $key, $value in $buttons {
+		&.#{"" + $key} {
+			@include button-design($value);
+		}
+	}
+	
+	text-decoration: none;
+}
+	

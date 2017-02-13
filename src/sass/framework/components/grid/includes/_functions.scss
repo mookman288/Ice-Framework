@@ -1,0 +1,20 @@
+//Name: Grid Functions
+//Author: PxO Ink
+//License: The MIT License (MIT)
+//Copyright: © 2016 PxO Ink. Most Rights Reserved.
+
+//Calculates a column based on the column and resolution.
+//
+//@param number $column
+
+@function calcColumnWidth($column) { 
+	//If the column is equal to zero.
+	@if ($column == 0) {
+		@return 0.00;
+	} @else if ($column == $columns) {
+		@return 100.00;
+	} @else {
+		//Return the width.
+		@return (($collectionWidth / $columns) * $column);
+	}
+}

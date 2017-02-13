@@ -1,0 +1,57 @@
+//Name: Form Input
+//Author: PxO Ink
+//License: The MIT License (MIT)
+//Copyright: © 2016 PxO Ink. Most Rights Reserved.
+
+%input {
+	//For each input type.
+	@each $key, $value in $inputs {
+		&#{"" + $key} {
+			@include input-design();
+			display: block;
+			border-width: toPx($border-width);
+		}
+	}
+}
+
+%fields {
+	display: inline-table;
+	margin-bottom: toRem($std-margin);
+	
+	> input {
+		//For each input type.
+		@each $key, $value in $inputs {
+			&#{"" + $key} {
+				@include field-design();
+				margin: 0;
+				
+				&:not(:first-child):not(:last-child) {
+					border-left: 0;
+					border-right: 0;
+				}
+			}
+		}
+	}
+	
+	> span {
+		@include input-border();
+		@include field-design();
+		padding-top: 0;
+		padding-bottom: 0;
+		background-color: color($white, 'offset'); 
+		
+		@media all and (max-width: toPx($mobileBreak)) {
+			background-color: initial;
+		}
+		
+		label {
+			margin-bottom: 0;
+		}
+	}
+	
+	> input[type=submit], > button, > .button {
+		@include field-design();
+		margin: 0;
+		border-width: toPx($border-width);
+	}
+}

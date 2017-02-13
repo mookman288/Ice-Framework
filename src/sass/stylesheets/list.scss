@@ -1,0 +1,15 @@
+//Name: List
+//Author: PxO Ink
+//License: The MIT License (MIT)
+//Copyright: © 2016 PxO Ink. Most Rights Reserved.
+
+//Import framework components.
+@import "../framework/components/list/list";
+
+ul {
+	@extend %ul;
+}
+
+ol {
+	@extend %ol;
+}

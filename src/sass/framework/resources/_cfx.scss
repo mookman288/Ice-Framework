@@ -1,0 +1,18 @@
+//Name: Clearfix-esque approach (cfx)
+//Author: PxO Ink
+//License: The MIT License (MIT)
+//Copyright: © 2016 PxO Ink. Most Rights Reserved.
+
+@mixin cfx {
+	height: 1%;
+	overflow: visible;
+	
+	&:after, &:before {
+		content: ".";
+		display: block;
+		clear: both;
+		visibility: hidden;
+		line-height: 0;
+		height: 0;
+	}
+}

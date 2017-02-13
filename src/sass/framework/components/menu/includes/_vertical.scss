@@ -1,0 +1,48 @@
+//Name: Menu Navigation Vertical
+//Author: PxO Ink
+//License: The MIT License (MIT)
+//Copyright: © 2016 PxO Ink. Most Rights Reserved.
+
+%nav {
+	&.vertical {
+		display: inline-block;
+		
+		&.indent {
+			padding-left: toRem($std-padding);
+		}
+		
+		h6 {
+			float: none;
+			margin: 0;
+		}
+		
+		ul {
+			float: none;
+			
+			li {
+				display: block;
+				float: none;
+				margin-right: 0;
+				
+				a {
+					display: block;
+					padding-right: toRem($std-padding / 2);
+					
+					@media all and (max-width: toPx($mobileBreak)) {
+						display: initial;
+					}
+				}
+			}
+			
+			ul {
+				top: 0;
+				left: 100.00%;
+			
+				@media all and (max-width: toPx($mobileBreak)) {
+					top: auto;
+					left: auto; 
+				}
+			}
+		}
+	}
+}

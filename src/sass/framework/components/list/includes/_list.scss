@@ -1,0 +1,23 @@
+//Name: List
+//Author: PxO Ink
+//License: The MIT License (MIT)
+//Copyright: © 2016 PxO Ink. Most Rights Reserved.
+
+%list {
+	li {
+		list-style-position: outside;
+		margin-left: toRem(2 * $std-margin);
+	}
+	
+	ul, ol {
+		margin-bottom: 0;
+	}
+}
+
+%ul {
+	@extend %list;
+}
+
+%ol {
+	@extend %list;
+}

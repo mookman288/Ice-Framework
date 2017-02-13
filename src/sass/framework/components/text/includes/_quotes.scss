@@ -1,0 +1,34 @@
+//Name: Text Quotes
+//Author: PxO Ink
+//License: The MIT License (MIT)
+//Copyright: © 2017 PxO Ink. Most Rights Reserved.
+
+%quotes {
+	@extend %h1;
+	font-family: "Open Baskerville", cursive, sans-serif, serif; 
+	line-height: $single;
+}
+
+%quote {
+	margin-top: toRem($std-margin);
+	display: inline-block; 
+	quotes: "“" "”" "‘" "’";
+	
+	&:before {
+		@extend %quotes;
+		content: open-quote;
+		float: left;
+		margin-top: toRem(-1 * $std-margin);
+	}
+	
+	footer {
+		text-align: right;
+		
+		&:after {
+			@extend %quotes;
+			content: close-quote;
+			float: right;
+			margin-top: toRem(-2 * $std-margin);
+		}
+	}
+}

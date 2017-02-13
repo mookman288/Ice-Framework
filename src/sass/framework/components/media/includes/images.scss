@@ -1,0 +1,17 @@
+//Name: Media Images
+//Author: PxO Ink
+//License: The MIT License (MIT)
+//Copyright: © 2017 PxO Ink. Most Rights Reserved.
+
+%img {
+	max-width: 100.00%;
+	
+	&.thumbnail {
+		padding: $std-padding;
+		
+		border-width: toPx($border-width);
+		border-color: color($grey);
+		border-style: $border-style;
+		border-radius: toRem($border-radius); 
+	}
+}

@@ -1,0 +1,13 @@
+//Name: Reset Body
+//Author: PxO Ink
+//License: The MIT License (MIT)
+//Copyright: © 2016 PxO Ink. Most Rights Reserved.
+
+%body {
+	@extend %nob;
+	@extend %nomp;
+	height: 100.00%;
+	background-color: color($body);
+	color: color($text);
+	font-family: sans-serif, serif;
+}

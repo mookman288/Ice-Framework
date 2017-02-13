@@ -1,0 +1,172 @@
+@font-face {
+	font-family: 'linecons';
+	src: url('../fonts/Linecons/linecons.eot') format('eot'), 
+	url('../fonts/Linecons/linecons.svg') format('svg'), 
+	url('../fonts/Linecons/linecons.ttf') format('truetype'), 
+	url('../fonts/Linecons/linecons.woff') format('woff');
+}
+
+
+/* Use the following CSS code if you want to use data attributes for inserting your icons */
+[data-icon]:before {
+	font-family: 'linecons';
+	content: attr(data-icon);
+	speak: none;
+	font-weight: normal;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}
+
+/* Use the following CSS code if you want to have a class per icon */
+[class^="i-"]:before, [class*=" i-"]:before {
+	font-family: 'linecons';
+	font-style: normal;
+	speak: none;
+	font-weight: normal;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}
+.i-heart:before {
+	content: "\e000";
+}
+.i-cloud:before {
+	content: "\e001";
+}
+.i-star:before {
+	content: "\e002";
+}
+.i-tv:before {
+	content: "\e003";
+}
+.i-sound:before {
+	content: "\e004";
+}
+.i-video:before {
+	content: "\e005";
+}
+.i-trash:before {
+	content: "\e006";
+}
+.i-user:before {
+	content: "\e007";
+}
+.i-key:before {
+	content: "\e008";
+}
+.i-search:before {
+	content: "\e009";
+}
+.i-settings:before {
+	content: "\e00a";
+}
+.i-camera:before {
+	content: "\e00b";
+}
+.i-tag:before {
+	content: "\e00c";
+}
+.i-lock:before {
+	content: "\e00d";
+}
+.i-bulb:before {
+	content: "\e00e";
+}
+.i-pen:before {
+	content: "\e00f";
+}
+.i-diamond:before {
+	content: "\e010";
+}
+.i-display:before {
+	content: "\e011";
+}
+.i-location:before {
+	content: "\e012";
+}
+.i-eye:before {
+	content: "\e013";
+}
+.i-bubble:before {
+	content: "\e014";
+}
+.i-stack:before {
+	content: "\e015";
+}
+.i-cup:before {
+	content: "\e016";
+}
+.i-phone:before {
+	content: "\e017";
+}
+.i-news:before {
+	content: "\e018";
+}
+.i-mail:before {
+	content: "\e019";
+}
+.i-like:before {
+	content: "\e01a";
+}
+.i-photo:before {
+	content: "\e01b";
+}
+.i-note:before {
+	content: "\e01c";
+}
+.i-clock:before {
+	content: "\e01d";
+}
+.i-paperplane:before {
+	content: "\e01e";
+}
+.i-params:before {
+	content: "\e01f";
+}
+.i-banknote:before {
+	content: "\e020";
+}
+.i-data:before {
+	content: "\e021";
+}
+.i-music:before {
+	content: "\e022";
+}
+.i-megaphone:before {
+	content: "\e023";
+}
+.i-study:before {
+	content: "\e024";
+}
+.i-lab:before {
+	content: "\e025";
+}
+.i-food:before {
+	content: "\e026";
+}
+.i-t-shirt:before {
+	content: "\e027";
+}
+.i-fire:before {
+	content: "\e028";
+}
+.i-clip:before {
+	content: "\e029";
+}
+.i-shop:before {
+	content: "\e02a";
+}
+.i-calendar:before {
+	content: "\e02b";
+}
+.i-wallet:before {
+	content: "\e02c";
+}
+.i-vinyl:before {
+	content: "\e02d";
+}
+.i-truck:before {
+	content: "\e02e";
+}
+.i-world:before {
+	content: "\e02f";
+}

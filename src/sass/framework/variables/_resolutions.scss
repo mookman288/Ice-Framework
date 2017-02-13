@@ -1,0 +1,25 @@
+//Name: Resolution Variables
+//Author: PxO Ink
+//License: The MIT License (MIT)
+//Copyright: © 2016 PxO Ink. Most Rights Reserved.
+
+//Declare resolutions.
+$resolutions:	(
+					"hd":		2160,
+					"des":		1440,
+					"std":		1000,
+					"tab":		768,
+					"mob":		640,
+					"tel":		384
+				) !default;
+				
+//Declare resolution adjustments for global font sizes.
+$resoFontSizes:	(
+					"hd":		1.60,
+					"std":		1.40,
+					"mob":		1.20,
+					"tel":		1.20
+				) !default;
+
+//Set the mobile breakpoint.
+$mobileBreak: map-get($resolutions, "tab"); 

@@ -1,0 +1,65 @@
+//Name: Text Utilities
+//Author: PxO Ink
+//License: The MIT License (MIT)
+//Copyright: © 2016 PxO Ink. Most Rights Reserved.
+
+%align-center {
+	text-align: center;
+}
+
+%align-left {
+	text-align: left;
+}
+	
+%align-right {
+	text-align: right;
+}
+
+%normal {
+	font-style: normal;
+}
+
+%healthy {
+	font-weight: normal;
+}
+
+%italic {
+	font-style: italic;
+}
+	
+%oblique {
+	font-style: oblique;
+}
+	
+%lighter {
+	font-weight: lighter;
+}
+	
+%bold {
+	font-weight: bold;
+}
+	
+%bolder {
+	font-weight: bolder;
+}
+
+%single {
+	line-height: $single;
+}
+
+%half-double {
+	line-height: $double * 0.75;
+}
+
+%double {
+	line-height: $double;
+}
+
+%caps {
+	text-transform: uppercase;
+}
+
+%small-caps {
+	font-variant: small-caps;
+	text-transform: lowercase;
+}

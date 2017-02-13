@@ -1,0 +1,61 @@
+//Name: Table
+//Author: PxO Ink
+//License: The MIT License (MIT)
+//Copyright: © 2016 PxO Ink. Most Rights Reserved.
+
+%table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	
+	tr {
+		td, th {
+			padding: toRem($std-padding);
+			text-align: left;
+		}
+	}
+	
+	&.extend {
+		width: 100.00%;
+	}
+	
+	&.striped {
+		border-width: toPx($border-width);
+		border-color: color($white, 'offset');
+		border-style: $border-style;
+	
+		thead {
+			tr {
+				&:nth-child(odd) {
+					background-color: color($white, 'offset');
+				}
+			}
+		}
+	
+		tbody {
+			tr {
+				&:nth-child(even) {
+					background-color: color($white, 'offset');
+				}
+			}
+		}
+	}
+	
+	&.transact {
+		th, td {
+			text-align: center;
+		}
+	
+		th:first-child, td:first-child {
+			text-align: left;
+		}
+		
+		th:last-child, td:last-child {
+			text-align: right;
+		}
+	}
+}
+
+%table-container {
+	max-width: 100.00%;
+	overflow-x: auto; 
+}

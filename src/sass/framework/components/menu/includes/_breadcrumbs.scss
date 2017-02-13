@@ -1,0 +1,29 @@
+//Name: Menu Navigation Breadcrumbs
+//Author: PxO Ink
+//License: The MIT License (MIT)
+//Copyright: © 2016 PxO Ink. Most Rights Reserved.
+
+%nav {
+	&.breadcrumbs {
+		ul {
+			li {
+				font-variant: small-caps;
+				text-transform: lowercase;
+				
+				&:not(:last-child) {
+					&:after {
+						content: '\232A\232A';
+						position: relative;
+						top: toRem(-1 * ($std-margin / 4));
+						margin-left: toRem($std-margin);
+						font-size: 50.00%;
+					}
+				}
+				
+				@media all and (max-width: toPx($mobileBreak)) {
+					display: inline-block; 
+				}
+			}
+		}
+	}	
+}

@@ -1,0 +1,43 @@
+//Name: Tabs
+//Author: PxO Ink
+//License: The MIT License (MIT)
+//Copyright: © 2016 PxO Ink. Most Rights Reserved.
+
+%tabs {
+	border-width: 0;
+	border-bottom: toPx($border-width);
+	border-style: solid;
+	border-color: color($blue); 
+	
+	ul {
+		margin: 0;
+		
+		li {
+			@media all and (max-width: toPx($mobileBreak)) {
+				margin: 0;
+			}
+		
+			a {
+				@extend %button;
+				position: relative;
+				margin: 0;
+				border-width: 0;
+				border-radius: toRem($border-radius) toRem($border-radius) 0 0;
+				
+				@media all and (max-width: toPx($mobileBreak)) {
+					width: 100.00%;
+					box-sizing: border-box;
+					border-radius: 0; 
+				}
+			}
+		}
+	}
+	
+	+ div.tabbed {
+		padding: toRem($std-padding); 
+		border-width: toPx($border-width);
+		border-top: 0;
+		border-style: solid;
+		border-color: color($blue);
+	}
+}

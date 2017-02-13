@@ -1,0 +1,94 @@
+//Name: Text
+//Author: PxO Ink
+//License: The MIT License (MIT)
+//Copyright: � 2016 PxO Ink. Most Rights Reserved.
+
+//Import variables.
+@import "../framework/variables/colors";
+
+//Import framework components.
+@import "../framework/resources/colors";
+@import "../framework/components/text/text";
+
+body, input, button, select, textarea {
+	@extend %body-size;
+	@extend %half-double;
+	font-family: $font-family;
+}
+
+a {
+	color: color($anchor);
+	
+	&:hover, &:active {
+		color: color($hover);
+	}
+	
+	&:visited {
+		color: color($visited);
+		
+		&:hover {
+			color: color($visited, 'offset');
+		}
+	}
+}
+
+h1, h2 {
+	margin-bottom: toRem($std-margin / 2);
+}
+
+h3, h4, h5, h6, p, pre, blockquote, ul, ol, table {
+	margin-bottom: toRem($std-margin);
+}
+
+h1 {
+	@extend %h1;
+	@extend %bold;
+}
+
+h2 {
+	@extend %h2;
+	@extend %bold;
+}
+
+h3 {
+	@extend %h3;
+	@extend %bold;
+}
+
+h4 {
+	@extend %h4;
+	@extend %bold;
+}
+
+h5, h6, legend, caption {
+	@extend %h5;
+	@extend %bold;
+}
+
+blockquote {
+	@extend %quote;
+}
+
+.large {
+	@extend %h3;
+}
+
+.align-center {
+	@extend %align-center;
+}
+
+.align-left {
+	@extend %align-left;
+}
+	
+.align-right {
+	@extend %align-right;
+}
+
+.caps {
+	@extend %caps;
+}
+
+.small-caps {
+	@extend %small-caps;
+}

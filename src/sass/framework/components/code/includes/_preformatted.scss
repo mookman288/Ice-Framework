@@ -1,0 +1,40 @@
+//Name: Preformatted
+//Author: PxO Ink
+//License: The MIT License (MIT)
+//Copyright: © 2016 PxO Ink. Most Rights Reserved.
+
+%pre {
+	@extend %code-design;
+	padding: toRem($std-padding);
+	max-width: 100.00%;
+	max-height: 50vh;
+	overflow: auto;
+	
+	code {
+		padding: 0px;
+		background-color: transparent;
+		border-width: 0px; 
+		counter-reset: linecounter;
+	
+		> span {
+			display: inline-block;
+			width: 100.00%;
+			counter-increment: linecounter;
+			
+			&:before {
+				content: counter(linecounter);
+				display: inline-block;
+				margin-left: toEm(-0.5 * $std-margin);
+				margin-right: toEm($std-margin / 4);
+				padding-right: toEm($std-padding / 2);
+				width: toEm(1.50 * $std-margin);
+				border-width: 0px;
+				border-right: toRem($border-width / 2);
+				border-color: color($shadow);
+				border-style: $border-style;
+				opacity: 0.40;
+				text-align: right;
+			}
+		}
+	}
+}

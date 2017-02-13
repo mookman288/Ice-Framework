@@ -1,0 +1,70 @@
+//Name: Color Variables
+//Author: PxO Ink
+//License: The MIT License (MIT)
+//Copyright: © 2016 PxO Ink. Most Rights Reserved.
+
+//Declare Colors.
+$colors:	(
+				"black":		#000, 
+				"blue":			#007BA7,
+				"cerulean":		#1DACD6,
+				"dark":			#111, 
+				"green":		#00CA64,
+				"grey":			#BBB, 
+				"orange":		#FF8A22,
+				"purple":		#60F,
+				"red":			#D00,
+				"shadow":		#444, 
+				"white":		#FFF
+			) !default;
+
+//Declare Color Contrasts.
+$contrasts:	(
+				"black":		map-get($colors, "white"),
+				"blue":			map-get($colors, "white"),
+				"cerulean":		map-get($colors, "white"),
+				"dark":			map-get($colors, "white"),
+				"green":		map-get($colors, "white"),
+				"grey":			map-get($colors, "black"), 
+				"orange":		map-get($colors, "white"),
+				"purple":		map-get($colors, "white"),
+				"red":			map-get($colors, "white"),
+				"shadow":		map-get($colors, "white"), 
+				"white":		map-get($colors, "black")
+			) !default;
+			
+//Declare Color Offsets.
+$offsets:	(
+				"black":		lighten(map-get($colors, "black"), 10.00%), 
+				"blue":			lighten(map-get($colors, "blue"), 10.00%),
+				"cerulean":		darken(map-get($colors, "cerulean"), 10.00%),
+				"dark":			lighten(map-get($colors, "dark"), 10.00%), 
+				"green":		darken(map-get($colors, "green"), 10.00%),
+				"grey":			darken(map-get($colors, "grey"), 10.00%), 
+				"orange":		lighten(map-get($colors, "orange"), 10.00%),
+				"purple":		darken(map-get($colors, "purple"), 10.00%),
+				"red":			darken(map-get($colors, "red"), 10.00%),
+				"shadow":		lighten(map-get($colors, "shadow"), 10.00%),
+				"white":		darken(map-get($colors, "white"), 10.00%)
+			) !default;
+			
+//Declare Color Alises.
+$anchor:		"cerulean"	!default;
+$body:			"white"		!default;
+$black:			"black"		!default;
+$blue:			"blue"		!default;
+$cerulean:		"cerulean"	!default;
+$error:			"red"		!default;
+$green:			"green"		!default;
+$grey:			"grey"		!default;
+$hover:			"blue"		!default;
+$message:		"cerulean"	!default;
+$orange:		"orange"	!default;
+$purple:		"purple"	!default;
+$red:			"red"		!default;
+$success:		"green"		!default;
+$shadow:		"shadow"	!default;
+$text:			"dark"		!default;
+$visited:		"purple"	!default;
+$warning:		"orange"	!default;
+$white:			"white"		!default;

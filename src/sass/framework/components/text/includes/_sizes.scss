@@ -1,0 +1,56 @@
+//Name: Text Sizes
+//Author: PxO Ink
+//License: The MIT License (MIT)
+//Copyright: � 2016 PxO Ink. Most Rights Reserved.
+
+%default {
+	font-size: toEm($default);
+}
+
+%micro {
+	font-size: toEm($micro);
+}
+
+%small {
+	font-size: toEm($small);
+}
+
+%medium {
+	font-size: toEm($medium);
+}
+
+%large {
+	font-size: toEm($large);
+}
+
+%h1 {
+	font-size: toRem(2 * $heading);
+}
+
+%h2 {
+	font-size: toRem($large + $medium)
+}
+
+%h3 {
+	font-size: toRem($default + $medium);
+}
+
+%h4 {
+	font-size: toRem($large);
+}
+
+%h5 {
+	font-size: toRem(($medium + $large) / 2);
+}
+
+%body-size {
+	//For each resolution.
+	@each $key, $value in $resolutions {
+		//If there is a font size. 
+		@if map-get($resoFontSizes, $key) {
+			@media all and (max-width: toPx($value)) {
+				font-size: toRem(map-get($resoFontSizes, $key));
+			}
+		}
+	}
+}

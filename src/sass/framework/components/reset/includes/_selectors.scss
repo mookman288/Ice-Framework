@@ -1,0 +1,29 @@
+//Name: Reset Selectors
+//Author: PxO Ink
+//License: The MIT License (MIT)
+//Copyright: © 2016 PxO Ink. Most Rights Reserved.
+
+%nob {
+	border: none;
+}
+
+%nod {
+	display: none;
+}
+
+%nofv {
+	font-feature-settings: "liga" off;
+}
+
+%nom {
+	margin: 0px;
+}
+
+%nop {
+	padding: 0px;
+}
+
+%nomp {
+	@extend %nom;
+	@extend %nop;
+}

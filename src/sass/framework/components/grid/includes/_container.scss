@@ -1,0 +1,26 @@
+//Name: Grid Container
+//Author: PxO Ink
+//License: The MIT License (MIT)
+//Copyright: © 2016 PxO Ink. Most Rights Reserved.
+
+%container {
+	@include cfx;
+	margin: 0 auto;
+	
+	//For each resolution.
+	@each $key, $value in $resolutions {
+		//If the value is not considered mobile.
+		@if ($value >= $desktopMobileBreak) {
+			@media all and (max-width: toPx($value)) {
+				max-width: toPx(round(0.66645 * $value));
+			}
+		} @else {
+			$margin: ($value - toPx(round(0.9375 * $value))) / 2;
+		
+			@media all and (max-width: toPx($value)) {
+				margin-left: $margin;
+				margin-right: $margin;
+			}
+		}
+	}
+}

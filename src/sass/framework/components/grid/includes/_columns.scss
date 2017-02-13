@@ -1,0 +1,78 @@
+//Name: Grid Columns
+//Author: PxO Ink
+//License: The MIT License (MIT)
+//Copyright: © 2016 PxO Ink. Most Rights Reserved.
+
+%column {
+	box-sizing: border-box;
+	
+	&:nth-child(n + 1):not(.left):not(.right) {
+		float: left;
+	}
+	
+	&:nth-child(n + 1):last-child:not(:only-child):not(.left):not(.right) {
+		float: right;
+	}
+	
+	&.left {
+		float: left;
+	}
+	
+	&.right {
+		float: right;
+	}
+	
+	&.center {
+		float: none;
+		margin: 0 auto;
+	}
+	
+	&.pad {
+		padding-left: toRem($gutterWidth / 2);
+		padding-right: toRem($gutterWidth / 2);
+	}
+	
+	&.v-pad {
+		padding-top: toRem($gutterWidth / 2);
+		padding-bottom: toRem($gutterWidth / 2); 
+	}
+	
+	&.pad-right {
+		padding-right: toRem($gutterWidth / 2);
+	}
+	
+	&.pad-left {
+		padding-left: toRem($gutterWidth / 2);
+	}
+	
+	//For each resolution.
+	@each $key, $value in $resolutions {
+		@media all and (max-width: toPx($value)) {
+			//For each column.
+			@for $i from 0 through $columns {
+				&.#{"" + $key} {
+					&-#{"" + $i} {
+						//If this is zero.
+						@if ($i == 0) {
+							display: none;
+						} @else {
+							width: toPercent(calcColumnWidth($i));
+						}
+					}
+					
+					&-no-pad {
+						padding: 0; 
+					}
+					
+					&-no-pad-left {
+						padding-left: 0;
+					}
+					
+					&-no-pad-right {
+						padding-right: 0; 
+					}
+				}
+			}
+		}
+	}
+}

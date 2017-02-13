@@ -1,0 +1,15 @@
+//Name: Grid
+//Author: PxO Ink
+//License: The MIT License (MIT)
+//Copyright: © 2016 PxO Ink. Most Rights Reserved.
+
+//Import framework components.
+@import "../framework/components/grid/grid"; 
+
+.container {
+	@extend %container;
+}
+
+.column {
+	@extend %column;
+}

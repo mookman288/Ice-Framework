@@ -1,0 +1,16 @@
+//Name: Media
+//Author: PxO Ink
+//License: The MIT License (MIT)
+//Copyright: © 2017 PxO Ink. Most Rights Reserved.
+
+//Import framework components.
+@import "../framework/components/media/media";
+
+video, audio, iframe, embed, object {
+	@extend %embed;
+	margin-bottom: toRem($std-margin);
+}
+
+img {
+	@extend %img;
+}
