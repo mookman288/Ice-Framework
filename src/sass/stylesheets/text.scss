@@ -25,6 +25,10 @@ a {
 	
 	&:visited {
 		color: color($visited);
+		
+		&:hover {
+			color: color($visited, 'offset');
+		}
 	}
 }
 
