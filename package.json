@@ -1,6 +1,6 @@
 {
 	"name": "Ice-Framework",
-	"version": "0.1.0.5",
+	"version": "0.1.0.9",
 	"description": "A minimal simplified development framework.",
 	"main": "index.js",
 	"scripts": {},
