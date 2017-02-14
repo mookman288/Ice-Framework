@@ -1,17 +1,27 @@
-#Ice Framework
+#Ice
 ##PxO Ink
 
-The Ice Framework has gone through numerable iterations of re-development. First, and foremost, the Ice Framework serves to provide its author a method to better understand the difficulties and benefits of building and supporting a modern web framework. To that end, development of this framework has provided valuable experience in transition from an aged understanding of HTML and CSS to a more modern approach using Node, Gulp, Sass and JavaScript to expedite, augment, and ultimately improve the development process. Not to mention that this excercise has been incredibly fun. 
+The Ice Framework for the web has gone through numerable iterations of re-development. First, and foremost, Ice serves to provide its author a method to better understand the difficulties and benefits of building and supporting a modern web framework. To that end, development of this framework has provided valuable experience in transition from an aged understanding of HTML and CSS to a more modern approach using Node, Gulp, Sass and JavaScript to expedite, augment, and ultimately improve the development process. Not to mention that this excercise has been incredibly fun. 
 
 ###Purpose Statement
 
-The **Ice** Framework is a modifiable and reusable proof of concept designed to provide a basic structure for implementing fluid and accessible website designs. Originally, Ice was designed to be a working alternative to other modern frameworks that focused too heavily on pixel-based grid systems. However, as Ice has progressed over time, it has become abundantly clear that frameworks should not try and reinvent design, but to provide a *fast* and *scalable* groundwork for the _imagination_ to take advantage of. 
+The **Ice** Framework for the web is a modifiable and reusable proof of concept designed to provide a basic structure for implementing fluid and accessible website designs. Originally, Ice was designed to be a working alternative to other modern frameworks that focused too heavily on pixel-based grid systems. However, as Ice has progressed over time, it has become abundantly clear that frameworks should not try and reinvent design, but to provide a *fast* and *scalable* groundwork for the _imagination_ to take advantage of. 
 
 To read more about the purpose and documentation of this framework, please see the [demo and documentation page here](http://mookman288.github.io/Ice-Framework/).
 
 ###Installation, Development, and Modification
 
 Ice is built using Node, Gulp, Sass, and many more dependencies found in the accompanying `package.json` file. To learn more about how to use and expand on Ice, please take a look at the [demo and documentation page here](http://mookman288.github.io/Ice-Framework/).
+
+####NPM
+
+Ice is also available through [NPM](https://www.npmjs.com/package/ice-framework-web). If you're not familiar with NPM, take a look at their [getting started article](https://docs.npmjs.com/getting-started/installing-node), or check out [Yarn](https://yarnpkg.com/en/docs/getting-started). 
+
+`npm install ice-framework-web`
+
+###Show Your Support
+
+If you've learned from this repository and you wish to contribute to it monetarily, you can show your support by [contacting the owner](https://twitter.com/mookman288), contributing through [Gratipay](https://gratipay.com/~mookman288/), or contributing through [Patreon](https://www.patreon.com/bePatron?patAmt=1&u=3081691). 
 
 ###Third Party Attribution
 
